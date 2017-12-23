@@ -1,0 +1,72 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    environment:
+      CC_TEST_REPORTER_ID: bc9594ffd3a7e86b48cffdc2a48311c56060cfe77b8840806a64bd999e3bc351
+    docker:
+       - image: circleci/ruby:2.4.1-node-browsers
+         environment:
+           DATABASE_URL: "postgres://infusion@localhost/infusion-test"
+           PGHOST: 127.0.0.1
+           PGUSER: root
+           RAILS_ENV: test
+           RACK_ENV: test
+       - image: postgres:9.5-alpine
+         environment:
+           POSTGRES_USER: infusion
+           POSTGRES_DB: infusion-test
+
+    working_directory: ~/infusion
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+        
+      # Database setup
+      - run: 
+          name: setup db
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:migrate
+            bundle exec rake db:schema:load
+
+      # setup code climate coverage reporter
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
+      # run tests!
+      - run:
+          name: run tests
+          command: |
+            ./cc-test-reporter before-build
+            rails test
+            ./cc-test-reporter after-build --exit-code $?
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: infusion
