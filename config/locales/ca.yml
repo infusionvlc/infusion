@@ -6,3 +6,7 @@ ca:
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
     signup: "Uneix-te"
+    omniauth:     "Entrar amb"
+    password:     "Has oblidat la teua clau?"
+    confirmation: "No has rebut les instruccions de confirmació?"
+    unlock:       "No has rebut les instruccions per desbloquetjar el teu perfil?"
