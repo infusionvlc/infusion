@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226130957) do
+ActiveRecord::Schema.define(version: 20171226183128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assistances", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "meetup_id"
+    t.integer "mark", default: 0
+    t.text "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meetup_id"], name: "index_assistances_on_meetup_id"
+    t.index ["user_id"], name: "index_assistances_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "holdings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "role", default: 0
+    t.bigint "meetup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meetup_id"], name: "index_holdings_on_meetup_id"
+    t.index ["user_id"], name: "index_holdings_on_user_id"
+  end
 
   create_table "identities", force: :cascade do |t|
     t.bigint "user_id"
@@ -22,6 +49,17 @@ ActiveRecord::Schema.define(version: 20171226130957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "meetups", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "requirements"
+    t.date "date"
+    t.time "start"
+    t.time "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,10 +76,15 @@ ActiveRecord::Schema.define(version: 20171226130957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "locale"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "assistances", "meetups"
+  add_foreign_key "assistances", "users"
+  add_foreign_key "holdings", "meetups"
+  add_foreign_key "holdings", "users"
   add_foreign_key "identities", "users"
 end

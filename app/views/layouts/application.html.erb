@@ -20,9 +20,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/"><%= fa_icon 'home' %> <%= I18n.t 'nav.home' %></a>
           </li>
-          <% if current_user %>
+          <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out-alt' %> <%= I18n.t 'user.logout' %><% end %>
+              <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out' %> <%= I18n.t 'user.logout' %><% end %>
             </li>
           <% else %>
             <li class="nav-item">
