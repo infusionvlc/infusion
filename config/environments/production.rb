@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.app_domain = "infusionvlc.com"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -61,6 +61,19 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "infusion_#{Rails.env}"
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: config.app_domain }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.serviciodecorreo.es', 
+    port: '465',
+    enable_starttls_auto: true,
+    user_name: 'hola@infusionvlc.com',
+    password: ENV['EMAIL_PASS'],
+    authentication: :login,
+    domain: 'somedomain.com'
+  }
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
