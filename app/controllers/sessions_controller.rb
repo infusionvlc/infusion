@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       @identity = Identity.create_with_omniauth(auth)
     end
   
-    if user_signed_in?
+    if current_user
       puts "signed in"
       if @identity.user == current_user
         puts "already linked"
