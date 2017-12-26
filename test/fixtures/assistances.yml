@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  meetup: one
+  mark: 1
+  review: MyText
+
+two:
+  user: two
+  meetup: two
+  mark: 1
+  review: MyText

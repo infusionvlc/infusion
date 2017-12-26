@@ -4,6 +4,12 @@ class User < ApplicationRecord
 
   has_many :identities
 
+  has_many :holdings
+  has_many :meetups, through: :holdings, as: :keynotes
+
+  has_many :assistances
+  has_many :meetups, through: :assistances
+
   attr_accessor :login
 
   def self.create_with_omniauth(auth)
