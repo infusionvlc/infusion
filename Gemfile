@@ -43,6 +43,7 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+gem 'omniauth-google-oauth2'
 
 gem "awesome_print", require:"ap"
 

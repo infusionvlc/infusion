@@ -30,4 +30,5 @@ Devise.setup do |config|
 
   config.omniauth :github, ENV['INFUSION_GH_ID'], ENV['INFUSION_GH_SECRET'], scope: 'user:email'
   config.omniauth :twitter,  ENV['INFUSION_TW_ID'], ENV['INFUSION_TW_SECRET']
+  config.omniauth :google_oauth2,  ENV['INFUSION_G_ID'], ENV['INFUSION_G_SECRET']
 end
