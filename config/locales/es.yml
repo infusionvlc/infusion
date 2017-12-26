@@ -1,0 +1,8 @@
+es:
+  nav:
+    home: "Inicio"
+
+  user:
+    login:  "Iniciar Sesión"
+    logout: "Cerrar Sesión"
+    signup: "Únete"

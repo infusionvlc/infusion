@@ -6,7 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   </head>
 
   <body>
@@ -18,9 +17,21 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/"><i class="fas fa-home"></i> Inicio</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/"><%= fa_icon 'home' %> <%= I18n.t 'nav.home' %></a>
           </li>
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out-alt' %> <%= I18n.t 'user.logout' %><% end %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to new_user_session_path, {class: "nav-link"} do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_user_registration_path, {class: "nav-link"} do %><%= fa_icon 'user-plus' %> <%= I18n.t 'user.signup' %><% end %>
+            </li>
+          <% end %>
       </div>
     </nav>
     <% flash.each do |key, value| %>
@@ -28,6 +39,8 @@
             <%= value %>
       </div>
     <% end %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

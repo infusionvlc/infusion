@@ -1,0 +1,8 @@
+ca:
+  nav:
+    home: "Inici"
+
+  user:
+    login:  "Iniciar Sessió"
+    logout: "Finalitzar Sessió"
+    signup: "Uneix-te"
