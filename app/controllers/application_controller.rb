@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def set_locale
     @locales = [
       { name: t('languages.en'), locale: :en },
+      { name: t('languages.ca'), locale: :ca },
       { name: t('languages.es'), locale: :es }
     ].freeze
     @locale = I18n.locale = locale
