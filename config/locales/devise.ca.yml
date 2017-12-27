@@ -1,60 +1,61 @@
-ca:
-  devise:
-    confirmations:
+--- 
+ca: 
+  devise: 
+    confirmations: 
       confirmed: "El teu correu electrònic ha sigut confirmat correctament."
       send_instructions: "Rebràs un email amb les instruccions per a confirmar el teu correu electrònic en uns minuts."
       send_paranoid_instructions: "Si el teu correu electrònic existix en la nostra base de dades, rebràs un email amb les instruccions per a confirmar el teu correu electrònic en uns minuts."
-    failure:
+    failure: 
       already_authenticated: "Ja vas iniciar sessió."
       inactive: "El teu compte encara no ha sigut activat."
       invalid: "Email i/o contrasenya invàlids."
-      locked: "El teu compte està bloquejat."
       last_attempt: "Tens un intent més abans que el teu compte siga bloquejat."
+      locked: "El teu compte està bloquejat."
       not_found_in_database: "%{authentication_keys} o contrasenya invàlids."
       timeout: "La teua sessió ha expirat. Inicia sessió novament."
       unauthenticated: "Tens que registrar-te o iniciar sessió abans de continuar."
       unconfirmed: "Tens que confirmar el teu compte abans de continuar."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         subject: "Instruccions de confirmació"
-      reset_password_instructions:
-        subject: "Instruccions de canvi de contrasenya"
-      unlock_instructions:
-        subject: "Instruccions de desbloqueig"
-      password_change:
+      password_change: 
         subject: "Contrasenya modificada"
-    omniauth_callbacks:
+      reset_password_instructions: 
+        subject: "Instruccions de canvi de contrasenya"
+      unlock_instructions: 
+        subject: "Instruccions de desbloqueig"
+    omniauth_callbacks: 
       failure: "No vam poder autentificar el teu compte de %{kind} per la següent raó: \"%{reason}\"."
       success: "Te vas autentificar correctament amb el teua compte de %{kind}."
-    passwords:
+    passwords: 
       no_token: "No pots accedir a esta pàgina sense vindre desde l'email de reinicie de contrasenya. Si véns des d'ací, per favor assegura't d'usar la url completa que apareix."
       send_instructions: "Rebràs un email amb instruccions per a reiniciar la teua contrasenya en uns minuts."
       send_paranoid_instructions: "Si tu email existix en el sistema, rebràs un email amb instruccions per a reiniciar tu contrasenya en uns minuts."
-      updated: "Tu contrasenya va ser modificada correctament. Has iniciat sessió."
-      updated_not_active: "Tu contrasenya va ser modificada correctamente."
-    registrations:
-      destroyed: "Adéu, el teu compte ha sigut eliminat. "Esperem veure't de volta prompte!"
+      updated: "La teua contrasenya va ser modificada correctament. Has iniciat sessió."
+      updated_not_active: "La teua contrasenya va ser modificada correctamente."
+    registrations: 
+      destroyed: "Adéu, el teu compte ha sigut eliminat. Esperem veure't de volta prompte!"
       signed_up: "Benvingut! T'has registrat correctament."
       signed_up_but_inactive: "T'has registrat correctament, pero el teu compte encara no ha sigut activat."
       signed_up_but_locked: "T'has registrat correctament, pero el teu compte età bloquejat."
       signed_up_but_unconfirmed: "T'hem enviat un email amb instruccions perquè confirmes el teu compte."
       update_needs_confirmation: "Vas actualitzar el teu correu correctament, pero tenim que revalidar el teu email. Revisa el teu correu per a confirmar la direcció."
       updated: "Vas actualitzar el teu compte correctament."
-    sessions:
+    sessions: 
+      already_signed_out: "Es va tancar sessió correctament."
       signed_in: "Vas iniciar sessió correctament."
       signed_out: "Vas tancar sessió correctament."
-      already_signed_out: "Es va tancar sessió correctament."
-    unlocks:
+    unlocks: 
       send_instructions: "Rebràs un email amb instruccions per a desbloquejar el teu compte en uns minuts"
       send_paranoid_instructions: "Si el teu compte existix, rebràs un email amb instruccions per a desbloqujear el teu compte en uns minuts."
       unlocked: "El teu compte ha sigut desbloquejat. Inicia sessió per a continuar."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "Ja va ser confirmada. Intenta ingressar"
       confirmation_period_expired: "necessita ser confirmada dins de %{period}, per favor demana una nova"
       expired: "ha expirat, per favor demana una nova"
       not_found: "no trobat"
       not_locked: "no ha sigut bloquejat"
-      not_saved:
-        one: ""Ha ocorregut 1 error:"
+      not_saved: 
+        one: "Ha ocorregut 1 error:"
         other: "Ha ocorregut %{count} errors:"
