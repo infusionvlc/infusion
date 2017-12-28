@@ -34,7 +34,7 @@
     <hr/>
     <h2><%= I18n.t 'activerecord.attributes.meetup.attachments' %></h2>
     <% @meetup.attachments.each do |f| %>
-      <li><%= link_to f.file_name, f.url %></li>
+      <li><%= link_to f.file.original_filename, f.file.url %></li>
     <% end %>
   </div>
   <div class="col-md-4 col-sm-12 card">

@@ -15,9 +15,42 @@
     <%= f.text_area :requirements, class: 'form-control' %>
   </div><br/>
 
-  <div class="field">
-    <%= f.label :attachments %><br />
-    <%= file_field_tag "attachments[]", type: :file, multiple: true %>
+  <div id="attachments field"> 
+    <h2><%= I18n.t 'activerecord.attributes.meetup.attachments' %></h2>
+    <%= f.fields_for :attachments do |f| %>
+      <div class="form-group row">
+        <%= f.text_field :file_file_name, class:'form-control col-sm-11 col-form-label', disabled: true %>
+        <div class="col-sm-1">
+          <%= f.check_box :_destroy %>
+          <%= f.label :_destroy, "Remove" %>
+        </div>
+      </div>
+    <% end %>
+    <%= f.fields_for :attachments, @meetup.attachments.new do |asset| %>
+      <%= render 'attachment_fields', :f => asset %>
+      <div class="links">
+      <%= link_to_add_association f, :attachments, class:'btn btn-primary' do %><%= fa_icon 'plus' %> <%= I18n.t 'main.add' %><% end %>
+      </div>
+    <% end %>
+  </div><br/>
+
+  <div id="photos field"> 
+    <h2><%= I18n.t 'activerecord.attributes.meetup.photos' %></h2>
+    <%= f.fields_for :photos do |f| %>
+        <div class="form-group row">
+            <%= f.text_field :file_file_name, class:'form-control col-sm-11 col-form-label', disabled: true %>
+            <div class="col-sm-1">
+                <%= f.check_box :_destroy %>
+                <%= f.label :_destroy, "Remove" %>
+            </div>
+        </div>
+    <% end %>
+    <%= f.fields_for :photos, @meetup.photos.new do |asset| %>
+        <%= render 'photo_fields', :f => asset %>
+        <div class="links">
+            <%= link_to_add_association f, :photos, class:'btn btn-primary' do %><%= fa_icon 'plus' %> <%= I18n.t 'main.add' %><% end %>
+        </div>
+    <% end %>
   </div><br/>
 
   <% if @meetup.is_taking_place? %>

@@ -9,6 +9,8 @@ en:
 
   main:
     pundit_error: "It looks like you can't do that."
+    add:          "Add"
+    remove:       "Remove"
 
   user:
     login:  "Log in"
@@ -46,6 +48,7 @@ en:
         start:        "Start time"
         end:          "End time"
         attachments:  "Attachments"
+        photos:       "Photos"
     errors:
       messages:
         blank: "%{attribute} can't be blank"

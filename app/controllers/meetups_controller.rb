@@ -41,23 +41,8 @@ class MeetupsController < ApplicationController
     respond_to do |format|
       if @meetup.save
         @meetup.holdings.create(user_id: current_user.id)
-        if params[:holdings]
-          params[:holdings].each do |id|
-            @meetup.holdings.create(user_id: id)
-          end
-        end
-        if params[:attachments]
-          params[:attachments].each do |f|
-            @meetup.attachments.create(file: f)
-          end
-        end
-        if params[:photos]
-          params[:photos].each do |f|
-            @meetup.photos.create(file: f)
-          end
-        end
         format.html { redirect_to meetup_path(@meetup) }
-        format.json { render :show, status: :created, location: @moment }
+        format.json { render :show, status: :created, location: @meetup }
       else
         format.html { render :new }
         format.json { render json: @meetup.errors, status: :unprocessable_entity }
@@ -69,25 +54,7 @@ class MeetupsController < ApplicationController
   # PATCH/PUT /meetups/1.json
   def update
     authorize @meetup
-
     respond_to do |format|
-
-        if params[:holdings]
-          params[:holdings].each do |id|
-            @meetup.holdings.where(user_id: id).first_or_create
-          end
-        end
-        if params[:attachments]
-          params[:attachments].each do |f|
-            @meetup.attachments.where(file: f).first_or_create
-          end
-        end
-        if params[:photos]
-          params[:photos].each do |f|
-            @meetup.photos.where(file: f).first_or_create
-          end
-        end
-
       if @meetup.update(meetup_params)
         format.html { redirect_to meetup_path(@meetup) }
         format.json { render :show, status: :ok, location: @meetup }
@@ -116,8 +83,8 @@ class MeetupsController < ApplicationController
 
   def meetup_params
     params.require(:meetup).permit(
-      :title, :description, :requirements, :date, :start, :end, :attachments, :holdings, :photos
-    )
+      :title, :description, :requirements, :date, :start, :end, \
+      :holdings, photos_attributes: [:id, :file, :attribution, :meetup_id, :_destroy], attachments_attributes: [:id, :file, :meetup_id, :_destroy])
   end
 
 end

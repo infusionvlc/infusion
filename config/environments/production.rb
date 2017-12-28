@@ -111,12 +111,14 @@ Rails.application.configure do
   end
 
   config.paperclip_defaults = {
-    :storage => :s3,
+    storage: :s3,
+    :path => "/file/:id/:filename",
     s3_credentials: {
       bucket: ENV['INFUSION_S3_BUCKET'],
       access_key_id: ENV['INFUSION_S3_ID'],
       secret_access_key: ENV['INFUSION_S3_SECRET'],
-    },
-    s3_host_name: ENV['INFUSION_S3_HOST']
-  }
+      s3_region: ENV['INFUSION_S3_REGION'],
+      s3_host_name: ENV['INFUSION_S3_HOST']
+    }
+}
 end

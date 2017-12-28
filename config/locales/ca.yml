@@ -4,6 +4,8 @@ ca:
 
   main:
     pundit_error: "Pareix que no pots fer això."
+    add:          "Més"
+    remove:       "Eliminar"
 
   user:
     login:  "Iniciar Sessió"
@@ -41,6 +43,7 @@ ca:
         start:        "Hora d'inici"
         end:          "Hora de finalització"
         attachments:  "Fitxers adjunts"
+        photos:       "Fotos"
     errors:
       messages:
         blank: "%{attribute} no pot estar en blanc"

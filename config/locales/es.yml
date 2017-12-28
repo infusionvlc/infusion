@@ -4,6 +4,8 @@ es:
 
   main:
     pundit_error: "Parece que no puedes hacer eso."
+    add:          "Más"
+    remove:       "Eliminar"
 
   user:
     login:  "Iniciar Sesión"
@@ -41,6 +43,7 @@ es:
         start:        "Hora de inicio"
         end:          "Hora de finalización"
         attachments:  "Ficheros adjuntos"
+        photos:       "Fotos"
     errors:
       messages:
         blank: "%{attribute} no puede estar en blanco"

@@ -7,6 +7,9 @@ class Meetup < ApplicationRecord
     has_many :attachments
     has_many :photos
 
+    accepts_nested_attributes_for :attachments, reject_if: proc { |attributes| attributes[:file].blank? }, allow_destroy: true
+    accepts_nested_attributes_for :photos,      reject_if: proc { |attributes| attributes[:file].blank? }, allow_destroy: true
+
     has_many :assistances
     has_many :users, through: :assistances, as: :assistants
 
