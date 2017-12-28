@@ -44,10 +44,13 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
-
-  # Use an evented file watcher to asynchronously detect changes in source code,
-  # routes, locales, etc. This feature depends on the listen gem.
-  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.paperclip_defaults = {
+    :storage => :s3,
+    s3_credentials: {
+      bucket: ENV['INFUSION_S3_BUCKET_DEV'],
+      access_key_id: ENV['INFUSION_S3_ID'],
+      secret_access_key: ENV['INFUSION_S3_SECRET'],
+    },
+    s3_host_name: ENV['INFUSION_S3_HOST']
+  }
 end

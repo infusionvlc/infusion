@@ -109,4 +109,14 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    s3_credentials: {
+      bucket: ENV['INFUSION_S3_BUCKET'],
+      access_key_id: ENV['INFUSION_S3_ID'],
+      secret_access_key: ENV['INFUSION_S3_SECRET'],
+    },
+    s3_host_name: ENV['INFUSION_S3_HOST']
+  }
 end

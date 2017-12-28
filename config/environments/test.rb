@@ -37,6 +37,13 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  config.paperclip_defaults = {
+    :storage => :s3,
+    s3_credentials: {
+      bucket: ENV['INFUSION_S3_BUCKET_DEV'],
+      access_key_id: ENV['INFUSION_S3_ID'],
+      secret_access_key: ENV['INFUSION_S3_SECRET'],
+    },
+    s3_host_name: ENV['INFUSION_S3_HOST']
+  }
 end

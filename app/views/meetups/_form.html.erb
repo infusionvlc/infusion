@@ -1,0 +1,38 @@
+<%= form_for(@meetup, :html => { multipart: true }) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, class: 'form-control' %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :requirements %><br />
+    <%= f.text_area :requirements, class: 'form-control' %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :attachments %><br />
+    <%= file_field_tag "attachments[]", type: :file, multiple: true %>
+  </div><br/>
+
+  <% if @meetup.is_taking_place? %>
+    <div class="field">
+        <%= f.label :start %><br />
+        <%= f.time_field :start, class: 'form-control' %>
+    </div><br/>
+
+    <div class="field">
+        <%= f.label :end %><br />
+        <%= f.time_field :end, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -44,6 +44,10 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'pundit'
+
+gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk', '~> 2.3.0'
 
 gem 'awesome_print', require: 'ap'
 

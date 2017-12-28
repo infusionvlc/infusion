@@ -1,0 +1,68 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3"><%= @meetup.title %></h1>
+    <p class="lead"><%= votes(@meetup) %></p>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <% @meetup.photos.each do |img| %>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="http://lorempixel.com/output/technics-q-c-640-160-4.jpg" alt="First slide">
+            </div>
+        <% end %>
+    </div>
+    <% if @meetup.photos.size > 1 %>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    <% end %>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-8 col-sm-12">
+    <h2><%= I18n.t 'activerecord.attributes.meetup.description' %></h2>
+    <p><%= @meetup.description %></p>
+    <hr/>
+    <h2><%= I18n.t 'activerecord.attributes.meetup.requirements' %></h2>
+    <p><%= @meetup.requirements %></p>
+    <hr/>
+    <h2><%= I18n.t 'activerecord.attributes.meetup.attachments' %></h2>
+    <% @meetup.attachments.each do |f| %>
+      <li><%= link_to f.file_name, f.url %></li>
+    <% end %>
+  </div>
+  <div class="col-md-4 col-sm-12 card">
+    <div class="card-body">
+      <% if policy(@meetup).edit? %>
+        <%= link_to edit_meetup_path(@meetup), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'meetup.edit' %><% end %>
+        <hr/>
+      <% end %>
+      <% if @meetup.is_taking_place? %>
+        <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
+        <p><%= @meetup.date %></p>
+        <hr/>
+        <h2><%= I18n.t 'activerecord.attributes.meetup.start' %></h2>
+        <p><%= @meetup.start %></p>
+        <hr/>
+        <h2><%= I18n.t 'activerecord.attributes.meetup.end' %></h2>
+        <p><%= @meetup.end %></p>
+      <% else %>
+        <% if policy(@meetup).vote? %>
+          <p><%= I18n.t 'meetup.call_to_action' %></p>
+          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'meetup.vote' %><% end %>
+        <% elsif user_signed_in? %>
+          <p><%= I18n.t 'meetup.already_voted' %></p>
+        <% else %>
+          <p><%= I18n.t 'meetup.call_to_action_no_user' %></p>
+          <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
