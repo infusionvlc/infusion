@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      ok_status        
+      ok_status
     else
       error_status
     end
@@ -30,8 +30,8 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    if @category.update(category_params)      
-      ok_status      
+    if @category.update(category_params)
+      ok_status
     else
       error_status
     end
