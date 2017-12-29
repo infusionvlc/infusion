@@ -6,3 +6,17 @@ ca:
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
     signup: "Uneix-te"
+
+  activerecord:
+    models:
+      category:
+        one: Categoria
+        other: Categories
+        delete: Estas segur d'esborrar aquesta categoria? 
+        title: Titol
+        show: Mostra
+        edit: Edita
+        destroy: Esborra
+        new: Nova
+        create: Crea una nova categoria 
+        newpost: Nova categoria

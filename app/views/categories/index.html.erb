@@ -1,20 +1,23 @@
-<h1> Categories </h1> 
+
+<% act = 'activerecord.models.category' %>
+
+<h1><%= I18n.t act + '.other' %></h1>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Text</th>
+    <th><%=I18n.t act + '.title'%></th>
     <th></th>
   </tr>
  
   <% @categories.each do |category| %>
     <tr>
-      <td><%= category.name.capitalize %></td>
-      <td><%= link_to 'Show', category_path(category) %></td>
-      <td><%= link_to 'Edit', edit_category_path(category) %></td>
-      <td><%= link_to 'Destroy', category_path(category),
+      <td><h2><%= category.name.capitalize %></h2></td>
+      <td><%= link_to (I18n.t act + '.show'), category_path(category) %></td>
+      <td><%= link_to (I18n.t act + '.edit'), edit_category_path(category) %></td>
+      <td><%= link_to (I18n.t act + '.destroy'), category_path(category),
               method: :delete,
-              data: { confirm: 'Are you sure, bro?' } %></td>
+              data: { confirm: (I18n.t act + '.delete') } %></td>
     </tr>
   <% end %>
 </table>
+<%= button_to (I18n.t act + '.newpost'), { :action => 'new' }, :method => :get %>

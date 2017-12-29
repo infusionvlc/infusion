@@ -6,3 +6,17 @@ es:
     login:  "Iniciar Sesión"
     logout: "Cerrar Sesión"
     signup: "Únete"
+
+  activerecord:
+    models:
+      category:
+        one: Categoría
+        other: Categorias
+        delete: ¿Estás seguro de que quieres borrar esta categoría?
+        title: Título
+        show: Mostrar
+        edit: Editar
+        destroy: Borrar
+        new: Nuevo
+        create: Nombre nuevo para una categoría
+        newpost: Crear nueva categoría

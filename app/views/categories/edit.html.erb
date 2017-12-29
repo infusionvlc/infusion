@@ -1,14 +1,3 @@
-<h1> Edit </h1>
-
-<%= form_with(model: @category, local: true) do |form| %>
-
-<p>
-  <%= form.label :"Añade el título de la nueva categoría" %><br>
-  <%= form.text_field :name %>
-</p>
-
-<p>
-  <%= form.submit %>
-</p>
-
-<% end %>
+<h1> <%=I18n.t 'activerecord.models.category.edit'%> </h1>
+<hr/>
+<%= render 'form' %>

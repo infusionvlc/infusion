@@ -1,13 +1,4 @@
+<h1><%=I18n.t 'activerecord.models.category.new'%></h1>  
+<hr/>
+<%= render 'form' %>
 
-<%= form_with scope: :category, url: categories_path, local: true do |form| %>
-
-<p>
-  <%= form.label :"Añade el título de la nueva categoría" %><br>
-  <%= form.text_field :name %>
-</p>
-
-<p>
-  <%= form.submit %>
-</p>
-
-<% end %>
