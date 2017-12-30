@@ -2,7 +2,65 @@ ca:
   nav:
     home: "Inici"
 
+  main:
+    pundit_error:  "Pareix que no pots fer això"
+    add:           "Afegir"
+    remove:        "Eliminar"
+    allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
+
   user:
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
     signup: "Uneix-te"
+    omniauth:     "Entrar amb"
+    password:     "Has oblidat la teua clau?"
+    confirmation: "No has rebut les instruccions de confirmació?"
+    unlock:       "No has rebut les instruccions per desbloquetjar el teu perfil?"
+
+  meetup:
+    host_yours:             "Organitza un Meetup"
+    call_to_action:         "Vols vindre a aquest meetup? Vóta'l!"
+    call_to_action_no_user: "Vols vindre a aquest meetup? Inicia sessió i vóta'l!"
+    vote:                   "Votar"
+    already_voted:          "Ja has votat per aquest meetup. T'enviarem un email quan es confirme!"
+    votes:
+      one:                  "1 vot"
+      other:                "%{count} vots"
+    assistants:
+      one:                  "1 assistent"
+      other:                "%{count} assistents"
+    edit:                   "Actualitzar informació"
+    destroy:                "Cancelar Meetup"
+
+  activerecord:
+    models:
+      user: "Usuari"
+      meetup: "Meetup"
+    attributes:
+      meetup:
+        title: "Títol"
+        description:  "Descripció"
+        requirements: "Requeriments"
+        date:         "Data"
+        start:        "Hora d'inici"
+        end:          "Hora de finalització"
+        attachments:  "Fitxers adjunts"
+        photos:       "Fotos"
+      attachment:
+        file_content_type:
+          invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que està entre els tipus de fitxer permesos"
+      photo:
+        file_content_type:
+          invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que les fotos siguen fitxers d'imatge"
+    errors:
+      messages:
+        blank: "%{attribute} no pot estar en blanc"
+      template:
+        header:
+          one: "Pareix que n'hi ha un problema amb el que ens has dit"
+          other: "Pareix que n'hi han %{count} problemes amb el que ens has dit"
+
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Guardar canvis"

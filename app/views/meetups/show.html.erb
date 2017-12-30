@@ -1,0 +1,66 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3"><%= @meetup.title %></h1>
+    <p class="lead"><%= votes(@meetup) %></p>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-8 col-sm-12">
+    <h2><%= I18n.t 'activerecord.attributes.meetup.description' %></h2>
+    <p><%= @meetup.description %></p>
+    <hr/>
+    <h2><%= I18n.t 'activerecord.attributes.meetup.requirements' %></h2>
+    <p><%= @meetup.requirements %></p>
+    <hr/>
+    <% if @meetup.attachments.size > 0 %>
+      <h2><%= I18n.t 'activerecord.attributes.meetup.attachments' %></h2>
+      <% @meetup.attachments.each do |f| %>
+        <p><%= file_icon(f) %> <%= link_to f.file.original_filename, f.file.url, target: "_blank" %></p>
+      <% end %>
+      <hr/>
+    <% end %>
+    <% if @meetup.photos.size > 0 %>
+      <h2><%= I18n.t 'activerecord.attributes.meetup.photos' %></h2>
+      <% @meetup.photos.each do |img| %>
+        <div class="card" style="width: 18rem;">
+          <%= image_tag img.file.url, class:'card-img-top' %>
+          <div class="card-body">
+            <h5 class="card-title"><%= img.attribution %></h5>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-4 col-sm-12 card">
+    <div class="card-body">
+      <% if policy(@meetup).edit? %>
+        <%= link_to edit_meetup_path(@meetup), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'meetup.edit' %><% end %>
+        <% if policy(@meetup).destroy? %>
+          <%= link_to meetup_path(@meetup), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'meetup.destroy' %><% end %>
+        <% end %>
+        <hr/>
+      <% end %>
+      <% if @meetup.taking_place? %>
+        <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
+        <p><%= @meetup.date %></p>
+        <hr/>
+        <h2><%= I18n.t 'activerecord.attributes.meetup.start' %></h2>
+        <p><%= @meetup.start %></p>
+        <hr/>
+        <h2><%= I18n.t 'activerecord.attributes.meetup.end' %></h2>
+        <p><%= @meetup.end %></p>
+      <% else %>
+        <% if policy(@meetup).vote? %>
+          <p><%= I18n.t 'meetup.call_to_action' %></p>
+          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'meetup.vote' %><% end %>
+        <% elsif user_signed_in? %>
+          <p><%= I18n.t 'meetup.already_voted' %></p>
+        <% else %>
+          <p><%= I18n.t 'meetup.call_to_action_no_user' %></p>
+          <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
   
   devise_for :users
+
+  resources :meetups do
+    member do
+      post 'vote'
+    end
+  end
   
   HighVoltage.configure do |config|
     config.home_page = 'index'

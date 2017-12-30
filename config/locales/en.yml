@@ -1,13 +1,66 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
 en:
   nav:
     home: "Home"
+
+  main:
+    pundit_error:  "It looks like you can't do that"
+    add:           "Add"
+    remove:        "Remove"
+    allowed_files: "Only text, audio, video, image, pdf and zip files are allowed"
 
   user:
     login:  "Log in"
     logout: "Log out"
     signup: "Sign up"
+    omniauth:     "Sign in with"
+    password:     "Forgot your password?"
+    confirmation: "Didn't receive confirmation instructions?"
+    unlock:       "Didn't receive unlock instructions?"
+
+  meetup:
+    host_yours:             "Host your own meetup"
+    call_to_action:         "Do you want to attend to this meetup? Vote for it!"
+    call_to_action_no_user: "Do you want to attend to this meetup? Log in and vote for it!"
+    vote:                   "Vote"
+    already_voted:          "You have already voted for this meetup. We will send you an email when it is confirmed!"
+    votes:
+      one:                  "1 vote"
+      other:                "%{count} votes"
+    assistants:
+      one:                  "1 assistant"
+      other:                "%{count} assistants"
+    edit:                   "Update meetup information"
+    destroy:                "Cancel Meetup"
+
+  activerecord:
+    model:
+      user: "User"
+      meetup: "Meetup"
+    attributes:
+      meetup:
+        title:        "Title"
+        description:  "Description"
+        requirements: "Requirements"
+        date:         "Date"
+        start:        "Start time"
+        end:          "End time"
+        attachments:  "Attachments"
+        photos:       "Photos"
+      attachment:
+        file_content_type:
+          invalid:    "One of your uploaded files couldn't be uploaded. Check all your files are allowed below"
+      photo:
+        file_content_type:
+          invalid:    "One of your uploaded files couldn't be uploaded. Check all your photos are image files"
+    errors:
+      messages:
+        blank: "%{attribute} can't be blank"
+      template:
+        header:
+          one: "It seems like there's some issue with your info"
+          other: "It seems like there are %{count} issues with your info"
+
+  helpers:
+    submit:
+      create: "Create a %{model}"
+      update: "Confirm changes"

@@ -13,10 +13,13 @@ plugins:
     - vendor/
   fixme:
     enabled: true
-  markdownlint:
-    enabled: true
+    exclude_patterns:
+    - ".rubocop_enabled.yml"
+    - ".rubocop.yml"
   rubocop:
     enabled: true
+    config: '.rubocop.yml'
+
 ratings:
   paths:
   - Gemfile.lock
