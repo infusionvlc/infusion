@@ -3,9 +3,10 @@ es:
     home: "Inicio"
 
   main:
-    pundit_error: "Parece que no puedes hacer eso."
-    add:          "Más"
-    remove:       "Eliminar"
+    pundit_error:  "Parece que no puedes hacer eso"
+    add:           "Añadir"
+    remove:        "Eliminar"
+    allowed_files: "Se permiten archivos de texto, vídeo, imagen, audio, pdf y zip"
 
   user:
     login:  "Iniciar Sesión"
@@ -29,6 +30,7 @@ es:
       one:                  "1 asistente"
       other:                "%{count} asistentes"
     edit:                   "Actualizar información"
+    destroy:                "Cancelar Meetup"
 
   activerecord:
     models:
@@ -44,6 +46,12 @@ es:
         end:          "Hora de finalización"
         attachments:  "Ficheros adjuntos"
         photos:       "Fotos"
+      attachment:
+        file_content_type:
+          invalid:    "Uno de los archivos no se ha podido subir. Comprueba que esté entre los tipos de fichero permitidos"
+      photo:
+        file_content_type:
+          invalid:    "Uno de los archivos no se ha podido subir. Comprueba que tus fotos son ficheros de imagen"
     errors:
       messages:
         blank: "%{attribute} no puede estar en blanco"

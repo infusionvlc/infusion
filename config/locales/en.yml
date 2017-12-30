@@ -1,16 +1,12 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
 en:
   nav:
     home: "Home"
 
   main:
-    pundit_error: "It looks like you can't do that."
-    add:          "Add"
-    remove:       "Remove"
+    pundit_error:  "It looks like you can't do that"
+    add:           "Add"
+    remove:        "Remove"
+    allowed_files: "Only text, audio, video, image, pdf and zip files are allowed"
 
   user:
     login:  "Log in"
@@ -34,9 +30,10 @@ en:
       one:                  "1 assistant"
       other:                "%{count} assistants"
     edit:                   "Update meetup information"
+    destroy:                "Cancel Meetup"
 
   activerecord:
-    models:
+    model:
       user: "User"
       meetup: "Meetup"
     attributes:
@@ -49,6 +46,12 @@ en:
         end:          "End time"
         attachments:  "Attachments"
         photos:       "Photos"
+      attachment:
+        file_content_type:
+          invalid:    "One of your uploaded files couldn't be uploaded. Check all your files are allowed below"
+      photo:
+        file_content_type:
+          invalid:    "One of your uploaded files couldn't be uploaded. Check all your photos are image files"
     errors:
       messages:
         blank: "%{attribute} can't be blank"

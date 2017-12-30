@@ -3,9 +3,10 @@ ca:
     home: "Inici"
 
   main:
-    pundit_error: "Pareix que no pots fer això."
-    add:          "Més"
-    remove:       "Eliminar"
+    pundit_error:  "Pareix que no pots fer això"
+    add:           "Afegir"
+    remove:        "Eliminar"
+    allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
 
   user:
     login:  "Iniciar Sessió"
@@ -29,6 +30,7 @@ ca:
       one:                  "1 assistent"
       other:                "%{count} assistents"
     edit:                   "Actualitzar informació"
+    destroy:                "Cancelar Meetup"
 
   activerecord:
     models:
@@ -44,6 +46,12 @@ ca:
         end:          "Hora de finalització"
         attachments:  "Fitxers adjunts"
         photos:       "Fotos"
+      attachment:
+        file_content_type:
+          invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que està entre els tipus de fitxer permesos"
+      photo:
+        file_content_type:
+          invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que les fotos siguen fitxers d'imatge"
     errors:
       messages:
         blank: "%{attribute} no pot estar en blanc"
