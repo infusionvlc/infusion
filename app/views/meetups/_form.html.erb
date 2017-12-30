@@ -61,7 +61,7 @@
   </div>
   <hr/>
 
-  <% if @meetup.is_taking_place? %>
+  <% if @meetup.taking_place? %>
     <div class="field">
         <%= f.label :start %><br />
         <%= f.time_field :start, class: 'form-control' %>

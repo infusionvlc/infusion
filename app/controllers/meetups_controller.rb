@@ -1,5 +1,4 @@
 class MeetupsController < ApplicationController
-
   before_action :set_meetup, only: %i[show edit update destroy vote]
 
   # GET /meetups
@@ -42,10 +41,16 @@ class MeetupsController < ApplicationController
       if @meetup.save
         @meetup.holdings.create(user_id: current_user.id)
         format.html { redirect_to meetup_path(@meetup) }
-        format.json { render :show, status: :created, location: @meetup }
+        format.json do
+          render :show,
+                 status: :created, location: @meetup
+        end
       else
         format.html { render :new }
-        format.json { render json: @meetup.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @meetup.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -60,7 +65,10 @@ class MeetupsController < ApplicationController
         format.json { render :show, status: :ok, location: @meetup }
       else
         format.html { render :edit }
-        format.json { render json: @meetup.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @meetup.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -77,14 +85,28 @@ class MeetupsController < ApplicationController
 
   def set_meetup
     @meetup = Meetup.find(params[:id])
-  rescue
+  rescue StandardError
     redirect_to_path(meetups_path)
   end
 
   def meetup_params
     params.require(:meetup).permit(
-      :title, :description, :requirements, :date, :start, :end, \
-      :holdings, photos_attributes: [:id, :file, :attribution, :meetup_id, :_destroy], attachments_attributes: [:id, :file, :meetup_id, :_destroy])
+      :title,
+      :description,
+      :requirements,
+      :date,
+      :start,
+      :end,
+      :holdings,
+      photos_attributes:      [:id,
+                               :file,
+                               :attribution,
+                               :meetup_id,
+                               :_destroy],
+      attachments_attributes: [:id,
+                               :file,
+                               :meetup_id,
+                               :_destroy]
+    )
   end
-
 end

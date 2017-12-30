@@ -41,7 +41,7 @@
         <% end %>
         <hr/>
       <% end %>
-      <% if @meetup.is_taking_place? %>
+      <% if @meetup.taking_place? %>
         <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
         <p><%= @meetup.date %></p>
         <hr/>

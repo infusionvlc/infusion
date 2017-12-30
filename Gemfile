@@ -33,11 +33,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'high_voltage', '~> 3.0.0'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
-gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'high_voltage', '~> 3.0.0'
+gem 'jquery-rails'
 
+gem 'cocoon'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
@@ -45,10 +46,9 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'pundit'
-gem 'cocoon'
 
-gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3.0'
+gem 'paperclip', '~> 5.0.0'
 
 gem 'awesome_print', require: 'ap'
 
