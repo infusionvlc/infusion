@@ -46,6 +46,11 @@ ca:
         end:          "Hora de finalització"
         attachments:  "Fitxers adjunts"
         photos:       "Fotos"
+        holdings:
+          one:        "Organitzador"
+          other:      "Organitzadors"
+      holding:
+        user_id:      "User"
       attachment:
         file_content_type:
           invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que està entre els tipus de fitxer permesos"

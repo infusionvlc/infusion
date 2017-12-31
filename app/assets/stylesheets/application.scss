@@ -1,6 +1,18 @@
- @import "bootstrap";
- @import "font-awesome";
+@import "bootstrap";
+@import "font-awesome";
 
- .container {
-     margin-top: 20px;
- }
+.card {
+    margin-bottom: 5px;
+}
+
+.card-container {
+    padding: 3px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.nested-fields {
+    margin-bottom: 10px;
+}

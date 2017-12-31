@@ -1,14 +1,16 @@
-<div class="nested-fields" style="padding-bottom: 10px;">
-    <div class="field card">
-      <div class="form-group row card-body">
+<div class="nested-fields card">
+    <div class="field card-body">
+      <%= f.label :file %>
+      <div class="form-group row">
         <div class="col-sm-10">
-          <%= f.label :file %>
           <%= f.file_field :file, :required => true, class:'form-control' %><br/>
-          <%= f.label :attribution %>
-          <%= f.text_field :attribution, class:'form-control' %>
         </div>
         <div class="col-sm-2">
-          <%= link_to_remove_association f, class:'btn btn-danger' do %><%= fa_icon 'times' %> <%= I18n.t 'main.remove' %><% end %>
+          <%= link_to_remove_association f, {class:'btn btn-danger', aria: {label:"#{I18n.t 'main.remove'}"}} do %><%= fa_icon 'times' %><% end %>
+        </div>
+        <div class="col-sm-12">
+          <%= f.label :attribution %>
+          <%= f.text_field :attribution, class:'form-control' %>
         </div>
       </div>
     </div>

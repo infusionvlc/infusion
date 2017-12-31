@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   match 'users/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
-  
+
   devise_for :users
 
   resources :meetups do
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       post 'vote'
     end
   end
-  
+
   HighVoltage.configure do |config|
     config.home_page = 'index'
   end
