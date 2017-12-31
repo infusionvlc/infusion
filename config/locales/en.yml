@@ -46,6 +46,11 @@ en:
         end:          "End time"
         attachments:  "Attachments"
         photos:       "Photos"
+        holdings:
+          one:        "Host"
+          other:      "Hosts"
+      holding:
+        user_id:      "User"
       attachment:
         file_content_type:
           invalid:    "One of your uploaded files couldn't be uploaded. Check all your files are allowed below"

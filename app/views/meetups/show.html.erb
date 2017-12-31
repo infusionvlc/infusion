@@ -61,6 +61,11 @@
           <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
         <% end %>
       <% end %>
+      <hr/>
+      <h3><%= I18n.t 'activerecord.attributes.meetup.holdings.other' %></h3>
+      <ul><% @meetup.hosts.each do |host| %>
+        <li><%= host.username %></li>
+      <% end %></ul>
     </div>
   </div>
 </div>

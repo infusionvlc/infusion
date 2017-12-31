@@ -46,6 +46,11 @@ es:
         end:          "Hora de finalización"
         attachments:  "Ficheros adjuntos"
         photos:       "Fotos"
+        holdings:
+          one:        "Organizador"
+          other:      "Organizadores"
+      holding:
+        user_id:      "User"
       attachment:
         file_content_type:
           invalid:    "Uno de los archivos no se ha podido subir. Comprueba que esté entre los tipos de fichero permitidos"
