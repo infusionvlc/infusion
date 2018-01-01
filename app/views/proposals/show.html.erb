@@ -1,0 +1,35 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3"><%= @proposal.title %></h1>
+    <p class="lead"><%= votes(@proposal) %></p>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-8 col-sm-12">
+    <h2><%= I18n.t 'activerecord.attributes.proposal.description' %></h2>
+    <p><%= @proposal.description %></p>
+    <hr/>
+  </div>
+  <div class="col-md-4 col-sm-12 card">
+    <div class="card-body">
+      <% if policy(@proposal).edit? %>
+        <%= link_to edit_proposal_path(@proposal), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'main.edit' %><% end %>
+        <% if policy(@proposal).destroy? %>
+          <%= link_to proposal_path(@proposal), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.delete' %><% end %>
+        <% end %>
+        <hr/>
+      <% end %>
+      <% if policy(@proposal).vote? %>
+        <p><%= I18n.t 'proposal.call_to_action' %></p>
+        <%= link_to vote_proposal_path(@proposal), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'main.vote' %><% end %>
+      <% elsif user_signed_in? %>
+        <p><%= I18n.t 'proposal.already_voted' %></p>
+      <% else %>
+        <p><%= I18n.t 'proposal.call_to_action_no_user' %></p>
+        <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+      <% end %>
+      <hr/>
+    </div>
+  </div>
+</div>

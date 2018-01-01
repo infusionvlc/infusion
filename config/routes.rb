@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :proposals do
+    member do
+      post 'vote'
+    end
+  end
+
   HighVoltage.configure do |config|
     config.home_page = 'index'
   end

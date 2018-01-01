@@ -2,11 +2,120 @@ en:
   nav:
     home: "Home"
 
+  helpers:
+    submit:
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
+
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+
   main:
-    pundit_error:  "It looks like you can't do that"
     add:           "Add"
+    edit:          "Editar"
+    delete:        "Delete"
     remove:        "Remove"
+    vote:          "Vote"
     allowed_files: "Only text, audio, video, image, pdf and zip files are allowed"
+    pundit_error:  "It looks like you can't do that"
 
   user:
     login:  "Log in"
@@ -17,29 +126,38 @@ en:
     confirmation: "Didn't receive confirmation instructions?"
     unlock:       "Didn't receive unlock instructions?"
 
-  meetup:
-    host_yours:             "Host your own meetup"
-    call_to_action:         "Do you want to attend to this meetup? Vote for it!"
-    call_to_action_no_user: "Do you want to attend to this meetup? Log in and vote for it!"
-    vote:                   "Vote"
-    already_voted:          "You have already voted for this meetup. We will send you an email when it is confirmed!"
+  votable: &votable
     votes:
       one:                  "1 vote"
       other:                "%{count} votes"
+    already_voted:          "You have already voted. We will send you an email when it is confirmed!"
+
+  meetup:
+    <<: *votable
+    host_yours:             "Host your own meetup"
+    call_to_action:         "Do you want to attend to this meetup? Vote for it!"
+    call_to_action_no_user: "Do you want to attend to this meetup? Log in and vote for it!"
     assistants:
       one:                  "1 assistant"
       other:                "%{count} assistants"
     edit:                   "Update meetup information"
     destroy:                "Cancel Meetup"
 
+  proposal:
+    <<: *votable
+    add_yours:              "Add your own ideas"
+
   activerecord:
     model:
-      user: "User"
-      meetup: "Meetup"
+      user:     "User"
+      meetup:   "Meetup"
+      proposal: "Proposal"
     attributes:
-      meetup:
+      common: &common
         title:        "Title"
         description:  "Description"
+      meetup:
+        <<: *common
         requirements: "Requirements"
         date:         "Date"
         start:        "Start time"
@@ -49,6 +167,8 @@ en:
         holdings:
           one:        "Host"
           other:      "Hosts"
+      proposal:
+        <<: *common
       holding:
         user_id:      "User"
       attachment:

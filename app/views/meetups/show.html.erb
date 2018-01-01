@@ -53,7 +53,7 @@
       <% else %>
         <% if policy(@meetup).vote? %>
           <p><%= I18n.t 'meetup.call_to_action' %></p>
-          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'meetup.vote' %><% end %>
+          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'main.vote' %><% end %>
         <% elsif user_signed_in? %>
           <p><%= I18n.t 'meetup.already_voted' %></p>
         <% else %>

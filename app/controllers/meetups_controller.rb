@@ -78,7 +78,7 @@ class MeetupsController < ApplicationController
   def destroy
     authorize @meetup
     @meetup.destroy
-    redirect_to_path(meetups_path)
+    redirect_to(meetups_path)
   end
 
   private
@@ -86,7 +86,7 @@ class MeetupsController < ApplicationController
   def set_meetup
     @meetup = Meetup.find(params[:id])
   rescue StandardError
-    redirect_to_path(meetups_path)
+    redirect_to(meetups_path)
   end
 
   def meetup_params

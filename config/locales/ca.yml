@@ -2,11 +2,120 @@ ca:
   nav:
     home: "Inici"
 
+  helpers:
+    submit:
+      create: "Afegir %{model}"
+      submit: "Guardar %{model}"
+      update: "Actualitzar %{model}"
+
+  date:
+    abbr_day_names:
+    - Dg
+    - Dl
+    - Dm
+    - Dc
+    - Dj
+    - Dv
+    - Ds
+    abbr_month_names:
+    -
+    - Gen
+    - Feb
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Oct
+    - Nov
+    - Des
+    day_names:
+    - Diumenge
+    - Dilluns
+    - Dimarts
+    - Dimecres
+    - Dijous
+    - Divendres
+    - Dissabte
+    formats:
+      default: "%d-%m-%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+    month_names:
+    -
+    - Gener
+    - Febrer
+    - Març
+    - Abril
+    - Maig
+    - Juny
+    - Juliol
+    - Agost
+    - Setembre
+    - Octubre
+    - Novembre
+    - Desembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadament 1 hora
+        other: aproximadament %{count} hores
+      about_x_months:
+        one: aproximadament 1 mes
+        other: aproximadament %{count} mesos
+      about_x_years:
+        one: aproximadament 1 any
+        other: aproximadament %{count} anys
+      almost_x_years:
+        one: quasi 1 any
+        other: quasi %{count} anys
+      half_a_minute: mig minut
+      less_than_x_minutes:
+        one: menys d'1 minut
+        other: menys de %{count} minuts
+      less_than_x_seconds:
+        one: menys d'1 segon
+        other: menys de %{count} segons
+      over_x_years:
+        one: més d'1 any
+        other: més de %{count} anys
+      x_days:
+        one: 1 dia
+        other: "%{count} dies"
+      x_minutes:
+        one: 1 minut
+        other: "%{count} minuts"
+      x_months:
+        one: 1 mes
+        other: "%{count} mesos"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+      x_seconds:
+        one: 1 segon
+        other: "%{count} segons"
+    prompts:
+      day: dia
+      hour: hora
+      minute: minut
+      month: mes
+      second: segon
+      year: any
+
   main:
-    pundit_error:  "Pareix que no pots fer això"
     add:           "Afegir"
+    edit:          "Editar"
+    delete:        "Eliminar"
     remove:        "Eliminar"
+    vote:          "Votar"
     allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
+    pundit_error:  "Pareix que no pots fer això"
 
   user:
     login:  "Iniciar Sessió"
@@ -17,29 +126,44 @@ ca:
     confirmation: "No has rebut les instruccions de confirmació?"
     unlock:       "No has rebut les instruccions per desbloquetjar el teu perfil?"
 
-  meetup:
-    host_yours:             "Organitza un Meetup"
-    call_to_action:         "Vols vindre a aquest meetup? Vóta'l!"
-    call_to_action_no_user: "Vols vindre a aquest meetup? Inicia sessió i vóta'l!"
-    vote:                   "Votar"
-    already_voted:          "Ja has votat per aquest meetup. T'enviarem un email quan es confirme!"
+  votable: &votable
     votes:
       one:                  "1 vot"
       other:                "%{count} vots"
+    already_voted:          "Ja has votat. T'enviarem un email quan es confirme!"
+
+  meetup:
+    <<: *votable
+    host_yours:             "Organitza un Meetup"
+    call_to_action:         "Vols vindre a aquest meetup? Vóta'l!"
+    call_to_action_no_user: "Vols vindre a aquest meetup? Inicia sessió i vóta'l!"
     assistants:
       one:                  "1 assistent"
       other:                "%{count} assistents"
     edit:                   "Actualitzar informació"
     destroy:                "Cancelar Meetup"
 
+  proposal:
+    <<: *votable
+    add_yours:              "Conta'ns les teues idees"
+
   activerecord:
-    models:
-      user: "Usuari"
-      meetup: "Meetup"
-    attributes:
+    model:
+      user:
+        one:   "Usuari"
+        other: "Usuaris"
       meetup:
+        one:   "Meetup"
+        other: "Meetups"
+      proposal:
+        one:   "Proposta"
+        other: "Propostes"
+    attributes:
+      common: &common
         title: "Títol"
         description:  "Descripció"
+      meetup:
+        <<: *common
         requirements: "Requeriments"
         date:         "Data"
         start:        "Hora d'inici"
@@ -49,6 +173,8 @@ ca:
         holdings:
           one:        "Organitzador"
           other:      "Organitzadors"
+      proposal:
+        <<: *common
       holding:
         user_id:      "User"
       attachment:

@@ -1,5 +1,5 @@
 class Meetup < ApplicationRecord
-  has_many :holdings
+  has_many :holdings, dependent: :destroy
   has_many :hosts, through: :holdings, source: :user
 
   has_and_belongs_to_many :categories
@@ -13,7 +13,7 @@ class Meetup < ApplicationRecord
 
   accepts_nested_attributes_for :photos, allow_destroy: true
 
-  has_many :assistances
+  has_many :assistances, dependent: :destroy
   has_many :assistants, through: :assistances, source: :user
 
   validates :title, presence: true
