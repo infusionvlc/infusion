@@ -42,9 +42,11 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-    @category = Category.find(params[:id])
+    begin
+      @category = Category.find(params[:id])
     rescue StandardError
       redirect_to_path(categories_path)
+    end
   end
 
   def ok_status
