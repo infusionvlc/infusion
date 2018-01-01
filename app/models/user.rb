@@ -4,6 +4,11 @@ class User < ApplicationRecord
 
   has_many :identities
 
+  has_many :proposals
+
+  has_many :votes
+  has_many :interests, through: :votes, source: :proposal
+
   has_many :holdings
   has_many :meetups, through: :holdings, as: :keynotes
 
