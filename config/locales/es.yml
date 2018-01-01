@@ -12,6 +12,23 @@ es:
     login:  "Iniciar Sesión"
     logout: "Cerrar Sesión"
     signup: "Únete"
+
+  category:
+    show: "Mostrar"
+    new: "Nueva"
+    destroy: "Borrar"
+    edit: "Editar"
+    create: "Crear una nueva categoría"
+    delete: "Estas seguro de borrar esta categoría?" 
+
+  activerecord:
+    models:
+      category:
+        one: "Categoría"
+        other: "Categorias"  
+        newpost: "Nueva categoría"
+      attributes:  
+        name: "Nombre" 
     omniauth:     "Entrar con"
     password:     "¿Has olvidado tu contraseña?"
     confirmation: "¿No has recibido las instrucciones de confirmación?"
