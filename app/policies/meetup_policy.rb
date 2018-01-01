@@ -15,7 +15,7 @@ class MeetupPolicy
   end
 
   def vote?
-    !@meetup.nil? && \
+    !@meetup.nil? && !@user.nil? &&\
       !@meetup.assistances.where(user_id: @user.id).exists?
   end
 
@@ -28,14 +28,14 @@ class MeetupPolicy
   end
 
   def add_host?
-    !@user.nil? && \
+    !@user.nil? && !@user.nil? && \
       (!@meetup.persisted? || \
       @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?)
   end
 
   # admin or mod
   def update?
-    !@user.nil? && \
+    !@user.nil? && !@user.nil? && \
       @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 2).exists?
   end
 
@@ -45,7 +45,7 @@ class MeetupPolicy
 
   # only admin
   def destroy?
-    !@user.nil? && \
+    !@user.nil? && !@user.nil? && \
       @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?
   end
 end

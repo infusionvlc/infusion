@@ -15,7 +15,7 @@ class CategoryPolicy
   end
 
   def create?
-    !@user.nil? && user.admin?
+    !@user.nil? && @user.admin?
   end
 
   def new?
@@ -23,7 +23,7 @@ class CategoryPolicy
   end
 
   def update?
-    !@user.nil? && user.admin?
+    !@user.nil? && @user.admin?
   end
 
   def edit?

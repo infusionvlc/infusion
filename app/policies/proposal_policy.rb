@@ -15,7 +15,7 @@ class ProposalPolicy
   end
 
   def vote?
-    !@proposal.nil? && \
+    !@proposal.nil? && !@user.nil? && \
       !@proposal.votes.where(user_id: @user.id).exists?
   end
 
@@ -28,7 +28,7 @@ class ProposalPolicy
   end
 
   def update?
-    !@user.nil? && \
+    !@user.nil? && !@user.nil? && \
       @proposal.user = @user
   end
 
