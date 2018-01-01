@@ -2,6 +2,12 @@ es:
   nav:
     home: "Inicio"
 
+  main:
+    pundit_error:  "Parece que no puedes hacer eso"
+    add:           "Añadir"
+    remove:        "Eliminar"
+    allowed_files: "Se permiten archivos de texto, vídeo, imagen, audio, pdf y zip"
+
   user:
     login:  "Iniciar Sesión"
     logout: "Cerrar Sesión"
@@ -23,3 +29,60 @@ es:
         newpost: "Nueva categoría"
       attributes:  
         name: "Nombre" 
+    omniauth:     "Entrar con"
+    password:     "¿Has olvidado tu contraseña?"
+    confirmation: "¿No has recibido las instrucciones de confirmación?"
+    unlock:       "¿No has recibido las instrucciones de desbloqueo?"
+
+  meetup:
+    host_yours:             "Organiza un Meetup"
+    call_to_action:         "¿Quieres venir a este meetup? ¡Vótalo!"
+    call_to_action_no_user: "¿Quieres venir a este meetup? ¡Inicia sesión y vótalo!"
+    vote:                   "Votar"
+    already_voted:          "Ya has votado por este meetup. ¡Te avisaremos por email cuando se confirme!"
+    votes:
+      one:                  "1 voto"
+      other:                "%{count} votos"
+    assistants:
+      one:                  "1 asistente"
+      other:                "%{count} asistentes"
+    edit:                   "Actualizar información"
+    destroy:                "Cancelar Meetup"
+
+  activerecord:
+    models:
+      user: "Usuario"
+      meetup: "Meetup"
+    attributes:
+      meetup:
+        title: "Título"
+        description:  "Descripción"
+        requirements: "Requisitos"
+        date:         "Fecha"
+        start:        "Hora de inicio"
+        end:          "Hora de finalización"
+        attachments:  "Ficheros adjuntos"
+        photos:       "Fotos"
+        holdings:
+          one:        "Organizador"
+          other:      "Organizadores"
+      holding:
+        user_id:      "User"
+      attachment:
+        file_content_type:
+          invalid:    "Uno de los archivos no se ha podido subir. Comprueba que esté entre los tipos de fichero permitidos"
+      photo:
+        file_content_type:
+          invalid:    "Uno de los archivos no se ha podido subir. Comprueba que tus fotos son ficheros de imagen"
+    errors:
+      messages:
+        blank: "%{attribute} no puede estar en blanco"
+      template:
+        header:
+          one: "Parece que hay un problema con lo que nos has dicho"
+          other: "Parece que hay %{count} problemas con lo que nos has dicho"
+
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Guardar cambios"

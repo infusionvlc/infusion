@@ -10,14 +10,17 @@ class User < ApplicationRecord
   has_many :assistances
   has_many :meetups, through: :assistances
 
+  has_attached_file :avatar
+  validates_attachment_content_type :avatar, content_type: /\Aimage/
+
   attr_accessor :login
 
   def self.create_with_omniauth(auth)
     email = auth[:info][:email] || 'change@me.please'
     name = auth[:info][:nickname]
     create(email: email, username: name, password: Devise.friendly_token[0,20])
-  end 
-  
+  end
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

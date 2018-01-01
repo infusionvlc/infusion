@@ -20,9 +20,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/"><%= fa_icon 'home' %> <%= I18n.t 'nav.home' %></a>
           </li>
-          <% if current_user %>
+          <li class="nav-item">
+            <%= link_to meetups_path, {class: "nav-link"} do %><%= fa_icon 'calendar-o' %> Meetups<% end %>
+          </li>
+          <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out-alt' %> <%= I18n.t 'user.logout' %><% end %>
+              <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out' %> <%= I18n.t 'user.logout' %><% end %>
             </li>
           <% else %>
             <li class="nav-item">
@@ -35,12 +38,15 @@
       </div>
     </nav>
     <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>">
-            <%= value %>
+      <div class="alert alert-<%= flash_class(key) %>" role="alert">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <%= value %>
       </div>
     <% end %>
     <div class="container">
       <%= yield %>
     </div>
+    <hr/>
+    <p class="text-center">Made with ❤ by INFUSIÓN - 2018</p>
   </body>
 </html>

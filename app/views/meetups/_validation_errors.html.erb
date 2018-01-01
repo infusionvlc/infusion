@@ -1,0 +1,12 @@
+<%= form_for(@meetup) do |f| %>
+  <% if @meetup.errors.any? %>
+    <div class="alert alert-danger">
+      <p class="lead"><%= I18n.t 'activerecord.errors.template.header', count: @meetup.errors.size %></p>
+      <% @meetup.errors.messages.values.each do |msg| %>
+        <% msg.each do |text| %>
+          <p><%= text %></p>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

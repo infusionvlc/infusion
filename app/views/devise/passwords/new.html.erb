@@ -5,17 +5,19 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
 
   <div>
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions", class:"btn btn-primary" %>
   </div>
 <% end %>
+
+<hr/>
 
 <%= render "devise/shared/links" %>

@@ -1,0 +1,16 @@
+<div class="nested-fields card">
+  <div class="field card-body">
+  <%= f.label :user_id %>
+  <div class="form-group row">
+    <div class="col-sm-11">
+      <%= f.select(:user_id, User.all.where.not(id: current_user.id).reject { |u| %>
+                          <%   @meetup.hosts.include? u %>
+                          <% }.collect {|u| [u.username, u.id]}, {}, {class:'form-control'}) %>
+      </div>
+      <div class="col-sm-1">
+        <%= link_to_remove_association f, {class:'btn btn-danger', aria: {label:"#{I18n.t 'main.remove'}"}} do %><%= fa_icon 'times' %><% end %>
+      </div>
+    </div>
+    <%= f.select(:role, [["Admin", 0],["Mod", 1], ["Plain", 2]], {}, {class:'form-control'}) %>
+  </div>
+</div>

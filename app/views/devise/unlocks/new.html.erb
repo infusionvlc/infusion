@@ -5,12 +5,14 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
+    <%= f.submit "Resend unlock instructions", class:"btn btn-primary" %>
   </div>
 <% end %>
+
+<hr/>
 
 <%= render "devise/shared/links" %>
