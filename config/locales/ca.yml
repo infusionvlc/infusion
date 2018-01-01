@@ -10,10 +10,10 @@ ca:
   category:
     show: "Mostrar"
     new: "Nova"
-    destroy: "Esborrar"
+    destroy: "Eliminar"
     edit: "Editar"
     create: "Crear una nova categoria"
-    delete: "Estas segur d'esborrar aquesta categoria?" 
+    delete: "Estas segur d'eliminar aquesta categoria?" 
 
   activerecord:
     models:
