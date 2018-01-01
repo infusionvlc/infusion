@@ -45,6 +45,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     rescue StandardError
       redirect_to_path(categories_path)
+    end
   end
 
   def ok_status
