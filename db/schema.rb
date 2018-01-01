@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20180101113826) do
     t.index ["user_id"], name: "index_assistances_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_meetups", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "meetup_id", null: false
+
   create_table "attachments", force: :cascade do |t|
     t.bigint "meetup_id"
     t.datetime "created_at", null: false

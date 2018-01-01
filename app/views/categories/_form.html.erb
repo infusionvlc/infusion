@@ -1,0 +1,12 @@
+<%= form_for(@category) do |form| %>
+
+<p>
+  <%= form.label (I18n.t 'category.create') %><br>
+  <%= form.text_field :name %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>

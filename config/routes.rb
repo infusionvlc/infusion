@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :categories 
+
   resources :meetups do
     member do
       post 'vote'

@@ -121,6 +121,24 @@ ca:
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
     signup: "Uneix-te"
+
+  category:
+    show: "Mostrar"
+    new: "Nova"
+    destroy: "Eliminar"
+    edit: "Editar"
+    create: "Crear una nova categoria"
+    delete: "Estas segur d'eliminar aquesta categoria?" 
+
+  activerecord:
+    models:
+      category:
+        one: "Categoria"
+        other: "Categories"  
+        newpost: "Nova categoria"
+      attributes:  
+        name: "Nom"      
+        
     omniauth:     "Entrar amb"
     password:     "Has oblidat la teua clau?"
     confirmation: "No has rebut les instruccions de confirmació?"
