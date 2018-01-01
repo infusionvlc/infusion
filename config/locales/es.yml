@@ -122,6 +122,10 @@ es:
     login:  "Iniciar Sesión"
     logout: "Cerrar Sesión"
     signup: "Únete"
+    omniauth:     "Entrar con"
+    password:     "¿Has olvidado tu contraseña?"
+    confirmation: "¿No has recibido las instrucciones de confirmación?"
+    unlock:       "¿No has recibido las instrucciones de desbloqueo?"
 
   category:
     show: "Mostrar"

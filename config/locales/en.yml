@@ -121,6 +121,10 @@ en:
     login:  "Log in"
     logout: "Log out"
     signup: "Sign up"
+    omniauth:     "Sign in with"
+    password:     "Forgot your password?"
+    confirmation: "Didn't receive confirmation instructions?"
+    unlock:       "Didn't receive unlock instructions?"
 
   category:
     show: "Show"
