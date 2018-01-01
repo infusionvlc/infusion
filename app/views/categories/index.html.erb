@@ -5,18 +5,18 @@
 
 <table>
   <tr>
-    <th><%=I18n.t act + '.title'%></th>
+    <th><%=I18n.t 'activerecord.models.attributes.name'%></th>
     <th></th>
   </tr>
  
   <% @categories.each do |category| %>
     <tr>
       <td><h2><%= category.name.capitalize %></h2></td>
-      <td><%= link_to (I18n.t act + '.show'), category_path(category) %></td>
-      <td><%= link_to (I18n.t act + '.edit'), edit_category_path(category) %></td>
-      <td><%= link_to (I18n.t act + '.destroy'), category_path(category),
+      <td><%= link_to (I18n.t 'category.show'), category_path(category) %></td>
+      <td><%= link_to (I18n.t 'category.edit'), edit_category_path(category) %></td>
+      <td><%= link_to (I18n.t 'category.destroy'), category_path(category),
               method: :delete,
-              data: { confirm: (I18n.t act + '.delete') } %></td>
+              data: { confirm: (I18n.t 'category.delete') } %></td>
     </tr>
   <% end %>
 </table>

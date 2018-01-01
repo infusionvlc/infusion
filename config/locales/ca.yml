@@ -7,16 +7,20 @@ ca:
     logout: "Finalitzar Sessió"
     signup: "Uneix-te"
 
+  category:
+    show: "Mostrar"
+    new: "Nova"
+    destroy: "Esborrar"
+    edit: "Editar"
+    create: "Crear una nova categoria"
+    delete: "Estas segur d'esborrar aquesta categoria?" 
+
   activerecord:
     models:
       category:
-        one: Categoria
-        other: Categories
-        delete: Estas segur d'esborrar aquesta categoria? 
-        title: Titol
-        show: Mostra
-        edit: Edita
-        destroy: Esborra
-        new: Nova
-        create: Crea una nova categoria 
-        newpost: Nova categoria
+        one: "Categoria"
+        other: "Categories"  
+        newpost: "Nova categoria"
+      attributes:  
+        name: "Nom"      
+        

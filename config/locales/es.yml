@@ -7,16 +7,19 @@ es:
     logout: "Cerrar Sesión"
     signup: "Únete"
 
+  category:
+    show: "Mostrar"
+    new: "Nueva"
+    destroy: "Borrar"
+    edit: "Editar"
+    create: "Crear una nueva categoría"
+    delete: "Estas seguro de borrar esta categoría?" 
+
   activerecord:
     models:
       category:
-        one: Categoría
-        other: Categorias
-        delete: ¿Estás seguro de que quieres borrar esta categoría?
-        title: Título
-        show: Mostrar
-        edit: Editar
-        destroy: Borrar
-        new: Nuevo
-        create: Nombre nuevo para una categoría
-        newpost: Crear nueva categoría
+        one: "Categoría"
+        other: "Categorias"  
+        newpost: "Nueva categoría"
+      attributes:  
+        name: "Nombre" 
