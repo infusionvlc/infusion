@@ -29,7 +29,8 @@ class MeetupPolicy
 
   def add_host?
     !@user.nil? && \
-      @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?
+      (!@meetup.persisted? || \
+      @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?)
   end
 
   # admin or mod

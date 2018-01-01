@@ -30,7 +30,7 @@
         <%= link_to proposal.title, proposal %>
       </h2>
       <hr/>
-      <p><%= sanitize(truncate(proposal.title, length: 256)) %></p>
+      <p><%= sanitize(truncate(proposal.description, length: 256)) %></p>
       <% if policy(proposal).vote? %>
         <%= link_to vote_proposal_path(proposal), method: :post, class:'btn btn-primary right' do %>
           <%= I18n.t 'main.vote' %>

@@ -97,11 +97,11 @@ class MeetupsController < ApplicationController
       :date,
       :start,
       :end,
-      holdings_attributes:    [:id, :user_id,
-                               :role, :_destroy],
+      holdings_attributes:    [:id, :user_id, :role, :_destroy],
       photos_attributes:      [:id, :file,
                                :attribution, :meetup_id, :_destroy],
-      attachments_attributes: [:id, :file, :meetup_id, :_destroy]
+      attachments_attributes: [:id, :file, :meetup_id, :_destroy],
+      category_ids: []
     )
   end
 end

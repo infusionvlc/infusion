@@ -1,5 +1,5 @@
 module MeetupsHelper
-  def votes(meetup)
+  def meetup_votes(meetup)
     count = meetup.assistances.size
     if meetup.date.nil?
       I18n.t 'meetup.votes', count: count

@@ -15,8 +15,14 @@ class User < ApplicationRecord
   has_many :assistances
   has_many :meetups, through: :assistances
 
+  has_one :role
+
   has_attached_file :avatar
   validates_attachment_content_type :avatar, content_type: /\Aimage/
+
+  def admin?
+    role_id == Role.find_by_name('Admin')
+  end
 
   attr_accessor :login
 

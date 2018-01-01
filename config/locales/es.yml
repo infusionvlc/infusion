@@ -129,20 +129,8 @@ es:
     destroy: "Borrar"
     edit: "Editar"
     create: "Crear una nueva categoría"
-    delete: "Estas seguro de borrar esta categoría?" 
-
-  activerecord:
-    models:
-      category:
-        one: "Categoría"
-        other: "Categorias"  
-        newpost: "Nueva categoría"
-      attributes:  
-        name: "Nombre" 
-    omniauth:     "Entrar con"
-    password:     "¿Has olvidado tu contraseña?"
-    confirmation: "¿No has recibido las instrucciones de confirmación?"
-    unlock:       "¿No has recibido las instrucciones de desbloqueo?"
+    delete: "Estas seguro de borrar esta categoría?"
+    no_meetups: "No hay meetups en esta categoría"
 
   votable: &votable
     votes:
@@ -176,13 +164,19 @@ es:
       proposal:
         one:   "Propuesta"
         other: "Propuestas"
+      category:
+        one:   "Categoría"
+        other: "Categorias"
     attributes:
       common: &common
         title:        "Título"
         description:  "Descrición"
+      category:
+        name:         "Nombre"
       meetup:
         <<: *common
         requirements: "Requisitos"
+        categories:   "Categorias"
         date:         "Fecha"
         start:        "Hora de inicio"
         end:          "Hora de finalización"

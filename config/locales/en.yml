@@ -129,19 +129,7 @@ en:
     edit: "Edit"
     create: "Create a new category"
     delete: Do you want to delete this category?
-
-  activerecord:
-    models:
-      category:
-        one: "Category"
-        other: "Categories"  
-        newpost: "New category"
-      attributes:  
-        name: "Name" 
-    omniauth:     "Sign in with"
-    password:     "Forgot your password?"
-    confirmation: "Didn't receive confirmation instructions?"
-    unlock:       "Didn't receive unlock instructions?"
+    no_meetups: "There are no meetups in this category"
 
   votable: &votable
     votes:
@@ -166,16 +154,28 @@ en:
 
   activerecord:
     model:
-      user:     "User"
-      meetup:   "Meetup"
-      proposal: "Proposal"
+      user:
+        one:   "User"
+        other: "Users"
+      meetup:
+        one:   "Meetup"
+        other: "Meetups"
+      proposal:
+        one:   "Proposal"
+        other: "Proposals"
+      category:
+        one:   "Category"
+        other: "Categories"
     attributes:
       common: &common
         title:        "Title"
         description:  "Description"
+      category:
+        name:         "Name"
       meetup:
         <<: *common
         requirements: "Requirements"
+        categories:   "Categories"
         date:         "Date"
         start:        "Start time"
         end:          "End time"

@@ -1,23 +1,16 @@
+<%= link_to new_category_path, class:'btn btn-primary right' do %>
+  <%= fa_icon 'plus' %> <%= I18n.t 'main.add' %>
+<% end %>
 
-<% act = 'activerecord.models.category' %>
+<h1><%= I18n.t 'activerecord.model.category.other' %></h1>
 
-<h1><%= I18n.t act + '.other' %></h1>
-
-<table>
-  <tr>
-    <th><%=I18n.t 'activerecord.models.attributes.name'%></th>
-    <th></th>
-  </tr>
- 
-  <% @categories.each do |category| %>
-    <tr>
-      <td><h2><%= category.name.capitalize %></h2></td>
-      <td><%= link_to (I18n.t 'category.show'), category_path(category) %></td>
-      <td><%= link_to (I18n.t 'category.edit'), edit_category_path(category) %></td>
-      <td><%= link_to (I18n.t 'category.destroy'), category_path(category),
-              method: :delete,
-              data: { confirm: (I18n.t 'category.delete') } %></td>
-    </tr>
-  <% end %>
-</table>
-<%= button_to (I18n.t act + '.newpost'), { :action => 'new' }, :method => :get %>
+<% @categories.each do |category| %>
+  <div class="card">
+    <div class="card-body">
+      <%=link_to category do %><h2><%= category.name %></h2><% end %>
+    </div>
+    <div class="card-footer">
+      <%= category.meetups.count %> Meetups
+    </div>
+  </div>
+<% end %>

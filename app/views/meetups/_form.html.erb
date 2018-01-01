@@ -1,9 +1,14 @@
 <%= form_for(@meetup, :html => { multipart: true }) do |f| %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  <div class="row">
+    <div class="field col">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+    </div><br/>
+    <div class="field col">
+    <%= f.label :categories %><br />
+    <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, multiple: true, class: 'form-control' %>
   </div><br/>
+  </div>
 
   <div class="field">
     <%= f.label :description %><br />

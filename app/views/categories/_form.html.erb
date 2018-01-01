@@ -1,12 +1,10 @@
-<%= form_for(@category) do |form| %>
-
-<p>
-  <%= form.label (I18n.t 'category.create') %><br>
-  <%= form.text_field :name %>
-</p>
-
-<p>
-  <%= form.submit %>
-</p>
-
+<%= form_for(@category) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class:'form-control' %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>

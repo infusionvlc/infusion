@@ -128,21 +128,8 @@ ca:
     destroy: "Eliminar"
     edit: "Editar"
     create: "Crear una nova categoria"
-    delete: "Estas segur d'eliminar aquesta categoria?" 
-
-  activerecord:
-    models:
-      category:
-        one: "Categoria"
-        other: "Categories"  
-        newpost: "Nova categoria"
-      attributes:  
-        name: "Nom"      
-        
-    omniauth:     "Entrar amb"
-    password:     "Has oblidat la teua clau?"
-    confirmation: "No has rebut les instruccions de confirmació?"
-    unlock:       "No has rebut les instruccions per desbloquetjar el teu perfil?"
+    delete: "Estas segur d'eliminar aquesta categoria?"
+    no_meetups: "No n'hi ha meetups en aquesta categoría"
 
   votable: &votable
     votes:
@@ -176,13 +163,19 @@ ca:
       proposal:
         one:   "Proposta"
         other: "Propostes"
+      category:
+        one:   "Categoria"
+        other: "Categoríes"
     attributes:
       common: &common
         title: "Títol"
         description:  "Descripció"
+      category:
+        name:         "Nom"
       meetup:
         <<: *common
         requirements: "Requeriments"
+        categories:   "Categories"
         date:         "Data"
         start:        "Hora d'inici"
         end:          "Hora de finalització"

@@ -1,5 +1,5 @@
 module ProposalsHelper
-  def votes(proposal)
+  def proposal_votes(proposal)
     count = proposal.votes.size
     I18n.t 'proposal.votes', count: count
   end
