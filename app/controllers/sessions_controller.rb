@@ -1,36 +1,34 @@
 class SessionsController < ApplicationController
-  
+
   def create
     auth = request.env['omniauth.auth']
     @identity = Identity.find_with_omniauth(auth)
-  
+
     if @identity.nil?
       @identity = Identity.create_with_omniauth(auth)
     end
-  
+
     if current_user
-      puts "signed in"
       if @identity.user == current_user
-        puts "already linked"
         redirect_to root_url, notice: "Already linked that account!"
       else
-        puts "linking to user"
         @identity.user = current_user
         @identity.save
         redirect_to root_url, notice: "Successfully linked that account!"
       end
     else
-      puts "new session"
       if @identity.user.present?
-        puts "just logging in"
         sign_in @identity.user
         redirect_to root_url, notice: "Signed in!"
       else
-        puts "new user"
-        @identity.user = User.create_with_omniauth(auth)
-        @identity.save
-        sign_in @identity.user
-        redirect_to root_url, notice: "Welcome!"
+        if User.find_by_email(auth[:info][:email])
+          redirect_to root_url, flash: { error: "Another user account exists with your associated email! Please log in to link your social account" }
+        else
+          @identity.user = User.create_with_omniauth(auth)
+          @identity.save
+          sign_in @identity.user
+          redirect_to root_url, notice: "Welcome!"
+        end
       end
     end
   end

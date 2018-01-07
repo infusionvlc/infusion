@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :identities
+  has_many :identities, dependent: :destroy
 
   has_many :proposals
 
@@ -28,8 +28,14 @@ class User < ApplicationRecord
 
   def self.create_with_omniauth(auth)
     email = auth[:info][:email] || 'change@me.please'
-    name = auth[:info][:nickname]
-    create(email: email, username: name, password: Devise.friendly_token[0,20])
+    username = auth[:info][:nickname] || self.generate_username(auth[:info][:name])
+    if self.find_by_username(username)
+      name = username + '_' + auth[:provider]
+    else
+      name = username
+    end
+
+    create(email: email, username: name, password: Devise.friendly_token[0,20], role_id: 1)
   end
 
   def self.find_first_by_auth_conditions(warden_conditions)
@@ -44,4 +50,14 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def self.generate_username(fullname)
+    ActiveSupport::Inflector.transliterate(fullname)
+      .downcase.strip
+      .gsub(/[^a-z]/, '_')
+      .gsub(/\A_+/, '')
+      .gsub(/_+\Z/, '')
+      .gsub(/_+/, '_')
+  end
+
 end
