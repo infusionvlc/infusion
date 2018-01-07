@@ -126,6 +126,12 @@ ca:
     confirmation: "No has rebut les instruccions de confirmació?"
     unlock:       "No has rebut les instruccions per desbloquetjar el teu perfil?"
 
+    already_linked: "Eixe compte ja està vinculat"
+    linked:         "Compte vinculat!"
+    logged_in:      "Has iniciat sessió!"
+    signed_up:      "Benvingut!"
+    error_sign_up:  "N'hi ha un altre compte amb l'email associat a aquesta red social! Per favor, inicia sessió per vincular-la"
+
   category:
     show: "Mostrar"
     new: "Nova"

@@ -127,6 +127,12 @@ es:
     confirmation: "¿No has recibido las instrucciones de confirmación?"
     unlock:       "¿No has recibido las instrucciones de desbloqueo?"
 
+    already_linked: "Esa cuenta ya está vinculada"
+    linked:         "¡Cuenta vinculada!"
+    logged_in:      "¡Hola de nuevo!"
+    signed_up:      "¡Bienvenido!"
+    error_sign_up:  "¡Hay otra cuenta de usuario con el email asociado a esa red social! Por favor, inicia sesión para vincular esta cuenta"
+
   category:
     show: "Mostrar"
     new: "Nueva"

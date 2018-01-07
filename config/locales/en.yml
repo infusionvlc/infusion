@@ -126,6 +126,12 @@ en:
     confirmation: "Didn't receive confirmation instructions?"
     unlock:       "Didn't receive unlock instructions?"
 
+    already_linked: "Already linked that account"
+    linked:         "Successfully linked that account!"
+    logged_in:      "Signed in!"
+    signed_up:      "Welcome!"
+    error_sign_up:  "Another user account exists with your associated email! Please log in to link your social account"
+
   category:
     show: "Show"
     new: "New"
