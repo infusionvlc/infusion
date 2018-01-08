@@ -109,8 +109,8 @@ es:
       year: Año
 
   main:
-    ago:           "Hace"
     add:           "Añadir"
+    assist:        "Estuve en este meetup"
     edit:          "Editar"
     delete:        "Eliminar"
     remove:        "Eliminar"
@@ -152,12 +152,17 @@ es:
     <<: *votable
     host_yours:             "Organiza un Meetup"
     call_to_action:         "¿Quieres venir a este meetup? ¡Vótalo!"
+    call_to_action_assist:  "¿Viniste a este Meetup? ¡Apunta tu asistencia y danos tu opinión más abajo!"
     call_to_action_no_user: "¿Quieres venir a este meetup? ¡Inicia sesión y vótalo!"
+    call_to_action_no_user_assist: "¿Viniste a este Meetup? ¡Inicia sesión y danos tu opinión!"
     assistants:
       one:                  "1 asistente"
       other:                "%{count} asistentes"
     edit:                   "Actualizar información"
     destroy:                "Cancelar Meetup"
+    review:                 "¡Cuéntanos qué piensas!"
+    reviews:                "Opiniones"
+    no_reviews:             "Parece que no hay ninguna opinión aún"
 
   proposal:
     <<: *votable

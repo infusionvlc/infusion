@@ -5,12 +5,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :categories 
+  resources :categories
 
   resources :meetups do
     member do
       post 'vote'
     end
+    resources :assistances
   end
 
   resources :proposals do

@@ -36,6 +36,44 @@
         </div>
       <% end %>
     <% end %>
+    <h2><%= I18n.t 'meetup.reviews' %></h2>
+    <% if @reviews.count == 0 %>
+      <p><%= I18n.t 'meetup.no_reviews' %></p>
+    <% end %>
+    <% if policy(@meetup).comment? %>
+      <div class="card">
+        <div class="card-body">
+          <h3><%= I18n.t 'meetup.review' %></h3>
+          <%= form_for [@meetup, @meetup.assistances.find_by_user_id(current_user.id)] do |f| %>
+            <div class="row">
+              <div class="field col-2">
+                <%= f.label :mark %><br />
+                <%= f.select :mark, [0,1,2,3,4,5], {}, class: 'form-control' %>
+              </div><br/>
+              <div class="field col-10">
+                <%= f.label :review %><br />
+                <%= f.text_field :review, autofocus: true, class: 'form-control' %>
+              </div><br/>
+            </div><br/>
+            <%= f.submit class: 'btn btn-primary right' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% @reviews.each do |review| %>
+      <div class="card">
+        <div class="card-body">
+          <% if policy(review).edit? %>
+            <%= link_to edit_meetup_assistance_path(@meetup, review), class:'right' do %><%= fa_icon 'pencil' %><% end %>
+          <% end %>
+          <h5 class="card-title"><span class="badge badge-pill badge-info"><%= review.mark %> <%= fa_icon 'star' %></span></h5>
+          <p class="card-text"><%= review.review %></p>
+        </div>
+        <div class="card-footer text-muted">
+          <%= review.user.username %> | <%= time_ago_in_words(review.updated_at) %>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="col-md-4 col-sm-12 card">
     <div class="card-body">
@@ -55,6 +93,14 @@
         <hr/>
         <h2><%= I18n.t 'activerecord.attributes.meetup.end' %></h2>
         <p><%= @meetup.end %></p>
+        <hr/>
+        <% if policy(@meetup).vote? %>
+          <p><%= I18n.t 'meetup.call_to_action_assist' %></p>
+          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assist' %><% end %>
+        <% elsif !user_signed_in? %>
+          <p><%= I18n.t 'meetup.call_to_action_no_user_assist' %></p>
+          <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+        <% end %>
       <% else %>
         <% if policy(@meetup).vote? %>
           <p><%= I18n.t 'meetup.call_to_action' %></p>

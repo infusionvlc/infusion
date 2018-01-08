@@ -28,14 +28,20 @@ class MeetupPolicy
   end
 
   def add_host?
-    !@user.nil? && !@user.nil? && \
+    !@user.nil? && \
       (!@meetup.persisted? || \
       @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?)
   end
 
+  def comment?
+    !@user.nil? && \
+      @meetup.assistances.where('user_id = ? AND review IS NULL', @user.id).exists? && \
+      !@meetup.nil? && @meetup.date <= Date.today
+  end
+
   # admin or mod
   def update?
-    !@user.nil? && !@user.nil? && \
+    !@user.nil? && \
       @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 2).exists?
   end
 

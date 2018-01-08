@@ -11,6 +11,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/1.json
   def show
     authorize @meetup
+    @reviews = @meetup.assistances.where.not(review: nil)
   end
 
   # POST /meetups/1/vote

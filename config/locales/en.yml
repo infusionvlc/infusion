@@ -110,6 +110,7 @@ en:
 
   main:
     add:           "Add"
+    assist:        "He asistido"
     edit:          "Editar"
     delete:        "Delete"
     remove:        "Remove"
@@ -151,12 +152,17 @@ en:
     <<: *votable
     host_yours:             "Host your own meetup"
     call_to_action:         "Do you want to attend to this meetup? Vote for it!"
+    call_to_action_assist:  "Did you attend to this meetup and want to leave a review? Just let us know you were here and comment below"
     call_to_action_no_user: "Do you want to attend to this meetup? Log in and vote for it!"
+    call_to_action_no_user_assist: "Did you attend to this meetup and want to leave a review? Login first, please!"
     assistants:
       one:                  "1 assistant"
       other:                "%{count} assistants"
     edit:                   "Update meetup information"
     destroy:                "Cancel Meetup"
+    review:                 "Give us your thoughts!"
+    reviews:                "Reviews"
+    no_reviews:             "It looks like there's no review yet"
 
   proposal:
     <<: *votable
