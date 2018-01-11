@@ -51,6 +51,7 @@ GEM
       jmespath (~> 1.0)
     aws-sdk-resources (2.3.22)
       aws-sdk-core (= 2.3.22)
+    bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
     bootstrap (4.0.0.beta2.1)
@@ -93,6 +94,7 @@ GEM
     execjs (2.7.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
+    ffi (1.9.18)
     ffi (1.9.18-x86-mingw32)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
@@ -149,6 +151,8 @@ GEM
     multipart-post (2.0.0)
     nenv (0.3.0)
     nio4r (2.1.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     nokogiri (1.8.1-x86-mingw32)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
@@ -193,6 +197,7 @@ GEM
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
+    pg (0.21.0)
     pg (0.21.0-x86-mingw32)
     popper_js (1.12.9)
     powerpack (0.1.1)
@@ -301,6 +306,7 @@ GEM
       nokogiri (~> 1.3)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
