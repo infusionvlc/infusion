@@ -2,6 +2,12 @@ en:
   nav:
     home: "Home"
 
+  meetup_mailer:
+    greeting: "Hey, %{user}!"
+    subscribed_to:
+      subject: "You just suscribed to %{meetup}"
+      body:    "You are now suscribed to the meetup called %{meetup}. We will send you another email when we schedule a date for it!"
+
   helpers:
     submit:
       create: "Create %{model}"

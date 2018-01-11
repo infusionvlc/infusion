@@ -10,6 +10,7 @@ class AssistancesController < ApplicationController
     def create
       @assistance = Assistance.new(assistance_params)
       if @assistance.save
+        MeetupMailer.subscribed_to(@assistance.meetup, current_user).deliver
         ok_status
       else
         error_status
