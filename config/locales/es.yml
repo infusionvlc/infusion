@@ -150,6 +150,9 @@ es:
     delete: "Estas seguro de borrar esta categoría?"
     no_meetups: "No hay meetups en esta categoría"
 
+  report:
+    report: "Reportar"
+
   votable: &votable
     votes:
       one:                  "1 voto"

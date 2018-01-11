@@ -1,4 +1,5 @@
 class Meetup < ApplicationRecord
+  has_many :reports, as: :reportable
   has_many :holdings, dependent: :destroy
   has_many :hosts, through: :holdings, source: :user
 
