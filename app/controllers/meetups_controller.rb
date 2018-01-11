@@ -7,6 +7,12 @@ class MeetupsController < ApplicationController
     @meetups = Meetup.all.where(date: :not_null)
   end
 
+  # GET /call_for_talks
+  # GET /call_for_talks.json
+  def call_for_talks
+    @meetups = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC')
+  end
+
   # GET /meetups/1
   # GET /meetups/1.json
   def show
@@ -19,7 +25,7 @@ class MeetupsController < ApplicationController
   def vote
     authorize @meetup
     @meetup.assistances.create(user_id: current_user.id)
-    redirect_to(meetup_path(@meetup))
+    redirect_back(fallback_location: meetup_path(@meetup), alert: 'Tu voto ha sido registrado')
   end
 
   # GET /meetups/new

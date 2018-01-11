@@ -24,6 +24,9 @@
             <%= link_to meetups_path, {class: "nav-link"} do %><%= fa_icon 'calendar-o' %> Meetups<% end %>
           </li>
           <li class="nav-item">
+          <%= link_to call_for_talks_path, {class: "nav-link"} do %><%= fa_icon 'arrow-up' %> Call For Talks<% end %>
+        </li>
+          <li class="nav-item">
           <%= link_to proposals_path, {class: "nav-link"} do %><%= fa_icon 'lightbulb-o' %> <%= I18n.t 'activerecord.model.proposal', count: 2 %><% end %>
         </li>
           <% if user_signed_in? %>
