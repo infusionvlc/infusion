@@ -119,13 +119,21 @@ es:
     pundit_error:  "Parece que no puedes hacer eso"
 
   user:
+    about:  "Sobre mí"
+    change_password: "Cambiar contraseña"
     login:  "Iniciar Sesión"
     logout: "Cerrar Sesión"
+    member_since: "Miembro desde el %{date}"
     signup: "Únete"
     omniauth:     "Entrar con"
     password:     "¿Has olvidado tu contraseña?"
     confirmation: "¿No has recibido las instrucciones de confirmación?"
     unlock:       "¿No has recibido las instrucciones de desbloqueo?"
+    edit:         "Editar perfil"
+    profile:      "Perfil"
+    my_profile:   "Yo"
+    cancel:       "Eliminar cuenta"
+    cancel_descr: "No nos gusta verte marchar, pero si estás segur@ de que quieres eliminar tu cuenta pulsa el botón rojo. Te echaremos de menos :("
 
     already_linked: "Esa cuenta ya está vinculada"
     linked:         "¡Cuenta vinculada!"
@@ -210,9 +218,16 @@ es:
       photo:
         file_content_type:
           invalid:    "Uno de los archivos no se ha podido subir. Comprueba que tus fotos son ficheros de imagen"
+      user:
+        current_password: "Contraseña actual"
+        password:              "Contraseña"
+        password_confirmation:
+          one: "Confirma tu contraseña"
+        username: "Nombre de usuario"
     errors:
       messages:
         blank: "%{attribute} no puede estar en blanco"
+        confirmation: "La confirmación debe coincidir con tu contraseña"
       template:
         header:
           one: "Parece que hay un problema con lo que nos has dicho"

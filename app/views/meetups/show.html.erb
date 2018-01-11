@@ -36,9 +36,11 @@
         </div>
       <% end %>
     <% end %>
-    <h2><%= I18n.t 'meetup.reviews' %></h2>
-    <% if @reviews.count == 0 %>
-      <p><%= I18n.t 'meetup.no_reviews' %></p>
+    <% if @meetup.date && @meetup.date <= Date.today %>
+      <h2><%= I18n.t 'meetup.reviews' %></h2>
+      <% if @reviews.count == 0 %>
+        <p><%= I18n.t 'meetup.no_reviews' %></p>
+      <% end %>
     <% end %>
     <% if policy(@meetup).comment? %>
       <div class="card">

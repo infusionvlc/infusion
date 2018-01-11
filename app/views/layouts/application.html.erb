@@ -30,6 +30,9 @@
             <li class="nav-item">
               <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out' %> <%= I18n.t 'user.logout' %><% end %>
             </li>
+            <li class="nav-item">
+              <%= link_to "/#{current_user.username}", {class: "nav-link"} do %><%= fa_icon 'user' %> <%= I18n.t 'user.my_profile' %><% end %>
+            </li>
           <% else %>
             <li class="nav-item">
               <%= link_to new_user_session_path, {class: "nav-link"} do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>

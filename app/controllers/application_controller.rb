@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-    
+
   protected
 
   def set_locale
@@ -27,13 +27,13 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    added_attrs = [:username, :email, :bio, :password, :password_confirmation, :remember_me, :avatar]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
   private
-  
+
   def user_not_authorized
     flash[:alert] = I18n.t 'main.pundit_error'
     redirect_to(request.referrer || root_path)

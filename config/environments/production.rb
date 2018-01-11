@@ -65,7 +65,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: config.app_domain }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.serviciodecorreo.es', 
+    address: 'smtp.serviciodecorreo.es',
     port: '465',
     enable_starttls_auto: true,
     user_name: 'hola@infusionvlc.com',
@@ -120,5 +120,5 @@ Rails.application.configure do
       s3_region: ENV['INFUSION_S3_REGION'],
       s3_host_name: ENV['INFUSION_S3_HOST']
     }
-}
+  }
 end

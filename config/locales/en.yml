@@ -119,13 +119,21 @@ en:
     pundit_error:  "It looks like you can't do that"
 
   user:
+    about:  "About me"
+    change_password: "Change password"
     login:  "Log in"
     logout: "Log out"
+    member_since: "Member since #{date}"
     signup: "Sign up"
     omniauth:     "Sign in with"
     password:     "Forgot your password?"
     confirmation: "Didn't receive confirmation instructions?"
     unlock:       "Didn't receive unlock instructions?"
+    edit:         "Edit profile"
+    profile:      "Profile"
+    my_profile:   "Me"
+    cancel:       "Delete account"
+    cancel_descr: "We are sad you're leaving, but if you still want to delete your account press the button below. We will miss you :("
 
     already_linked: "Already linked that account"
     linked:         "Successfully linked that account!"
@@ -210,13 +218,21 @@ en:
       photo:
         file_content_type:
           invalid:    "One of your uploaded files couldn't be uploaded. Check all your photos are image files"
+      user:
+        current_password: "Current password"
+        password:              "Password"
+        password_confirmation:
+          confirmation:        "Password confirmation"
+        username: "Username"
     errors:
       messages:
         blank: "%{attribute} can't be blank"
+        confirmation: "Confirmation must match with your password"
       template:
         header:
           one: "It seems like there's some issue with your info"
           other: "It seems like there are %{count} issues with your info"
+
 
   helpers:
     submit:

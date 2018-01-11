@@ -1,6 +1,20 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.avatar {
+  border-radius: 50%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.avatar-med {
+  max-width: 250px;
+}
+
+.avatar-small {
+  max-width: 100px;
+}
+
 .card {
     margin-bottom: 5px;
 }

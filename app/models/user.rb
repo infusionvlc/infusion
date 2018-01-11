@@ -4,15 +4,15 @@ class User < ApplicationRecord
 
   has_many :identities, dependent: :destroy
 
-  has_many :proposals
+  has_many :proposals, dependent: :destroy
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_many :interests, through: :votes, source: :proposal
 
-  has_many :holdings
-  has_many :meetups, through: :holdings, as: :keynotes
+  has_many :holdings, dependent: :destroy
+  has_many :keynotes, through: :holdings, source: :meetup
 
-  has_many :assistances
+  has_many :assistances, dependent: :destroy
   has_many :meetups, through: :assistances
 
   has_one :role
@@ -22,6 +22,19 @@ class User < ApplicationRecord
 
   def admin?
     role_id == Role.find_by_name('Admin')
+  end
+
+  def average_rating
+    avgs = []
+    self.keynotes.each do |k|
+      marks = k.assistances.where.not(mark: nil).pluck(:id)
+      if marks.count > 0
+        avgs << marks.sum/marks.count
+      end
+    end
+    if avgs.count > 0
+      avgs.sum/avgs.count
+    end
   end
 
   attr_accessor :login

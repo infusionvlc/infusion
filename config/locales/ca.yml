@@ -119,13 +119,21 @@ ca:
     pundit_error:  "Pareix que no pots fer això"
 
   user:
+    about:  "Sobre mi"
+    change_password: "Canviar contrasenya"
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
+    member_since: "Membre des de el #{date}"
     signup: "Uneix-te"
     omniauth:     "Entrar amb"
     password:     "Has oblidat la teua clau?"
     confirmation: "No has rebut les instruccions de confirmació?"
     unlock:       "No has rebut les instruccions per desbloquetjar el teu perfil?"
+    edit:         "Editar perfil"
+    profile:      "Perfil"
+    my_profile:   "Jo"
+    cancel:       "Eliminar compte"
+    cancel_descr: "No ens agrada ver-te marxar, pero si encara vols eliminar el teu compte, prem el botó roig. Et trobarem a faltar :("
 
     already_linked: "Eixe compte ja està vinculat"
     linked:         "Compte vinculat!"
@@ -210,9 +218,16 @@ ca:
       photo:
         file_content_type:
           invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que les fotos siguen fitxers d'imatge"
+      user:
+        current_password: "Contrasenya actual"
+        password:              "Contrasenya"
+        password_confirmation:
+          confirmation:        "Confirma la teua contrasenya"
+        username: "Nom d'usuari"
     errors:
       messages:
         blank: "%{attribute} no pot estar en blanc"
+        confirmation: "La confirmació ha de ser la teua contrasenya"
       template:
         header:
           one: "Pareix que n'hi ha un problema amb el que ens has dit"
