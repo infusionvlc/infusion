@@ -4,15 +4,9 @@
     <%= f.text_field :title, class:'form-control' %>
   </div>
 
-  <% if @reportable_type == "Meetup"%>
-    <%= f.hidden_field :reportable_id,   value: @meetup.id %>
-  <% end %>
+  <%= f.hidden_field :reportable_id,   value: review.id %>
 
-  <% if @reportable_type == "Proposal"%>
-    <%= f.hidden_field :reportable_id,   value: @proposal.id %>
-  <% end %>
-
-  <%= f.hidden_field :reportable_type, value: @reportable_type %>
+  <%= f.hidden_field :reportable_type, value: "Assistance" %>
 
   <div class="field">
     <%= f.label :type %><br>

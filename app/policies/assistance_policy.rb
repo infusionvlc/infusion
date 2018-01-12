@@ -18,6 +18,10 @@ class AssistancePolicy
       !@user.nil?
     end
 
+    def report?
+      @user && !Report.where(reportable_id: @assistance.id, reportable_type: "Assistance", user_id: @user.id).exists?
+    end
+
     def new?
       create?
     end
