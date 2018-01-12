@@ -7,6 +7,9 @@ en:
     subscribed_to:
       subject: "You just suscribed to %{meetup}"
       body:    "You are now suscribed to the meetup called %{meetup}. We will send you another email when we schedule a date for it!"
+    notify_publication:
+      subject: "%{meetup} has been confirmed!"
+      body:    "You were suscribed to the meetup called %{meetup}, which is going to take place on %{date}. We hope you can join us!"
 
   helpers:
     submit:

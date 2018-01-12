@@ -6,7 +6,10 @@ es:
     greeting: "¡Hey, %{user}!"
     subscribed_to:
       subject: "Tu suscripción a %{meetup}"
-      body:    "Ahora es´tas suscrito al meetup %{meetup}. ¡Te mandaremos otro email cuando se conozca la fecha definitiva!"
+      body:    "Ahora estás suscrito al meetup %{meetup}. ¡Te mandaremos otro email cuando se conozca la fecha definitiva!"
+    notify_publication:
+      subject: "¡%{meetup} acaba de ser confirmado!"
+      body:    "Te suscribiste al meetup %{meetup}, que va a tener lugar el %{date}. ¡Te esperamos!"
 
   helpers:
     submit:

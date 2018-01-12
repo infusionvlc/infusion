@@ -60,8 +60,14 @@ class MeetupsController < ApplicationController
   # PATCH/PUT /meetups/1.json
   def update
     authorize @meetup
+    was_not_published = @meetup.date.nil?
     respond_to do |format|
       if @meetup.update(meetup_params)
+        if was_not_published && !@meetup.date.nil?
+          @meetup.assistances.each do |assistance|
+            MeetupMailer.notify_publication(@meetup, assistance.user).deliver
+          end
+        end
         format.html { redirect_to meetup_path(@meetup) }
         format.json { render :show, status: :ok, location: @meetup }
       else
