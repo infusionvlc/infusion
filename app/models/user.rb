@@ -73,4 +73,8 @@ class User < ApplicationRecord
       .gsub(/_+/, '_')
   end
 
+  def send_devise_notification(notification, *args)
+    I18n.with_locale(self.locale) { super(notification, *args) }
+  end
+
 end

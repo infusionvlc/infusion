@@ -2,6 +2,15 @@ ca:
   nav:
     home: "Inici"
 
+  meetup_mailer:
+    greeting: "Hey, %{user}!"
+    subscribed_to:
+      subject: "Subscripció a %{meetup}"
+      body:    "T'has subscrit al meetup %{meetup}. T'enviarem un altre email quan tingam la data definitiva!"
+    notify_publication:
+      subject: "%{meetup} ha sigut confirmat!"
+      body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. ¡T'esperem!"
+
   helpers:
     submit:
       create: "Afegir %{model}"
