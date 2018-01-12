@@ -1,5 +1,5 @@
 class MeetupMailer < ApplicationMailer
-  default from: "hola@infusionvlc.com"
+  default from: "INFUSIÓN <hola@infusionvlc.com>"
 
   def subscribed_to(meetup, user)
     @user = user
@@ -18,7 +18,7 @@ class MeetupMailer < ApplicationMailer
     I18n.with_locale(@user.locale) do
         mail(to: @user.email,
              subject: I18n.t('meetup_mailer.notify_publication.subject', \
-             meetup: @meetup),
+             meetup: @meetup), \
              date: @date)
     end
   end

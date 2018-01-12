@@ -24,6 +24,7 @@ class MeetupsController < ApplicationController
   # POST /meetups/1/vote.json
   def vote
     authorize @meetup
+    MeetupMailer.subscribed_to(@meetup, current_user).deliver
     @meetup.assistances.create(user_id: current_user.id)
     redirect_back(fallback_location: meetup_path(@meetup), alert: 'Tu voto ha sido registrado')
   end
