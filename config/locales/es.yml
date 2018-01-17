@@ -124,6 +124,7 @@ es:
 
   main:
     add:           "Añadir"
+    archive:       "Archivo"
     assist:        "Estuve en este meetup"
     edit:          "Editar"
     delete:        "Eliminar"

@@ -1,0 +1,20 @@
+<h1 class="display-1"><%= I18n.t 'main.archive' %></h1>
+<hr/>
+<% @meetups.each do |meetup| %>
+    <div class="card">
+    <div class="card-body">
+      <h2>
+        <% meetup.categories.each do |cat| %>
+        <span class="badge badge-info badge-pill">
+          <%= cat.name %>
+        </span>
+        <% end %>
+        <%= link_to meetup.title, meetup %>
+      </h2>
+      <hr/>
+      <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
+    </div>
+    <div class="card-footer text-muted">
+      <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
+    </div>
+  </div><% end %>

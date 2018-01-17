@@ -124,6 +124,7 @@ ca:
 
   main:
     add:           "Afegir"
+    archive:       "Arxiu"
     assist:        "He estat"
     edit:          "Editar"
     delete:        "Eliminar"
