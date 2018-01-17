@@ -13,6 +13,12 @@ class MeetupsController < ApplicationController
     @meetups = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC')
   end
 
+  # GET /archive
+  # GET /archive.json
+  def archive
+    @meetups = Meetup.where('date < ?', Date.today).order(:date)
+  end
+
   # GET /meetups/1
   # GET /meetups/1.json
   def show

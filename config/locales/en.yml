@@ -124,6 +124,7 @@ en:
 
   main:
     add:           "Add"
+    archive:       "Archive"
     assist:        "He asistido"
     edit:          "Editar"
     delete:        "Delete"

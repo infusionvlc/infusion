@@ -1,6 +1,5 @@
 desc "A scheduled task that confirms the upcoming meetup"
 task :ask_for_confirmation => :environment do
-  puts Date.parse('2018-01-08').upto(Date.today) % 14
   if Date.parse('2018-01-05').upto(Date.today).count % 14 == 0
     puts "starting scheduling task"
 
