@@ -137,7 +137,7 @@ en:
     change_password: "Change password"
     login:  "Log in"
     logout: "Log out"
-    member_since: "Member since #{date}"
+    member_since: "Member since %{date}"
     signup: "Sign up"
     omniauth:     "Sign in with"
     password:     "Forgot your password?"
@@ -234,9 +234,10 @@ en:
           invalid:    "One of your uploaded files couldn't be uploaded. Check all your photos are image files"
       user:
         current_password: "Current password"
+        locale: "Preferred language"
         password:              "Password"
         password_confirmation:
-          confirmation:        "Password confirmation"
+          one:        "Password confirmation"
         username: "Username"
     errors:
       messages:

@@ -137,7 +137,7 @@ ca:
     change_password: "Canviar contrasenya"
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
-    member_since: "Membre des de el #{date}"
+    member_since: "Membre des de el %{date}"
     signup: "Uneix-te"
     omniauth:     "Entrar amb"
     password:     "Has oblidat la teua clau?"
@@ -234,9 +234,10 @@ ca:
           invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que les fotos siguen fitxers d'imatge"
       user:
         current_password: "Contrasenya actual"
+        locale: "Llengua preferida"
         password:              "Contrasenya"
         password_confirmation:
-          confirmation:        "Confirma la teua contrasenya"
+          one:        "Confirma la teua contrasenya"
         username: "Nom d'usuari"
     errors:
       messages:

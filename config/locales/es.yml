@@ -234,6 +234,7 @@ es:
           invalid:    "Uno de los archivos no se ha podido subir. Comprueba que tus fotos son ficheros de imagen"
       user:
         current_password: "Contraseña actual"
+        locale: "Lengua preferida"
         password:              "Contraseña"
         password_confirmation:
           one: "Confirma tu contraseña"
