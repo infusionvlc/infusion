@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.app_domain = "infusionvlc.com"
+  config.app_domain = "www.infusionvlc.com"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -64,7 +64,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'infusionvlc.com' }
+  config.action_mailer.default_url_options = { host: 'www.infusionvlc.com' }
   config.action_mailer.smtp_settings = {
     address: 'smtp.serviciodecorreo.es',
     port: '587',
@@ -72,7 +72,7 @@ Rails.application.configure do
     user_name: 'hola@infusionvlc.com',
     password: ENV['EMAIL_PASS'],
     authentication: 'plain',
-    domain: 'infusionvlc.com'
+    domain: 'www.infusionvlc.com'
   }
 
 

@@ -4,13 +4,18 @@ ca:
 
   meetup_mailer:
     greeting: "Hey, %{user}!"
+    confirm: "Confirmar"
+    delay:   "Ajornar"
     subscribed_to:
       subject: "Subscripció a %{meetup}"
       body:    "T'has subscrit al meetup %{meetup}. T'enviarem un altre email quan tingam la data definitiva!"
     notify_publication:
       subject: "%{meetup} ha sigut confirmat!"
       body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. ¡T'esperem!"
-
+    ask_for_confirmation:
+      subject: "¡La teua xerrada '%{meetup}' ha sigut confirmada!"
+      body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
+      delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
   helpers:
     submit:
       create: "Afegir %{model}"

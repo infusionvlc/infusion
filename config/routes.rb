@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :meetups do
     member do
       post 'vote'
+      get 'confirm'
+      get 'delay'
     end
     resources :assistances
   end
