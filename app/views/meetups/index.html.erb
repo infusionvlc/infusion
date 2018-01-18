@@ -1,21 +1,75 @@
+<% if user_signed_in? %>
+  <%= link_to new_meetup_path, class:'btn btn-primary right' do
+    I18n.t 'meetup.host_yours'
+  end %>
+<% else %>
+  <%= link_to new_user_registration_path, class:'btn btn-primary right' do
+    I18n.t 'meetup.host_yours'
+  end %>
+<% end %>
+
 <h1 class="display-1">Meetups</h1>
 <hr/>
-<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Navigation tools for Meetups">
-    <div class="btn-group mr-2" role="group" aria-label="Ordering">
-      <button type="button" class="btn btn-secondary">Date</button>
-      <button type="button" class="btn btn-secondary">Title</button>
-      <button type="button" class="btn btn-secondary">Category</button>
-      <button type="button" class="btn btn-secondary">Assistant no.</button>
+
+<h2 class="display-2"><%= I18n.t 'meetup.next' %></h2>
+<hr/>
+
+<div class="card">
+  <div class="card-body">
+    <h2>
+      <span class="badge badge-info badge-pill">
+        <%= I18n.t 'meetup.assistants', count: @next_meetup.assistances.count %>
+      </span>
+      <%= link_to @next_meetup.title, @next_meetup %>
+    </h2>
+    <hr/>
+    <p><%= sanitize(truncate(@next_meetup.description, length: 256)) %></p>
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 left">
+  <h2 class="display-2"><%= I18n.t 'meetup.recents' %></h2>
+  <hr/> 
+  <% @most_recent.each do |meetup| %>
+    <div class="card">
+    <div class="card-body">
+      <h2>
+        <span class="badge badge-info badge-pill">
+          <%= I18n.t 'meetup.assistants', count: meetup.assistances.count %>
+        </span>
+        <%= link_to meetup.title, meetup %>
+      </h2>
+      <hr/>
+      <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
     </div>
-    <div class="btn-group mr-2" role="group" aria-label="Add a meetup">
-      <% if user_signed_in? %>
-        <%= link_to new_meetup_path, class:'btn btn-primary' do
-          I18n.t 'meetup.host_yours'
-        end %>
-      <% else %>
-        <%= link_to new_user_registration_path, class:'btn btn-primary' do
-          I18n.t 'meetup.host_yours'
-        end %>
-      <% end %>
+    <div class="card-footer text-muted">
+      <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
     </div>
+  </div><% end %>  
+  </div>
+  <div class="col-md-6 right">
+    <h2 class="display-2"><%= I18n.t 'meetup.populars' %></h2>
+    <hr/>
+    
+    <% @most_popular.each do |meetup| %>
+      <div class="card">
+      <div class="card-body">
+        <h2>
+          <span class="badge badge-info badge-pill">
+            <%= meetup.average_rating %> <%= fa_icon 'star' %>
+          </span>
+          <%= link_to meetup.title, meetup %>
+        </h2>
+        <hr/>
+        <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
+      </div>
+      <div class="card-footer text-muted">
+        <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
+      </div>
+    </div><% end %>
+  </div>
 </div>

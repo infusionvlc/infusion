@@ -186,6 +186,9 @@ en:
     review:                 "Give us your thoughts!"
     reviews:                "Reviews"
     no_reviews:             "It looks like there's no review yet"
+    next:                   "Next meetup"
+    recents:                "The most recent"
+    populars:                "The most popular"
 
   proposal:
     <<: *votable
