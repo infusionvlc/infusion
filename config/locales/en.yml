@@ -132,6 +132,7 @@ en:
     vote:          "Vote"
     allowed_files: "Only text, audio, video, image, pdf and zip files are allowed"
     pundit_error:  "It looks like you can't do that"
+    collaborators: "Collaborators"
 
   user:
     about:  "About me"

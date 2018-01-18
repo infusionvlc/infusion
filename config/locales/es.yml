@@ -132,6 +132,7 @@ es:
     vote:          "Votar"
     allowed_files: "Se permiten archivos de texto, vídeo, imagen, audio, pdf y zip"
     pundit_error:  "Parece que no puedes hacer eso"
+    collaborators: "Colaboradores"
 
   user:
     about:  "Sobre mí"

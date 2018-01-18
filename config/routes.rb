@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
+  devise_scope :user do 
+    get "/users" => "registrations#index" 
+  end
+
   resources :categories
 
   resources :meetups do
