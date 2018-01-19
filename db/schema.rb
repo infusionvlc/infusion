@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20180111121347) do
 
   create_table "reports", force: :cascade do |t|
     t.string "title"
-    t.integer "type"
+    t.integer "type_of"
     t.string "reportable_type"
     t.integer "user_id"
     t.integer "reportable_id"

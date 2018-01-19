@@ -2,7 +2,9 @@
 <div class="modal fade" id="meetupReportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <%= render 'reports/form' %>
+      <div class="modal-body">
+        <%= render 'reports/form' %>
+      </div>
     </div>
   </div>
 </div>
@@ -76,7 +78,9 @@
       <div class="modal fade" id="reviewReportModal_<%= review.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <%= render 'reports/review_form', review: review %>
+            <div class="modal-body">
+              <%= render 'reports/review_form', review: review %>
+            </div>
           </div>
         </div>
       </div>

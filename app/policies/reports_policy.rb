@@ -1,0 +1,3 @@
+class ReportPolicy
+
+end

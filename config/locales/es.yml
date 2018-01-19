@@ -152,6 +152,19 @@ es:
 
   report:
     report: "Reportar"
+    reports: "Reportes"
+    report_discard: "Eliminar reporte"
+    report_review: "Revisar reporte"
+    hate: "Incitación al odio"
+    menace: "Amenazas o insultos"
+    pornograpy: "Pornografía"
+    communty: "No respeta las normas de la comunidad"
+    other: "Otro"
+    open: "Abierta"
+    revision: "En revisión"
+    revised: "Revisada"
+    closed: "Cerrada"
+    
 
   votable: &votable
     votes:

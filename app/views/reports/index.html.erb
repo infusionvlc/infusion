@@ -2,14 +2,26 @@
   <%= fa_icon 'plus' %> <%= I18n.t 'main.add' %>
 <% end %>
 
-<h1>Reportes</h1>
+<h1><%= I18n.t 'report.reports' %></h1>
 
 <% @reports.each do |report| %>
   <div class="card">
     <div class="card-body">
-      <%=link_to report do %><h2><%= report.title %></h2><% end %>
-    </div>
-    <div class="card-footer">
+      <h4 class="card-title"><%= report.title.capitalize %></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><%= report.get_text_type %>-<%= report.get_text_status %></h6>
+      <% if report.reportable_type != "Proposal"%>
+        <%= link_to report.reportable_title, meetup_path(report.reportable_id) %>
+      <% else %>
+        <%= link_to report.reportable_title, proposal_path(report.reportable_id) %>
+      <% end %>
+      <p class="card-text"><%= report.description.capitalize %></p>      
+      <br>
+      <div class="right">
+        <%=link_to edit_report_path(report), class:'btn btn-primary' do %><%= I18n.t 'report.report_review' %><% end %>
+        
+        <a href="#" class="card-link text-white btn btn-danger"><%= I18n.t 'report.report_discard' %></a>
+        
+      </div>
     </div>
   </div>
 <% end %>

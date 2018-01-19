@@ -5,13 +5,24 @@ class ReportsController < ApplicationController
     @reports = Report.all
   end
 
+  def show; end
+
   def create
     @report = Report.new(report_params)
     @report.user_id = current_user.id
+    @report.status = 0
     if @report.save
       ok_status
     else
       error_status
+    end
+  end
+
+  def update
+    if @report.update(report_params)
+      redirect_to reports_path
+    else
+      redirect_to reports_path
     end
   end
 
@@ -22,7 +33,7 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :user_id, :reportable_id, :reportable_type, :description, :status_comment)
+    params.require(:report).permit(:title, :user_id, :type_of ,:reportable_id, :reportable_type, :description,:status, :status_comment)
   end
 
   def ok_status
