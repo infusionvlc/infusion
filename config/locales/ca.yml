@@ -132,6 +132,7 @@ ca:
     vote:          "Votar"
     allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
     pundit_error:  "Pareix que no pots fer això"
+    collaborators: "Col·laboradors"
 
   user:
     about:  "Sobre mi"
