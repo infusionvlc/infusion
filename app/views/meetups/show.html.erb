@@ -66,12 +66,13 @@
       <div class="card">
         <div class="card-body">
           <% if policy(review).edit? %>
-            <%= link_to edit_meetup_assistance_path(@meetup, review), class:'right' do %><%= fa_icon 'pencil' %><% end %>
+            <!-- <%= link_to edit_meetup_assistance_path(@meetup, review), class:'right' do %><%= fa_icon 'pencil' %><% end %> -->
+              <button class='edit_comment right'> Boton </button>
           <% end %>
           <h5 class="card-title"><span class="badge badge-pill badge-info"><%= review.mark %> <%= fa_icon 'star' %></span></h5>
           <p class="card-text"><%= review.review %></p>
-        </div>
-        <div class="card-footer text-muted">
+         </div>
+         <div class="card-footer text-muted">
           <%= review.user.username %> | <%= time_ago_in_words(review.updated_at) %>
         </div>
       </div>
