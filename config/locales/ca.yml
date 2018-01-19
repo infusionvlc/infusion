@@ -166,6 +166,24 @@ ca:
     delete: "Estas segur d'eliminar aquesta categoria?"
     no_meetups: "No n'hi ha meetups en aquesta categoría"
 
+  report:
+    report: "Reportar"
+    report_discard: "Eliminar report"
+    report_review: "Revisar report"
+    type:
+      hate: "Incitació a l'odi"
+      menace: "Amenaçes o insults"
+      pornography: "Pornografia"
+      community: "No respecta les normes de la comunitat"
+      other: "Altres"
+    status:
+      open: "Oberta"
+      revision: "En revisió"
+      revised: "Revisada"
+      closed: "Tancada"
+    messages:
+      confirmed: "El teu report ha sigut registrat."
+
   votable: &votable
     votes:
       one:                  "1 vot"
@@ -207,6 +225,9 @@ ca:
       proposal:
         one:   "Proposta"
         other: "Propostes"
+      report:
+        one:   "Report"
+        other: "Reports"
       category:
         one:   "Categoria"
         other: "Categoríes"
@@ -230,6 +251,15 @@ ca:
           other:      "Organitzadors"
       proposal:
         <<: *common
+      report:
+        user_id:  "Usuari"
+        title:    "Títol"
+        type_of:  "Tipus"
+        reportable_type: "Tipus de contingut"
+        reportable_id: "Contingut"
+        status: "Estat"
+        status_comment: "Descripció del estat"
+        description: "Descripció"
       holding:
         user_id:      "User"
       attachment:

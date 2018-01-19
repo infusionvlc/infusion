@@ -166,6 +166,24 @@ en:
     delete: Do you want to delete this category?
     no_meetups: "There are no meetups in this category"
 
+  report:
+    report: "Report"
+    report_discard: "Delete report"
+    report_review: "Check report"
+    type:
+      hate: "Hate speech"
+      menace: "Insults and threats"
+      pornography: "Pornography"
+      community: "Non-compliance with community rules"
+      other: "Other"
+    status:
+      open: "Open"
+      revision: "Checking"
+      revised: "Checked"
+      closed: "Closed"
+    messages:
+      confirmed: "Your report has been registered."
+
   votable: &votable
     votes:
       one:                  "1 vote"
@@ -207,6 +225,9 @@ en:
       proposal:
         one:   "Proposal"
         other: "Proposals"
+      report:
+        one:   "Report"
+        other: "Reports"
       category:
         one:   "Category"
         other: "Categories"
@@ -230,6 +251,15 @@ en:
           other:      "Hosts"
       proposal:
         <<: *common
+      report:
+        user_id:  "User"
+        title:    "Title"
+        type_of:  "Type"
+        reportable_type: "Content type"
+        reportable_id: "Content"
+        status: "Status"
+        status_comment: "Status description"
+        description: "Description"
       holding:
         user_id:      "User"
       attachment:

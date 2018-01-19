@@ -1,0 +1,19 @@
+<%= form_for(@report) do |f| %>
+  
+  <h2><%=@report.title.capitalize %></h2>  
+
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, [[(I18n.t 'report.status.open'), 0 ], [(I18n.t 'report.status.revision'), 1], [(I18n.t 'report.status.revised'), 2], [(I18n.t 'report.status.closed'), 3]], {}, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status_comment %><br>
+    <%= f.text_field :status_comment, class:'form-control' %>
+  </div>
+  
+  <br/>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

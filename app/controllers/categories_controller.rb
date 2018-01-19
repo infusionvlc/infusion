@@ -5,10 +5,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
+    authorize @category
     if @category.save
       ok_status
     else
@@ -23,11 +25,13 @@ class CategoriesController < ApplicationController
   def edit; end
 
   def destroy
+    authorize @category
     @category.destroy
     redirect_to categories_path
   end
 
   def update
+    authorize @category
     if @category.update(category_params)
       ok_status
     else
