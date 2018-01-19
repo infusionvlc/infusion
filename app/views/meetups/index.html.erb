@@ -15,19 +15,27 @@
 <hr/>
 
 <div class="card">
-  <div class="card-body">
-    <h2>
-      <span class="badge badge-info badge-pill">
-        <%= I18n.t 'meetup.assistants', count: @next_meetup.assistances.count %>
-      </span>
-      <%= link_to @next_meetup.title, @next_meetup %>
-    </h2>
-    <hr/>
-    <p><%= sanitize(truncate(@next_meetup.description, length: 256)) %></p>
-  </div>
-  <div class="card-footer text-muted">
-    <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>
-  </div>
+  <% if @next_meetup.nil? %>
+    <div class="card-body">
+      <h2>
+        <%= I18n.t 'meetup.no_next'%>
+      </h2>
+    </div>
+  <% else %>
+   <div class="card-body">
+      <h2>
+        <span class="badge badge-info badge-pill">
+          <%= I18n.t 'meetup.assistants', count: @next_meetup.assistances.count %>
+        </span>
+        <%= link_to @next_meetup.title, @next_meetup %>
+      </h2>
+      <hr/>
+      <p><%= sanitize(truncate(@next_meetup.description, length: 256)) %></p>
+    </div>
+    <div class="card-footer text-muted">
+      <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>
+    </div>
+  <% end %>
 </div>
 
 <div class="row">

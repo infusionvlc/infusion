@@ -25,9 +25,9 @@ class Meetup < ApplicationRecord
   end
 
   def average_rating
-    marks = self.assistances.where.not(mark: nil).pluck(:id)
+    marks = assistances.where.not(mark: nil).pluck(:id)
     if marks.count > 0
-      marks.sum/marks.count
+      marks.sum / marks.count
     else
       0
     end

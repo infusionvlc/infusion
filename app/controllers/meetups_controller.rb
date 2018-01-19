@@ -4,9 +4,12 @@ class MeetupsController < ApplicationController
   # GET /meetups
   # GET /meetups.json
   def index
-    @next_meetup = Meetup.where('date > ?', Date.today).first()
-    @most_recent = Meetup.where('date < ?', Date.today).order('date DESC').first(3)
-    @most_popular = Meetup.where('date < ?', Date.today).left_joins(:assistances).group(:id).order('AVG(assistances.mark) DESC').first(3)
+    @next_meetup = Meetup.where('date > ?', Date.today).first
+    @most_recent = Meetup.where('date < ?', Date.today).order('date DESC')
+                         .first(3)
+    @most_popular = Meetup.where('date < ?', Date.today)
+                          .left_joins(:assistances).group(:id)
+                          .order('AVG(assistances.mark) DESC').first(3)
   end
 
   # GET /call_for_talks

@@ -187,6 +187,7 @@ es:
     reviews:                "Opiniones"
     no_reviews:             "Parece que no hay ninguna opinión aún"
     next:                   "Próximo meetup"
+    no_next:                "Parece que no hay ningún meetup planificado aún"
     recents:                "Los más recientes"
     populars:                "Los más populares"
 
