@@ -5,8 +5,8 @@ class CreateMeetups < ActiveRecord::Migration[5.1]
       t.text :description
       t.text :requirements
       t.date :date
-      t.time :start
-      t.time :end
+      t.time :start, :default => Time.parse("18:00", Time.now)
+      t.time :end, :default => Time.parse("20:00", Time.now)
 
       t.timestamps
     end

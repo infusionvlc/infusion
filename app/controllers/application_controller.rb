@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
     @locales = [
       { name: t('languages.ca'), locale: :ca },
       { name: t('languages.en'), locale: :en },
-      { name: t('languages.ca'), locale: :ca },
       { name: t('languages.es'), locale: :es }
     ].freeze
     @locale = I18n.locale = locale
@@ -27,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    added_attrs = [:username, :email, :bio, :password, :password_confirmation, :remember_me, :avatar]
+    added_attrs = [:username, :email, :bio, :locale, :password, :password_confirmation, :remember_me, :avatar]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end

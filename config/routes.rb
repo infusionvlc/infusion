@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
-  match 'users/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  match '/logout', to: 'sessions#destroy', via: [:get, :post]
+  match 'users/auth/:provider/callback', to: 'sessions#create',        via: [:get, :post]
+  match '/logout',                       to: 'sessions#destroy',       via: [:get, :post]
+  match '/call_for_talks',               to: 'meetups#call_for_talks', via: [:get]
+  match '/archive',                      to: 'meetups#archive',        via: [:get]
 
   devise_for :users, controllers: { registrations: 'registrations' }
+
+  devise_scope :user do 
+    get "/users" => "registrations#index" 
+  end
 
   resources :categories
   resources :reports
@@ -11,6 +17,8 @@ Rails.application.routes.draw do
   resources :meetups do
     member do
       post 'vote'
+      get 'confirm'
+      get 'delay'
     end
     resources :assistances
   end

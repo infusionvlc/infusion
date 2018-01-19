@@ -38,7 +38,7 @@
       <% end %>
     </div>
     <div class="card-footer text-muted">
-      <%= time_ago_in_words(proposal.created_at) %>
+    <%= link_to proposal.user.username, "/#{proposal.user.username}" %> | <%= time_ago_in_words(proposal.created_at) %>
     </div>
   </div>
 <% end %>

@@ -1,10 +1,27 @@
 class MeetupsController < ApplicationController
-  before_action :set_meetup, only: %i[show edit update destroy vote]
+  before_action :set_meetup, only: %i[show edit update destroy vote confirm delay]
 
   # GET /meetups
   # GET /meetups.json
   def index
-    @meetups = Meetup.all.where(date: :not_null)
+    @next_meetup = Meetup.where('date > ?', Date.today).first
+    @most_recent = Meetup.where('date < ?', Date.today).order('date DESC')
+                         .first(3)
+    @most_popular = Meetup.where('date < ?', Date.today)
+                          .left_joins(:assistances).group(:id)
+                          .order('AVG(assistances.mark) DESC').first(3)
+  end
+
+  # GET /call_for_talks
+  # GET /call_for_talks.json
+  def call_for_talks
+    @meetups = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC')
+  end
+
+  # GET /archive
+  # GET /archive.json
+  def archive
+    @meetups = Meetup.where('date < ?', Date.today).order(:date)
   end
 
   # GET /meetups/1
@@ -16,11 +33,31 @@ class MeetupsController < ApplicationController
   end
 
   # POST /meetups/1/vote
-  # POST /meetups/1/vote.json
   def vote
     authorize @meetup
+    MeetupMailer.subscribed_to(@meetup, current_user).deliver
     @meetup.assistances.create(user_id: current_user.id)
-    redirect_to(meetup_path(@meetup))
+    redirect_back(fallback_location: meetup_path(@meetup), alert: 'Tu voto ha sido registrado')
+  end
+
+  # POST /meetups/1/confirm
+  def confirm
+    authorize @meetup
+    @meetup.update(date: Date.today.monday + 4, confirmation_mail: false)
+    @meetup.assistances.each do |assistance|
+      MeetupMailer.notify_publication(@meetup, assistance.user).deliver
+    end
+    redirect_to @meetup, alert: 'Muchas gracias por confirmar tu asistencia!'
+  end
+
+  # POST /meetups/1/delay
+  def delay
+    authorize @meetup
+    @meetup.update(confirmation_mail: false)
+    next_meetup = Meetup.where(date: nil).where.not(id: @meetup.id).left_joins(:assistances).group(:id).having('COUNT(assistances.id) <= ?', @meetup.assistances.count).order('COUNT(assistances.id) DESC').first
+    MeetupMailer.ask_for_confirmation(next_meetup, next_meetup.holdings.first.user).deliver
+    next_meetup.update(confirmation_mail: true)
+    redirect_to @meetup, alert: 'Esperamos que a la próxima sí estés disponible!'
   end
 
   # GET /meetups/new

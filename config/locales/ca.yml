@@ -2,6 +2,20 @@ ca:
   nav:
     home: "Inici"
 
+  meetup_mailer:
+    greeting: "Hey, %{user}!"
+    confirm: "Confirmar"
+    delay:   "Ajornar"
+    subscribed_to:
+      subject: "Subscripció a %{meetup}"
+      body:    "T'has subscrit al meetup %{meetup}. T'enviarem un altre email quan tingam la data definitiva!"
+    notify_publication:
+      subject: "%{meetup} ha sigut confirmat!"
+      body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. ¡T'esperem!"
+    ask_for_confirmation:
+      subject: "¡La teua xerrada '%{meetup}' ha sigut confirmada!"
+      body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
+      delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
   helpers:
     submit:
       create: "Afegir %{model}"
@@ -110,6 +124,7 @@ ca:
 
   main:
     add:           "Afegir"
+    archive:       "Arxiu"
     assist:        "He estat"
     edit:          "Editar"
     delete:        "Eliminar"
@@ -117,13 +132,14 @@ ca:
     vote:          "Votar"
     allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
     pundit_error:  "Pareix que no pots fer això"
+    collaborators: "Col·laboradors"
 
   user:
     about:  "Sobre mi"
     change_password: "Canviar contrasenya"
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
-    member_since: "Membre des de el #{date}"
+    member_since: "Membre des de el %{date}"
     signup: "Uneix-te"
     omniauth:     "Entrar amb"
     password:     "Has oblidat la teua clau?"
@@ -189,6 +205,10 @@ ca:
     review:                 "Conta'ns què penses!"
     reviews:                "Opinions"
     no_reviews:             "Pareix que no n'hi ha cap opinió"
+    next:                   "Pròxim meetup"
+    no_next:                "Sembla que no hi ha cap meetup planificat encara"
+    recents:                "Els més recents"
+    populars:                "Els més populars"
 
   proposal:
     <<: *votable
@@ -250,9 +270,10 @@ ca:
           invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que les fotos siguen fitxers d'imatge"
       user:
         current_password: "Contrasenya actual"
+        locale: "Llengua preferida"
         password:              "Contrasenya"
         password_confirmation:
-          confirmation:        "Confirma la teua contrasenya"
+          one:        "Confirma la teua contrasenya"
         username: "Nom d'usuari"
     errors:
       messages:
