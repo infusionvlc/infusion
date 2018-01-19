@@ -187,6 +187,10 @@ ca:
     review:                 "Conta'ns què penses!"
     reviews:                "Opinions"
     no_reviews:             "Pareix que no n'hi ha cap opinió"
+    next:                   "Pròxim meetup"
+    no_next:                "Sembla que no hi ha cap meetup planificat encara"
+    recents:                "Els més recents"
+    populars:                "Els més populars"
 
   proposal:
     <<: *votable

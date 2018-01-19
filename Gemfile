@@ -39,7 +39,7 @@ gem 'high_voltage', '~> 3.0.0'
 gem 'jquery-rails'
 
 gem 'cocoon'
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
