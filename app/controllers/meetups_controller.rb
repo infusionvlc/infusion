@@ -12,7 +12,7 @@ class MeetupsController < ApplicationController
   def show
     authorize @meetup
     @reviews = @meetup.assistances.where.not(review: nil)
-    @reportable_type = "Meetup"
+    @reportable_type = 'Meetup'
   end
 
   # POST /meetups/1/vote

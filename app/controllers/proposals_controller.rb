@@ -11,7 +11,7 @@ class ProposalsController < ApplicationController
   # GET /proposals/1.json
   def show
     authorize @proposal
-    @reportable_type = "Proposal"
+    @reportable_type = 'Proposal'
   end
 
   # POST /proposals/1/vote

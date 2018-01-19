@@ -3,12 +3,14 @@ class ReportsController < ApplicationController
 
   def index
     @reports = Report.all
+    authorize @reports
   end
 
   def show; end
 
   def create
     @report = Report.new(report_params)
+    authorize @report
     @report.user_id = current_user.id
     @report.status = 0
     if @report.save
@@ -19,11 +21,15 @@ class ReportsController < ApplicationController
   end
 
   def update
-    if @report.update(report_params)
-      redirect_to reports_path
-    else
-      redirect_to reports_path
-    end
+    authorize @report
+    @report.update(report_params)
+    redirect_to reports_path
+  end
+
+  def destroy
+    authorize @report
+    @report.destroy
+    redirect_to reports_path
   end
 
   def set_report
@@ -33,7 +39,9 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :user_id, :type_of ,:reportable_id, :reportable_type, :description,:status, :status_comment)
+    params.require(:report).permit(:title, :user_id, :type_of,
+                                   :reportable_id, :reportable_type,
+                                   :description, :status, :status_comment)
   end
 
   def ok_status
@@ -51,14 +59,15 @@ class ReportsController < ApplicationController
   end
 
   private
+
   def reportable_path
-    case @report.reportable_type 
-      when "Meetup"
-          redirect_to meetups_path
-      when "Proposal"
-          redirect_to proposals_path
-      else
-          redirect_to meetups_path
+    case @report.reportable_type
+    when 'Meetup'
+      redirect_to meetups_path, notice: I18n.t('report.messages.confirmed')
+    when 'Proposal'
+      redirect_to proposals_path, notice: I18n.t('report.messages.confirmed')
+    else
+      redirect_to meetups_path, notice: I18n.t('report.messages.confirmed')
     end
   end
 end

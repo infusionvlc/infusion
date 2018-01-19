@@ -152,18 +152,21 @@ es:
 
   report:
     report: "Reportar"
-    reports: "Reportes"
     report_discard: "Eliminar reporte"
     report_review: "Revisar reporte"
-    hate: "Incitación al odio"
-    menace: "Amenazas o insultos"
-    pornograpy: "Pornografía"
-    communty: "No respeta las normas de la comunidad"
-    other: "Otro"
-    open: "Abierta"
-    revision: "En revisión"
-    revised: "Revisada"
-    closed: "Cerrada"
+    type:
+      hate: "Incitación al odio"
+      menace: "Amenazas o insultos"
+      pornography: "Pornografía"
+      community: "No respeta las normas de la comunidad"
+      other: "Otro"
+    status:
+      open: "Abierta"
+      revision: "En revisión"
+      revised: "Revisada"
+      closed: "Cerrada"
+    messages:
+      confirmed: "Tu reporte ha sido registrado."
     
 
   votable: &votable
@@ -203,6 +206,9 @@ es:
       proposal:
         one:   "Propuesta"
         other: "Propuestas"
+      report:
+        one:   "Reporte"
+        other: "Reportes"
       category:
         one:   "Categoría"
         other: "Categorias"
@@ -226,8 +232,17 @@ es:
           other:      "Organizadores"
       proposal:
         <<: *common
+      report:
+        user_id:  "Usuario"
+        title:    "Titulo"
+        type_of:  "Tipo de reporte"
+        reportable_type: "Tipo de contenido"
+        reportable_id: "Contenido"
+        status: "Estado"
+        status_comment: "Descripción del estado"
+        description: "Descripción"
       holding:
-        user_id:      "User"
+        user_id:      "Usuario"
       attachment:
         file_content_type:
           invalid:    "Uno de los archivos no se ha podido subir. Comprueba que esté entre los tipos de fichero permitidos"

@@ -1,42 +1,41 @@
 class Report < ApplicationRecord
   belongs_to :reportable, polymorphic: true
-  
+
   def reportable_title
-    if reportable_type == "Meetup"
+    if reportable_type == 'Meetup'
       Meetup.find(reportable_id).title
-    elsif reportable_type == "Assistance"
+    elsif reportable_type == 'Assistance'
       Assistance.find(reportable_id).title
     else
       Proposal.find(reportable_id).title
-    end    
+    end
   end
 
-  def get_text_type
+  def text_type
     case type_of
-      when 0
-        (I18n.t 'report.hate')
-      when 1
-        (I18n.t 'report.menace')
-      when 2
-        (I18n.t 'report.pornograpy')
-      when 3
-        (I18n.t 'report.communty')
-      when 4
-        (I18n.t 'report.other')
+    when 0
+      (I18n.t 'report.type.hate')
+    when 1
+      (I18n.t 'report.type.menace')
+    when 2
+      (I18n.t 'report.type.pornography')
+    when 3
+      (I18n.t 'report.type.community')
+    when 4
+      (I18n.t 'report.type.other')
     end
   end
-  
-  def get_text_status
+
+  def text_status
     case status
-      when 0
-        (I18n.t 'report.open')
-      when 1
-        (I18n.t 'report.revision')
-      when 2
-        (I18n.t 'report.revised')
-      when 3
-        (I18n.t 'report.closed')
+    when 0
+      (I18n.t 'report.status.open')
+    when 1
+      (I18n.t 'report.status.revision')
+    when 2
+      (I18n.t 'report.status.revised')
+    when 3
+      (I18n.t 'report.status.closed')
     end
   end
-  
 end

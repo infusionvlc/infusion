@@ -4,7 +4,7 @@
 
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.select :status, [[(I18n.t 'report.open'), 0 ], [(I18n.t 'report.revision'), 1], [(I18n.t 'report.revised'), 2], [(I18n.t 'report.closed'), 3]], {}, class: 'form-control' %>
+    <%= f.select :status, [[(I18n.t 'report.status.open'), 0 ], [(I18n.t 'report.status.revision'), 1], [(I18n.t 'report.status.revised'), 2], [(I18n.t 'report.status.closed'), 3]], {}, class: 'form-control' %>
   </div>
 
   <div class="field">

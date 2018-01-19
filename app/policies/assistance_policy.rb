@@ -19,7 +19,9 @@ class AssistancePolicy
     end
 
     def report?
-      @user && !Report.where(reportable_id: @assistance.id, reportable_type: "Assistance", user_id: @user.id).exists?
+      @user && !Report.where(reportable_id: @assistance.id,
+                             reportable_type: 'Assistance',
+                             user_id: @user.id).exists?
     end
 
     def new?

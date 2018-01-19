@@ -13,9 +13,11 @@ class ProposalPolicy
   def show?
     !@proposal.nil?
   end
-  
+
   def report?
-    !@user.nil? && !Report.where(reportable_id: @proposal.id, reportable_type: "Proposal", user_id: @user.id).exists?
+    !@user.nil? && !Report.where(reportable_id: @proposal.id,
+                                 reportable_type: 'Proposal',
+                                 user_id: @user.id).exists?
   end
 
   def vote?

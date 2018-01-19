@@ -8,7 +8,7 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title"><%= report.title.capitalize %></h4>
-      <h6 class="card-subtitle mb-2 text-muted"><%= report.get_text_type %>-<%= report.get_text_status %></h6>
+      <h6 class="card-subtitle mb-2 text-muted"><%= report.text_type %>-<%= report.text_status %></h6>
       <% if report.reportable_type != "Proposal"%>
         <%= link_to report.reportable_title, meetup_path(report.reportable_id) %>
       <% else %>
@@ -18,9 +18,7 @@
       <br>
       <div class="right">
         <%=link_to edit_report_path(report), class:'btn btn-primary' do %><%= I18n.t 'report.report_review' %><% end %>
-        
-        <a href="#" class="card-link text-white btn btn-danger"><%= I18n.t 'report.report_discard' %></a>
-        
+        <%=link_to report_path(report), method: :delete, class:'btn btn-danger' do %><%= I18n.t 'report.report_discard' %><% end %>      
       </div>
     </div>
   </div>

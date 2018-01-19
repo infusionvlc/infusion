@@ -9,8 +9,8 @@
   <%= f.hidden_field :reportable_type, value: "Assistance" %>
 
   <div class="field">
-    <%= f.label :type_of %><br>
-    <%= f.text_field :type_of, class:'form-control' %>
+    <%= f.label :type_of %><br />
+    <%= f.select :type_of, [[(I18n.t 'report.type.hate'), 0 ], [(I18n.t 'report.type.menace'), 1], [(I18n.t 'report.type.pornography'), 2], [(I18n.t 'report.type.community'), 3], [(I18n.t 'report.type.other'), 4]], {}, class: 'form-control' %>
   </div>
 
   <div class="field">
