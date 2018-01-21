@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.all.page(params[:page])
   end
 
   def edit; end

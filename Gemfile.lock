@@ -69,6 +69,9 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.3, < 2)
       sass (>= 3.5.2)
+    bootstrap4-kaminari-views (1.0.0)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.16.1)
@@ -133,6 +136,18 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.1.0)
     jwt (1.5.6)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -318,6 +333,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk (~> 2.3.0)
   bootstrap (~> 4.0.0.beta2.1)
+  bootstrap4-kaminari-views
   byebug
   capybara (~> 2.13)
   cocoon
@@ -329,6 +345,7 @@ DEPENDENCIES
   high_voltage (~> 3.0.0)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   omniauth
   omniauth-facebook
   omniauth-github

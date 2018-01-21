@@ -17,4 +17,6 @@
     <div class="card-footer text-muted">
       <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
     </div>
-  </div><% end %>
+  </div>
+<% end %>
+<%= paginate @meetups, theme: 'twitter-bootstrap-4' %>
