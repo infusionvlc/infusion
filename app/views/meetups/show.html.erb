@@ -15,7 +15,7 @@
     <p class="lead"><%= meetup_votes(@meetup) %></p>
     <h2 aria-label=<%= I18n.t 'activerecord.attributes.meetup.categories' %>>
       <% @meetup.categories.each do |cat| %>
-        <%= link_to cat do %><span class="badge badge-pill badge-info"><%=cat.name %></span><% end %>
+        <%= link_to cat do %><span class="badge badge-pill badge-info"><%=cat.display_name %></span><% end %>
       <% end %>
     </h2>
   </div>

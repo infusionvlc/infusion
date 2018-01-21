@@ -7,7 +7,7 @@
 <% @categories.each do |category| %>
   <div class="card">
     <div class="card-body">
-      <%=link_to category do %><h2><%= category.name %></h2><% end %>
+      <%=link_to category do %><h2><%= category.display_name %></h2><% end %>
     </div>
     <div class="card-footer">
       <%= category.meetups.count %> Meetups
