@@ -232,6 +232,8 @@ en:
         description:  "Description"
       category:
         name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requirements"

@@ -232,7 +232,9 @@ es:
         title:        "Título"
         description:  "Descrición"
       category:
-        name:         "Nombre"
+        name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requisitos"

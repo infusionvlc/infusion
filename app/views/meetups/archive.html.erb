@@ -6,7 +6,7 @@
       <h2>
         <% meetup.categories.each do |cat| %>
         <span class="badge badge-info badge-pill">
-          <%= cat.name %>
+          <%= cat.display_name %>
         </span>
         <% end %>
         <%= link_to meetup.title, meetup %>

@@ -231,7 +231,9 @@ ca:
         title: "Títol"
         description:  "Descripció"
       category:
-        name:         "Nom"
+        name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requeriments"
