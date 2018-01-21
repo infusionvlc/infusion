@@ -37,6 +37,8 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'font-awesome-rails'
 gem 'high_voltage', '~> 3.0.0'
 gem 'jquery-rails'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 gem 'cocoon'
 gem 'devise', git: 'https://github.com/plataformatec/devise'

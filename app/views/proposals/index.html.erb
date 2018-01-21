@@ -1,25 +1,16 @@
+<div class="right">
+  <% if user_signed_in? %>
+    <%= link_to new_proposal_path, class:'btn btn-primary' do
+      I18n.t 'proposal.add_yours'
+    end %>
+    <% else %>
+    <%= link_to new_user_registration_path, class:'btn btn-primary' do
+      I18n.t 'proposal.add_yours'
+    end %>
+  <% end %>
+</div>
 <h1 class="display-1"><%= I18n.t 'activerecord.model.proposal', count: 2 %></h1>
 <hr/>
-<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Navigation tools for Proposals">
-    <div class="btn-group mr-2" role="group" aria-label="Ordering">
-      <button type="button" class="btn btn-secondary">Date</button>
-      <button type="button" class="btn btn-secondary">Title</button>
-      <button type="button" class="btn btn-secondary">Category</button>
-      <button type="button" class="btn btn-secondary">Assistant no.</button>
-    </div>
-    <div class="btn-group mr-2" role="group" aria-label="Add a proposal">
-      <% if user_signed_in? %>
-        <%= link_to new_proposal_path, class:'btn btn-primary' do
-          I18n.t 'proposal.add_yours'
-        end %>
-      <% else %>
-        <%= link_to new_user_registration_path, class:'btn btn-primary' do
-          I18n.t 'proposal.add_yours'
-        end %>
-      <% end %>
-    </div>
-</div>
-<br/>
 <% @proposals.each do |proposal| %>
   <div class="card">
     <div class="card-body">
@@ -42,3 +33,4 @@
     </div>
   </div>
 <% end %>
+<%= paginate @proposals, theme: 'twitter-bootstrap-4' %>
