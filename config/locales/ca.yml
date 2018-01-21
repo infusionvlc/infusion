@@ -16,11 +16,6 @@ ca:
       subject: "¡La teua xerrada '%{meetup}' ha sigut confirmada!"
       body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
-  helpers:
-    submit:
-      create: "Afegir %{model}"
-      submit: "Guardar %{model}"
-      update: "Actualitzar %{model}"
 
   date:
     abbr_day_names:
@@ -287,4 +282,21 @@ ca:
   helpers:
     submit:
       create: "Crear %{model}"
+      submit: "Guardar %{model}"
       update: "Guardar canvis"
+    page_entries_info:
+      more_pages:
+        display_entries: Mostrant <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total
+      one_page:
+        display_entries:
+          one: Mostrant <b>%{count}</b> %{entry_name}
+          other: Mostrant <b>un total de %{count}</b> %{entry_name}
+          zero: No s'han trobat %{entry_name}
+
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      next: Següent &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

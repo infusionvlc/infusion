@@ -16,11 +16,6 @@ en:
       subject: "Your talk '%{meetup}' has been confirmed!"
       body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. We need you to confirm you can come by clicking the link below."
       delay:   "If you can't come, please, delay your meetup by clicking this other button:"
-  helpers:
-    submit:
-      create: "Create %{model}"
-      submit: "Save %{model}"
-      update: "Update %{model}"
 
   date:
     abbr_day_names:
@@ -289,3 +284,19 @@ en:
     submit:
       create: "Create a %{model}"
       update: "Confirm changes"
+      submit: "Save %{model}"
+    page_entries_info:
+      more_pages:
+        display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total
+      one_page:
+        display_entries:
+          one: Displaying <b>%{count}</b> %{entry_name}
+          other: Displaying <b>all %{count}</b> %{entry_name}
+          zero: No %{entry_name} found
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: Last &raquo;
+      next: Next &rsaquo;
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"
