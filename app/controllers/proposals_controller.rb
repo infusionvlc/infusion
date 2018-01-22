@@ -43,8 +43,8 @@ class ProposalsController < ApplicationController
     respond_to do |format|
       if @proposal.save
         @activity.user_id = current_user
-        @activity.objetive_type = 'Proposal'
-        @activity.objetive_id = @proposal.id
+        @activity.objective_type = 'Proposal'
+        @activity.objective_id = @proposal.id
         @activity.save
         @proposal.votes.create(user_id: current_user.id)
         format.html { redirect_to proposal_path(@proposal) }
@@ -100,6 +100,9 @@ class ProposalsController < ApplicationController
     params.require(:proposal).permit(
       :title,
       :description,
+      :user_id,
+      :objective_id,
+      :objective_type,
       votes_attributes: [:id, :user_id, :_destroy]
     )
   end
