@@ -1,10 +1,21 @@
+<!-- Modal -->
+<div class="modal fade" id="meetupReportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render 'reports/form' %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3"><%= @meetup.title %></h1>
     <p class="lead"><%= meetup_votes(@meetup) %></p>
     <h2 aria-label=<%= I18n.t 'activerecord.attributes.meetup.categories' %>>
       <% @meetup.categories.each do |cat| %>
-        <%= link_to cat do %><span class="badge badge-pill badge-info"><%=cat.name %></span><% end %>
+        <%= link_to cat do %><span class="badge badge-pill badge-info"><%=cat.display_name %></span><% end %>
       <% end %>
     </h2>
   </div>
@@ -63,8 +74,22 @@
       </div>
     <% end %>
     <% @reviews.each do |review| %>
+      <!-- Modal -->
+      <div class="modal fade" id="reviewReportModal_<%= review.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <%= render 'reports/review_form', review: review %>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="card">
         <div class="card-body">
+          <% if policy(review).report? %>
+            <%var_modal = "#reviewReportModal_" + review.id.to_s%>
+            <%= link_to (fa_icon 'exclamation-triangle '), "#", data: {toggle: "modal", target: var_modal} , class:'right'%>
+          <% end %>
           <% if policy(review).edit? %>
             <!-- <%= link_to edit_meetup_assistance_path(@meetup, review), class:'right' do %><%= fa_icon 'pencil' %><% end %> -->
               <a href='#' class='right edit_comment' id='edit_comment_<%= review.id %>'><%= fa_icon 'pencil' %></a>
@@ -81,9 +106,17 @@
         </div>
       </div>
     <% end %>
+    <%= paginate @reviews, theme: 'twitter-bootstrap-4' %>
   </div>
   <div class="col-md-4 col-sm-12 card">
     <div class="card-body">
+
+      <% if policy(@meetup).report? %>
+        <button data-toggle="modal" data-target="#meetupReportModal" class="btn btn-warning btn-lg btn-block">
+          <%= fa_icon 'exclamation-triangle ' %> <%= I18n.t 'report.report' %>
+        </button>
+      <% end %>
+
       <% if policy(@meetup).edit? %>
         <%= link_to edit_meetup_path(@meetup), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'meetup.edit' %><% end %>
         <% if policy(@meetup).destroy? %>

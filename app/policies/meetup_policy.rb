@@ -19,6 +19,12 @@ class MeetupPolicy
       !@meetup.assistances.where(user_id: @user.id).exists?
   end
 
+  def report?
+    @user && !Report.where(reportable_id: @meetup.id,
+                           reportable_type: 'Meetup',
+                           user_id: @user.id).exists?
+  end
+  
   def confirm?
     !@meetup.nil? && @meetup.confirmation_mail == true
   end

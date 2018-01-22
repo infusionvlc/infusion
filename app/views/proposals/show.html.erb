@@ -1,3 +1,14 @@
+<!-- Modal -->
+<div class="modal fade" id="propReportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render 'reports/form' %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3"><%= @proposal.title %></h1>
@@ -13,6 +24,11 @@
   </div>
   <div class="col-md-4 col-sm-12 card">
     <div class="card-body">
+      <% if policy(@proposal).report? %>
+        <button data-toggle="modal" data-target="#propReportModal" class="btn btn-warning btn-lg btn-block">
+          <%= fa_icon 'exclamation-triangle ' %> <%= I18n.t 'report.report' %>
+        </button>
+      <% end %>
       <% if policy(@proposal).edit? %>
         <%= link_to edit_proposal_path(@proposal), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'main.edit' %><% end %>
         <% if policy(@proposal).destroy? %>

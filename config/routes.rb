@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories
+  resources :reports
 
   resources :meetups do
     member do

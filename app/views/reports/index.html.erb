@@ -1,0 +1,26 @@
+<%= link_to new_report_path, class:'btn btn-primary right' do %>
+  <%= fa_icon 'plus' %> <%= I18n.t 'main.add' %>
+<% end %>
+
+<h1><%= I18n.t 'report.reports' %></h1>
+
+<% @reports.each do |report| %>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"><%= report.title.capitalize %></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><%= report.text_type %>-<%= report.text_status %></h6>
+      <% if report.reportable_type != "Proposal"%>
+        <%= link_to report.reportable_title, meetup_path(report.reportable_id) %>
+      <% else %>
+        <%= link_to report.reportable_title, proposal_path(report.reportable_id) %>
+      <% end %>
+      <p class="card-text"><%= report.description.capitalize %></p>
+      <br>
+      <div class="right">
+        <%=link_to edit_report_path(report), class:'btn btn-primary' do %><%= I18n.t 'report.report_review' %><% end %>
+        <%=link_to report_path(report), method: :delete, class:'btn btn-danger' do %><%= I18n.t 'report.report_discard' %><% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= paginate @reports, theme: 'twitter-bootstrap-4' %>

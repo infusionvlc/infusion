@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 1
+  reportable_type: MyString
+  user_id: 1
+  reportable_id: 1
+  status: 1
+  status_comment: MyString
+  description: MyText
+
+two:
+  title: MyString
+  type: 1
+  reportable_type: MyString
+  user_id: 1
+  reportable_id: 1
+  status: 1
+  status_comment: MyString
+  description: MyText

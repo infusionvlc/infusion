@@ -16,11 +16,6 @@ es:
       subject: "¡Tu charla '%{meetup}' se ha confirmado!"
       body:    "La gente ha votado tu charla '%{meetup}', que va a tener lugar el %{date}. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
       delay:   "Si no puedes venir, por favor, aplaza tu meetup con este otro botón:"
-  helpers:
-    submit:
-      create: "Añadir %{model}"
-      submit: "Guardar %{model}"
-      update: "Actualizar %{model}"
 
   date:
     abbr_day_names:
@@ -166,6 +161,25 @@ es:
     delete: "Estas seguro de borrar esta categoría?"
     no_meetups: "No hay meetups en esta categoría"
 
+  report:
+    report: "Reportar"
+    report_discard: "Eliminar reporte"
+    report_review: "Revisar reporte"
+    type:
+      hate: "Incitación al odio"
+      menace: "Amenazas o insultos"
+      pornography: "Pornografía"
+      community: "No respeta las normas de la comunidad"
+      other: "Otro"
+    status:
+      open: "Abierta"
+      revision: "En revisión"
+      revised: "Revisada"
+      closed: "Cerrada"
+    messages:
+      confirmed: "Tu reporte ha sido registrado."
+
+
   votable: &votable
     votes:
       one:                  "1 voto"
@@ -187,6 +201,10 @@ es:
     review:                 "¡Cuéntanos qué piensas!"
     reviews:                "Opiniones"
     no_reviews:             "Parece que no hay ninguna opinión aún"
+    next:                   "Próximo meetup"
+    no_next:                "Parece que no hay ningún meetup planificado aún"
+    recents:                "Los más recientes"
+    populars:                "Los más populares"
 
   assistance:
     ajax_error:             "Tu review debe tener al menos 5 caracteres"
@@ -206,6 +224,9 @@ es:
       proposal:
         one:   "Propuesta"
         other: "Propuestas"
+      report:
+        one:   "Reporte"
+        other: "Reportes"
       category:
         one:   "Categoría"
         other: "Categorias"
@@ -214,7 +235,9 @@ es:
         title:        "Título"
         description:  "Descrición"
       category:
-        name:         "Nombre"
+        name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requisitos"
@@ -229,8 +252,17 @@ es:
           other:      "Organizadores"
       proposal:
         <<: *common
+      report:
+        user_id:  "Usuario"
+        title:    "Titulo"
+        type_of:  "Tipo de reporte"
+        reportable_type: "Tipo de contenido"
+        reportable_id: "Contenido"
+        status: "Estado"
+        status_comment: "Descripción del estado"
+        description: "Descripción"
       holding:
-        user_id:      "User"
+        user_id:      "Usuario"
       attachment:
         file_content_type:
           invalid:    "Uno de los archivos no se ha podido subir. Comprueba que esté entre los tipos de fichero permitidos"
@@ -257,3 +289,19 @@ es:
     submit:
       create: "Crear %{model}"
       update: "Guardar cambios"
+      submit: "Guardar %{model}"
+    page_entries_info:
+      more_pages:
+        display_entries: Mostrando <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total
+      one_page:
+        display_entries:
+          one: Mostrando <b>%{count}</b> %{entry_name}
+          other: Mostrando <b>un total de %{count}</b> %{entry_name}
+          zero: No se han encontrado %{entry_name}
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      next: Siguiente &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

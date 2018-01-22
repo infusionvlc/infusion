@@ -4,13 +4,14 @@ class ProposalsController < ApplicationController
   # GET /proposals
   # GET /proposals.json
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.all.page(params[:page])
   end
 
   # GET /proposals/1
   # GET /proposals/1.json
   def show
     authorize @proposal
+    @reportable_type = 'Proposal'
   end
 
   # POST /proposals/1/vote

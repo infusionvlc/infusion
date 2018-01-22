@@ -4,26 +4,32 @@ class MeetupsController < ApplicationController
   # GET /meetups
   # GET /meetups.json
   def index
-    @meetups = Meetup.all.where(date: :not_null)
+    @next_meetup = Meetup.where('date > ?', Date.today).first
+    @most_recent = Meetup.where('date < ?', Date.today).order('date DESC')
+                         .first(3)
+    @most_popular = Meetup.where('date < ?', Date.today)
+                          .left_joins(:assistances).group(:id)
+                          .order('AVG(assistances.mark) DESC').first(3)
   end
 
   # GET /call_for_talks
   # GET /call_for_talks.json
   def call_for_talks
-    @meetups = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC')
+    @meetups = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC').page params[:page]
   end
 
   # GET /archive
   # GET /archive.json
   def archive
-    @meetups = Meetup.where('date < ?', Date.today).order(:date)
+    @meetups = Meetup.where('date < ?', Date.today).order(:date).page params[:page]
   end
 
   # GET /meetups/1
   # GET /meetups/1.json
   def show
     authorize @meetup
-    @reviews = @meetup.assistances.where.not(review: nil)
+    @reviews = @meetup.assistances.where.not(review: nil).page(params[:page])
+    @reportable_type = 'Meetup'
   end
 
   # POST /meetups/1/vote

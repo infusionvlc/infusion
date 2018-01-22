@@ -1,4 +1,5 @@
 class Meetup < ApplicationRecord
+  has_many :reports, as: :reportable, dependent: :destroy
   has_many :holdings, dependent: :destroy
   has_many :hosts, through: :holdings, source: :user
 
@@ -22,5 +23,14 @@ class Meetup < ApplicationRecord
 
   def taking_place?
     !date.nil?
+  end
+
+  def average_rating
+    marks = assistances.where.not(mark: nil).pluck(:id)
+    if marks.count > 0
+      marks.sum / marks.count
+    else
+      0
+    end
   end
 end

@@ -16,11 +16,6 @@ ca:
       subject: "¡La teua xerrada '%{meetup}' ha sigut confirmada!"
       body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
-  helpers:
-    submit:
-      create: "Afegir %{model}"
-      submit: "Guardar %{model}"
-      update: "Actualitzar %{model}"
 
   date:
     abbr_day_names:
@@ -166,6 +161,24 @@ ca:
     delete: "Estas segur d'eliminar aquesta categoria?"
     no_meetups: "No n'hi ha meetups en aquesta categoría"
 
+  report:
+    report: "Reportar"
+    report_discard: "Eliminar report"
+    report_review: "Revisar report"
+    type:
+      hate: "Incitació a l'odi"
+      menace: "Amenaçes o insults"
+      pornography: "Pornografia"
+      community: "No respecta les normes de la comunitat"
+      other: "Altres"
+    status:
+      open: "Oberta"
+      revision: "En revisió"
+      revised: "Revisada"
+      closed: "Tancada"
+    messages:
+      confirmed: "El teu report ha sigut registrat."
+
   votable: &votable
     votes:
       one:                  "1 vot"
@@ -187,6 +200,10 @@ ca:
     review:                 "Conta'ns què penses!"
     reviews:                "Opinions"
     no_reviews:             "Pareix que no n'hi ha cap opinió"
+    next:                   "Pròxim meetup"
+    no_next:                "Sembla que no hi ha cap meetup planificat encara"
+    recents:                "Els més recents"
+    populars:                "Els més populars"
 
   assistance:
     ajax_error:             "La teua review ha de tindre 5 caracters"
@@ -206,6 +223,9 @@ ca:
       proposal:
         one:   "Proposta"
         other: "Propostes"
+      report:
+        one:   "Report"
+        other: "Reports"
       category:
         one:   "Categoria"
         other: "Categoríes"
@@ -214,7 +234,9 @@ ca:
         title: "Títol"
         description:  "Descripció"
       category:
-        name:         "Nom"
+        name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requeriments"
@@ -229,6 +251,15 @@ ca:
           other:      "Organitzadors"
       proposal:
         <<: *common
+      report:
+        user_id:  "Usuari"
+        title:    "Títol"
+        type_of:  "Tipus"
+        reportable_type: "Tipus de contingut"
+        reportable_id: "Contingut"
+        status: "Estat"
+        status_comment: "Descripció del estat"
+        description: "Descripció"
       holding:
         user_id:      "User"
       attachment:
@@ -256,4 +287,21 @@ ca:
   helpers:
     submit:
       create: "Crear %{model}"
+      submit: "Guardar %{model}"
       update: "Guardar canvis"
+    page_entries_info:
+      more_pages:
+        display_entries: Mostrant <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total
+      one_page:
+        display_entries:
+          one: Mostrant <b>%{count}</b> %{entry_name}
+          other: Mostrant <b>un total de %{count}</b> %{entry_name}
+          zero: No s'han trobat %{entry_name}
+
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      next: Següent &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

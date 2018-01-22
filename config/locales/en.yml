@@ -16,11 +16,6 @@ en:
       subject: "Your talk '%{meetup}' has been confirmed!"
       body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. We need you to confirm you can come by clicking the link below."
       delay:   "If you can't come, please, delay your meetup by clicking this other button:"
-  helpers:
-    submit:
-      create: "Create %{model}"
-      submit: "Save %{model}"
-      update: "Update %{model}"
 
   date:
     abbr_day_names:
@@ -166,6 +161,24 @@ en:
     delete: Do you want to delete this category?
     no_meetups: "There are no meetups in this category"
 
+  report:
+    report: "Report"
+    report_discard: "Delete report"
+    report_review: "Check report"
+    type:
+      hate: "Hate speech"
+      menace: "Insults and threats"
+      pornography: "Pornography"
+      community: "Non-compliance with community rules"
+      other: "Other"
+    status:
+      open: "Open"
+      revision: "Checking"
+      revised: "Checked"
+      closed: "Closed"
+    messages:
+      confirmed: "Your report has been registered."
+
   votable: &votable
     votes:
       one:                  "1 vote"
@@ -187,6 +200,10 @@ en:
     review:                 "Give us your thoughts!"
     reviews:                "Reviews"
     no_reviews:             "It looks like there's no review yet"
+    next:                   "Next meetup"
+    no_next:                "It looks like there's any meetup planned yet"
+    recents:                "The most recent"
+    populars:                "The most popular"
 
   assistance:
     ajax_error:             "Your review must have at least 5 characters"
@@ -206,6 +223,9 @@ en:
       proposal:
         one:   "Proposal"
         other: "Proposals"
+      report:
+        one:   "Report"
+        other: "Reports"
       category:
         one:   "Category"
         other: "Categories"
@@ -215,6 +235,8 @@ en:
         description:  "Description"
       category:
         name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requirements"
@@ -229,6 +251,15 @@ en:
           other:      "Hosts"
       proposal:
         <<: *common
+      report:
+        user_id:  "User"
+        title:    "Title"
+        type_of:  "Type"
+        reportable_type: "Content type"
+        reportable_id: "Content"
+        status: "Status"
+        status_comment: "Status description"
+        description: "Description"
       holding:
         user_id:      "User"
       attachment:
@@ -258,3 +289,19 @@ en:
     submit:
       create: "Create a %{model}"
       update: "Confirm changes"
+      submit: "Save %{model}"
+    page_entries_info:
+      more_pages:
+        display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total
+      one_page:
+        display_entries:
+          one: Displaying <b>%{count}</b> %{entry_name}
+          other: Displaying <b>all %{count}</b> %{entry_name}
+          zero: No %{entry_name} found
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: Last &raquo;
+      next: Next &rsaquo;
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"

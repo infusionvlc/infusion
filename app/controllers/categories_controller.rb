@@ -5,10 +5,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
+    authorize @category
     if @category.save
       ok_status
     else
@@ -17,17 +19,19 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.all.page(params[:page])
   end
 
   def edit; end
 
   def destroy
+    authorize @category
     @category.destroy
     redirect_to categories_path
   end
 
   def update
+    authorize @category
     if @category.update(category_params)
       ok_status
     else
@@ -38,7 +42,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :ca_name, :es_name)
   end
 
   def set_category
