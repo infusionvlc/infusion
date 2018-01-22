@@ -188,6 +188,9 @@ ca:
     reviews:                "Opinions"
     no_reviews:             "Pareix que no n'hi ha cap opinió"
 
+  assistance:
+    ajax_error:             "La teua review ha de tindre 5 caracters"
+
   proposal:
     <<: *votable
     add_yours:              "Conta'ns les teues idees"

@@ -188,6 +188,9 @@ es:
     reviews:                "Opiniones"
     no_reviews:             "Parece que no hay ninguna opinión aún"
 
+  assistance:
+    ajax_error:             "Tu review debe tener al menos 5 caracteres"
+
   proposal:
     <<: *votable
     add_yours:              "Cuéntanos tus ideas"
