@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :reports
+  resources :activities
 
   resources :meetups do
     member do

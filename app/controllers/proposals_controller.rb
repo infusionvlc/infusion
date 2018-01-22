@@ -39,8 +39,13 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_params)
     @proposal.user = current_user
     authorize @proposal
+    @activity = Activity.new
     respond_to do |format|
       if @proposal.save
+        @activity.user_id = current_user
+        @activity.objetive_type = 'Proposal'
+        @activity.objetive_id = @proposal.id
+        @activity.save
         @proposal.votes.create(user_id: current_user.id)
         format.html { redirect_to proposal_path(@proposal) }
         format.json do
