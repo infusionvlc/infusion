@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end
-
+  
   create_table "reports", force: :cascade do |t|
     t.string "title"
     t.integer "type_of"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

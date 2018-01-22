@@ -55,11 +55,15 @@ class AssistancesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to meetup_path @meetup }
         format.json { render :show, status: :created, location: @assistance }
+        format.js   { render 'assistances/updated'}
       end
     end
 
     def error_status
-      format.html { render :edit }
-      format.json { render json: @assistance.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        format.html { render :edit }
+        format.json { render json: @assistance.errors, status: :unprocessable_entity }
+        format.js   { render 'assistances/not_updated'}
+      end
     end
   end

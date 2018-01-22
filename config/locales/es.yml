@@ -206,6 +206,9 @@ es:
     recents:                "Los más recientes"
     populars:                "Los más populares"
 
+  assistance:
+    ajax_error:             "Tu review debe tener al menos 5 caracteres"
+
   proposal:
     <<: *votable
     add_yours:              "Cuéntanos tus ideas"
