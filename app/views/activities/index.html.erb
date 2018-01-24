@@ -4,9 +4,9 @@
 <% @activities.each do |activity| %>
   <div class="card">
     <div class="card-body">
-      <p>User.find(activity.user_id)</p>
+      <p><%= activity.user.username %></p>
       <p>ha hecho lo que sea</p>
-      <p>activity.activity_title</p>
+      <p><%= activity.activity_title %></p>
     </div>
   </div>
 <% end %>

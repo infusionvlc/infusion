@@ -39,10 +39,10 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_params)
     @proposal.user = current_user
     authorize @proposal
-    @activity = Activity.new
     respond_to do |format|
       if @proposal.save
-        @activity.user_id = current_user
+        @activity = Activity.new
+        @activity.user_id = current_user.id
         @activity.objective_type = 'Proposal'
         @activity.objective_id = @proposal.id
         @activity.save
