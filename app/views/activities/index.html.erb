@@ -4,9 +4,15 @@
 <% @activities.each do |activity| %>
   <div class="card">
     <div class="card-body">
-      <p><%= activity.user.username %></p>
-      <p>ha hecho lo que sea</p>
-      <p><%= activity.activity_title %></p>
+      <p><%= link_to activity.user.username, "/"+activity.user.username %>
+      has done a <%= activity.objective_type.downcase%> : "
+      <% if activity.objective_type != "Proposal"%>
+        <%= link_to activity.activity_title, meetup_path(activity.objective_id) %>
+      <% else %>
+        <%= link_to activity.activity_title, proposal_path(activity.objective_id) %>
+      <% end %>
+      "
+      </p>
     </div>
   </div>
 <% end %>
