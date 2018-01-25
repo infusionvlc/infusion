@@ -1,18 +1,21 @@
 <h1 class="display-1">Activities</h1>
 <hr/>
 
-<% @activities.each do |activity| %>
+<% @activities.reverse.each do |activity| %>
   <div class="card">
     <div class="card-body">
-      <p><%= link_to activity.user.username, "/"+activity.user.username %>
+      <div>
+      <%= image_tag activity.user.avatar, size: '70x70', class: 'img-circle' %>
+      <%= link_to activity.user.username, "/"+activity.user.username %>
       has done a <%= activity.objective_type.downcase%> : "
-      <% if activity.objective_type != "Proposal"%>
+      <% if activity.objective_type == "Meetup"%>
         <%= link_to activity.activity_title, meetup_path(activity.objective_id) %>
+      <% elsif activity.objective_type == "Assistance"%>
+        <%= link_to activity.activity_title, meetup_path(Assistance.find(activity.objective_id).meetup_id) %>
       <% else %>
         <%= link_to activity.activity_title, proposal_path(activity.objective_id) %>
-      <% end %>
-      "
-      </p>
+      <% end %>"
+      </div>
     </div>
   </div>
 <% end %>

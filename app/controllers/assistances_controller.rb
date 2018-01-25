@@ -10,6 +10,11 @@ class AssistancesController < ApplicationController
     def create
       @assistance = Assistance.new(assistance_params)
       if @assistance.save
+        @activity = Activity.new
+        @activity.user_id = current_user.id
+        @activity.objective_type = 'Assistance'
+        @activity.objective_id = @assistance.id
+        @activity.save
         ok_status
       else
         error_status
