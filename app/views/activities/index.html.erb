@@ -7,7 +7,7 @@
       <div>
       <%= image_tag activity.user.avatar, size: '70x70', class: 'img-circle' %>
       <%= link_to activity.user.username, "/"+activity.user.username %>
-      has done a <%= activity.objective_type.downcase%> : "
+      <%= I18n.t 'activity.has_done' %> <%= activity.objective_type.downcase%> : "
       <% if activity.objective_type == "Meetup"%>
         <%= link_to activity.activity_title, meetup_path(activity.objective_id) %>
       <% elsif activity.objective_type == "Assistance"%>

@@ -168,6 +168,9 @@ en:
     messages:
       confirmed: "Your report has been registered."
 
+  activity:
+    has_done: "has done a"
+
   votable: &votable
     votes:
       one:                  "1 vote"
@@ -211,6 +214,9 @@ en:
       category:
         one:   "Category"
         other: "Categories"
+      activity:
+        one:   "Activity"
+        other: "Activities"
     attributes:
       common: &common
         title:        "Title"

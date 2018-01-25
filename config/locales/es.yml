@@ -167,7 +167,9 @@ es:
       closed: "Cerrada"
     messages:
       confirmed: "Tu reporte ha sido registrado."
-    
+
+  activity:
+    has_done: "ha hecho un"
 
   votable: &votable
     votes:
@@ -212,6 +214,9 @@ es:
       category:
         one:   "Categoría"
         other: "Categorias"
+      activity:
+        one:   "Actividad"
+        other: "Actividades"
     attributes:
       common: &common
         title:        "Título"
