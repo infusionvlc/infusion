@@ -179,6 +179,12 @@ en:
     messages:
       confirmed: "Your report has been registered."
 
+  activity:
+    has_done_meetup: "has created the Meetup: "
+    has_done_proposal: "has proposed"
+    has_done_comment: "has commented"
+    in_the_meetup: "in the Meetup: "
+
   votable: &votable
     votes:
       one:                  "1 vote"
@@ -229,6 +235,9 @@ en:
       category:
         one:   "Category"
         other: "Categories"
+      activity:
+        one:   "Activity"
+        other: "Activities"
     attributes:
       common: &common
         title:        "Title"

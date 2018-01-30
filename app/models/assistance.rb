@@ -1,5 +1,7 @@
 class Assistance < ApplicationRecord
+  has_one :activities, as: :objective
   has_many :reports, as: :reportable, dependent: :destroy
+
   belongs_to :user
   belongs_to :meetup
   validates  :review, length: {minimum: 5}, if: :should_validate?

@@ -179,6 +179,12 @@ ca:
     messages:
       confirmed: "El teu report ha sigut registrat."
 
+  activity:
+    has_done_meetup: "ha creat el Meetup: "
+    has_done_proposal: "ha proposat"
+    has_done_comment: "ha comentat"
+    in_the_meetup: "en el Meetup: "
+
   votable: &votable
     votes:
       one:                  "1 vot"
@@ -229,6 +235,9 @@ ca:
       category:
         one:   "Categoria"
         other: "Categoríes"
+      activity:
+        one:   "Activitat"
+        other: "Activitats"
     attributes:
       common: &common
         title: "Títol"

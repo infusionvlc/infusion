@@ -37,6 +37,11 @@ class MeetupsController < ApplicationController
     authorize @meetup
     MeetupMailer.subscribed_to(@meetup, current_user).deliver
     @meetup.assistances.create(user_id: current_user.id)
+    @activity = Activity.new
+    @activity.user_id = current_user.id
+    @activity.objective_type = 'Assistance'
+    @activity.objective_id = @meetup.assistances.last.id.to_i
+    @activity.save
     redirect_back(fallback_location: meetup_path(@meetup), alert: 'Tu voto ha sido registrado')
   end
 
@@ -78,6 +83,11 @@ class MeetupsController < ApplicationController
     authorize @meetup
     respond_to do |format|
       if @meetup.save
+        @activity = Activity.new
+        @activity.user_id = current_user.id
+        @activity.objective_type = 'Meetup'
+        @activity.objective_id = @meetup.id
+        @activity.save
         @meetup.holdings.create(user_id: current_user.id)
         format.html { redirect_to meetup_path(@meetup) }
         format.json do

@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 20180121203840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "activities", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "objective_id"
+    t.string "objective_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
   create_table "assistances", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "meetup_id"
@@ -74,6 +82,16 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.text "description"
     t.text "requirements"
     t.date "date"
+    t.time "start"
+    t.time "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "activity_id"
+    t.boolean "read"
     t.time "start", default: "2000-01-01 17:00:00"
     t.time "end", default: "2000-01-01 19:00:00"
     t.datetime "created_at", null: false
@@ -102,7 +120,7 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end
-  
+
   create_table "reports", force: :cascade do |t|
     t.string "title"
     t.integer "type_of"
@@ -115,7 +133,7 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

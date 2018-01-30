@@ -1,0 +1,28 @@
+<h1 class="display-1">Activities</h1>
+<hr/>
+
+<% @activities.reverse.each do |activity| %>
+  <div class="row">
+    <div class="col-sm-2">
+      <%= image_tag activity.user.avatar, class: 'avatar avatar-small' %>
+    </div>
+    <div class="col-sm-10">
+      <p>
+        <%= link_to activity.user.username, "/"+activity.user.username %>        
+        <% if activity.objective_type == "Meetup"%>
+          <%= I18n.t 'activity.has_done_meetup' %>
+          <%= link_to activity.activity_title, meetup_path(activity.objective_id) %>
+        <% elsif activity.objective_type == "Assistance"%>
+          <%= I18n.t 'activity.has_done_comment' %>
+          <%= link_to activity.activity_title.truncate(40), meetup_path(Assistance.find(activity.objective_id).meetup_id) %>
+          <%= I18n.t 'activity.in_the_meetup' %>
+          <%= link_to Meetup.find(activity.objective_id).title, meetup_path(Assistance.find(activity.objective_id).meetup_id) %>
+        <% else %>
+        <%= I18n.t 'activity.has_done_proposal' %>
+          <%= link_to activity.activity_title, proposal_path(activity.objective_id) %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <hr/>  
+<% end %>
