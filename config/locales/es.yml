@@ -169,7 +169,10 @@ es:
       confirmed: "Tu reporte ha sido registrado."
 
   activity:
-    has_done: "ha hecho un"
+    has_done_meetup: "ha creado el Meetup: "
+    has_done_proposal: "ha propuesto"
+    has_done_comment: "ha comentado"
+    in_the_meetup: "en el Meetup: "
 
   votable: &votable
     votes:

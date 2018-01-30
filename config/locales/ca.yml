@@ -169,7 +169,10 @@ ca:
       confirmed: "El teu report ha sigut registrat."
 
   activity:
-    has_done: "ha fet un"
+    has_done_meetup: "ha creat el Meetup: "
+    has_done_proposal: "ha proposat"
+    has_done_comment: "ha comentat"
+    in_the_meetup: "en el Meetup: "
 
   votable: &votable
     votes:
