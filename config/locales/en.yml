@@ -2,11 +2,20 @@ en:
   nav:
     home: "Home"
 
-  helpers:
-    submit:
-      create: "Create %{model}"
-      submit: "Save %{model}"
-      update: "Update %{model}"
+  meetup_mailer:
+    greeting: "Hey, %{user}!"
+    confirm: "Confirm"
+    delay:   "Delay"
+    subscribed_to:
+      subject: "You just suscribed to '%{meetup}'"
+      body:    "You are now suscribed to the meetup called '%{meetup}'. We will send you another email when we schedule a date for it!"
+    notify_publication:
+      subject: "'%{meetup}' has been confirmed!"
+      body:    "You were suscribed to the meetup called '%{meetup}', which is going to take place on %{date}. We hope you can join us!"
+    ask_for_confirmation:
+      subject: "Your talk '%{meetup}' has been confirmed!"
+      body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. We need you to confirm you can come by clicking the link below."
+      delay:   "If you can't come, please, delay your meetup by clicking this other button:"
 
   date:
     abbr_day_names:
@@ -110,6 +119,7 @@ en:
 
   main:
     add:           "Add"
+    archive:       "Archive"
     assist:        "He asistido"
     edit:          "Editar"
     delete:        "Delete"
@@ -117,13 +127,14 @@ en:
     vote:          "Vote"
     allowed_files: "Only text, audio, video, image, pdf and zip files are allowed"
     pundit_error:  "It looks like you can't do that"
+    collaborators: "Collaborators"
 
   user:
     about:  "About me"
     change_password: "Change password"
     login:  "Log in"
     logout: "Log out"
-    member_since: "Member since #{date}"
+    member_since: "Member since %{date}"
     signup: "Sign up"
     omniauth:     "Sign in with"
     password:     "Forgot your password?"
@@ -195,6 +206,13 @@ en:
     review:                 "Give us your thoughts!"
     reviews:                "Reviews"
     no_reviews:             "It looks like there's no review yet"
+    next:                   "Next meetup"
+    no_next:                "It looks like there's any meetup planned yet"
+    recents:                "The most recent"
+    populars:                "The most popular"
+
+  assistance:
+    ajax_error:             "Your review must have at least 5 characters"
 
   proposal:
     <<: *votable
@@ -226,6 +244,8 @@ en:
         description:  "Description"
       category:
         name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requirements"
@@ -259,9 +279,10 @@ en:
           invalid:    "One of your uploaded files couldn't be uploaded. Check all your photos are image files"
       user:
         current_password: "Current password"
+        locale: "Preferred language"
         password:              "Password"
         password_confirmation:
-          confirmation:        "Password confirmation"
+          one:        "Password confirmation"
         username: "Username"
     errors:
       messages:
@@ -277,3 +298,19 @@ en:
     submit:
       create: "Create a %{model}"
       update: "Confirm changes"
+      submit: "Save %{model}"
+    page_entries_info:
+      more_pages:
+        display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total
+      one_page:
+        display_entries:
+          one: Displaying <b>%{count}</b> %{entry_name}
+          other: Displaying <b>all %{count}</b> %{entry_name}
+          zero: No %{entry_name} found
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: Last &raquo;
+      next: Next &rsaquo;
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"

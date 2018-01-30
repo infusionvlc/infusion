@@ -2,11 +2,20 @@ ca:
   nav:
     home: "Inici"
 
-  helpers:
-    submit:
-      create: "Afegir %{model}"
-      submit: "Guardar %{model}"
-      update: "Actualitzar %{model}"
+  meetup_mailer:
+    greeting: "Hey, %{user}!"
+    confirm: "Confirmar"
+    delay:   "Ajornar"
+    subscribed_to:
+      subject: "Subscripció a %{meetup}"
+      body:    "T'has subscrit al meetup %{meetup}. T'enviarem un altre email quan tingam la data definitiva!"
+    notify_publication:
+      subject: "%{meetup} ha sigut confirmat!"
+      body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. ¡T'esperem!"
+    ask_for_confirmation:
+      subject: "¡La teua xerrada '%{meetup}' ha sigut confirmada!"
+      body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
+      delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
 
   date:
     abbr_day_names:
@@ -110,6 +119,7 @@ ca:
 
   main:
     add:           "Afegir"
+    archive:       "Arxiu"
     assist:        "He estat"
     edit:          "Editar"
     delete:        "Eliminar"
@@ -117,13 +127,14 @@ ca:
     vote:          "Votar"
     allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
     pundit_error:  "Pareix que no pots fer això"
+    collaborators: "Col·laboradors"
 
   user:
     about:  "Sobre mi"
     change_password: "Canviar contrasenya"
     login:  "Iniciar Sessió"
     logout: "Finalitzar Sessió"
-    member_since: "Membre des de el #{date}"
+    member_since: "Membre des de el %{date}"
     signup: "Uneix-te"
     omniauth:     "Entrar amb"
     password:     "Has oblidat la teua clau?"
@@ -195,6 +206,13 @@ ca:
     review:                 "Conta'ns què penses!"
     reviews:                "Opinions"
     no_reviews:             "Pareix que no n'hi ha cap opinió"
+    next:                   "Pròxim meetup"
+    no_next:                "Sembla que no hi ha cap meetup planificat encara"
+    recents:                "Els més recents"
+    populars:                "Els més populars"
+
+  assistance:
+    ajax_error:             "La teua review ha de tindre 5 caracters"
 
   proposal:
     <<: *votable
@@ -225,7 +243,9 @@ ca:
         title: "Títol"
         description:  "Descripció"
       category:
-        name:         "Nom"
+        name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requeriments"
@@ -259,9 +279,10 @@ ca:
           invalid:    "Un dels fitxers no s'ha pogut pujar. Revisa que les fotos siguen fitxers d'imatge"
       user:
         current_password: "Contrasenya actual"
+        locale: "Llengua preferida"
         password:              "Contrasenya"
         password_confirmation:
-          confirmation:        "Confirma la teua contrasenya"
+          one:        "Confirma la teua contrasenya"
         username: "Nom d'usuari"
     errors:
       messages:
@@ -275,4 +296,21 @@ ca:
   helpers:
     submit:
       create: "Crear %{model}"
+      submit: "Guardar %{model}"
       update: "Guardar canvis"
+    page_entries_info:
+      more_pages:
+        display_entries: Mostrant <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total
+      one_page:
+        display_entries:
+          one: Mostrant <b>%{count}</b> %{entry_name}
+          other: Mostrant <b>un total de %{count}</b> %{entry_name}
+          zero: No s'han trobat %{entry_name}
+
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      next: Següent &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

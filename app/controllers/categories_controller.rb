@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.all.page(params[:page])
   end
 
   def edit; end
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :ca_name, :es_name)
   end
 
   def set_category

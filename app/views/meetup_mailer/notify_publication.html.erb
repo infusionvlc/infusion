@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= I18n.t 'meetup_mailer.greeting', user: @user.username %></h1>
+    <p><%= I18n.t 'meetup_mailer.notify_publication.body', user: @user.username, meetup: @meetup.title, date: @date %></p>
+  </body>
+</html>

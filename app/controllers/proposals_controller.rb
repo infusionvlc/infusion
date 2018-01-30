@@ -4,7 +4,7 @@ class ProposalsController < ApplicationController
   # GET /proposals
   # GET /proposals.json
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.all.page(params[:page])
   end
 
   # GET /proposals/1
@@ -19,7 +19,7 @@ class ProposalsController < ApplicationController
   def vote
     authorize @proposal
     @proposal.votes.create(user_id: current_user.id)
-    redirect_to(proposal_path(@proposal))
+    redirect_back(fallback_location: proposal_path(@proposal), alert: 'Tu voto ha sido registrado')
   end
 
   # GET /proposals/new

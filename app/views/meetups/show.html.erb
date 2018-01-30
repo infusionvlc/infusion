@@ -15,7 +15,7 @@
     <p class="lead"><%= meetup_votes(@meetup) %></p>
     <h2 aria-label=<%= I18n.t 'activerecord.attributes.meetup.categories' %>>
       <% @meetup.categories.each do |cat| %>
-        <%= link_to cat do %><span class="badge badge-pill badge-info"><%=cat.name %></span><% end %>
+        <%= link_to cat do %><span class="badge badge-pill badge-info"><%=cat.display_name %></span><% end %>
       <% end %>
     </h2>
   </div>
@@ -91,16 +91,22 @@
             <%= link_to (fa_icon 'exclamation-triangle '), "#", data: {toggle: "modal", target: var_modal} , class:'right'%>
           <% end %>
           <% if policy(review).edit? %>
-            <%= link_to edit_meetup_assistance_path(@meetup, review), class:'right' do %><%= fa_icon 'pencil' %><% end %>
+            <!-- <%= link_to edit_meetup_assistance_path(@meetup, review), class:'right' do %><%= fa_icon 'pencil' %><% end %> -->
+              <a href='#' class='right edit_comment' id='edit_comment_<%= review.id %>'><%= fa_icon 'pencil' %></a>
           <% end %>
-          <h5 class="card-title"><span class="badge badge-pill badge-info"><%= review.mark %> <%= fa_icon 'star' %></span></h5>
-          <p class="card-text"><%= review.review %></p>
-        </div>
-        <div class="card-footer text-muted">
+          <div id='info_<%= review.id %>'>
+            <%= render partial: 'review_info', locals: {review: review} %>
+          </div>
+          <div id='edit_form_<%= review.id %>' style='display: none'>
+            <%= render partial: 'review_form', locals: {review: review} %>
+          </div>
+         </div>
+         <div class="card-footer text-muted">
           <%= review.user.username %> | <%= time_ago_in_words(review.updated_at) %>
         </div>
       </div>
     <% end %>
+    <%= paginate @reviews, theme: 'twitter-bootstrap-4' %>
   </div>
   <div class="col-md-4 col-sm-12 card">
     <div class="card-body">

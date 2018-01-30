@@ -2,11 +2,20 @@ es:
   nav:
     home: "Inicio"
 
-  helpers:
-    submit:
-      create: "Añadir %{model}"
-      submit: "Guardar %{model}"
-      update: "Actualizar %{model}"
+  meetup_mailer:
+    greeting: "¡Hey, %{user}!"
+    confirm:  "Confirmar"
+    delay:    "Aplazar"
+    subscribed_to:
+      subject: "Tu suscripción a %{meetup}"
+      body:    "Ahora estás suscrito al meetup %{meetup}. ¡Te mandaremos otro email cuando se conozca la fecha definitiva!"
+    notify_publication:
+      subject: "¡%{meetup} acaba de ser confirmado!"
+      body:    "Te suscribiste al meetup %{meetup}, que va a tener lugar el %{date}. ¡Te esperamos!"
+    ask_for_confirmation:
+      subject: "¡Tu charla '%{meetup}' se ha confirmado!"
+      body:    "La gente ha votado tu charla '%{meetup}', que va a tener lugar el %{date}. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
+      delay:   "Si no puedes venir, por favor, aplaza tu meetup con este otro botón:"
 
   date:
     abbr_day_names:
@@ -110,6 +119,7 @@ es:
 
   main:
     add:           "Añadir"
+    archive:       "Archivo"
     assist:        "Estuve en este meetup"
     edit:          "Editar"
     delete:        "Eliminar"
@@ -117,6 +127,7 @@ es:
     vote:          "Votar"
     allowed_files: "Se permiten archivos de texto, vídeo, imagen, audio, pdf y zip"
     pundit_error:  "Parece que no puedes hacer eso"
+    collaborators: "Colaboradores"
 
   user:
     about:  "Sobre mí"
@@ -195,6 +206,13 @@ es:
     review:                 "¡Cuéntanos qué piensas!"
     reviews:                "Opiniones"
     no_reviews:             "Parece que no hay ninguna opinión aún"
+    next:                   "Próximo meetup"
+    no_next:                "Parece que no hay ningún meetup planificado aún"
+    recents:                "Los más recientes"
+    populars:                "Los más populares"
+
+  assistance:
+    ajax_error:             "Tu review debe tener al menos 5 caracteres"
 
   proposal:
     <<: *votable
@@ -225,7 +243,9 @@ es:
         title:        "Título"
         description:  "Descrición"
       category:
-        name:         "Nombre"
+        name:         "Name"
+        ca_name:      "Nom"
+        es_name:      "Nombre"
       meetup:
         <<: *common
         requirements: "Requisitos"
@@ -259,6 +279,7 @@ es:
           invalid:    "Uno de los archivos no se ha podido subir. Comprueba que tus fotos son ficheros de imagen"
       user:
         current_password: "Contraseña actual"
+        locale: "Lengua preferida"
         password:              "Contraseña"
         password_confirmation:
           one: "Confirma tu contraseña"
@@ -276,3 +297,19 @@ es:
     submit:
       create: "Crear %{model}"
       update: "Guardar cambios"
+      submit: "Guardar %{model}"
+    page_entries_info:
+      more_pages:
+        display_entries: Mostrando <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total
+      one_page:
+        display_entries:
+          one: Mostrando <b>%{count}</b> %{entry_name}
+          other: Mostrando <b>un total de %{count}</b> %{entry_name}
+          zero: No se han encontrado %{entry_name}
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      next: Siguiente &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
 
   def index
-    @reports = Report.all
+    @reports = Report.all.page(params[:page])
     authorize @reports
   end
 
