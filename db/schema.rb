@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121203840) do
+ActiveRecord::Schema.define(version: 20180122181315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
+
   create_table "assistances", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "meetup_id"
@@ -86,17 +86,15 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.time "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmation_mail"
   end
 
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id"
     t.integer "activity_id"
     t.boolean "read"
-    t.time "start", default: "2000-01-01 17:00:00"
-    t.time "end", default: "2000-01-01 19:00:00"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "confirmation_mail"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -154,7 +152,7 @@ ActiveRecord::Schema.define(version: 20180121203840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "locale", default: "es"
+    t.string "locale"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
