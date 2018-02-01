@@ -78,11 +78,7 @@ class MeetupsController < ApplicationController
     authorize @meetup
     respond_to do |format|
       if @meetup.save
-        @activity = Activity.new
-        @activity.user_id = current_user.id
-        @activity.objective_type = 'Meetup'
-        @activity.objective_id = @meetup.id
-        @activity.save
+        @activity = @meetup.create_activity(current_user.id)
         @meetup.holdings.create(user_id: current_user.id)
         format.html { redirect_to meetup_path(@meetup) }
         format.json do

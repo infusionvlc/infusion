@@ -32,11 +32,7 @@ class AssistancesController < ApplicationController
 
     def update
       if @assistance.update(assistance_params)
-        @activity = Activity.new
-        @activity.user_id = current_user.id
-        @activity.objective_type = 'Assistance'
-        @activity.objective_id = @assistance.meetup.id
-        @activity.save
+        @activity = @assistance.create_activity(current_user.id)
         ok_status
       else
         error_status

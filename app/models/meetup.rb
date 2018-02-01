@@ -1,4 +1,5 @@
 class Meetup < ApplicationRecord
+  include Feed
   has_one :activities, as: :objective
   has_many :reports, as: :reportable, dependent: :destroy
   has_many :holdings, dependent: :destroy
