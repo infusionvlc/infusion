@@ -81,6 +81,7 @@ class MeetupsController < ApplicationController
   def create
     @meetup = Meetup.new(meetup_params)
     authorize @meetup
+    @meetup.location = Location.where(active: true).first
     respond_to do |format|
       if @meetup.save
         @activity = Activity.new

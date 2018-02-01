@@ -160,6 +160,10 @@ ca:
     create: "Crear una nova categoria"
     delete: "Estas segur d'eliminar aquesta categoria?"
     no_meetups: "No n'hi ha meetups en aquesta categoría"
+  
+  location:
+    create: "Afegir un nou lloc"
+    no_meetups: "No hi han meetups en aquest lloc"
 
   report:
     report: "Reportar"
@@ -238,6 +242,9 @@ ca:
       activity:
         one:   "Activitat"
         other: "Activitats"
+      location:
+        one:   "Location"
+        other: "Locations"
     attributes:
       common: &common
         title: "Títol"
