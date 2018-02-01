@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= I18n.t 'notification_mailer.greeting', user: @user.username %></h1>
+    <p><%= I18n.t 'notification_mailer.notify_proposal.body', user: @user.username, proposal: @proposal.title%></p>
+  </body>
+</html>

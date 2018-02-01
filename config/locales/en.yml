@@ -17,6 +17,12 @@ en:
       body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. We need you to confirm you can come by clicking the link below."
       delay:   "If you can't come, please, delay your meetup by clicking this other button:"
 
+  notification_mailer:
+    greeting: "Hey, %{user}!"
+    notify_proposal:
+      subject: "A new proposal was created %{proposal}!"
+      body: "thats it"
+
   date:
     abbr_day_names:
     - Sun

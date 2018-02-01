@@ -17,6 +17,12 @@ ca:
       body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
 
+  notification_mailer:
+    greeting: "Ye, %{user}!"
+    notify_proposal:
+      subject: "Una nova proposició ha sigut creada %{proposal}!"
+      body: "es tot"
+
   date:
     abbr_day_names:
     - Dg

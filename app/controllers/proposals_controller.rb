@@ -41,11 +41,11 @@ class ProposalsController < ApplicationController
     authorize @proposal
     respond_to do |format|
       if @proposal.save
-        @activity = Activity.new
-        @activity.user_id = current_user.id
-        @activity.objective_type = 'Proposal'
-        @activity.objective_id = @proposal.id
-        @activity.save
+        @activity = Activity.create(user_id: current_user.id, 
+                                    objective_id: @proposal.id, 
+                                    objective_type: 'Proposal')
+                                   
+        NotificationMailer.notify_proposal(@proposal, current_user).deliver
         @proposal.votes.create(user_id: current_user.id)
         format.html { redirect_to proposal_path(@proposal) }
         format.json do

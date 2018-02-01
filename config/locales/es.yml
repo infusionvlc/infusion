@@ -17,6 +17,12 @@ es:
       body:    "La gente ha votado tu charla '%{meetup}', que va a tener lugar el %{date}. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
       delay:   "Si no puedes venir, por favor, aplaza tu meetup con este otro botón:"
 
+  notification_mailer:
+    greeting: "Hola, %{user}!"
+    notify_proposal:
+      subject: "Una nueva ha sido creada %{proposal}!"
+      body: "eso es todo"
+
   date:
     abbr_day_names:
     - dom
