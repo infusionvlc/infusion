@@ -1,0 +1,17 @@
+<%= link_to new_location_path, class:'btn btn-primary right' do %>
+  <%= fa_icon 'plus' %> <%= I18n.t 'main.add' %>
+<% end %>
+
+<h1><%= I18n.t 'activerecord.model.location.other' %></h1>
+
+<% @locations.each do |location| %>
+  <div class="card">
+    <div class="card-body">
+      <%=link_to location do %><h2><%= location.name %></h2><% end %>
+    </div>
+    <div class="card-footer">
+      <%= location.meetups.count %> Meetups
+    </div>
+  </div>
+<% end %>
+<%= paginate @locations, theme: 'twitter-bootstrap-4' %>
