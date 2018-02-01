@@ -18,7 +18,7 @@
     <% @category.meetups.each do |meetup| %>
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title"><%= meetup.title %></h3>
+          <h3 class="card-title"><%= link_to meetup.title, meetup %></h3>
           <hr/>
           <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
         </div>

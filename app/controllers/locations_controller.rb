@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     authorize @location
     if @location.save
+	  check_active_locations
       ok_status
     else
       error_status
@@ -33,6 +34,7 @@ class LocationsController < ApplicationController
   def update
     authorize @location
     if @location.update(location_params)
+      check_active_locations
       ok_status
     else
       error_status
@@ -61,5 +63,11 @@ class LocationsController < ApplicationController
   def error_status
     format.html { render :edit }
     format.json { render json: @location.errors, status: :unprocessable_entity }
+  end
+  
+  def check_active_locations
+    if @location.active == true
+      Location.where(active: true).first.update(active: false)
+    end
   end
 end

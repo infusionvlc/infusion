@@ -7,7 +7,14 @@
 <% @locations.each do |location| %>
   <div class="card">
     <div class="card-body">
-      <%=link_to location do %><h2><%= location.name %></h2><% end %>
+      <%=link_to location do %>
+		<h2>
+			<% if location.active %>
+				<span class="badge badge-pill badge-info"><%= fa_icon 'location-arrow' %></span>
+			<% end %>
+			<%= location.name %>
+		</h2>
+	  <% end %>
     </div>
     <div class="card-footer">
       <%= location.meetups.count %> Meetups
