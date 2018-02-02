@@ -79,6 +79,7 @@ class MeetupsController < ApplicationController
     respond_to do |format|
       if @meetup.save
         @activity = @meetup.create_activity(current_user.id)
+        @notifications = @activity.create_notification()
         @meetup.holdings.create(user_id: current_user.id)
         format.html { redirect_to meetup_path(@meetup) }
         format.json do

@@ -19,8 +19,8 @@ es:
 
   notification_mailer:
     greeting: "Hola, %{user}!"
-    notify_proposal:
-      subject: "Una nueva ha sido creada %{proposal}!"
+    notify_activity:
+      subject: "Una nueva ha sido creada %{activity}!"
       body: "eso es todo"
 
   date:

@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20180122181315) do
     t.text "description"
     t.text "requirements"
     t.date "date"
-    t.time "start"
-    t.time "end"
+    t.time "start", default: "2000-01-01 17:00:00"
+    t.time "end", default: "2000-01-01 19:00:00"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 20180122181315) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "locale"
+    t.string "locale", default: "es"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"

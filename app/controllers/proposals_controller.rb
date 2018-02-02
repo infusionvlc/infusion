@@ -42,7 +42,7 @@ class ProposalsController < ApplicationController
     respond_to do |format|
       if @proposal.save
         @activity = @proposal.create_activity(current_user.id)                               
-        NotificationMailer.notify_proposal(@proposal, current_user).deliver
+        #NotificationMailer.notify_proposal(@proposal, current_user).deliver
         @proposal.votes.create(user_id: current_user.id)
         format.html { redirect_to proposal_path(@proposal) }
         format.json do

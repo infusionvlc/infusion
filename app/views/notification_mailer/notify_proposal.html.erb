@@ -5,6 +5,10 @@
   </head>
   <body>
     <h1><%= I18n.t 'notification_mailer.greeting', user: @user.username %></h1>
-    <p><%= I18n.t 'notification_mailer.notify_proposal.body', user: @user.username, proposal: @proposal.title%></p>
+    <% if @activity.objective_type == 'Assistance' %>
+      <p><%= I18n.t 'notification_mailer.notify_activity.body', user: @user.username, activity: @activity.objective.review%></p>
+    <% else %>
+      <p><%= I18n.t 'notification_mailer.notify_activity.body', user: @user.username, activity: @activity.objective.title%></p>
+    <% end %>
   </body>
 </html>

@@ -19,8 +19,8 @@ ca:
 
   notification_mailer:
     greeting: "Ye, %{user}!"
-    notify_proposal:
-      subject: "Una nova proposició ha sigut creada %{proposal}!"
+    notify_activity:
+      subject: "Una nova proposició ha sigut creada %{activity}!"
       body: "es tot"
 
   date:

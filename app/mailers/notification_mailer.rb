@@ -1,14 +1,22 @@
 class NotificationMailer < ApplicationMailer
     default from: "INFUSIÓN <hola@infusionvlc.com>"
 
-    def notify_proposal(proposal, user)
+    def notify_proposal(activity, user)
         @user   = user
-        @proposal = proposal
+        @activity = activity
         I18n.with_locale(@user.locale) do
-            mail(to: @user.email,
-                 subject: I18n.t('notification_mailer.notify_proposal.subject', \
-                 proposal: @proposal.title), \
-                 date: @date)
+            if @activity.objective_type == 'Assistance'
+                mail(to: @user.email,
+                subject: I18n.t('notification_mailer.notify_activity.subject', \
+                activity: @activity.objective.review), \
+                date: @date)
+            else
+                mail(to: @user.email,
+                subject: I18n.t('notification_mailer.notify_activity.subject', \
+                activity: @activity.objective.title), \
+                date: @date)
+            end
+            
         end
       end
 end

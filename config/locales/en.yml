@@ -19,8 +19,8 @@ en:
 
   notification_mailer:
     greeting: "Hey, %{user}!"
-    notify_proposal:
-      subject: "A new proposal was created %{proposal}!"
+    notify_activity:
+      subject: "A new proposal was created %{activity}!"
       body: "thats it"
 
   date:
