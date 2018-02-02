@@ -22,6 +22,7 @@ class Meetup < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :requirements, presence: true
+  validates :location, presence: true
 
   def taking_place?
     !date.nil?
