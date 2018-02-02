@@ -1,7 +1,18 @@
+# ~/test/models/attachment_test.rb
 require 'test_helper'
 
 class AttachmentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'Valid Attachment' do
+    meetup2 = meetups(:one)
+    attachment = Attachment.new(meetup_id: meetup2.id)
+    assert_equal attachment.valid?, true, 'Attachment is invalid with full
+    initialization'
+    puts 'Test: Attachment -> Valid Attachment'
+  end
+  test 'Invalid without meetup' do
+    attachment = Attachment.new
+    assert_not_equal attachment.valid?, true,
+                     'Attachment is valid without a Meetup'
+    puts 'Test: Attachment -> Invalid without meetup'
+  end
 end

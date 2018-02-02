@@ -170,6 +170,11 @@ es:
     create: "Crear una nueva categoría"
     delete: "Estas seguro de borrar esta categoría?"
     no_meetups: "No hay meetups en esta categoría"
+    
+  location:
+    create: "Añadir un nuevo lugar"
+    no_meetups: "No hay meetups en este lugar"
+    
 
   report:
     report: "Reportar"
@@ -248,6 +253,9 @@ es:
       activity:
         one:   "Actividad"
         other: "Actividades"
+      location:
+        one:   "Location"
+        other: "Locations"
     attributes:
       common: &common
         title:        "Título"

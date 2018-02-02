@@ -4,6 +4,7 @@ class Meetup < ApplicationRecord
   has_many :reports, as: :reportable, dependent: :destroy
   has_many :holdings, dependent: :destroy
   has_many :hosts, through: :holdings, source: :user
+  belongs_to :location
 
   has_and_belongs_to_many :categories
 
@@ -22,6 +23,7 @@ class Meetup < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :requirements, presence: true
+  validates :location, presence: true
 
   def taking_place?
     !date.nil?

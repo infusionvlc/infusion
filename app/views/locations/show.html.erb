@@ -1,21 +1,21 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3"><%= @category.display_name %></h1>
-    <p class="lead"><%= @category.meetups.count %> Meetups</p>
+    <h1 class="display-3"><%= @location.name %></h1>
+    <p class="lead"><%= @location.meetups.count %> Meetups</p>
   </div>
 </div>
 <br/>
-<% if policy(@category).edit? %>
+<% if policy(@location).edit? %>
   <div class="row">
     <div class="col-md-8 col-sm-12">
 <%else %>
   <div>
 <% end %>
   <h2><%= I18n.t 'activerecord.model.meetup.other' %></h2>
-  <% if @category.meetups.count == 0 %>
-    <p><%= I18n.t 'category.no_meetups' %></p>
+  <% if @location.meetups.count == 0 %>
+    <p><%= I18n.t 'location.no_meetups' %></p>
   <% else %>
-    <% @category.meetups.each do |meetup| %>
+    <% @location.meetups.each do |meetup| %>
       <div class="card">
         <div class="card-body">
           <h3 class="card-title"><%= link_to meetup.title, meetup %></h3>
@@ -25,13 +25,13 @@
       </div>
     <% end %>
   <% end %>
-  <% if policy(@category).edit? %>
+  <% if policy(@location).edit? %>
     </div>
     <div class="col-md-4 col-sm-12 card">
       <div class="card-body">
-        <%= link_to edit_category_path(@category), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'main.edit' %><% end %>
-        <% if policy(@category).destroy? %>
-          <%= link_to category_path(@category), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.delete' %><% end %>
+        <%= link_to edit_location_path(@location), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'main.edit' %><% end %>
+        <% if policy(@location).destroy? %>
+          <%= link_to location_path(@location), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.delete' %><% end %>
         <% end %>
         <hr/>
       </div>
