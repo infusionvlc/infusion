@@ -2,7 +2,7 @@
 
 one:
   title: MyString
-  type: 1
+  type_of: 1
   reportable_type: MyString
   user_id: 1
   reportable_id: 1
@@ -12,7 +12,7 @@ one:
 
 two:
   title: MyString
-  type: 1
+  type_of: 1
   reportable_type: MyString
   user_id: 1
   reportable_id: 1

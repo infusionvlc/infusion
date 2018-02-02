@@ -16,8 +16,7 @@ class Activity < ApplicationRecord
     User.all.each do |user|
       NotificationMailer.notify_proposal(self, user).deliver
       Notification.create(user_id: user.id,
-                    activity_id: self.id, 
-                    read: false)
+                    activity_id: self.id)
     end
   end
 end
