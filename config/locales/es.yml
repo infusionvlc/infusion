@@ -20,8 +20,12 @@ es:
   notification_mailer:
     greeting: "Hola, %{user}!"
     notify_activity:
-      subject: "Una nueva ha sido creada %{activity}!"
-      body: "eso es todo"
+      subject_meetup: "Un nuevo Meetup ha sido creado"
+      body_meetup: "El Meetup '%{activity}'' ha sido creado. ¡Vótalo para que se lleve a cabo!"
+      subject_proposal: "Se ha propuesto un nuevo tema"
+      body_proposal: "El tema propuesto es '%{activity}'. Recuerda que para apoyarlo tienes que votarlo aquí: "
+      subject_assistance: "Hay un nuevo comentario en un Meetup"
+      body_assistance: "%{creator} ha comentado en el Meetup '%{meetup}'. Si tú también has asistido, no olvides dejar tu opinión"
 
   date:
     abbr_day_names:
