@@ -2,7 +2,8 @@ require 'test_helper'
 
 class NotificationTest < ActiveSupport::TestCase
   test 'Valid Notification' do
-    notification = Notification.new(user_id: users(:one).id, activity_id: activities(:one).id)
+    notification = Notification.new(user_id: users(:one).id, 
+                                    activity_id: activities(:one).id)
     assert_equal notification.valid?, true
     puts '\nTest: Notification -> Valid Notification'
   end

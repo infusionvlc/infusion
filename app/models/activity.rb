@@ -12,11 +12,11 @@ class Activity < ApplicationRecord
     end
   end
 
-  def create_notification()
+  def create_notification
     User.all.each do |user|
       NotificationMailer.notify_proposal(self, user).deliver
       Notification.create(user_id: user.id,
-                    activity_id: self.id)
+                          activity_id: self.id)
     end
   end
 end

@@ -36,7 +36,7 @@ class MeetupsController < ApplicationController
   def vote
     authorize @meetup
     MeetupMailer.subscribed_to(@meetup, current_user).deliver
-    @meetup.assistances.create(user_id: current_user.id)   
+    @meetup.assistances.create(user_id: current_user.id)
     redirect_back(fallback_location: meetup_path(@meetup), alert: 'Tu voto ha sido registrado')
   end
 
@@ -79,7 +79,7 @@ class MeetupsController < ApplicationController
     respond_to do |format|
       if @meetup.save
         @activity = @meetup.create_activity(current_user.id)
-        @notifications = @activity.create_notification()
+        @notifications = @activity.create_notification
         @meetup.holdings.create(user_id: current_user.id)
         format.html { redirect_to meetup_path(@meetup) }
         format.json do

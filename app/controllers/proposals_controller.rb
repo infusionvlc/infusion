@@ -1,4 +1,4 @@
-class ProposalsController < ApplicationController  
+class ProposalsController < ApplicationController
   before_action :set_proposal, only: %i[show edit update destroy vote]
 
   # GET /proposals
@@ -41,8 +41,8 @@ class ProposalsController < ApplicationController
     authorize @proposal
     respond_to do |format|
       if @proposal.save
-        @activity = @proposal.create_activity(current_user.id)                               
-        @notifications = @activity.create_notification()
+        @activity = @proposal.create_activity(current_user.id)
+        @notifications = @activity.create_notification
         @proposal.votes.create(user_id: current_user.id)
         format.html { redirect_to proposal_path(@proposal) }
         format.json do
