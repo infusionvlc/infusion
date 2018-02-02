@@ -23,7 +23,7 @@ class User < ApplicationRecord
   has_attached_file :avatar
   validates_attachment_content_type :avatar, content_type: /\Aimage/
   validates :role_id, :locale, :username, presence: true
-  
+
   def admin?
     role_id == Role.find_by_name('Admin')
   end

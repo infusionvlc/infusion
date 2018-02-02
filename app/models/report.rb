@@ -1,7 +1,8 @@
 class Report < ApplicationRecord
   belongs_to :reportable, polymorphic: true
 
-  validates :title, :type_of, :reportable_type, :user_id, :reportable_id, :description, presence: true
+  validates :title, :type_of, :reportable_type, presence: true
+  validates :user_id, :reportable_id, :description, presence: true
 
   def reportable_title
     if reportable_type == 'Meetup'

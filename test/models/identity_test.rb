@@ -35,7 +35,7 @@ class IdentityTest < ActiveSupport::TestCase
     user = users(:one)
     identity = Identity.new(user_id: user.id)
     assert_not_equal identity.valid?, true,
-                 'Identity is not valid without an UID and an Provider'
+    'Identity is not valid without an UID and an Provider'
     puts 'Test: Identity -> Valid without UID and Provider'
   end
 end
