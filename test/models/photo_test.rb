@@ -2,15 +2,15 @@
 require 'test_helper'
 
 class PhotoTest < ActiveSupport::TestCase
-  meetup = Meetup.new(title: 'TestMeetup1', 
+  meetup = Meetup.new(title: 'TestMeetup1',
                       description: 'TestDescription',
-                      requirements: 'TestRequirements', 
+                      requirements: 'TestRequirements',
                       date: Date.today,
                       confirmation_mail: false)
   test 'Valid Photo' do
-    photo = Photo.new(title: 'TestTitle1', 
-      meetup_id: meetup.id,
-      attribution: 'TestAttribution')
+    photo = Photo.new(title: 'TestTitle1',
+                      meetup_id: meetup.id,
+                      attribution: 'TestAttribution')
     assert_equal photo.errors.count, 0
     puts '\nTest: Photo -> Valid Photo'
   end

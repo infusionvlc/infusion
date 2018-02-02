@@ -4,7 +4,8 @@ require 'test_helper'
 class VoteTest < ActiveSupport::TestCase
   test 'Valid Vote' do
     user = users(:one)
-    proposal = Proposal.new(user_id: user.id, title: 'TestTitle',
+    proposal = Proposal.new(user_id: user.id,
+                            title: 'TestTitle',
                             description: 'TestDescription')
     vote = Vote.new(user_id: user.id, proposal_id: proposal.id)
     assert_equal vote.errors.count, 0
@@ -12,7 +13,7 @@ class VoteTest < ActiveSupport::TestCase
   end
   test 'Invalid without user' do
     user = users(:one)
-    proposal = Proposal.new(user_id: user.id, title: 'TestTitle',
+    proposal = Proposal.new(title: 'TestTitle',
                             description: 'TestDescription')
     vote = Vote.new(proposal_id: proposal.id)
     assert_not_equal vote.errors.count, 0, 'Vote is valid without an User'
