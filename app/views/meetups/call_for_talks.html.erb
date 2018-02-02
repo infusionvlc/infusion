@@ -10,7 +10,7 @@
         <%= link_to meetup.title, meetup %>
       </h2>
       <hr/>
-      <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
+      <p><%= truncate(sanitize(meetup.description), length: 256) %></p>
       <% if policy(meetup).vote? %>
         <%= link_to vote_meetup_path(meetup), method: :post, class:'btn btn-primary right' do %>
           <%= I18n.t 'main.vote' %>

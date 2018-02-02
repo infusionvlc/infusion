@@ -7,6 +7,7 @@
                           <%   @meetup.hosts.include? u %>
                           <% }.collect {|u| [u.username, u.id]}, {}, {class:'form-control'}) %>
       </div>
+      <%= f.hidden_field :meetup_id, value: @meetup.id %>
       <div class="col-sm-1">
         <%= link_to_remove_association f, {class:'btn btn-danger', aria: {label:"#{I18n.t 'main.remove'}"}} do %><%= fa_icon 'times' %><% end %>
       </div>
