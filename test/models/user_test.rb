@@ -3,95 +3,40 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test 'Valid User' do
-    user = User.new(reset_password_token: 'TestPasswordToken',
-                    reset_password_sent_at: DateTime.now,
-                    remember_created_at: DateTime.now,
-                    current_sign_in_at: DateTime.now,
-                    last_sign_in_at: DateTime.now,
-                    current_sign_in_ip: '127.0.0.1',
-                    last_sign_in_ip: '127.0.0.1',
-                    username: 'TestUser',
-                    locale: 'es',
-                    avatar_file_name: 'TestName',
-                    avatar_content_type: 'image',
-                    avatar_file_size: 10,
-                    avatar_updated_at: DateTime.now,
-                    role_id: 1,
-                    bio: 'TestBio')
-    assert_equal user.errors.count, 0
-    puts '\nTest: User -> Valid User'
+    role = roles(:one)
+    user = User.new(username: 'TestUser',
+                    email: 'test@email.com',
+                    role_id: role.id,
+                    password: 'password123',
+                    password_confirmation: 'password123')
+    assert_equal user.valid?, true
+    puts 'Test: User -> Valid User'
   end
   test 'Invalid without username' do
-    user = User.new(reset_password_token: 'TestPasswordToken',
-                    reset_password_sent_at: DateTime.now,
-                    remember_created_at: DateTime.now,
-                    current_sign_in_at: DateTime.now,
-                    last_sign_in_at: DateTime.now,
-                    current_sign_in_ip: '127.0.0.1',
-                    last_sign_in_ip: '127.0.0.1',
-                    locale: 'es',
-                    avatar_file_name: 'TestName',
-                    avatar_content_type: 'image',
-                    avatar_file_size: 10,
-                    avatar_updated_at: DateTime.now,
-                    role_id: 1,
-                    bio: 'TestBio')
-    assert_not_equal user.errors.count, 0,
-                     'User is valid username Reset_password_token'
-    puts '\nTest: User -> Invalid without username'
+    role = roles(:one)
+    user = User.new(locale: 'es',
+                    role_id: role.id,
+                    password: 'password123',
+                    password_confirmation: 'password123')
+    assert_not_equal user.valid?, true,
+                     'User is valid without username'
+    puts 'Test: User -> Invalid without username'
   end
   test 'Invalid without locale' do
-    user = User.new(reset_password_token: 'TestPasswordToken',
-                    reset_password_sent_at: DateTime.now,
-                    remember_created_at: DateTime.now,
-                    current_sign_in_at: DateTime.now,
-                    last_sign_in_at: DateTime.now,
-                    current_sign_in_ip: '127.0.0.1',
-                    last_sign_in_ip: '127.0.0.1',
-                    username: 'TestUser',
-                    avatar_file_name: 'TestName',
-                    avatar_content_type: 'image',
-                    avatar_file_size: 10,
-                    avatar_updated_at: DateTime.now,
-                    role_id: 1,
-                    bio: 'TestBio')
-    assert_not_equal user.errors.count, 0, 'User is valid without locale'
-    puts '\nTest: User -> Invalid without locale'
+    role = roles(:one)
+    user = User.new(username: 'TestUser',
+                    role_id: role.id,
+                    password: 'password123',
+                    password_confirmation: 'password123')
+    assert_not_equal user.valid?, true, 'User is valid without locale'
+    puts 'Test: User -> Invalid without locale'
   end
   test 'Invalid without role_id' do
-    user = User.new(reset_password_token: 'TestPasswordToken',
-                    reset_password_sent_at: DateTime.now,
-                    remember_created_at: DateTime.now,
-                    current_sign_in_at: DateTime.now,
-                    last_sign_in_at: DateTime.now,
-                    current_sign_in_ip: '127.0.0.1',
-                    last_sign_in_ip: '127.0.0.1',
-                    username: 'TestUser',
+    user = User.new(username: 'TestUser',
                     locale: 'es',
-                    avatar_file_name: 'TestName',
-                    avatar_content_type: 'image',
-                    avatar_file_size: 10,
-                    avatar_updated_at: DateTime.now,
-                    bio: 'TestBio')
-    assert_not_equal user.errors.count, 0, 'User is valid without role_id'
-    puts '\nTest: User -> Invalid without role_id'
-  end
-  test 'Invalid without bio' do
-    user = User.new(reset_password_token: 'TestPasswordToken',
-                    reset_password_sent_at: DateTime.now,
-                    remember_created_at: DateTime.now,
-                    current_sign_in_at: DateTime.now,
-                    last_sign_in_at: DateTime.now,
-                    current_sign_in_ip: '127.0.0.1',
-                    last_sign_in_ip: '127.0.0.1',
-                    username: 'TestUser',
-                    locale: 'es',
-                    avatar_file_name: 'TestName',
-                    avatar_content_type: 'image',
-                    avatar_file_size: 10,
-                    avatar_updated_at: DateTime.now,
-                    role_id: 1)
-    assert_not_equal user.errors.count, 0, 'User is valid without bio'
-    puts '\nTest: User -> Invalid without bio'
+                    password: 'password123',
+                    password_confirmation: 'password123')
+    assert_not_equal user.valid?, true, 'User is valid without role_id'
+    puts 'Test: User -> Invalid without role_id'
   end
 end
