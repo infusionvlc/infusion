@@ -12,7 +12,6 @@ class VoteTest < ActiveSupport::TestCase
     puts '\nTest: Vote -> Valid Vote'
   end
   test 'Invalid without user' do
-    user = users(:one)
     proposal = Proposal.new(title: 'TestTitle',
                             description: 'TestDescription')
     vote = Vote.new(proposal_id: proposal.id)

@@ -11,8 +11,7 @@ class AttachmentTest < ActiveSupport::TestCase
     puts '\nTest: Attachment -> Valid Attachment'
   end
   test 'Invalid without meetup' do
-    user = users(:one)
-    attachment = Attachment.new()   
+    attachment = Attachment.new
     assert_not_equal attachment.errors.count, 0,
                      'Attachment is valid without a Meetup'
     puts '\nTest: Attachment -> Invalid without meetup'

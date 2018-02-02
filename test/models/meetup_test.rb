@@ -30,5 +30,4 @@ class MeetupTest < ActiveSupport::TestCase
     refute meetup.valid?, 'Meetup is valid without a Requirements'
     puts '\nTest: Meetup -> Invalid without requirements'
   end
-
 end

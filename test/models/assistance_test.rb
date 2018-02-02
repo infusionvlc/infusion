@@ -2,21 +2,24 @@
 require 'test_helper'
 
 class AssistanceTest < ActiveSupport::TestCase
-  meetup = Meetup.new(title: 'TestMeetup1', description: 'TestDescription',
-    requirements: 'TestRequirements', date: Date.today,
-    confirmation_mail: false)
-    test 'Valid Assistance' do
-      user = users(:one)
-      assistance = Assistance.new(user_id: user.id, meetup_id: meetup.id,
-                                  review: '10/10 volveria a acudir')
-      assert_equal assistance.errors.count, 0
-      puts '\nTest: Assistance -> Valid Assistance'
-    end
-    test 'Invalid without user' do
-      assistance = Assistance.new(meetup_id: meetup.id,
-                                  review: '10/10 volveria a acudir')
-      assert_not_equal assistance.errors.count, 0,
-                       'Assistance is valid without an User'
+  meetup = Meetup.new(title: 'TestMeetup1',
+                      description: 'TestDescription',
+                      requirements: 'TestRequirements',
+                      date: Date.today,
+                      confirmation_mail: false)
+  test 'Valid Assistance' do
+    user = users(:one)
+    assistance = Assistance.new(user_id: user.id,
+                                meetup_id: meetup.id,
+                                review: '10/10 volveria a acudir')
+    assert_equal assistance.errors.count, 0
+    puts '\nTest: Assistance -> Valid Assistance'
+  end
+  test 'Invalid without user' do
+    assistance = Assistance.new(meetup_id: meetup.id,
+                                review: '10/10 volveria a acudir')
+    assert_not_equal assistance.errors.count, 0,
+                     'Assistance is valid without an User'
     puts '\nTest: Assistance -> Invalid without user'
   end
   test 'Invalid without meetup' do
