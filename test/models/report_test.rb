@@ -45,11 +45,10 @@ class ReportTest < ActiveSupport::TestCase
                         reportable_id: meetup.id,
                         description: 'TestDescritpion')
     assert_not_equal report.valid?, true,
-    'Proposal is valid without Reportable_type'
+                     'Proposal is valid without Reportable_type'
     puts 'Test: Report -> Invalid without reportable_type'
   end
   test 'Invalid without user_id' do
-    user = users(:one)
     meetup = meetups(:one)
     report = Report.new(title: 'TestTitle',
                         type_of: 2,
@@ -61,14 +60,13 @@ class ReportTest < ActiveSupport::TestCase
   end
   test 'Invalid without reportable_id' do
     user = users(:one)
-    meetup = meetups(:one)
     report = Report.new(title: 'TestTitle',
                         type_of: 2,
                         reportable_type: 'Meetup',
                         user_id: user.id,
                         description: 'TestDescritpion')
     assert_not_equal report.valid?, true,
-    'Proposal is valid without Reportable_id'
+                     'Proposal is valid without Reportable_id'
     puts 'Test: Report -> Invalid without reportable_id'
   end
   test 'Invalid without description' do
@@ -80,7 +78,7 @@ class ReportTest < ActiveSupport::TestCase
                         user_id: user.id,
                         reportable_id: meetup.id)
     assert_not_equal report.valid?, true,
-    'Proposal is valid without Description'
+                     'Proposal is valid without Description'
     puts 'Test: Report -> Invalid without description'
   end
 end
