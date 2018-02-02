@@ -2,7 +2,7 @@
 require 'test_helper'
 
 class RoleTest < ActiveSupport::TestCase
-  test 'Valid Role' do 
+  test 'Valid Role' do
     role = Role.new(name: 'TestName')
     assert_equal role.errors.count, 0
     puts '\nTest: Role -> Valid Role'

@@ -33,7 +33,7 @@ class AssistanceTest < ActiveSupport::TestCase
   test 'Invalid without review before meetup' do
     user = users(:one)
     assistance = Assistance.new(user_id: user.id, meetup_id: meetup.id)
-    assert_equal assistance.errors.count, 0 
+    assert_equal assistance.errors.count, 0
     if meetup.date > Date.today
       assert_nil assistance.review,
                  'Assistance is valid without a Review if the Meetup hasnt \

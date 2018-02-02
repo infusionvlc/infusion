@@ -2,7 +2,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test 'Valid User' do 
+  test 'Valid User' do
     user = User.new(reset_password_token: 'TestPasswordToken',
                     reset_password_sent_at: DateTime.now,
                     remember_created_at: DateTime.now,
