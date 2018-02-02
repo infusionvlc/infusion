@@ -2,10 +2,10 @@
 
 one:
   user_id: 1
-  objetive_id: 1
-  objetive_type: MyString
+  objective_id: 1
+  objective_type: MyString
 
 two:
   user_id: 1
-  objetive_id: 1
-  objetive_type: MyString
+  objective_id: 1
+  objective_type: MyString
