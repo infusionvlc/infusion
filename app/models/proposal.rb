@@ -1,4 +1,5 @@
 class Proposal < ApplicationRecord
+  include Feed
   belongs_to :user
   has_one :activities, as: :objective
   has_many :reports, as: :reportable, dependent: :destroy

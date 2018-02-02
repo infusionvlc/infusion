@@ -11,4 +11,12 @@ class Activity < ApplicationRecord
       Proposal.find(objective_id).title
     end
   end
+
+  def create_notification
+    User.all.each do |user|
+      NotificationMailer.notify_proposal(self, user).deliver
+      Notification.create(user_id: user.id,
+                          activity_id: self.id)
+    end
+  end
 end

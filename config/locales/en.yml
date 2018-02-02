@@ -17,6 +17,16 @@ en:
       body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. We need you to confirm you can come by clicking the link below."
       delay:   "If you can't come, please, delay your meetup by clicking this other button:"
 
+  notification_mailer:
+    greeting: "Hey, %{user}!"
+    notify_activity:
+      subject_meetup: "A new Meetup has been created"
+      body_meetup: "The Meetup '%{activity}'' has been created. ¡Vote for it!"
+      subject_proposal: "A new topic has been proposed"
+      body_proposal: "The proposed topic is '%{activity}'. Remember that to support it you have to vote it here: "
+      subject_assistance: "There is a new comment in a Meetup"
+      body_assistance: "%{creator} commented on the Meetup '%{meetup}'. If you have also attended, do not forget to leave your opinion"
+
   date:
     abbr_day_names:
     - Sun

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= I18n.t 'notification_mailer.greeting', user: @user.username %></h1>
+    <% if @activity.objective_type == 'Assistance' %>
+      <p><%= I18n.t 'notification_mailer.notify_activity.body_assistance', user: @user.username, activity: @activity.objective.review, creator: @activity.objective.user.username, meetup: @activity.objective.meetup.title%></p>
+      <%= link_to @activity.objective.review.truncate(10), meetup_url(@activity.objective.meetup.id) %>
+    <% elsif @activity.objective_type == 'Meetup' %>
+      <p><%= I18n.t 'notification_mailer.notify_activity.body_meetup', user: @user.username, activity: @activity.objective.title%></p>
+      <%= link_to @activity.objective.title, meetup_url(@activity.objective.id) %>
+    <% else %>
+      <p><%= I18n.t 'notification_mailer.notify_activity.body_proposal', user: @user.username, activity: @activity.objective.title%></p>
+      <%= link_to @activity.objective.title, proposal_url(@activity.objective.id) %>
+    <% end %>
+  </body>
+</html>

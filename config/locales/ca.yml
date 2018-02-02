@@ -17,6 +17,16 @@ ca:
       body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
 
+  notification_mailer:
+    greeting: "Hola, %{user}!"
+    notify_activity:
+      subject_meetup: "Un nou Meetup ha sigut creat"
+      body_meetup: "El Meetup '%{activity}'' ha sigut creat. Vota'l per que es faja realitat"
+      subject_proposal: "Se ha porposat un nou tema"
+      body_proposal: "El tema proposat es '%{activity}'. Recorda que per a donar-li suport tens que votar-lo açí: "
+      subject_assistance: "Hi ha un nou comentari al Meetup"
+      body_assistance: "%{creator} ha comentat al Meetup '%{meetup}'. Si tú també has assistit, no oblides deixar la teua opinió"
+
   date:
     abbr_day_names:
     - Dg

@@ -6,7 +6,7 @@ class CreateReports < ActiveRecord::Migration[5.1]
       t.string :reportable_type
       t.integer :user_id
       t.integer :reportable_id
-      t.integer :status
+      t.integer :status, default: 0
       t.string :status_comment
       t.text :description
 
