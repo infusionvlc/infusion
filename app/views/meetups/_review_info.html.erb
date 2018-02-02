@@ -1,2 +1,2 @@
 <h5 class="card-title"><span class="badge badge-pill badge-info"><%= review.mark %> <%= fa_icon 'star' %></span></h5>
-<p class="card-text"><%= review.review %></p>
+<p class="card-text"><%= sanitize review.review %></p>

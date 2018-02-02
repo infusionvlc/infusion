@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails infusion: development" uuid="8070970a-ef1a-4881-92ee-23c34fe0063e">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>&lt;%= ENV['PSQL_USERNAME'] || 'postgres' %&gt;</user-name>
+    </data-source>
+    <data-source name="Rails infusion: test" uuid="6c5454fa-ca8c-4d65-adda-ba934ada0ac8">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>&lt;%= ENV['PSQL_USERNAME'] || 'postgres' %&gt;</user-name>
+    </data-source>
+    <data-source name="Rails infusion: production" uuid="c3007b54-f3a1-4f9e-8209-0068fa4c2dfb">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>infusion</user-name>
+    </data-source>
+  </component>
+</project>

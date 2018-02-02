@@ -16,7 +16,7 @@
 <br/>
 <% if @user.bio %>
   <h2><%= I18n.t 'user.about' %></h2>
-  <p><%= @user.bio %></p>
+  <p><%= sanitize @user.bio %></p>
 <% end %>
 <% if @user.keynotes.count > 0 %>
   <h2><%= I18n.t 'activerecord.model.meetup', count: 2 %></h2>

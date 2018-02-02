@@ -30,7 +30,7 @@
         <%= link_to @next_meetup.title, @next_meetup %>
       </h2>
       <hr/>
-      <p><%= sanitize(truncate(@next_meetup.description, length: 256)) %></p>
+      <p><%= truncate(sanitize(@next_meetup.description), length: 256) %></p>
     </div>
     <div class="card-footer text-muted">
       <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>
@@ -41,7 +41,7 @@
 <div class="row">
   <div class="col-md-6 left">
   <h2 class="display-2"><%= I18n.t 'meetup.recents' %></h2>
-  <hr/> 
+  <hr/>
   <% @most_recent.each do |meetup| %>
     <div class="card">
     <div class="card-body">
@@ -52,17 +52,17 @@
         <%= link_to meetup.title, meetup %>
       </h2>
       <hr/>
-      <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
+      <p><%= truncate(sanitize(meetup.description), length: 256) %></p>
     </div>
     <div class="card-footer text-muted">
       <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
     </div>
-  </div><% end %>  
+  </div><% end %>
   </div>
   <div class="col-md-6 right">
     <h2 class="display-2"><%= I18n.t 'meetup.populars' %></h2>
     <hr/>
-    
+
     <% @most_popular.each do |meetup| %>
       <div class="card">
       <div class="card-body">
@@ -73,7 +73,7 @@
           <%= link_to meetup.title, meetup %>
         </h2>
         <hr/>
-        <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
+        <p><%= truncate(sanitize(meetup.description), length: 256) %></p>
       </div>
       <div class="card-footer text-muted">
         <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>

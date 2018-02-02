@@ -19,7 +19,7 @@
 <div class="row">
   <div class="col-md-8 col-sm-12">
     <h2><%= I18n.t 'activerecord.attributes.proposal.description' %></h2>
-    <p><%= @proposal.description %></p>
+    <p><%= sanitize @proposal.description %></p>
     <hr/>
   </div>
   <div class="col-md-4 col-sm-12 card">

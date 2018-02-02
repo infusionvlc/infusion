@@ -63,6 +63,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/new
   def new
     @meetup = Meetup.new
+    @location = Location.where(active: true).first
     authorize @meetup
   end
 

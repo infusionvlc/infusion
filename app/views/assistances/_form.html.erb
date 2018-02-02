@@ -3,6 +3,8 @@
     <%= f.label :mark %><br />
     <%= f.select :mark, [0,1,2,3,4,5], {}, class: 'form-control' %>
   </div><br/>
+  <%= f.hidden_field :meetup_id, value: @meetup.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="field">
     <%= f.label :review %><br />
     <%= f.text_field :review, autofocus: true, class: 'form-control' %>

@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20180201102717) do
 
   # These are extensions that must be enabled in order to support this database
@@ -90,8 +89,8 @@ ActiveRecord::Schema.define(version: 20180201102717) do
     t.text "description"
     t.text "requirements"
     t.date "date"
-    t.time "start", default: "2000-01-01 17:00:00"
-    t.time "end", default: "2000-01-01 19:00:00"
+    t.time "start"
+    t.time "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
@@ -161,7 +160,7 @@ ActiveRecord::Schema.define(version: 20180201102717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "locale", default: "es"
+    t.string "locale"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
