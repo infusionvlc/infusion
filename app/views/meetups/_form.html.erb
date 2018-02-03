@@ -6,7 +6,12 @@
     </div><br/>
     <div class="field col">
     <%= f.label :categories %><br />
-    <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, multiple: true, class: 'form-control' %>
+    <div>
+      <% Category.all.each do |category| %>
+        <%= check_box_tag "meetup[category_ids][]", category.id, f.object.categories.include?(category) %>
+        <%= category.display_name %>
+      <% end %>
+    </div>
   </div><br/>
   </div>
   <%= f.hidden_field :location_id, value: @location.id %>

@@ -11,11 +11,11 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3"><%= @meetup.title %></h1>
+    <h1><%= @meetup.title %></h1>
     <p class="lead"><%= meetup_votes(@meetup) %></p>
     <h2 aria-label=<%= I18n.t 'activerecord.attributes.meetup.categories' %>>
       <% @meetup.categories.each do |cat| %>
-        <%= link_to cat do %><span class="badge badge-pill badge-info"><%=cat.display_name %></span><% end %>
+        <%= link_to cat do %><span class="badge badge-pill badge-info blue"><%=cat.display_name %></span><% end %>
       <% end %>
     </h2>
   </div>
@@ -155,7 +155,7 @@
       <hr/>
       <h3><%= I18n.t 'activerecord.attributes.meetup.holdings.other' %></h3>
       <ul><% @meetup.hosts.each do |host| %>
-        <li><%= host.username %></li>
+        <li><%= link_to host.username, "/#{host.username}" %></li>
       <% end %></ul>
     </div>
   </div>

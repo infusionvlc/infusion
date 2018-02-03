@@ -12,6 +12,8 @@
         <%= f.text_field :username, autofocus: true, class: 'form-control' %>
       </div><br />
 
+      <%= f.hidden_field :role_id, value: resource.role_id %>
+
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, class: 'form-control' %>

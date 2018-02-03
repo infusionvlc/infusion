@@ -169,8 +169,8 @@ ca:
     edit: "Editar"
     create: "Crear una nova categoria"
     delete: "Estas segur d'eliminar aquesta categoria?"
-    no_meetups: "No n'hi ha meetups en aquesta categoría"
-  
+    no_meetups: "No n'hi ha meetups en aquesta categoria"
+
   location:
     create: "Afegir un nou lloc"
     no_meetups: "No hi han meetups en aquest lloc"
@@ -231,6 +231,8 @@ ca:
   proposal:
     <<: *votable
     add_yours:              "Conta'ns les teues idees"
+    call_to_action:         "T'agrada aquesta idea? Vota-la!"
+    call_to_action_no_user: "T'agrada aquesta idea? Inicia sessió i vota-la!"
 
   activerecord:
     model:
@@ -315,6 +317,25 @@ ca:
       create: "Crear %{model}"
       submit: "Guardar %{model}"
       update: "Guardar canvis"
+
+      user:
+        create: "Registra't"
+        update: "Actualitzar perfil"
+      meetup:
+        create: "Proposar Meetup"
+        update: "Actualitzar meetup"
+      session:
+        create: "Iniciar sessió"
+      proposal:
+        create: "Confirmar proposta"
+        update: "Actualitzar proposta"
+      location:
+        create: "Afegir una nova ubicació"
+        update: "Actualitzar ubicació"
+      category:
+        create: "Afegir categoria"
+        update: "Actualitzar categoria"
+
     page_entries_info:
       more_pages:
         display_entries: Mostrant <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total

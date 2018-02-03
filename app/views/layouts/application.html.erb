@@ -5,12 +5,15 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">INFUSIÓN</a>
+      <a class="navbar-brand" href="/">
+        <img src="logo_base.svg" alt="INFUSIÓN">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,23 +21,27 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/"><%= fa_icon 'home' %> <%= I18n.t 'nav.home' %></a>
-          </li>
-          <li class="nav-item">
             <%= link_to meetups_path, {class: "nav-link"} do %><%= fa_icon 'calendar-o' %> Meetups<% end %>
           </li>
           <li class="nav-item">
-            <%= link_to archive_path, {class: "nav-link"} do %><%= fa_icon 'archive' %> Archive<% end %>
+            <%= link_to call_for_talks_path, {class: "nav-link"} do %><%= fa_icon 'arrow-up' %> Call For Talks<% end %>
           </li>
           <li class="nav-item">
-          <%= link_to users_path, {class: "nav-link"} do %><%= fa_icon 'users' %> Colaboradores<% end %>
-        </li>
+            <%= link_to proposals_path, {class: "nav-link"} do %><%= fa_icon 'lightbulb-o' %> <%= I18n.t 'activerecord.model.proposal', count: 2 %><% end %>
+          </li>
           <li class="nav-item">
-          <%= link_to call_for_talks_path, {class: "nav-link"} do %><%= fa_icon 'arrow-up' %> Call For Talks<% end %>
-        </li>
+            <%= link_to archive_path, {class: "nav-link"} do %><%= fa_icon 'history' %> <%= I18n.t 'main.archive' %><% end %>
+          </li>
           <li class="nav-item">
-          <%= link_to proposals_path, {class: "nav-link"} do %><%= fa_icon 'lightbulb-o' %> <%= I18n.t 'activerecord.model.proposal', count: 2 %><% end %>
-        </li>
+            <%= link_to users_path, {class: "nav-link"} do %><%= fa_icon 'users' %> <%= I18n.t 'main.collaborators' %><% end %>
+          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to activities_path, {class: "nav-link"} do %><%= fa_icon 'bars' %> Feed<% end %>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out' %> <%= I18n.t 'user.logout' %><% end %>
@@ -58,12 +65,8 @@
         <%= value %>
       </div>
     <% end %>
-    <div class="container">
+    <div class="container body-padding">
       <%= yield %>
     </div>
-    <footer class="footer">
-      <hr/>
-      <p class="text-center">Made with ❤ by INFUSIÓN - 2018</p>
-    </footer>
   </body>
 </html>

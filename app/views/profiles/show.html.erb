@@ -1,30 +1,50 @@
 <div class="jumbotron jumbotron-fluid">
-<div class="container row">
-  <div class="col-sm-8">
-    <h1 class="display-3"><%= @user.username %></h1>
-    <% if @mark %>
-      <h2><span class="badge badge-pill badge-info"><%= @mark %> <%= fa_icon 'star' %></span></h2>
-    <% end %>
-    <hr/>
-    <p class="lead"><%= I18n.t 'user.member_since', date: I18n.l(@user.created_at.to_date) %></p>
-  </div>
-  <div class="col-sm-4">
-    <%= image_tag @user.avatar, class: 'avatar' %>
+  <div class="container row">
+    <div class="col-sm-8">
+      <h1><%= @user.username %></h1>
+      <% if @mark %>
+        <h2><span class="badge badge-pill badge-info"><%= @mark %> <%= fa_icon 'star' %></span></h2>
+      <% end %>
+      <hr/>
+      <p class="lead"><%= I18n.t 'user.member_since', date: I18n.l(@user.created_at.to_date) %></p>
+    </div>
+    <div class="col-sm-4">
+      <%= image_tag @user.avatar, class: 'avatar' %>
+    </div>
   </div>
 </div>
-</div>
-<br/>
+<% if user_signed_in? && @user == current_user %>
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+<%else %>
+  <div>
+<% end %>
 <% if @user.bio %>
   <h2><%= I18n.t 'user.about' %></h2>
   <p><%= sanitize @user.bio %></p>
 <% end %>
-<% if @user.keynotes.count > 0 %>
-  <h2><%= I18n.t 'activerecord.model.meetup', count: 2 %></h2>
-  <% @user.keynotes.each do |meetup| %>
-    <h3><%= link_to meetup.title, meetup_path(meetup) %></h3>
+  <h2><%= I18n.t 'activerecord.model.meetup.other' %></h2>
+  <% if @user.keynotes.count == 0 %>
+      <p><%= I18n.t 'category.no_meetups' %></p>
+    <% else %>
+      <% @user.keynotes.each do |meetup| %>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to meetup.title, meetup %></h3>
+            <hr/>
+            <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% if user_signed_in? && @user == current_user %>
+    </div>
+    <div class="col-md-4 col-sm-12 card">
+      <div class="card-body">
+        <%= link_to edit_user_registration_path(@user), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'user.edit' %><% end %>
+        <hr/>
+      </div>
+    </div>
   <% end %>
-  <hr/>
-<% end %>
-<% if user_signed_in? && @user == current_user %>
-  <%= link_to edit_user_registration_path(@user), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'user.edit' %><% end %>
-<% end %>
+</div>
+

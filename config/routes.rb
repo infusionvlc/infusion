@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  devise_scope :user do 
-    get "/users" => "registrations#index" 
+  devise_scope :user do
+    get "/users" => "registrations#index"
   end
 
   resources :categories
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   HighVoltage.configure do |config|
     config.home_page = 'index'
+    config.layout = 'pages'
   end
 
   match '/:username' => 'profiles#show', via: :get

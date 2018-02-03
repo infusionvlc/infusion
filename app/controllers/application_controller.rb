@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || root_path
+    request.env['omniauth.origin'] || meetups_path
   end
 
   def configure_permitted_parameters
@@ -35,6 +35,6 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = I18n.t 'main.pundit_error'
-    redirect_to(request.referrer || root_path)
+    redirect_to(request.referrer || meetups_path)
   end
 end

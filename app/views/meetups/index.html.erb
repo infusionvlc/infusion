@@ -8,18 +8,17 @@
   end %>
 <% end %>
 
-<h1 class="display-1">Meetups</h1>
+<h1>Meetups</h1>
 <hr/>
-
-<h2 class="display-2"><%= I18n.t 'meetup.next' %></h2>
-<hr/>
-
 <div class="card">
+  <div class="card-header">
+    <h2><%= I18n.t 'meetup.next' %></h2>
+  </div>
   <% if @next_meetup.nil? %>
     <div class="card-body">
-      <h2>
+      <h3 class="center">
         <%= I18n.t 'meetup.no_next'%>
-      </h2>
+      </h3>
     </div>
   <% else %>
    <div class="card-body">
@@ -30,29 +29,28 @@
         <%= link_to @next_meetup.title, @next_meetup %>
       </h2>
       <hr/>
-      <p><%= truncate(sanitize(@next_meetup.description), length: 256) %></p>
+      <p><%= truncate(sanitize(@next_meetup.description), length: 80) %></p>
     </div>
     <div class="card-footer text-muted">
       <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>
     </div>
   <% end %>
 </div>
-
+<br/><br/>
 <div class="row">
   <div class="col-md-6 left">
-  <h2 class="display-2"><%= I18n.t 'meetup.recents' %></h2>
-  <hr/>
+  <h2><%= I18n.t 'meetup.recents' %></h2>
   <% @most_recent.each do |meetup| %>
     <div class="card">
     <div class="card-body">
-      <h2>
+      <h3>
         <span class="badge badge-info badge-pill">
           <%= I18n.t 'meetup.assistants', count: meetup.assistances.count %>
         </span>
         <%= link_to meetup.title, meetup %>
-      </h2>
+      </h3>
       <hr/>
-      <p><%= truncate(sanitize(meetup.description), length: 256) %></p>
+      <p><%= truncate(sanitize(meetup.description), length: 80) %></p>
     </div>
     <div class="card-footer text-muted">
       <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
@@ -60,20 +58,18 @@
   </div><% end %>
   </div>
   <div class="col-md-6 right">
-    <h2 class="display-2"><%= I18n.t 'meetup.populars' %></h2>
-    <hr/>
-
+    <h2><%= I18n.t 'meetup.populars' %></h2>
     <% @most_popular.each do |meetup| %>
       <div class="card">
       <div class="card-body">
-        <h2>
+        <h3>
           <span class="badge badge-info badge-pill">
             <%= meetup.average_rating %> <%= fa_icon 'star' %>
           </span>
           <%= link_to meetup.title, meetup %>
-        </h2>
+        </h3>
         <hr/>
-        <p><%= truncate(sanitize(meetup.description), length: 256) %></p>
+        <p><%= truncate(sanitize(meetup.description), length: 80) %></p>
       </div>
       <div class="card-footer text-muted">
         <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
