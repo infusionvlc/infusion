@@ -68,7 +68,7 @@ class MeetupsController < ApplicationController
   end
 
   # GET /meetups/1/edit
-  def edit
+  def
     authorize @meetup
   end
 
@@ -76,8 +76,9 @@ class MeetupsController < ApplicationController
   # POST /meetups.json
   def create
     @meetup = Meetup.new(meetup_params)
+    @location = Location.where(active: true).first
     authorize @meetup
-    @meetup.location = Location.where(active: true).first
+    @meetup.location = @location
     respond_to do |format|
       if @meetup.save
         @activity = @meetup.create_activity(current_user.id)

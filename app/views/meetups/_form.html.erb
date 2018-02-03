@@ -9,7 +9,7 @@
     <div>
       <% Category.all.each do |category| %>
         <%= check_box_tag "meetup[category_ids][]", category.id, f.object.categories.include?(category) %>
-        <%= category.display_name %>
+        <%= category.display_name %><br/>
       <% end %>
     </div>
   </div><br/>

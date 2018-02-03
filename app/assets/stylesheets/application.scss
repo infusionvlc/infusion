@@ -4,7 +4,6 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: #2e2e2e;
-  overflow: hidden;
 }
 
 .body-padding {
@@ -48,12 +47,12 @@ h5 {
 
 .alert-info, .alert-success {
   background: #378eff;
-  color: #183366;
+  color: white;
 }
 
 .alert-danger {
   background: #c7007c;
-  color: #5c0039;
+  color: white;
 }
 
 .avatar {
