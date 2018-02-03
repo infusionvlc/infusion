@@ -31,13 +31,13 @@ class User < ApplicationRecord
   def average_rating
     avgs = []
     self.keynotes.each do |k|
-      marks = k.assistances.where.not(mark: nil).pluck(:id)
-      if marks.count > 0
-        avgs << marks.sum/marks.count
-      end
+      avgs << k.average_rating
     end
+    puts avgs
     if avgs.count > 0
       avgs.sum/avgs.count
+    else
+      0
     end
   end
 

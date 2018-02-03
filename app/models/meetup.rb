@@ -1,6 +1,6 @@
 class Meetup < ApplicationRecord
   include Feed
-  has_one :activities, as: :objective
+  has_one :activities, as: :objective, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
   has_many :holdings, dependent: :destroy
   has_many :hosts, through: :holdings, source: :user
@@ -30,7 +30,7 @@ class Meetup < ApplicationRecord
   end
 
   def average_rating
-    marks = assistances.where.not(mark: nil).pluck(:id)
+    marks = assistances.where.not(mark: nil).pluck(:mark)
     if marks.count > 0
       marks.sum / marks.count
     else

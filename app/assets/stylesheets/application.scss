@@ -1,6 +1,60 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #2e2e2e;
+}
+
+.body-padding {
+    padding-bottom: 4em;
+}
+
+.navbar-brand img {
+  height: 20px;
+  margin-top: -10px;
+}
+
+h1 {
+  font-weight:800;
+  color: #c7007c;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: 600;
+  font-style: italic;
+}
+
+h5 {
+  font-weight: 500;
+}
+
+.alert {
+  border-radius: 0 !important;
+}
+
+.alert-warning {
+  background: #ffcd48;
+}
+
+.alert-info, .alert-success {
+  background: #378eff;
+  color: #183366;
+}
+
+.alert-danger {
+  background: #c7007c;
+  color: #5c0039;
+}
+
 .avatar {
   border-radius: 50%;
   margin: 0 auto;
@@ -15,28 +69,111 @@
   max-width: 100px;
 }
 
+.avatar-half {
+  width: 50%;
+}
+
+.badge-info {
+  color: #ffffff;
+  background: #c7007c;
+}
+
+.blue {
+  background: #378eff;
+  color: #ffffff;
+}
+
+.blue .fa-inverse {
+  color: #378eff;
+}
+
+.btn-intro {
+  background: #378eff;
+  border-radius: 900px;
+  color: #ffffff;
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.btn-intro:hover {
+  background: #c7007c;
+  color: #ffffff;
+}
+
 .card {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .card-container {
-    padding: 3px;
+  padding: 3px;
+}
+
+.center {
+  text-align: center;
 }
 
 .container {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
-.footer {
-    bottom: 0;
-    position: relative;
+.huge-logo {
     width: 100%;
 }
 
+.main-header {
+    background-image: linear-gradient(#ffffff, #ddf6fa);
+    padding-bottom: 7em;
+    text-align: center;
+    clip-path: polygon(0 0,
+                       100% 0,
+                       100% 100%,
+                       0 calc(100% - 5vw)
+  );
+}
+
+.magenta {
+    background: #c7007c;
+}
+
 .nested-fields {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .right {
-    float: right;
+  float: right;
+}
+
+.value {
+  padding-bottom: 4em;
+}
+
+#description {
+  color: white;
+  padding-top: 1em;
+  padding-bottom: 4em;
+}
+
+#mission {
+  color: #4e4e4e;
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
+#values {
+  padding-top: 4em;
+}
+
+@media (max-width: 699px) {
+  .svg--lg {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .svg--sm {
+    display: none;
+  }
 }

@@ -170,7 +170,7 @@ en:
     create: "Create a new category"
     delete: Do you want to delete this category?
     no_meetups: "There are no meetups in this category"
-    
+
   location:
     create: "Add a new location"
     no_meetups: "There are no meetups in this location"
@@ -231,6 +231,8 @@ en:
   proposal:
     <<: *votable
     add_yours:              "Add your own ideas"
+    call_to_action:         "Do you like this idea? Vote for it!"
+    call_to_action_no_user: "Do you like this idea? Log in and vote for it!"
 
   activerecord:
     model:
@@ -316,6 +318,25 @@ en:
       create: "Create a %{model}"
       update: "Confirm changes"
       submit: "Save %{model}"
+
+      user:
+        create: "Sign up"
+        update: "Update profile"
+      meetup:
+        create: "Create Meetup"
+        update: "Update meetup"
+      session:
+        create: "Log in"
+      proposal:
+        create: "Create proposal"
+        update: "Update proposal"
+      location:
+        create: "Add a new location"
+        update: "Update location"
+      category:
+        create: "Add a new category"
+        update: "Update category"
+
     page_entries_info:
       more_pages:
         display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total

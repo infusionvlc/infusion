@@ -10,24 +10,24 @@ class SessionsController < ApplicationController
 
     if current_user
       if @identity.user == current_user
-        redirect_to root_url, notice: "#{I18n.t 'user.already_linked'}"
+        redirect_to meetups_path, notice: "#{I18n.t 'user.already_linked'}"
       else
         @identity.user = current_user
         @identity.save
-        redirect_to root_url, notice: "#{I18n.t 'user.linked'}"
+        redirect_to meetups_path, notice: "#{I18n.t 'user.linked'}"
       end
     else
       if @identity.user.present?
         sign_in @identity.user
-        redirect_to root_url, notice: "#{I18n.t 'user.logged_in'}"
+        redirect_to meetups_path, notice: "#{I18n.t 'user.logged_in'}"
       else
         if User.find_by_email(auth[:info][:email])
-          redirect_to root_url, flash: { error: "#{I18n.t 'user.error_sign_up'}" }
+          redirect_to meetups_path, flash: { error: "#{I18n.t 'user.error_sign_up'}" }
         else
           @identity.user = User.create_with_omniauth(auth)
           @identity.save
           sign_in @identity.user
-          redirect_to root_url, notice: "#{I18n.t 'user.logged_in'}"
+          redirect_to meetups_path, notice: "#{I18n.t 'user.logged_in'}"
         end
       end
     end
@@ -35,6 +35,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out :user
-    redirect_to root_url, notice: "Signed out!"
+    redirect_to meetups_path, notice: "Signed out!"
   end
 end

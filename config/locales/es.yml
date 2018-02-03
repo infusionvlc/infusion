@@ -170,11 +170,11 @@ es:
     create: "Crear una nueva categoría"
     delete: "Estas seguro de borrar esta categoría?"
     no_meetups: "No hay meetups en esta categoría"
-    
+
   location:
     create: "Añadir un nuevo lugar"
     no_meetups: "No hay meetups en este lugar"
-    
+
 
   report:
     report: "Reportar"
@@ -232,6 +232,8 @@ es:
   proposal:
     <<: *votable
     add_yours:              "Cuéntanos tus ideas"
+    call_to_action:         "¿Te gusta la idea? ¡Vótala!"
+    call_to_action_no_user: "¿Te gusta la idea? ¡Inicia sesión y vótala!"
 
   activerecord:
     model:
@@ -316,6 +318,24 @@ es:
       create: "Crear %{model}"
       update: "Guardar cambios"
       submit: "Guardar %{model}"
+
+      user:
+        create: "Registrarme"
+        update: "Actualizar perfil"
+      meetup:
+        create: "Proponer Meetup"
+        update: "Actualizar meetup"
+      session:
+        create: "Iniciar sesión"
+      proposal:
+        create: "Confirmar propuesta"
+        update: "Actualitzar propuesta"
+      location:
+        create: "Añadir nueva ubicación"
+        update: "Actualizar ubicación"
+      category:
+        create: "Añadir categoría"
+        update: "Actualizar categoría"
     page_entries_info:
       more_pages:
         display_entries: Mostrando <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total

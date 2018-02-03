@@ -66,6 +66,7 @@ class LocationsController < ApplicationController
   end
 
   def check_active_locations
-    Location.where(active: true).first.update(active: false) if @location.active
+    @previous = Location.where(active: true).where.not(id: @location.id).first
+    @previous.update(active: false) if @location.active && @previous
   end
 end
