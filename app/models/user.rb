@@ -25,7 +25,7 @@ class User < ApplicationRecord
   validates :role_id, :locale, :username, presence: true
 
   def admin?
-    role_id == Role.find_by_name('Admin')
+    role_id == 0
   end
 
   def average_rating
