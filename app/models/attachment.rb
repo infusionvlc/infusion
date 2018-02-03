@@ -2,7 +2,6 @@ class Attachment < ApplicationRecord
   belongs_to :meetup
   has_attached_file :file
   do_not_validate_attachment_file_type :file
-  validates :meetup_id, presence: true
   before_post_process :skip_for_zip
 
   def skip_for_zip

@@ -19,7 +19,7 @@
 <%else %>
   <div>
 <% end %>
-<% if @user.bio %>
+<% if @user.bio && @user.bio.length > 0 %>
   <h2><%= I18n.t 'user.about' %></h2>
   <p><%= sanitize @user.bio %></p>
 <% end %>

@@ -290,6 +290,9 @@ en:
         description: "Description"
       holding:
         user_id:      "User"
+      location:
+        name:         "Name"
+        active:       "Current location"
       attachment:
         file_content_type:
           invalid:    "One of your uploaded files couldn't be uploaded. Check all your files are allowed below"

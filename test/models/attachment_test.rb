@@ -9,10 +9,5 @@ class AttachmentTest < ActiveSupport::TestCase
     initialization'
     puts 'Test: Attachment -> Valid Attachment'
   end
-  test 'Invalid without meetup' do
-    attachment = Attachment.new
-    assert_not_equal attachment.valid?, true,
-                     'Attachment is valid without a Meetup'
-    puts 'Test: Attachment -> Invalid without meetup'
-  end
+
 end

@@ -280,6 +280,9 @@ es:
           other:      "Organizadores"
       proposal:
         <<: *common
+      location:
+        name:         "Nombre"
+        active:       "Actual"
       report:
         user_id:  "Usuario"
         title:    "Titulo"

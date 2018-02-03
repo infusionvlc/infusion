@@ -12,9 +12,7 @@ class Meetup < ApplicationRecord
   has_many :photos, dependent: :destroy
 
   accepts_nested_attributes_for :holdings, allow_destroy: true
-
   accepts_nested_attributes_for :attachments, allow_destroy: true
-
   accepts_nested_attributes_for :photos, allow_destroy: true
 
   has_many :assistances, dependent: :destroy

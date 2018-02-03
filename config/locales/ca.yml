@@ -279,6 +279,9 @@ ca:
           other:      "Organitzadors"
       proposal:
         <<: *common
+      location:
+        name:         "Nom"
+        active:       "Actual"
       report:
         user_id:  "Usuari"
         title:    "Títol"
