@@ -17,3 +17,18 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require_tree .
+
+$(function() {
+    $(document).popover({
+        selector: '[data-toggle=popover]',
+        trigger: 'focus'
+    });
+
+    $( "#notifications-modal-trigger" ).focusout(function() {
+        $.ajax({
+            type: "POST",
+            url: "/read_notifications",
+            credentials: 'same-origin'
+          });
+    });
+});

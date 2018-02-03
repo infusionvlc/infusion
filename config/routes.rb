@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   match '/call_for_talks',               to: 'meetups#call_for_talks', via: [:get]
   match '/archive',                      to: 'meetups#archive',        via: [:get]
 
+  match '/read_notifications',           to: 'notifications#mark_all_as_read', via: [:post]
+
   devise_for :users, controllers: { registrations: 'registrations' }
 
   devise_scope :user do

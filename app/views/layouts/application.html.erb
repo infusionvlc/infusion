@@ -49,6 +49,17 @@
             <li class="nav-item">
               <%= link_to "/#{current_user.username}", {class: "nav-link"} do %><%= fa_icon 'user' %> <%= I18n.t 'user.my_profile' %><% end %>
             </li>
+            <li class="nav-item">
+              <span id="notifications-modal-trigger" class="nav-link" tabindex="0" role="button"
+                data-container="body" data-toggle="popover" data-html ="true" data-trigger="click"
+                data-placement="bottom" data-content="<%= "#{render 'activities/index'}" %>">
+                <% if @notifications.count > 0 %>
+                  <%= fa_icon 'bell' %> <span class="badge badge-pill badge-info"><%= @notifications.count %></span>
+                <% else %>
+                  <%= fa_icon 'bell' %>
+                <% end %>
+              </span>
+            </li>
           <% else %>
             <li class="nav-item">
               <%= link_to new_user_session_path, {class: "nav-link"} do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>

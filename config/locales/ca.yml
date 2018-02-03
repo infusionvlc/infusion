@@ -22,7 +22,7 @@ ca:
     notify_activity:
       subject_meetup: "Un nou Meetup ha sigut creat"
       body_meetup: "El Meetup '%{activity}'' ha sigut creat. Vota'l per que es faja realitat"
-      subject_proposal: "Se ha porposat un nou tema"
+      subject_proposal: "Se ha proposat un nou tema"
       body_proposal: "El tema proposat es '%{activity}'. Recorda que per a donar-li suport tens que votar-lo açí: "
       subject_assistance: "Hi ha un nou comentari al Meetup"
       body_assistance: "%{creator} ha comentat al Meetup '%{meetup}'. Si tú també has assistit, no oblides deixar la teua opinió"
