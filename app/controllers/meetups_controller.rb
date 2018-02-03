@@ -68,7 +68,8 @@ class MeetupsController < ApplicationController
   end
 
   # GET /meetups/1/edit
-  def
+  def edit
+    @location = Location.where(active: true).first
     authorize @meetup
   end
 
@@ -102,6 +103,7 @@ class MeetupsController < ApplicationController
   # PATCH/PUT /meetups/1
   # PATCH/PUT /meetups/1.json
   def update
+    @location = Location.where(active: true).first
     authorize @meetup
     respond_to do |format|
       if @meetup.update(meetup_params)
