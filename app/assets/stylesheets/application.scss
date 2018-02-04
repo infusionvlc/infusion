@@ -57,8 +57,12 @@ h5 {
 
 .avatar {
   border-radius: 50%;
+  background-position: center center;
+  background-size: cover;
   margin: 0 auto;
   width: 100%;
+  height: auto;
+  padding-top: 100%;
 }
 
 .avatar-med {
@@ -152,7 +156,6 @@ h5 {
 
 .t-row {
   display: table-row;
-  width: 100%;
 }
 
 .t-cell {
@@ -160,7 +163,7 @@ h5 {
 }
 
 .v-center {
-  vertical-align: center;
+  vertical-align: center !important;
 }
 
 .value {

@@ -5,7 +5,9 @@
     <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-body center">
-          <%= image_tag user.avatar, class: 'avatar avatar-half' %><br/>
+          <div style="width: 50%; margin: 0 auto;">
+            <div class="avatar" style="background-image: url(<%= user.avatar.url %>)"></div>
+          </div>
           <h2>
             <%= link_to user.username, "/#{user.username}" %>
           </h2>
