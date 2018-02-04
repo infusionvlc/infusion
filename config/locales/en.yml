@@ -174,6 +174,7 @@ en:
     my_profile:   "Me"
     cancel:       "Delete account"
     cancel_descr: "We are sad you're leaving, but if you still want to delete your account press the button below. We will miss you :("
+    no_meetups:   "This user has not organized a meetup yet."
 
     already_linked: "Already linked that account"
     linked:         "Successfully linked that account!"
