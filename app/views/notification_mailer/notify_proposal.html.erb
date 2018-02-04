@@ -3,7 +3,8 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
+  <body style="text-align: center">
+    <img src="<%= root_url %>/logo_base.png" style="width: 80%; margin: 0 auto;"/>
     <h1><%= I18n.t 'notification_mailer.greeting', user: @user.username %></h1>
     <% if @activity.objective_type == 'Assistance' %>
       <p><%= I18n.t 'notification_mailer.notify_activity.body_assistance', user: @user.username, activity: @activity.objective.review, creator: @activity.objective.user.username, meetup: @activity.objective.meetup.title%></p>

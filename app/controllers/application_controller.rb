@@ -3,10 +3,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery prepend: true, with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_action :set_notifications
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
+
+  def set_notifications
+    @notifications = current_user.notifications.where(read: false) if user_signed_in?
+  end
 
   def set_locale
     @locales = [

@@ -9,7 +9,7 @@
       <p class="lead"><%= I18n.t 'user.member_since', date: I18n.l(@user.created_at.to_date) %></p>
     </div>
     <div class="col-sm-4">
-      <%= image_tag @user.avatar, class: 'avatar' %>
+      <div class="avatar" style="background-image: url(<%= @user.avatar.url %>)"></div>
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
 <%else %>
   <div>
 <% end %>
-<% if @user.bio %>
+<% if @user.bio && @user.bio.length > 0 %>
   <h2><%= I18n.t 'user.about' %></h2>
   <p><%= sanitize @user.bio %></p>
 <% end %>

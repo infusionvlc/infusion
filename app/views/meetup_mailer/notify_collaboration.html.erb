@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body style="text-align: center">
+    <img src="<%= root_url %>/logo_base.png" style="width: 80%; margin: 0 auto;"/>
+    <h1><%= I18n.t 'meetup_mailer.greeting', user: @user.username %></h1>
+    <p><%= I18n.t 'meetup_mailer.notify_collaboration.body', user: @user.username, meetup: @meetup.title, owner: @meetup.holdings.first.user.username %></p>
+  </body>
+</html>

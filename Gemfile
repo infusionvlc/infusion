@@ -40,6 +40,8 @@ gem 'paperclip'
 
 gem 'awesome_print', require: 'ap'
 
+gem 'devise-i18n'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
@@ -51,6 +53,7 @@ end
 
 group :development do
   gem 'web-console'
+  gem 'rails_real_favicon'
 
   gem 'guard'
   gem 'guard-minitest'

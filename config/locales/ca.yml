@@ -2,6 +2,15 @@ ca:
   nav:
     home: "Inici"
 
+  landing:
+    description: "Meetups per l'empoderament digital"
+    mission: "Volem apropar la tecnologia i el món multimedia a les persones"
+    values:
+      title: "Els nostres principis i valors"
+      diversity:     "Diversitat"
+      participation: "Participació"
+      team_work:     "Treball en equip"
+
   meetup_mailer:
     greeting: "Hey, %{user}!"
     confirm: "Confirmar"
@@ -11,9 +20,15 @@ ca:
       body:    "T'has subscrit al meetup %{meetup}. T'enviarem un altre email quan tingam la data definitiva!"
     notify_publication:
       subject: "%{meetup} ha sigut confirmat!"
-      body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. ¡T'esperem!"
+      body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. T'esperem!"
+    notify_collaboration:
+      subject: "La teua col·laboració a %{meetup}"
+      body:    "%{owner} t'ha afegit com a col·laborador a %{meetup}. T'esperem!"
+    notify_abandon:
+      subject: "%{canceled} ha abandonat %{meetup}"
+      body:    "%{canceled} ha decidit no continuar com a col·laborador a %{meetup}."
     ask_for_confirmation:
-      subject: "¡La teua xerrada '%{meetup}' ha sigut confirmada!"
+      subject: "La teua xerrada '%{meetup}' ha sigut confirmada!"
       body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
 
@@ -22,7 +37,7 @@ ca:
     notify_activity:
       subject_meetup: "Un nou Meetup ha sigut creat"
       body_meetup: "El Meetup '%{activity}'' ha sigut creat. Vota'l per que es faja realitat"
-      subject_proposal: "Se ha porposat un nou tema"
+      subject_proposal: "Se ha proposat un nou tema"
       body_proposal: "El tema proposat es '%{activity}'. Recorda que per a donar-li suport tens que votar-lo açí: "
       subject_assistance: "Hi ha un nou comentari al Meetup"
       body_assistance: "%{creator} ha comentat al Meetup '%{meetup}'. Si tú també has assistit, no oblides deixar la teua opinió"
@@ -135,6 +150,10 @@ ca:
     delete:        "Eliminar"
     remove:        "Eliminar"
     vote:          "Votar"
+    abandon:       "Has abandonat el meetup"
+    confirmed:     "Moltes gràcies per confirmar la teua assistència!"
+    delayed:       "Esperem que a la próxima si estés disponible!"
+    saved_vote:    "El teu vot ha sigut registrat"
     allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
     pundit_error:  "Pareix que no pots fer això"
     collaborators: "Col·laboradors"
@@ -215,8 +234,9 @@ ca:
     assistants:
       one:                  "1 assistent"
       other:                "%{count} assistents"
-    edit:                   "Actualitzar informació"
-    destroy:                "Cancelar Meetup"
+    edit:                   "Actualitzar"
+    destroy:                "Cancelar"
+    leave:                  "Abandonar"
     review:                 "Conta'ns què penses!"
     reviews:                "Opinions"
     no_reviews:             "Pareix que no n'hi ha cap opinió"
@@ -279,6 +299,9 @@ ca:
           other:      "Organitzadors"
       proposal:
         <<: *common
+      location:
+        name:         "Nom"
+        active:       "Actual"
       report:
         user_id:  "Usuari"
         title:    "Títol"

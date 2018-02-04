@@ -11,6 +11,30 @@ class MeetupMailer < ApplicationMailer
     end
   end
 
+  def notify_collaboration(meetup, user)
+    @user = user
+    @meetup = meetup
+    I18n.with_locale(@user.locale) do
+        mail(to: @user.email,
+             subject: I18n.t('meetup_mailer.notify_collaboration.subject', \
+             meetup: @meetup.title, \
+             owner: @meetup.holdings.first.user.username))
+    end
+  end
+
+  def notify_abandon(meetup, user, canceled)
+    @user = user
+    @meetup = meetup
+    @canceled = canceled
+    I18n.with_locale(@user.locale) do
+        mail(to: @user.email,
+             subject: I18n.t('meetup_mailer.notify_abandon.subject', \
+             meetup: @meetup.title, \
+             owner: @meetup.holdings.first.user.username, \
+             canceled: @canceled.username))
+    end
+  end
+
   def notify_publication(meetup, user)
     @user   = user
     @meetup = meetup

@@ -2,11 +2,6 @@
 <hr/>
 
 <% @activities.reverse.each do |activity| %>
-  <div class="row">
-    <div class="col-sm-2">
-      <%= image_tag activity.user.avatar, class: 'avatar avatar-small' %>
-    </div>
-    <div class="col-sm-10">
       <p>
         <%= link_to activity.user.username, "/#{activity.user.username}" %>
         <% if activity.objective_type == "Meetup"%>
@@ -23,7 +18,5 @@
           <%= link_to activity.activity_title, proposal_path(activity.objective_id) %>
         <% end %>
       </p>
-    </div>
-  </div>
   <hr/>
 <% end %>
