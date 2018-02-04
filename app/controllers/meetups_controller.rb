@@ -85,6 +85,7 @@ class MeetupsController < ApplicationController
         @activity = @meetup.create_activity(current_user.id)
         @notifications = @activity.create_notification
         @meetup.holdings.create(user_id: current_user.id)
+        notify_collaborators
         format.html { redirect_to meetup_path(@meetup) }
         format.json do
           render :show,
@@ -107,6 +108,7 @@ class MeetupsController < ApplicationController
     authorize @meetup
     respond_to do |format|
       if @meetup.update(meetup_params)
+        notify_collaborators
         format.html { redirect_to meetup_path(@meetup) }
         format.json { render :show, status: :ok, location: @meetup }
       else
@@ -128,6 +130,12 @@ class MeetupsController < ApplicationController
   end
 
   private
+
+  def notify_collaborators
+    @meetup.holdings.each do |host|
+      MeetupMailer.notify_collaboration(@meetup, host.user).deliver if host.user != current_user
+    end
+  end
 
   def set_meetup
     @meetup = Meetup.find(params[:id])

@@ -152,11 +152,22 @@
           <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
         <% end %>
       <% end %>
-      <hr/>
+      <br/>
       <h3><%= I18n.t 'activerecord.attributes.meetup.holdings.other' %></h3>
-      <ul><% @meetup.hosts.each do |host| %>
-        <li><%= link_to host.username, "/#{host.username}" %></li>
-      <% end %></ul>
+      <% @meetup.hosts.each do |host| %>
+        <div class="card">
+          <div class="card-body center">
+            <%= image_tag host.avatar, class: 'avatar avatar-half' %><br/>
+            <h2>
+              <%= link_to host.username, "/#{host.username}" %>
+            </h2>
+            <% if host.bio && host.bio.length > 0 %>
+              <hr/>
+              <p><%= sanitize(truncate(host.bio, length: 80)) %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -2,6 +2,15 @@ en:
   nav:
     home: "Home"
 
+  landing:
+    description: "Meetups for digital empowering humans"
+    mission: "We want to bring technology closer to people"
+    values:
+      title: "Our principles and values"
+      diversity:     "Diversity"
+      participation: "Participation"
+      team_work:     "Team work"
+
   meetup_mailer:
     greeting: "Hey, %{user}!"
     confirm: "Confirm"
@@ -12,6 +21,9 @@ en:
     notify_publication:
       subject: "'%{meetup}' has been confirmed!"
       body:    "You were suscribed to the meetup called '%{meetup}', which is going to take place on %{date}. We hope you can join us!"
+    notify_collaboration:
+      subject: "Your collaboration to %{meetup}"
+      body:    "%{user} has added you as a collaborator in %{meetup}. We hope you can join us!"
     ask_for_confirmation:
       subject: "Your talk '%{meetup}' has been confirmed!"
       body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. We need you to confirm you can come by clicking the link below."
@@ -215,8 +227,8 @@ en:
     assistants:
       one:                  "1 assistant"
       other:                "%{count} assistants"
-    edit:                   "Update meetup information"
-    destroy:                "Cancel Meetup"
+    edit:                   "Edit"
+    destroy:                "Cancel"
     review:                 "Give us your thoughts!"
     reviews:                "Reviews"
     no_reviews:             "It looks like there's no review yet"

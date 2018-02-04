@@ -7,7 +7,19 @@ class MeetupMailer < ApplicationMailer
     I18n.with_locale(@user.locale) do
         mail(to: @user.email,
              subject: I18n.t('meetup_mailer.subscribed_to.subject', \
-             meetup: @meetup.title))
+             meetup: @meetup.title,
+             content_type: "text/html"))
+    end
+  end
+
+  def notify_collaboration(meetup, user)
+    @user = user
+    @meetup = meetup
+    I18n.with_locale(@user.locale) do
+        mail(to: @user.email,
+             subject: I18n.t('meetup_mailer.notify_collaboration.subject', \
+             meetup: @meetup.title, \
+             owner: @meetup.holdings.first.user.username))
     end
   end
 

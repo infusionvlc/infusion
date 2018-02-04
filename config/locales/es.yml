@@ -2,6 +2,15 @@ es:
   nav:
     home: "Inicio"
 
+  landing:
+    description: "Meetups para el empoderamiento digital"
+    mission: "Queremos acercar la tecnología y el mundo multimedia a todas las personas"
+    values:
+      title: "Nuestros principios y valores"
+      diversity:     "Diversidad"
+      participation: "Participación"
+      team_work:     "Trabajo en equipo"
+
   meetup_mailer:
     greeting: "¡Hey, %{user}!"
     confirm:  "Confirmar"
@@ -12,6 +21,9 @@ es:
     notify_publication:
       subject: "¡%{meetup} acaba de ser confirmado!"
       body:    "Te suscribiste al meetup %{meetup}, que va a tener lugar el %{date}. ¡Te esperamos!"
+    notify_collaboration:
+      subject: "Tu colaboración en %{meetup}"
+      body:    "%{user} te ha añadido como colaborador en %{meetup}. ¡Te esperamos!"
     ask_for_confirmation:
       subject: "¡Tu charla '%{meetup}' se ha confirmado!"
       body:    "La gente ha votado tu charla '%{meetup}', que va a tener lugar el %{date}. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
@@ -216,8 +228,8 @@ es:
     assistants:
       one:                  "1 asistente"
       other:                "%{count} asistentes"
-    edit:                   "Actualizar información"
-    destroy:                "Cancelar Meetup"
+    edit:                   "Actualizar"
+    destroy:                "Cancelar"
     review:                 "¡Cuéntanos qué piensas!"
     reviews:                "Opiniones"
     no_reviews:             "Parece que no hay ninguna opinión aún"

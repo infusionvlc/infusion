@@ -146,6 +146,18 @@ h5 {
   float: right;
 }
 
+.t-row {
+  display: table-row;
+}
+
+.t-cell {
+  display: table-cell;
+}
+
+.v-center {
+  vertical-align: center;
+}
+
 .value {
   padding-bottom: 4em;
 }
