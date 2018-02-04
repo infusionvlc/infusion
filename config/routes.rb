@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   match '/logout',                       to: 'sessions#destroy',       via: [:get, :post]
   match '/call_for_talks',               to: 'meetups#call_for_talks', via: [:get]
   match '/archive',                      to: 'meetups#archive',        via: [:get]
+  match '/rules' => 'pages#rules', via: :get
+  match '/reglas' => 'pages#reglas', via: :get
+  match '/regles' => 'pages#regles', via: :get
 
   match '/read_notifications',           to: 'notifications#mark_all_as_read', via: [:post]
 
@@ -40,4 +43,5 @@ Rails.application.routes.draw do
   end
 
   match '/:username' => 'profiles#show', via: :get
+
 end

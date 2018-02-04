@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20180201102717) do
     t.string "reportable_type"
     t.integer "user_id"
     t.integer "reportable_id"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "status_comment"
     t.text "description"
     t.datetime "created_at", null: false
@@ -165,8 +165,8 @@ ActiveRecord::Schema.define(version: 20180201102717) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer "role_id"
-    t.text "bio"
+    t.integer "role_id", default: 1
+    t.text "bio", default: ""
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

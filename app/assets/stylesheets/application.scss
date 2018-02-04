@@ -87,9 +87,10 @@ h5 {
   color: #ffffff;
 }
 
-.blue .fa-inverse {
+.blue .fa-inverse, .blue-text {
   color: #378eff;
 }
+
 
 .btn-intro {
   background: #378eff;
@@ -127,6 +128,14 @@ h5 {
     width: 100%;
 }
 
+.big-logo {
+  width: 50%;
+}
+
+.large-text {
+  font-size: 4em;
+}
+
 .main-header {
     background-image: linear-gradient(#ffffff, #ddf6fa);
     padding-bottom: 7em;
@@ -138,8 +147,23 @@ h5 {
   );
 }
 
+.conduct-header {
+  background-image: linear-gradient(#ffffff, #ddf6fa);
+  padding-bottom: 7em;
+  text-align: center;
+  clip-path: polygon(0 0,
+                       100% 0,
+                       0 100%,
+                       0 calc(100% - 5vw)
+  );
+}
+
 .magenta {
     background: #c7007c;
+}
+
+.magenta-text {
+  color: #c7007c;
 }
 
 .nested-fields {
@@ -180,6 +204,10 @@ h5 {
   color: #4e4e4e;
   padding-top: 4em;
   padding-bottom: 4em;
+}
+
+#subtitles-pages {
+  color: #4e4e4e;
 }
 
 #values {
