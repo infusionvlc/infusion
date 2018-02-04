@@ -30,7 +30,7 @@
       </div><br />
     </div>
     <div class="col-sm-12 col-md-6">
-      <%= image_tag resource.avatar, class: 'avatar avatar-med' %>
+    <div style="width: 50%; margin:0 auto;"><div class="avatar" style="background-image: url(<%= resource.avatar.url %>)"></div></div>
       <div class="field">
         <%= f.label :avatar %><br />
         <%= f.file_field :avatar, class: 'form-control' %>
@@ -50,7 +50,7 @@
     </div>
   </div>
   <div class="actions">
-    <%= f.submit "Update", class:"btn btn-primary" %>
+    <%= f.submit class:"btn btn-primary" %>
   </div>
 <% end %>
 
