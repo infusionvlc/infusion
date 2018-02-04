@@ -1,5 +1,11 @@
 class MeetupsController < ApplicationController
-  before_action :set_meetup, only: %i[show edit update destroy vote confirm delay]
+  before_action :set_meetup, only: %i[show
+                                      edit
+                                      update
+                                      destroy
+                                      vote
+                                      confirm
+                                      delay]
 
   # GET /meetups
   # GET /meetups.json
