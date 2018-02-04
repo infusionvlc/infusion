@@ -25,7 +25,7 @@
 <% end %>
   <h2><%= I18n.t 'activerecord.model.meetup.other' %></h2>
   <% if @user.keynotes.count == 0 %>
-      <p><%= I18n.t 'category.no_meetups' %></p>
+      <p><%= I18n.t 'user.no_meetups' %></p>
     <% else %>
       <% @user.keynotes.each do |meetup| %>
         <div class="card">
