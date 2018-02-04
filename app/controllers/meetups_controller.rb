@@ -1,5 +1,5 @@
 class MeetupsController < ApplicationController
-  before_action :set_meetup, only: %i[show edit update destroy vote confirm delay]
+  before_action :set_meetup, only: %i[show edit update destroy vote confirm delay leave]
 
   # GET /meetups
   # GET /meetups.json
@@ -37,7 +37,17 @@ class MeetupsController < ApplicationController
     authorize @meetup
     MeetupMailer.subscribed_to(@meetup, current_user).deliver
     @meetup.assistances.create(user_id: current_user.id)
-    redirect_back(fallback_location: meetup_path(@meetup), alert: 'Tu voto ha sido registrado')
+    redirect_back(fallback_location: meetup_path(@meetup), alert: I18n.t('main.saved_vote'))
+  end
+
+  # POST /meetups/1/leave
+  def leave
+    authorize @meetup
+    @meetup.holdings.where(user_id: current_user.id).first.destroy
+    @meetup.holdings.each do |host|
+      MeetupMailer.notify_abandon(@meetup, host.user, current_user).deliver
+    end
+    redirect_to(meetup_path(@meetup), alert: I18n.t('main.abandon'))
   end
 
   # POST /meetups/1/confirm
@@ -47,7 +57,7 @@ class MeetupsController < ApplicationController
     @meetup.assistances.each do |assistance|
       MeetupMailer.notify_publication(@meetup, assistance.user).deliver
     end
-    redirect_to @meetup, alert: 'Muchas gracias por confirmar tu asistencia!'
+    redirect_to @meetup, alert: I18n.t('main.confirmed')
   end
 
   # POST /meetups/1/delay
@@ -57,7 +67,7 @@ class MeetupsController < ApplicationController
     next_meetup = Meetup.where(date: nil).where.not(id: @meetup.id).left_joins(:assistances).group(:id).having('COUNT(assistances.id) <= ?', @meetup.assistances.count).order('COUNT(assistances.id) DESC').first
     MeetupMailer.ask_for_confirmation(next_meetup, next_meetup.holdings.first.user).deliver
     next_meetup.update(confirmation_mail: true)
-    redirect_to @meetup, alert: 'Esperamos que a la próxima sí estés disponible!'
+    redirect_to @meetup, alert: I18n.t('main.delayed')
   end
 
   # GET /meetups/new

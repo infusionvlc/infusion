@@ -23,7 +23,10 @@ ca:
       body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. T'esperem!"
     notify_collaboration:
       subject: "La teua col·laboració a %{meetup}"
-      body:    "%{user} t'ha afegit com a col·laborador a %{meetup}. T'esperem!"
+      body:    "%{owner} t'ha afegit com a col·laborador a %{meetup}. T'esperem!"
+    notify_abandon:
+      subject: "%{canceled} ha abandonat %{meetup}"
+      body:    "%{canceled} ha decidit no continuar com a col·laborador a %{meetup}."
     ask_for_confirmation:
       subject: "La teua xerrada '%{meetup}' ha sigut confirmada!"
       body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
@@ -147,6 +150,10 @@ ca:
     delete:        "Eliminar"
     remove:        "Eliminar"
     vote:          "Votar"
+    abandon:       "Has abandonat el meetup"
+    confirmed:     "Moltes gràcies per confirmar la teua assistència!"
+    delayed:       "Esperem que a la próxima si estés disponible!"
+    saved_vote:    "El teu vot ha sigut registrat"
     allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
     pundit_error:  "Pareix que no pots fer això"
     collaborators: "Col·laboradors"
@@ -229,6 +236,7 @@ ca:
       other:                "%{count} assistents"
     edit:                   "Actualitzar"
     destroy:                "Cancelar"
+    leave:                  "Abandonar"
     review:                 "Conta'ns què penses!"
     reviews:                "Opinions"
     no_reviews:             "Pareix que no n'hi ha cap opinió"

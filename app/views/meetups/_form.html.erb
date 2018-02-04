@@ -1,19 +1,19 @@
 <%= form_for(@meetup, :html => { multipart: true }) do |f| %>
-  <div class="row">
-    <div class="field col">
-      <%= f.label :title %><br />
-      <%= f.text_field :title, autofocus: true, class: 'form-control' %>
-    </div><br/>
-    <div class="field col">
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div><br/>
+  <div class="field">
     <%= f.label :categories %><br />
-    <div>
+    <div class="row">
       <% Category.all.each do |category| %>
-        <%= check_box_tag "meetup[category_ids][]", category.id, f.object.categories.include?(category) %>
-        <%= category.display_name %><br/>
+        <div class="col-sm-12 col-md-4">
+          <%= check_box_tag "meetup[category_ids][]", category.id, f.object.categories.include?(category) %>
+          <%= category.display_name %><br/>
+        </div>
       <% end %>
     </div>
   </div><br/>
-  </div>
   <%= f.hidden_field :location_id, value: @location.id %>
 
   <div class="field">
@@ -76,10 +76,11 @@
         <%= f.fields_for :holdings do |h| %>
           <div class="card-container col-sm-12 col-md-4">
             <div class="card">
-              <div class="field card-body">
+              <div class="field card-body center">
+                <%= image_tag h.object.user.avatar, class: 'avatar avatar-half' %><br/>
                 <p><%= h.object.user.username %><p>
                 <% if h.object.user != current_user %>
-                  <%= h.select(:role, [["Admin", 0],["Mod", 1], ["Plain", 2]], {}, {class:'form-control'}) %>
+                  <%= h.select(:role, [["Admin", 0],["Mod", 1], ["Plain", 2]], {}, {class:'form-control'}) %><br/>
                   <%= h.check_box :_destroy %>
                   <%= h.label :_destroy %>
                 <% end %>

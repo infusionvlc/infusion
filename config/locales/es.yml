@@ -23,7 +23,10 @@ es:
       body:    "Te suscribiste al meetup %{meetup}, que va a tener lugar el %{date}. ¡Te esperamos!"
     notify_collaboration:
       subject: "Tu colaboración en %{meetup}"
-      body:    "%{user} te ha añadido como colaborador en %{meetup}. ¡Te esperamos!"
+      body:    "%{owner} te ha añadido como colaborador en %{meetup}. ¡Te esperamos!"
+    notify_abandon:
+      subject: "%{canceled} ha abandonado %{meetup}"
+      body:    "%{canceled} ha decidido no continuar como colaborador en %{meetup}."
     ask_for_confirmation:
       subject: "¡Tu charla '%{meetup}' se ha confirmado!"
       body:    "La gente ha votado tu charla '%{meetup}', que va a tener lugar el %{date}. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
@@ -147,6 +150,10 @@ es:
     delete:        "Eliminar"
     remove:        "Eliminar"
     vote:          "Votar"
+    abandon:       "Has abandonado el meetup"
+    confirmed:     "¡Muchas gracias por confirmar tu asistencia!"
+    delayed:       "¡Esperamos que a la próxima sí estés disponible!"
+    saved_vote:    "Tu voto ha sido registrado"
     allowed_files: "Se permiten archivos de texto, vídeo, imagen, audio, pdf y zip"
     pundit_error:  "Parece que no puedes hacer eso"
     collaborators: "Colaboradores"
@@ -230,6 +237,7 @@ es:
       other:                "%{count} asistentes"
     edit:                   "Actualizar"
     destroy:                "Cancelar"
+    leave:                  "Abandonar"
     review:                 "¡Cuéntanos qué piensas!"
     reviews:                "Opiniones"
     no_reviews:             "Parece que no hay ninguna opinión aún"
@@ -344,7 +352,7 @@ es:
         create: "Iniciar sesión"
       proposal:
         create: "Confirmar propuesta"
-        update: "Actualitzar propuesta"
+        update: "Actualizar propuesta"
       location:
         create: "Añadir nueva ubicación"
         update: "Actualizar ubicación"

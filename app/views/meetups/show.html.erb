@@ -14,6 +14,7 @@
     <h1><%= @meetup.title %></h1>
     <p class="lead"><%= meetup_votes(@meetup) %></p>
     <h2 aria-label=<%= I18n.t 'activerecord.attributes.meetup.categories' %>>
+      <span class="badge badge-pill badge-info"><%= @meetup.average_rating %> <%= fa_icon 'star' %></span>
       <% @meetup.categories.each do |cat| %>
         <%= link_to cat do %><span class="badge badge-pill badge-info blue"><%=cat.display_name %></span><% end %>
       <% end %>
@@ -102,7 +103,7 @@
           </div>
          </div>
          <div class="card-footer text-muted">
-          <%= review.user.username %> | <%= time_ago_in_words(review.updated_at) %>
+          <%= link_to review.user.username, "/#{review.user.username}" %> | <%= time_ago_in_words(review.updated_at) %>
         </div>
       </div>
     <% end %>
@@ -114,7 +115,11 @@
       <% if policy(@meetup).report? %>
         <button data-toggle="modal" data-target="#meetupReportModal" class="btn btn-warning btn-lg btn-block">
           <%= fa_icon 'exclamation-triangle ' %> <%= I18n.t 'report.report' %>
-        </button>
+        </button><br/>
+      <% end %>
+
+      <% if policy(@meetup).leave? %>
+          <%= link_to leave_meetup_path(@meetup), method: :post, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'sign-out' %> <%= I18n.t 'meetup.leave' %><% end %>
       <% end %>
 
       <% if policy(@meetup).edit? %>
@@ -135,6 +140,7 @@
         <p><%= @meetup.end %></p>
         <hr/>
         <% if policy(@meetup).vote? %>
+          <br/>
           <p><%= I18n.t 'meetup.call_to_action_assist' %></p>
           <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assist' %><% end %>
         <% elsif !user_signed_in? %>
@@ -143,6 +149,7 @@
         <% end %>
       <% else %>
         <% if policy(@meetup).vote? %>
+          <br/>
           <p><%= I18n.t 'meetup.call_to_action' %></p>
           <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'main.vote' %><% end %>
         <% elsif user_signed_in? %>

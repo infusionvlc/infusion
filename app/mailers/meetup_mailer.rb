@@ -7,8 +7,7 @@ class MeetupMailer < ApplicationMailer
     I18n.with_locale(@user.locale) do
         mail(to: @user.email,
              subject: I18n.t('meetup_mailer.subscribed_to.subject', \
-             meetup: @meetup.title,
-             content_type: "text/html"))
+             meetup: @meetup.title))
     end
   end
 
@@ -20,6 +19,19 @@ class MeetupMailer < ApplicationMailer
              subject: I18n.t('meetup_mailer.notify_collaboration.subject', \
              meetup: @meetup.title, \
              owner: @meetup.holdings.first.user.username))
+    end
+  end
+
+  def notify_abandon(meetup, user, canceled)
+    @user = user
+    @meetup = meetup
+    @canceled = canceled
+    I18n.with_locale(@user.locale) do
+        mail(to: @user.email,
+             subject: I18n.t('meetup_mailer.notify_abandon.subject', \
+             meetup: @meetup.title, \
+             owner: @meetup.holdings.first.user.username, \
+             canceled: @canceled.username))
     end
   end
 

@@ -19,12 +19,18 @@ class MeetupPolicy
       !@meetup.assistances.where(user_id: @user.id).exists?
   end
 
+  def leave?
+    !@meetup.nil? && !@user.nil? &&\
+      @meetup.holdings.where(user_id: @user.id).exists? &&\
+      @user != @meetup.holdings.first.user
+  end
+
   def report?
     @user && !Report.where(reportable_id: @meetup.id,
                            reportable_type: 'Meetup',
                            user_id: @user.id).exists?
   end
-  
+
   def confirm?
     !@meetup.nil? && @meetup.confirmation_mail == true
   end
@@ -55,8 +61,7 @@ class MeetupPolicy
 
   # admin or mod
   def update?
-    !@user.nil? && \
-      @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 2).exists?
+    !@user.nil? && @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 2).exists?
   end
 
   def edit?
