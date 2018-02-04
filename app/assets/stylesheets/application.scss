@@ -1,9 +1,19 @@
 @import "bootstrap";
 @import "font-awesome";
 
+:root {
+	--grey_dark: #2e2e2e;
+	--grey_light: #4e4e4e;
+	--pink: #c7007c;
+	--yellow: #ffcd48;
+	--blue: #378eff;
+	--white: #ffffff;
+	--light_blue: #ddf6fa;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  color: #2e2e2e;
+  color: var(--grey_dark);
 }
 
 .body-padding {
@@ -17,7 +27,7 @@ body {
 
 h1 {
   font-weight:800;
-  color: #c7007c;
+  color: var(--pink);
 }
 
 h2 {
@@ -42,17 +52,17 @@ h5 {
 }
 
 .alert-warning {
-  background: #ffcd48;
+  background: var(--yellow);
 }
 
 .alert-info, .alert-success {
-  background: #378eff;
-  color: white;
+  background: var(--blue);
+  color: var(--white);
 }
 
 .alert-danger {
-  background: #c7007c;
-  color: white;
+  background: var(--pink);
+  color: var(--white);
 }
 
 .avatar {
@@ -78,24 +88,24 @@ h5 {
 }
 
 .badge-info {
-  color: #ffffff;
-  background: #c7007c;
+  color: var(--white);
+  background: var(--pink);
 }
 
 .blue {
-  background: #378eff;
-  color: #ffffff;
+  background: var(--blue);
+  color: var(--white);
 }
 
 .blue .fa-inverse, .blue-text {
-  color: #378eff;
+  color: var(--blue);
 }
 
 
 .btn-intro {
-  background: #378eff;
+  background: var(--blue);
   border-radius: 900px;
-  color: #ffffff;
+  color: var(--white);
   font-size: 2.5em;
   font-weight: 800;
   margin-top: 1em;
@@ -104,8 +114,8 @@ h5 {
 }
 
 .btn-intro:hover {
-  background: #c7007c;
-  color: #ffffff;
+  background: var(--pink);
+  color: var(--white);
 }
 
 .card {
@@ -137,7 +147,7 @@ h5 {
 }
 
 .main-header {
-    background-image: linear-gradient(#ffffff, #ddf6fa);
+    background-image: linear-gradient(var(--white), var(--light_blue));
     padding-bottom: 7em;
     text-align: center;
     clip-path: polygon(0 0,
@@ -148,7 +158,7 @@ h5 {
 }
 
 .conduct-header {
-  background-image: linear-gradient(#ffffff, #ddf6fa);
+  background-image: linear-gradient(var(--white), var(--light_blue));
   padding-bottom: 7em;
   text-align: center;
   clip-path: polygon(0 0,
@@ -159,11 +169,11 @@ h5 {
 }
 
 .magenta {
-    background: #c7007c;
+    background: var(--pink);
 }
 
 .magenta-text {
-  color: #c7007c;
+  color: var(--pink);
 }
 
 .nested-fields {
@@ -171,7 +181,7 @@ h5 {
 }
 
 .page-bg {
-  background: #ffffff;
+  background: var(--white);
 }
 
 .right {
@@ -195,19 +205,19 @@ h5 {
 }
 
 #description {
-  color: white;
+  color: var(--white);
   padding-top: 1em;
   padding-bottom: 4em;
 }
 
 #mission {
-  color: #4e4e4e;
+  color: var(--grey_light);
   padding-top: 4em;
   padding-bottom: 4em;
 }
 
 #subtitles-pages {
-  color: #4e4e4e;
+  color: var(--grey_light);
 }
 
 #values {
