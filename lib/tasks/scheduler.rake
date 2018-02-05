@@ -1,6 +1,6 @@
 desc "A scheduled task that confirms the upcoming meetup"
 task :ask_for_confirmation => :environment do
-  if Date.parse('2018-02-05').upto(Date.today).count % 14 == 0
+  if Date.parse('2018-01-22').upto(Date.today).count % 14 == 0
     puts "starting scheduling task"
 
     next_meetup = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC').first
