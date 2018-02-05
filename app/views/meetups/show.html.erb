@@ -134,10 +134,10 @@
         <p><%= @meetup.date %></p>
         <hr/>
         <h2><%= I18n.t 'activerecord.attributes.meetup.start' %></h2>
-        <p><%= @meetup.start %></p>
+        <p><%= @meetup.start.strftime('%H:%M') %></p>
         <hr/>
         <h2><%= I18n.t 'activerecord.attributes.meetup.end' %></h2>
-        <p><%= @meetup.end %></p>
+        <p><%= @meetup.end.strftime('%H:%M') %></p>
         <hr/>
         <% if policy(@meetup).vote? %>
           <br/>
