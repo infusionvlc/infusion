@@ -282,7 +282,7 @@ es:
     attributes:
       common: &common
         title:        "Título"
-        description:  "Descrición"
+        description:  "Descripción"
       category:
         name:         "Name"
         ca_name:      "Nom"
