@@ -277,9 +277,12 @@ es:
         one:   "Actividad"
         other: "Actividades"
       location:
-        one:   "Location"
-        other: "Locations"
+        one:   "Ubicación"
+        other: "Ubicaciones"
     attributes:
+      assistance:
+        mark: "Valoración"
+        review: "Opinión"
       common: &common
         title:        "Título"
         description:  "Descripción"
