@@ -279,6 +279,9 @@ ca:
         one:   "Location"
         other: "Locations"
     attributes:
+      assistance:
+        mark: "Valoració"
+        review: "Opinió"
       common: &common
         title: "Títol"
         description:  "Descripció"
