@@ -77,7 +77,7 @@
           <div class="card-container col-sm-12 col-md-4">
             <div class="card">
               <div class="field card-body center">
-                <%= image_tag h.object.user.avatar, class: 'avatar avatar-half' %><br/>
+                <div style="width: 80%; margin: 0 auto"><div class="avatar" style="background-image: url(<%= h.object.user.avatar.url %>)"></div></div><br/>
                 <p><%= h.object.user.username %><p>
                 <% if h.object.user != current_user %>
                   <%= h.select(:role, [["Admin", 0],["Mod", 1], ["Plain", 2]], {}, {class:'form-control'}) %><br/>
