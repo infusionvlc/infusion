@@ -5,7 +5,7 @@ class MeetupsController < ApplicationController
   # GET /meetups
   # GET /meetups.json
   def index
-    @next_meetup = Meetup.where('date > ?', Date.today).first
+    @next_meetup = Meetup.where('date >= ?', Date.today).first
     @most_recent = Meetup.where('date < ?', Date.today).order('date DESC')
                          .first(3)
     @most_popular = Meetup.where('date < ?', Date.today)
