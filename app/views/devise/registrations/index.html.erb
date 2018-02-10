@@ -3,7 +3,7 @@
 <div class="row">
     <% @users.each do |user| %>
     <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="center" style="margin-bottom: 10px">
+        <div class="center" style="margin-bottom: 2em">
           <%= link_to "/#{user.username}" do %>
             <div style="width: 50%; margin: 0 auto;">
               <div class="avatar" style="background-image: url(<%= user.avatar.url %>)"></div>

@@ -173,10 +173,6 @@
                 <%= host.username %>
               </h2>
             <% end %>
-            <% if host.bio && host.bio.length > 0 %>
-              <hr/>
-              <p><%= sanitize(truncate(host.bio, length: 80)) %></p>
-            <% end %>
             <br/>
           </div>
       <% end %>
