@@ -29,7 +29,7 @@ class AssistancePolicy
     end
 
     def update?
-      !@user.nil? && @assistance.user = @user
+      !@user.nil? && @assistance.user == @user && !@assistance.meetup.holdings.where(user_id: @user.id).exists?
     end
 
     def edit?

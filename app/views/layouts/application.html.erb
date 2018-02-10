@@ -41,6 +41,11 @@
             <li class="nav-item">
               <%= link_to activities_path, {class: "nav-link"} do %><%= fa_icon 'bars' %> Feed<% end %>
             </li>
+            <% if current_user.admin? %>
+              <li class="nav-item">
+                <%= link_to reports_path, {class: "nav-link"} do %><%= fa_icon 'gavel' %> <%= I18n.t 'main.admin_panel' %><% end %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
         <ul class="navbar-nav navbar-right">
