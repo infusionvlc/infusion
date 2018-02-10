@@ -62,18 +62,19 @@
             <div class="row">
               <div class="field col-2">
                 <%= f.label :mark %><br />
-                <%= f.select :mark, [0,1,2,3,4,5], {}, class: 'form-control' %>
+                <%= f.select :mark, [5,4,3,2,1], {}, class: 'form-control' %>
               </div><br/>
               <div class="field col-10">
                 <%= f.label :review %><br />
-                <%= f.text_field :review, autofocus: true, class: 'form-control' %>
+                <%= f.text_field :review, autofocus: true, class: 'form-control', id:'new_field' %>
               </div><br/>
             </div><br/>
-            <%= f.submit class: 'btn btn-primary right' %>
+            <%= f.submit class: 'btn btn-primary right', id:'new_comment' %>
           <% end %>
         </div>
       </div>
     <% end %>
+    <br/>
     <% @reviews.each do |review| %>
       <!-- Modal -->
       <div class="modal fade" id="reviewReportModal_<%= review.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -101,11 +102,12 @@
           <div id='edit_form_<%= review.id %>' style='display: none'>
             <%= render partial: 'review_form', locals: {review: review} %>
           </div>
-         </div>
-         <div class="card-footer text-muted">
+        </div>
+        <div class="card-footer text-muted">
           <%= link_to review.user.username, "/#{review.user.username}" %> | <%= time_ago_in_words(review.updated_at) %>
         </div>
       </div>
+      <br/>
     <% end %>
     <%= paginate @reviews, theme: 'twitter-bootstrap-4' %>
   </div>
@@ -130,6 +132,8 @@
         <hr/>
       <% end %>
       <% if @meetup.taking_place? %>
+        <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>
+        <p><%= @meetup.location.name %></p>
         <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
         <p><%= I18n.l @meetup.date %></p>
         <hr/>
@@ -162,18 +166,19 @@
       <br/>
       <h3><%= I18n.t 'activerecord.attributes.meetup.holdings.other' %></h3>
       <% @meetup.hosts.each do |host| %>
-        <div class="card">
-          <div class="card-body center">
-            <div style="width: 80%; margin: 0 auto"><div class="avatar" style="background-image: url(<%= host.avatar.url %>)"></div></div><br/>
-            <h2>
-              <%= link_to host.username, "/#{host.username}" %>
-            </h2>
+          <div class="center">
+            <%= link_to "/#{host.username}" do %>
+              <div style="width: 50%; margin: 0 auto"><div class="avatar" style="background-image: url(<%= host.avatar.url %>)"></div></div><br/>
+              <h2>
+                <%= host.username %>
+              </h2>
+            <% end %>
             <% if host.bio && host.bio.length > 0 %>
               <hr/>
               <p><%= sanitize(truncate(host.bio, length: 80)) %></p>
             <% end %>
+            <br/>
           </div>
-        </div>
       <% end %>
     </div>
   </div>

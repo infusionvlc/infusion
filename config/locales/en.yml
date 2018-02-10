@@ -29,7 +29,7 @@ en:
       body:    "%{canceled} has decided not to be a collaborator in %{meetup}."
     ask_for_confirmation:
       subject: "Your talk '%{meetup}' has been confirmed!"
-      body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. We need you to confirm you can come by clicking the link below."
+      body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. Remember you must upload your slides and support material to the site. We need you to confirm you can come by clicking the link below."
       delay:   "If you can't come, please, delay your meetup by clicking this other button:"
 
   notification_mailer:
@@ -157,6 +157,7 @@ en:
     allowed_files: "Only text, audio, video, image, pdf and zip files are allowed"
     pundit_error:  "It looks like you can't do that"
     collaborators: "Collaborators"
+    admin_panel:   "Admin"
 
   user:
     about:  "About me"
@@ -199,6 +200,8 @@ en:
     report: "Report"
     report_discard: "Delete report"
     report_review: "Check report"
+    edit: "Edit"
+    create: "Create a new report"
     type:
       hate: "Hate speech"
       menace: "Insults and threats"

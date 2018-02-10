@@ -29,7 +29,7 @@ ca:
       body:    "%{canceled} ha decidit no continuar com a col·laborador a %{meetup}."
     ask_for_confirmation:
       subject: "La teua xerrada '%{meetup}' ha sigut confirmada!"
-      body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Necessitem que confirmes la teua assistència prement el botó."
+      body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Recorda que has de pujar la teua presentació i el material de suport. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
 
   notification_mailer:
@@ -157,6 +157,7 @@ ca:
     allowed_files: "Es permeten fitxers de text, imatge, audio, vídeo, pdf i zip"
     pundit_error:  "Pareix que no pots fer això"
     collaborators: "Col·laboradors"
+    admin_panel:   "Administració"
 
   user:
     about:  "Sobre mi"
@@ -199,6 +200,8 @@ ca:
     report: "Reportar"
     report_discard: "Eliminar report"
     report_review: "Revisar report"
+    edit: "Editar"
+    create: "Crear un nou report"
     type:
       hate: "Incitació a l'odi"
       menace: "Amenaçes o insults"

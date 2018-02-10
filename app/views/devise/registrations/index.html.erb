@@ -5,12 +5,14 @@
     <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-body center">
-          <div style="width: 50%; margin: 0 auto;">
-            <div class="avatar" style="background-image: url(<%= user.avatar.url %>)"></div>
-          </div>
-          <h2>
-            <%= link_to user.username, "/#{user.username}" %>
-          </h2>
+          <%= link_to "/#{user.username}" do %>
+            <div style="width: 50%; margin: 0 auto;">
+              <div class="avatar" style="background-image: url(<%= user.avatar.url %>)"></div>
+            </div>
+            <h2>
+              <%= user.username %>
+            </h2>
+          <% end %>
           <% if user.bio && user.bio.length > 0 %>
             <hr/>
             <p><%= sanitize(truncate(user.bio, length: 80)) %></p>

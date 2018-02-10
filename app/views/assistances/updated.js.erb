@@ -1,0 +1,4 @@
+$('#info_'+ <%= @assistance.id %>).empty();
+$('#info_'+ <%= @assistance.id %>).html('<%= j render partial: 'meetups/review_info', locals: {review: @assistance} %>');
+$('#info_'+ <%= @assistance.id %>).show();
+$('#edit_form_'+ <%= @assistance.id %>).hide();
