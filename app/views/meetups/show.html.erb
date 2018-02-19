@@ -131,13 +131,25 @@
         <% end %>
         <hr/>
       <% end %>
-      <% if @meetup.taking_place? %>
+      <% if @meetup.took_place? %>
         <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>
         <p><%= @meetup.location.name %></p>
         <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
-        <p><%= I18n.l @meetup.date %></p>
-        <br/>
-        <p><%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
+        <p><%= I18n.l @meetup.date %> | <%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
+        <hr/>
+        <% if policy(@meetup).vote? %>
+          <br/>
+          <p><%= I18n.t 'meetup.call_to_action_assisted' %></p>
+          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assisted' %><% end %>
+        <% elsif !user_signed_in? %>
+          <p><%= I18n.t 'meetup.call_to_action_no_user_assisted' %></p>
+          <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+        <% end %>
+      <% elsif @meetup.taking_place? %>
+        <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>
+        <p><%= @meetup.location.name %></p>
+        <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
+        <p><%= I18n.l @meetup.date %> | <%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
         <hr/>
         <% if policy(@meetup).vote? %>
           <br/>

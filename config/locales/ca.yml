@@ -145,7 +145,8 @@ ca:
   main:
     add:           "Afegir"
     archive:       "Arxiu"
-    assist:        "He estat"
+    assist:        "Assistiré"
+    assisted:      "He estat"
     edit:          "Editar"
     delete:        "Eliminar"
     remove:        "Eliminar"
@@ -232,9 +233,11 @@ ca:
     <<: *votable
     host_yours:             "Organitza un Meetup"
     call_to_action:         "Vols vindre a aquest meetup? Vóta'l!"
-    call_to_action_assist:  "Vas vindre a aquest Meetup? Apunta la teua asistencia i dóna'ns la teua opinió!"
+    call_to_action_assist:  "Vols vindre a aquest Meetup? Apunta't!"
+    call_to_action_assisted: "Vas vindre a aquest Meetup? Apunta la teua asistencia i dóna'ns la teua opinió!"
     call_to_action_no_user: "Vols vindre a aquest meetup? Inicia sessió i vóta'l!"
-    call_to_action_no_user_assist: "Vas vindre a aquest Meetup? Inicia sessió i dóna'ns la teua opinió!"
+    call_to_action_no_user_assist: "Vols vindre a aquest Meetup? Inicia sessió i apunta't!"
+    call_to_action_no_user_assisted: "Vas vindre a aquest Meetup? Inicia sessió i dóna'ns la teua opinió!"
     assistants:
       one:                  "1 assistent"
       other:                "%{count} assistents"
@@ -279,8 +282,8 @@ ca:
         one:   "Activitat"
         other: "Activitats"
       location:
-        one:   "Location"
-        other: "Locations"
+        one:   "Ubicació"
+        other: "Ubicacions"
     attributes:
       assistance:
         mark: "Valoració"

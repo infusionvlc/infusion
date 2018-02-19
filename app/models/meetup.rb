@@ -27,7 +27,11 @@ class Meetup < ApplicationRecord
   validates :location, presence: true
 
   def taking_place?
-    !date.nil?
+    !date.nil? && date >= Date.today
+  end
+
+  def took_place?
+    !date.nil? && date < Date.today
   end
 
   def average_rating

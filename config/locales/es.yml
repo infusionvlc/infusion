@@ -145,7 +145,8 @@ es:
   main:
     add:           "Añadir"
     archive:       "Archivo"
-    assist:        "Estuve en este meetup"
+    assist:        "Asistiré"
+    assisted:      "He estado"
     edit:          "Editar"
     delete:        "Eliminar"
     remove:        "Eliminar"
@@ -233,9 +234,11 @@ es:
     <<: *votable
     host_yours:             "Organiza un Meetup"
     call_to_action:         "¿Quieres venir a este meetup? ¡Vótalo!"
-    call_to_action_assist:  "¿Viniste a este Meetup? ¡Apunta tu asistencia y danos tu opinión más abajo!"
+    call_to_action_assist:  "¡Si quieres venir tan sólo tienes que apuntarte!"
+    call_to_action_assisted: "¿Viniste a este Meetup? ¡Apunta tu asistencia y danos tu opinión más abajo!"
     call_to_action_no_user: "¿Quieres venir a este meetup? ¡Inicia sesión y vótalo!"
-    call_to_action_no_user_assist: "¿Viniste a este Meetup? ¡Inicia sesión y danos tu opinión!"
+    call_to_action_no_user_assist: "Si quieres venir tan sólo tienes que apuntarte. ¡Inicia sesión y apúntate!"
+    call_to_action_no_user_assisted: "¿Viniste a este Meetup? ¡Inicia sesión y danos tu opinión!"
     assistants:
       one:                  "1 asistente"
       other:                "%{count} asistentes"
