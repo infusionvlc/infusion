@@ -56,7 +56,8 @@ class MeetupPolicy
   def comment?
     !@user.nil? && \
       @meetup.assistances.where('user_id = ? AND review IS NULL', @user.id).exists? && \
-      !@meetup.nil? && @meetup.date && @meetup.date <= Date.today
+      !@meetup.nil? && @meetup.date && @meetup.date <= Date.today && \
+      !@meetup.holdings.where(user_id: @user.id).exists?
   end
 
   # admin or mod

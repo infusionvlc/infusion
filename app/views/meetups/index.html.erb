@@ -29,6 +29,7 @@
         <%= link_to @next_meetup.title, @next_meetup %>
       </h2>
       <hr/>
+      <h3><%= @next_meetup.location.name %></h3>
       <p><%= truncate(sanitize(@next_meetup.description), length: 200) %></p>
     </div>
     <div class="card-footer text-muted">

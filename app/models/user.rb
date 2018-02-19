@@ -32,9 +32,8 @@ class User < ApplicationRecord
   def average_rating
     avgs = []
     self.keynotes.each do |k|
-      avgs << k.average_rating
+      avgs << k.average_rating if k.average_rating != 0
     end
-    puts avgs
     if avgs.count > 0
       avgs.sum/avgs.count
     else
