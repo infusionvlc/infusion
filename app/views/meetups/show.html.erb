@@ -132,12 +132,8 @@
       <% if @meetup.taking_place? %>
         <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
         <p><%= I18n.l @meetup.date %></p>
-        <hr/>
-        <h2><%= I18n.t 'activerecord.attributes.meetup.start' %></h2>
-        <p><%= @meetup.start.strftime('%H:%M') %></p>
-        <hr/>
-        <h2><%= I18n.t 'activerecord.attributes.meetup.end' %></h2>
-        <p><%= @meetup.end.strftime('%H:%M') %></p>
+        <br/>
+        <p><%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
         <hr/>
         <% if policy(@meetup).vote? %>
           <br/>

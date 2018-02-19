@@ -295,6 +295,7 @@ en:
         end:          "End time"
         attachments:  "Attachments"
         photos:       "Photos"
+        location:     "Location"
         holdings:
           one:        "Host"
           other:      "Hosts"

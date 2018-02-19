@@ -29,7 +29,7 @@
         <%= link_to @next_meetup.title, @next_meetup %>
       </h2>
       <hr/>
-      <p><%= truncate(sanitize(@next_meetup.description), length: 80) %></p>
+      <p><%= truncate(sanitize(@next_meetup.description), length: 200) %></p>
     </div>
     <div class="card-footer text-muted">
       <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>

@@ -298,6 +298,7 @@ ca:
         end:          "Hora de finalització"
         attachments:  "Fitxers adjunts"
         photos:       "Fotos"
+        location:     "Ubicació"
         holdings:
           one:        "Organitzador"
           other:      "Organitzadors"

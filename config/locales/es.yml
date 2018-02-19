@@ -299,6 +299,7 @@ es:
         end:          "Hora de finalización"
         attachments:  "Ficheros adjuntos"
         photos:       "Fotos"
+        location:     "Ubicación"
         holdings:
           one:        "Organizador"
           other:      "Organizadores"
