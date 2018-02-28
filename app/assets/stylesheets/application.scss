@@ -6,7 +6,8 @@
 	--grey_light: #4e4e4e;
 	--pink: #c7007c;
 	--yellow: #ffcd48;
-	--blue: #378eff;
+  --blue: #378eff;
+  --dark_blue: #1e6ed6;
 	--white: #ffffff;
 	--light_blue: #ddf6fa;
 }
@@ -147,10 +148,10 @@ h5 {
 }
 
 .main-header {
-    background-image: linear-gradient(var(--white), var(--light_blue));
-    padding-bottom: 7em;
-    text-align: center;
-    clip-path: polygon(0 0,
+  background-image: linear-gradient(var(--white), var(--light_blue));
+  padding-bottom: 7em;
+  text-align: center;
+  clip-path: polygon(0 0,
                        100% 0,
                        100% 100%,
                        0 calc(100% - 5vw)
@@ -174,6 +175,10 @@ h5 {
 
 .magenta-text {
   color: var(--pink);
+}
+
+.med {
+  width: 30%;
 }
 
 .nested-fields {
@@ -222,6 +227,14 @@ h5 {
 
 #values {
   padding-top: 4em;
+  background-image: linear-gradient(var(--blue), var(--dark_blue));
+  padding-bottom: 1em;
+  text-align: center;
+  clip-path: polygon(0 0,
+                       100% 0,
+                       100% calc(100% - 5vw),
+                       0 100%
+  );
 }
 
 @media (max-width: 699px) {

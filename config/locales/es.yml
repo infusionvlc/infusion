@@ -10,6 +10,7 @@ es:
       diversity:     "Diversidad"
       participation: "Participación"
       team_work:     "Trabajo en equipo"
+    collaborators: "Con la colaboración de"
 
   meetup_mailer:
     greeting: "¡Hey, %{user}!"

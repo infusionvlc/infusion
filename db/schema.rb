@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(version: 20180210202534) do
     t.text "description"
     t.text "requirements"
     t.date "date"
-    t.time "start", default: "2000-01-01 17:00:00"
-    t.time "end", default: "2000-01-01 19:00:00"
+    t.time "start"
+    t.time "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20180210202534) do
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id"
     t.integer "activity_id"
-    t.boolean "read", default: false
+    t.boolean "read"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20180210202534) do
     t.string "reportable_type"
     t.integer "user_id"
     t.integer "reportable_id"
-    t.integer "status", default: 0
+    t.integer "status"
     t.string "status_comment"
     t.text "description"
     t.datetime "created_at", null: false
@@ -160,13 +160,13 @@ ActiveRecord::Schema.define(version: 20180210202534) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "locale", default: "es"
+    t.string "locale"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer "role_id", default: 1
-    t.text "bio", default: ""
+    t.integer "role_id"
+    t.text "bio"
     t.boolean "contributor", default: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true

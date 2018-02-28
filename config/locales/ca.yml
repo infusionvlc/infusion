@@ -10,6 +10,7 @@ ca:
       diversity:     "Diversitat"
       participation: "Participació"
       team_work:     "Treball en equip"
+    collaborators: "Amb la col·laboració de"
 
   meetup_mailer:
     greeting: "Hey, %{user}!"
