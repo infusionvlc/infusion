@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  match '/webhook' => 'webhook#reply', via: :post
+
   match 'users/auth/:provider/callback', to: 'sessions#create',        via: [:get, :post]
   match '/logout',                       to: 'sessions#destroy',       via: [:get, :post]
   match '/call_for_talks',               to: 'meetups#call_for_talks', via: [:get]
