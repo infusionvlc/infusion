@@ -35,7 +35,7 @@ class ProposalPolicy
 
   def update?
     !@user.nil? && !@user.nil? && \
-      @proposal.user = @user
+      @proposal.user == @user
   end
 
   def edit?
