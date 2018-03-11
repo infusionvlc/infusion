@@ -59,7 +59,7 @@ class WebhookController < ApplicationController
   end
 
   def getLocation
-    @meetup = Meetup.where('date >= ?', Date.today).first
+    @meetup = Meetup.where('date <= ?', Date.today).first
     if @meetup
       if context == true
         msg = ["El próximo meetup es en #{@meetup.location.name}"]
@@ -72,7 +72,7 @@ class WebhookController < ApplicationController
   end
 
   def getHour
-    @meetup = Meetup.where('date >= ?', Date.today).first
+    @meetup = Meetup.where('date <= ?', Date.today).first
     if @meetup
       if context == true
         msg = ["El próximo meetup se celebra a las #{@meetup.start}"]
