@@ -9,6 +9,10 @@ class WebhookController < ApplicationController
       msg = nextMeetupSpeaker(context)
     elsif params[:result][:action] == 'getCallForTalks'
       msg = getCallForTalks
+    elsif params[:result][:action] == 'getLocation'
+      msg = getLocation
+    elsif params[:result][:action] == 'getHour'
+      msg = getHour
     end
     res = { speech: msg[0], displayText: msg[0], source: 'webhookdata' }
     if msg[1]
@@ -52,5 +56,31 @@ class WebhookController < ApplicationController
       end
       msg = [res, "http://www.infusionvlc.com/call_for_talks"]
     end
+  end
+
+  def getLocation
+    @meetup = Meetup.where('date >= ?', Date.today).first
+    if @meetup
+      if context == true
+        msg = ["El próximo meetup es en #{@meetup.location.name}"]
+      else
+        msg = ["El próximo meetup es #{@meetup.title} y se da en #{@meetup.location.name}", url_for(@meetup)]
+      end
+    else
+      msg = ["No hay ningún meetup planeado todavía. Pero puedes ver las charlas de los anteriores ponentes en nuestra web.", "http://infusionvlc.com/archive"]
+    end  
+  end
+
+  def getHour
+    @meetup = Meetup.where('date >= ?', Date.today).first
+    if @meetup
+      if context == true
+        msg = ["El próximo meetup se celebra a las #{@meetup.start}"]
+      else
+        msg = ["El próximo meetup es #{@meetup.title} y se celebra a las #{@meetup.start}", url_for(@meetup)]
+      end
+    else
+      msg = ["No hay ningún meetup planeado todavía. Pero puedes ver las charlas de los anteriores ponentes en nuestra web.", "http://infusionvlc.com/archive"]
+    end  
   end
 end
