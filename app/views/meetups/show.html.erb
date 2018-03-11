@@ -25,10 +25,10 @@
 <div class="row">
   <div class="col-md-8 col-sm-12">
     <h2><%= I18n.t 'activerecord.attributes.meetup.description' %></h2>
-    <p><%= sanitize @meetup.description %></p>
+    <p><%= sanitize @markdown.render(@meetup.description), attributes: %w(href target) if @meetup.description %></p>
     <hr/>
     <h2><%= I18n.t 'activerecord.attributes.meetup.requirements' %></h2>
-    <p><%= sanitize @meetup.requirements %></p>
+    <p><%= sanitize @markdown.render(@meetup.requirements), attributes: %w(href target) if @meetup.requirements %></p>
     <hr/>
     <% if @meetup.attachments.size > 0 %>
       <h2><%= I18n.t 'activerecord.attributes.meetup.attachments' %></h2>

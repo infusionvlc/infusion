@@ -18,12 +18,26 @@
 
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, class: 'form-control' %>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= f.text_area :description, class: 'form-control', id:'description_edit' %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <p id="description_view"></p>
+      </div>
+    </div>
   </div><br/>
 
   <div class="field">
     <%= f.label :requirements %><br />
-    <%= f.text_area :requirements, class: 'form-control' %>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= f.text_area :requirements, class: 'form-control', id:'requirements_edit' %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <p id="requirements_view"></p>
+      </div>
+    </div>
   </div><br/>
 
   <hr/>
@@ -74,7 +88,7 @@
       <h2><%= I18n.t 'activerecord.attributes.meetup.holdings.other' %></h2>
       <div class="row">
         <%= f.fields_for :holdings do |h| %>
-          <div class="card-container col-sm-12 col-md-4">
+          <div class="card-container col-sm-12 col-md-2">
             <div class="card">
               <div class="field card-body center">
                 <div style="width: 80%; margin: 0 auto"><div class="avatar" style="background-image: url(<%= h.object.user.avatar.url %>)"></div></div><br/>
@@ -112,3 +126,30 @@
     <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<script>
+  var converter = new showdown.Converter({simplifiedAutoLink: true, openLinksInNewWindow: true, emoji: true});
+
+  function autosize(el){
+    setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:0';
+      el.style.cssText = 'height:' + (el.scrollHeight + 5) + 'px';
+    },0);
+  };
+
+  $("#description_edit").keyup(function() {
+    $('#description_view').html(converter.makeHtml(this.value));
+    autosize(this);
+  });
+
+  $( "#requirements_edit" ).keyup(function() {
+    $('#requirements_view').html(converter.makeHtml(this.value));
+    autosize(this);
+  });
+
+  $(document).on('turbolinks:load', function(){
+    $('#description_edit').keyup();
+    $('#requirements_edit').keyup();
+  });
+
+</script>

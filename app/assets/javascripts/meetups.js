@@ -12,4 +12,5 @@ $(document).on('turbolinks:load', function(){
             $('#new_field').addClass('is-invalid');
         }
     });
+
 });

@@ -1,6 +1,8 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: %i[show edit update destroy vote]
 
+  include MarkdownConcern
+
   # GET /proposals
   # GET /proposals.json
   def index

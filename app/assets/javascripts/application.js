@@ -16,6 +16,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require cocoon
+//= require showdown.min
 //= require_tree .
 
 $(function() {
