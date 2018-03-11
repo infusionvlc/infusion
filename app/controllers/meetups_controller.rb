@@ -30,7 +30,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/1.json
   def show
     authorize @meetup
-    @reviews = @meetup.assistances.where.not(review: nil).page(params[:page])
+    @reviews = @meetup.assistances.where.not(review: nil).order(created_at: :desc).page(params[:page])
     @reportable_type = 'Meetup'
   end
 
