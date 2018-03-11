@@ -30,7 +30,7 @@
       </h2>
       <hr/>
       <h3><%= @next_meetup.location.name %></h3>
-      <p><%= truncate(sanitize(@next_meetup.description), length: 200) %></p>
+      <p><%= truncate(strip_tags(@markdown.render(@next_meetup.description)), length: 200) %></p>
     </div>
     <div class="card-footer text-muted">
       <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>
@@ -51,7 +51,7 @@
         <%= link_to meetup.title, meetup %>
       </h3>
       <hr/>
-      <p><%= truncate(sanitize(meetup.description), length: 80) %></p>
+      <p><%= truncate(strip_tags(@markdown.render(meetup.description)), length: 80) %></p>
     </div>
     <div class="card-footer text-muted">
       <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
@@ -70,7 +70,7 @@
           <%= link_to meetup.title, meetup %>
         </h3>
         <hr/>
-        <p><%= truncate(sanitize(meetup.description), length: 80) %></p>
+        <p><%= truncate(strip_tags(@markdown.render(meetup.description)), length: 80) %></p>
       </div>
       <div class="card-footer text-muted">
         <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
