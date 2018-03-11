@@ -10,9 +10,11 @@ class WebhookController < ApplicationController
     elsif params[:result][:action] == 'getCallForTalks'
       msg = getCallForTalks
     elsif params[:result][:action] == 'getLocation'
-      msg = getLocation
+      context = params[:result][:contexts].any? {|context| context[:name].downcase == 'nextmeetup'}
+      msg = getLocation(context)
     elsif params[:result][:action] == 'getHour'
-      msg = getHour
+      context = params[:result][:contexts].any? {|context| context[:name].downcase == 'nextmeetup'}
+      msg = getHour(context)
     end
     res = { speech: msg[0], displayText: msg[0], source: 'webhookdata' }
     if msg[1]
@@ -58,7 +60,7 @@ class WebhookController < ApplicationController
     end
   end
 
-  def getLocation
+  def getLocation(context)
     @meetup = Meetup.where('date <= ?', Date.today).first
     if @meetup
       if context == true
@@ -71,7 +73,7 @@ class WebhookController < ApplicationController
     end  
   end
 
-  def getHour
+  def getHour(context)
     @meetup = Meetup.where('date <= ?', Date.today).first
     if @meetup
       if context == true
