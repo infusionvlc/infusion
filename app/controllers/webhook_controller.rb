@@ -77,9 +77,9 @@ class WebhookController < ApplicationController
     @meetup = Meetup.where('date <= ?', Date.today).first
     if @meetup
       if context == true
-        msg = ["El próximo meetup se celebra a las #{@meetup.start}"]
+        msg = ["El próximo meetup se celebra a las #{@meetup.start.strftime('%H:%M')}"]
       else
-        msg = ["El próximo meetup es #{@meetup.title} y se celebra a las #{@meetup.start}", url_for(@meetup)]
+        msg = ["El próximo meetup es #{@meetup.title} y se celebra a las #{@meetup.start.strftime('%H:%M')}", url_for(@meetup)]
       end
     else
       msg = ["No hay ningún meetup planeado todavía. Pero puedes ver las charlas de los anteriores ponentes en nuestra web.", "http://infusionvlc.com/archive"]
