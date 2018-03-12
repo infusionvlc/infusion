@@ -21,7 +21,6 @@ class MeetupPolicy
 
   def unvote?
     !@meetup.nil? && !@user.nil? && \
-      !@meetup.holdings.where(user_id: @user.id).exists? &&\
       @meetup.assistances.where(user_id: @user.id).exists?
   end
 
