@@ -1,6 +1,8 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: %i[show edit update destroy]
 
+  include MarkdownConcern
+
   def show; end
 
   def new

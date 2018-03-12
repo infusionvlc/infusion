@@ -1,25 +1,6 @@
 <h1>Call For Talks</h1>
 <hr/>
 <% @meetups.each do |meetup| %>
-    <div class="card">
-    <div class="card-body">
-      <h2>
-        <span class="badge badge-info badge-pill">
-          <%= I18n.t 'votable.votes', count: meetup.assistances.count %>
-        </span>
-        <%= link_to meetup.title, meetup %>
-      </h2>
-      <hr/>
-      <p><%= truncate(strip_tags(@markdown.render(meetup.description)), length: 256) %></p>
-      <% if policy(meetup).vote? %>
-        <%= link_to vote_meetup_path(meetup), method: :post, class:'btn btn-primary right' do %>
-          <%= I18n.t 'main.vote' %>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="card-footer text-muted">
-      <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
-    </div>
-  </div>
+    <%= render 'meetups/card', meetup: meetup, context: 'vote' %>
 <% end %>
 <%= paginate @meetups, theme: 'twitter-bootstrap-4' %>

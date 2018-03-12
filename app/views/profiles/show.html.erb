@@ -28,13 +28,7 @@
       <p><%= I18n.t 'user.no_meetups' %></p>
     <% else %>
       <% @user.keynotes.each do |meetup| %>
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title"><%= link_to meetup.title, meetup %></h3>
-            <hr/>
-            <p><%= sanitize(truncate(meetup.description, length: 256)) %></p>
-          </div>
-        </div>
+        <%= render 'meetups/card', meetup: meetup %>
       <% end %>
     <% end %>
   <% if user_signed_in? && @user == current_user %>

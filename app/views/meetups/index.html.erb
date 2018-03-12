@@ -41,41 +41,15 @@
 <br/><br/>
 <div class="row">
   <div class="col-md-6 left">
-  <h2><%= I18n.t 'meetup.recents' %></h2>
-  <% @most_recent.each do |meetup| %>
-    <div class="card">
-    <div class="card-body">
-      <h3>
-        <span class="badge badge-info badge-pill">
-          <%= I18n.t 'meetup.assistants', count: meetup.assistances.count %>
-        </span>
-        <%= link_to meetup.title, meetup %>
-      </h3>
-      <hr/>
-      <p><%= truncate(strip_tags(@markdown.render(meetup.description)), length: 80) %></p>
-    </div>
-    <div class="card-footer text-muted">
-      <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
-    </div>
-  </div><% end %>
+    <h2><%= I18n.t 'meetup.recents' %></h2>
+    <% @most_recent.each do |meetup| %>
+      <%= render 'meetups/card', meetup: meetup, context: 'recent' %>
+    <% end %>
   </div>
   <div class="col-md-6 right">
     <h2><%= I18n.t 'meetup.populars' %></h2>
     <% @most_popular.each do |meetup| %>
-      <div class="card">
-      <div class="card-body">
-        <h3>
-          <span class="badge badge-info badge-pill">
-            <%= meetup.average_rating %> <%= fa_icon 'star' %>
-          </span>
-          <%= link_to meetup.title, meetup %>
-        </h3>
-        <hr/>
-        <p><%= truncate(strip_tags(@markdown.render(meetup.description)), length: 80) %></p>
-      </div>
-      <div class="card-footer text-muted">
-        <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
-      </div>
-    </div><% end %>
+      <%= render 'meetups/card', meetup: meetup, context: 'popular' %>
+    <% end %>
   </div>
 </div>

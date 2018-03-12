@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
 
+  include MarkdownConcern
+
   def show; end
 
   def new
