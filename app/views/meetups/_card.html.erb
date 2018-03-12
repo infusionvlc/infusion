@@ -14,13 +14,13 @@
         <span class="badge badge-info badge-pill">
           <%= I18n.t 'votable.votes', count: meetup.assistances.count %>
         </span>
-      <% else %>
-        <% meetup.categories.each do |cat| %>
-          <span class="badge badge-info badge-pill">
-            <%= cat.display_name %>
-          </span>
-        <% end %>
-      <% end%>
+      <% end %>
+    <% else %>
+      <% meetup.categories.each do |cat| %>
+        <span class="badge badge-info badge-pill">
+          <%= cat.display_name %>
+        </span>
+      <% end %>
     <% end %>
     <%= link_to meetup.title, meetup %>
     </h3>

@@ -1,5 +1,5 @@
 class MeetupsController < ApplicationController
-  before_action :set_meetup, only: %i[show edit update destroy vote confirm delay leave]
+  before_action :set_meetup, only: %i[show edit update destroy vote unvote confirm delay leave]
 
   include MarkdownConcern
 
@@ -40,6 +40,13 @@ class MeetupsController < ApplicationController
     MeetupMailer.subscribed_to(@meetup, current_user).deliver
     @meetup.assistances.create(user_id: current_user.id)
     redirect_back(fallback_location: meetup_path(@meetup), alert: I18n.t('main.saved_vote'))
+  end
+
+  # POST /meetups/1/unvote
+  def unvote
+    authorize @meetup
+    @meetup.assistances.where(user_id: current_user.id).first.destroy
+    redirect_back(fallback_location: meetup_path(@meetup), alert: I18n.t('main.deleted_vote'))
   end
 
   # POST /meetups/1/leave

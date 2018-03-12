@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :meetups do
     member do
       post 'vote'
+      post 'unvote'
       post 'leave'
       get 'confirm'
       get 'delay'

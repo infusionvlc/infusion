@@ -26,7 +26,14 @@
 
       <div class="field">
         <%= f.label :bio %><br />
-        <%= f.text_area :bio, class: 'form-control' %>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <%= f.text_area :bio, class: 'form-control', id:'bio_edit' %>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <p id="bio_view"></p>
+          </div>
+        </div>
       </div><br />
     </div>
     <div class="col-sm-12 col-md-6">
@@ -62,3 +69,24 @@
 <%= link_to registration_path(resource_name), method: :delete, class:"btn btn-danger" do %>
   <%= I18n.t 'user.cancel' %>
 <% end %>
+
+<script>
+  var converter = new showdown.Converter({simplifiedAutoLink: true, openLinksInNewWindow: true, emoji: true});
+
+  function autosize(el){
+    setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:0';
+      el.style.cssText = 'height:' + (el.scrollHeight + 5) + 'px';
+    },0);
+  };
+
+  $("#bio_edit").keyup(function() {
+    $('#bio_view').html(converter.makeHtml(this.value));
+    autosize(this);
+  });
+
+  $(document).on('turbolinks:load', function(){
+    $('#bio_edit').keyup();
+  });
+
+</script>

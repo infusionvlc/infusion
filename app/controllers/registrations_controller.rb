@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  include MarkdownConcern
+
   # GET /users
   # GET /users.json
   def index

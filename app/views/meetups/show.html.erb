@@ -155,6 +155,10 @@
           <br/>
           <p><%= I18n.t 'meetup.call_to_action_assist' %></p>
           <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assist' %><% end %>
+        <% elsif policy(@meetup).unvote? %>
+          <br/>
+          <p><%= I18n.t 'meetup.unvote' %></p>
+          <%= link_to unvote_meetup_path(@meetup), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
         <% elsif !user_signed_in? %>
           <p><%= I18n.t 'meetup.call_to_action_no_user_assist' %></p>
           <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
@@ -164,6 +168,10 @@
           <br/>
           <p><%= I18n.t 'meetup.call_to_action' %></p>
           <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'main.vote' %><% end %>
+        <% elsif policy(@meetup).unvote? %>
+          <br/>
+          <p><%= I18n.t 'meetup.unvote' %></p>
+          <%= link_to unvote_meetup_path(@meetup), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
         <% elsif user_signed_in? %>
           <p><%= I18n.t 'meetup.already_voted' %></p>
         <% else %>
