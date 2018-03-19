@@ -29,8 +29,7 @@
         <%= link_to @next_meetup.title, @next_meetup %>
       </h2>
       <hr/>
-      <h3><%= @next_meetup.location.name %></h3>
-      <h4><%= I18n.l @meetup.date %> | <%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></h4>
+      <h3><%= @next_meetup.location.name %><br/><%= I18n.l @next_meetup.date %> | <%= @next_meetup.start.strftime('%H:%M') %> - <%= @next_meetup.end.strftime('%H:%M') %></h4>
       <p><%= truncate(strip_tags(@markdown.render(@next_meetup.description)), length: 200) %></p>
     </div>
     <div class="card-footer text-muted">
