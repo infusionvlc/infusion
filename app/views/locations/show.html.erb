@@ -22,13 +22,10 @@
   <% if policy(@location).edit? %>
     </div>
     <div class="col-md-4 col-sm-12 card">
-      <div class="card-body">
         <%= link_to edit_location_path(@location), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'main.edit' %><% end %>
         <% if policy(@location).destroy? %>
           <%= link_to location_path(@location), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.delete' %><% end %>
         <% end %>
-        <hr/>
-      </div>
     </div>
   <% end %>
 </div>

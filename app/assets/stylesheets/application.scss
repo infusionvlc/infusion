@@ -1,19 +1,20 @@
 @import "bootstrap";
 @import "font-awesome";
-
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700,800,900');
 :root {
 	--grey_dark: #2e2e2e;
-	--grey_light: #4e4e4e;
+	--grey_light: #6b6b6b;
 	--pink: #c7007c;
 	--yellow: #ffcd48;
   --blue: #378eff;
   --dark_blue: #1e6ed6;
 	--white: #ffffff;
-	--light_blue: #ddf6fa;
+  --light_blue: #ddf6fa;
+  --card: #f3f3f3;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Catamaran', sans-serif;
   color: var(--grey_dark);
 }
 
@@ -27,21 +28,24 @@ body {
 }
 
 h1 {
-  font-weight:800;
-  color: var(--pink);
+  font-size: 3.5em;
+  font-weight: 900;
+  color: black;
+  border-bottom: 8px dotted var(--pink);
+  text-decoration: none;
+  width: auto;
 }
 
 h2 {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 h3 {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h4 {
   font-weight: 600;
-  font-style: italic;
 }
 
 h5 {
@@ -102,6 +106,12 @@ h5 {
   color: var(--blue);
 }
 
+.btn {
+  border-radius: 0;
+  color: white;
+  font-size: 1.5em;
+  font-weight: 700;
+}
 
 .btn-intro {
   background: var(--blue);
@@ -120,7 +130,21 @@ h5 {
 }
 
 .card {
-  margin-bottom: 5px;
+  border: none;
+  background: var(--card);
+  margin-bottom: 10px;
+  border-radius: 0;
+  padding: 1em;
+}
+
+.card-footer {
+  background: none;
+  border: none;
+}
+
+.card-header {
+  border: none;
+  background: none;
 }
 
 .card-container {
@@ -133,6 +157,10 @@ h5 {
 
 .container {
   margin-top: 20px;
+}
+
+.form-control {
+  border-radius: 0;
 }
 
 .huge-logo {
@@ -158,6 +186,10 @@ h5 {
   );
 }
 
+.main-header h1 {
+  border: none;
+}
+
 .conduct-header {
   background-image: linear-gradient(var(--white), var(--light_blue));
   padding-bottom: 7em;
@@ -167,6 +199,10 @@ h5 {
                        0 100%,
                        0 calc(100% - 5vw)
   );
+}
+
+.jumbotron h1, .description h1 {
+  border-bottom: none;
 }
 
 .magenta {
@@ -181,8 +217,21 @@ h5 {
   width: 30%;
 }
 
+.navbar {
+  background-color: white !important;
+  font-size: 1.2em;
+}
+
+.navbar a, .navbar span {
+  color: var(--grey_light) !important;
+}
+
 .nested-fields {
   margin-bottom: 10px;
+}
+
+.next-meetup-card {
+  background: var(--yellow);
 }
 
 .page-bg {
@@ -191,6 +240,10 @@ h5 {
 
 .right {
   float: right;
+}
+
+.section-title {
+  color: var(--pink);
 }
 
 .t-row {

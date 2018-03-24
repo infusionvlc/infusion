@@ -1,5 +1,5 @@
 <h1>Call For Talks</h1>
-<hr/>
+<br/>
 <% @meetups.each do |meetup| %>
     <%= render 'meetups/card', meetup: meetup, context: 'vote' %>
 <% end %>

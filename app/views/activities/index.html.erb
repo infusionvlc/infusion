@@ -1,8 +1,9 @@
 <h1>Activities</h1>
-<hr/>
+<br/>
 
 <% @activities.reverse.each do |activity| %>
-      <p>
+    <div class="card">
+      <div class="card-container">
         <%= link_to activity.user.username, "/#{activity.user.username}" %>
         <% if activity.objective_type == "Meetup"%>
           <%= I18n.t 'activity.has_done_meetup' %>
@@ -17,6 +18,6 @@
         <%= I18n.t 'activity.has_done_proposal' %>
           <%= link_to activity.activity_title, proposal_path(activity.objective_id) %>
         <% end %>
-      </p>
-  <hr/>
+      </div>
+  </div>
 <% end %>

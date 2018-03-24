@@ -10,7 +10,7 @@
   <% end %>
 </div>
 <h1><%= I18n.t 'activerecord.model.proposal', count: 2 %></h1>
-<hr/>
+<br/>
 <% @proposals.each do |proposal| %>
   <div class="card">
     <div class="card-body">
@@ -20,7 +20,6 @@
         </span>
         <%= link_to proposal.title, proposal %>
       </h2>
-      <hr/>
       <p><%= truncate(strip_tags(@markdown.render(proposal.description)), length: 256) %></p>
       <% if policy(proposal).vote? %>
         <%= link_to vote_proposal_path(proposal), method: :post, class:'btn btn-primary right' do %>

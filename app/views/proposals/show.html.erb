@@ -17,13 +17,11 @@
 </div>
 <br/>
 <div class="row">
-  <div class="col-md-8 col-sm-12">
+  <div class="col-md-8 col-sm-12 description">
     <h2><%= I18n.t 'activerecord.attributes.proposal.description' %></h2>
     <p><%= sanitize @markdown.render(@proposal.description), attributes: %w(href target) if @proposal.description %></p>
-    <hr/>
   </div>
-  <div class="col-md-4 col-sm-12 card">
-    <div class="card-body">
+  <div class="col-md-4 col-sm-12">
       <% if policy(@proposal).report? %>
         <button data-toggle="modal" data-target="#propReportModal" class="btn btn-warning btn-lg btn-block">
           <%= fa_icon 'exclamation-triangle ' %> <%= I18n.t 'report.report' %>
@@ -34,7 +32,7 @@
         <% if policy(@proposal).destroy? %>
           <%= link_to proposal_path(@proposal), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.delete' %><% end %>
         <% end %>
-        <hr/>
+        <br/>
       <% end %>
       <% if policy(@proposal).vote? %>
         <p><%= I18n.t 'proposal.call_to_action' %></p>
@@ -45,7 +43,5 @@
         <p><%= I18n.t 'proposal.call_to_action_no_user' %></p>
         <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
       <% end %>
-      <hr/>
-    </div>
   </div>
 </div>

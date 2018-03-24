@@ -9,10 +9,14 @@
 <% end %>
 
 <h1>Meetups</h1>
-<hr/>
-<div class="card">
+<br/>
+<div class="card next-meetup-card">
   <div class="card-header">
-    <h2><%= I18n.t 'meetup.next' %></h2>
+    <h2><%= I18n.t 'meetup.next' %>
+      <% if @next_meetup %>
+        <br/>📍 <%= @next_meetup.location.name %> | 📅 <%= I18n.l @next_meetup.date %> | ⏰ <%= @next_meetup.start.strftime('%H:%M') %> - <%= @next_meetup.end.strftime('%H:%M') %>
+      <% end %>
+    </h2>
   </div>
   <% if @next_meetup.nil? %>
     <div class="card-body">
@@ -28,8 +32,6 @@
         </span>
         <%= link_to @next_meetup.title, @next_meetup %>
       </h2>
-      <hr/>
-      <h3><%= @next_meetup.location.name %><br/><%= I18n.l @next_meetup.date %> | <%= @next_meetup.start.strftime('%H:%M') %> - <%= @next_meetup.end.strftime('%H:%M') %></h4>
       <p><%= truncate(strip_tags(@markdown.render(@next_meetup.description)), length: 200) %></p>
     </div>
     <div class="card-footer text-muted">
