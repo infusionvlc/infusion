@@ -76,7 +76,7 @@ h5 {
   background-size: cover;
   margin: 0 auto;
   width: 100%;
-  height: auto;
+  height: 5;
   padding-top: 100%;
 }
 
@@ -93,7 +93,7 @@ h5 {
 }
 
 .badge-info {
-  color: var(--white);
+  color: var(--white) !important;
   background: var(--pink);
 }
 
@@ -235,7 +235,7 @@ h5 {
 }
 
 .navbar a, .navbar span {
-  color: var(--grey_light) !important;
+  color: var(--grey_light);
 }
 
 .nested-fields {
@@ -248,6 +248,10 @@ h5 {
 
 .page-bg {
   background: var(--white);
+}
+
+.popover {
+  border-radius: 0;
 }
 
 #quote {

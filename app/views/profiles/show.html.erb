@@ -1,6 +1,6 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container row">
-    <div class="col-sm-8">
+    <div class="col-sm-10">
       <h1>
         <% if @mark %>
           <span class="badge badge-pill badge-info"><%= @mark %> <%= fa_icon 'star' %></span>
@@ -9,7 +9,7 @@
       </h1>
       <p class="lead"><%= I18n.t 'user.member_since', date: I18n.l(@user.created_at.to_date) %></p>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="avatar" style="background-image: url(<%= @user.avatar.url %>)"></div>
     </div>
   </div>
