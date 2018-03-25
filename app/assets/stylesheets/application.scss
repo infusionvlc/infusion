@@ -114,9 +114,10 @@ h5 {
 }
 
 .btn-intro {
-  background: var(--blue);
+  background: white;
+  border: 4px solid var(--pink);
   border-radius: 900px;
-  color: var(--white);
+  color: var(--pink);
   font-size: 2.5em;
   font-weight: 800;
   margin-top: 1em;
@@ -125,8 +126,8 @@ h5 {
 }
 
 .btn-intro:hover {
-  background: var(--pink);
-  color: var(--white);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .card {
@@ -159,6 +160,13 @@ h5 {
   margin-top: 20px;
 }
 
+.fluid {
+  margin: 0 auto;
+  text-align: center;
+  width: 55%;
+  transform: rotate(20deg);
+}
+
 .form-control {
   border-radius: 0;
 }
@@ -176,18 +184,19 @@ h5 {
 }
 
 .main-header {
-  background-image: linear-gradient(var(--white), var(--light_blue));
-  padding-bottom: 7em;
+  background: white;
+  padding-bottom: 3em;
   text-align: center;
-  clip-path: polygon(0 0,
-                       100% 0,
-                       100% 100%,
-                       0 calc(100% - 5vw)
-  );
 }
 
 .main-header h1 {
   border: none;
+}
+
+.mini {
+  height: 1.5em;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
 }
 
 .conduct-header {
@@ -207,6 +216,9 @@ h5 {
 
 .magenta {
     background: var(--pink);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .magenta-text {
@@ -238,12 +250,21 @@ h5 {
   background: var(--white);
 }
 
+#quote {
+  margin-bottom: 7em;
+}
+
 .right {
   float: right;
 }
 
 .section-title {
   color: var(--pink);
+}
+
+.small {
+  height: 5em;
+  margin: 1em;
 }
 
 .t-row {
@@ -264,12 +285,12 @@ h5 {
 
 #description {
   color: var(--white);
-  padding-top: 1em;
-  padding-bottom: 4em;
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 
 #mission {
-  color: var(--grey_light);
+  color: black;
   padding-top: 4em;
   padding-bottom: 4em;
 }
@@ -280,7 +301,7 @@ h5 {
 
 #values {
   padding-top: 4em;
-  background-image: linear-gradient(var(--blue), var(--dark_blue));
+  background-image: var(--blue);
   padding-bottom: 1em;
   text-align: center;
   clip-path: polygon(0 0,

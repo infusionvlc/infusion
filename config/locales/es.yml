@@ -4,6 +4,7 @@ es:
 
   landing:
     description: "Meetups para el empoderamiento digital"
+    quote: "La brecha digital no es solo una cuestión generacional. También es un problema de desigualdad económica y social"
     mission: "Queremos acercar la tecnología y el mundo multimedia a todas las personas"
     values:
       title: "Nuestros principios y valores"
@@ -162,6 +163,7 @@ es:
     pundit_error:  "Parece que no puedes hacer eso"
     collaborators: "Colaboradores"
     admin_panel:   "Administración"
+    networks:      "Síguenos"
 
   user:
     about:  "Sobre mí"

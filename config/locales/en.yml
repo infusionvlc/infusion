@@ -4,6 +4,7 @@ en:
 
   landing:
     description: "Meetups for digital empowering humans"
+    quote: "The digital gap is not just a generational issue. It is also a problem of social and economic inequality"
     mission: "We want to bring technology closer to people"
     values:
       title: "Our principles and values"
@@ -162,6 +163,7 @@ en:
     pundit_error:  "It looks like you can't do that"
     collaborators: "Collaborators"
     admin_panel:   "Admin"
+    networks:      "Follow us"
 
   user:
     about:  "About me"
