@@ -214,6 +214,10 @@ h5 {
   border-bottom: none;
 }
 
+label {
+  word-wrap: break-word;
+}
+
 .magenta {
     background: var(--pink);
     display: flex;

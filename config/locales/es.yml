@@ -182,6 +182,7 @@ es:
     cancel:       "Eliminar cuenta"
     cancel_descr: "No nos gusta verte marchar, pero si estás seguro o segura de que quieres eliminar tu cuenta pulsa el botón rojo. Te echaremos de menos :("
     no_meetups:   "Este usuario no ha organizado ningún meetup todavía."
+    notifications: "Ajustes de notificaciones"
 
     already_linked: "Esa cuenta ya está vinculada"
     linked:         "¡Cuenta vinculada!"
@@ -344,6 +345,9 @@ es:
         password_confirmation:
           one: "Confirma tu contraseña"
         username: "Nombre de usuario"
+        notify_meetups: "Notificarme de todos los nuevos meetups"
+        notify_comments: "Notificarme de todos los nuevos comentarios en los meetups que estoy apuntado/a"
+        notify_proposals: "Notificarme de todas las nuevas propuestas"
     errors:
       messages:
         blank: "%{attribute} no puede estar en blanco"

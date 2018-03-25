@@ -182,6 +182,7 @@ ca:
     cancel:       "Eliminar compte"
     cancel_descr: "No ens agrada ver-te marxar, pero si encara vols eliminar el teu compte, prem el botó roig. Et trobarem a faltar :("
     no_meetups:   "Aquest usuari encara no ha organitzat cap meetup."
+    notifications: "Preferències de notificacions"
 
     already_linked: "Eixe compte ja està vinculat"
     linked:         "Compte vinculat!"
@@ -343,6 +344,9 @@ ca:
         password_confirmation:
           one:        "Confirma la teua contrasenya"
         username: "Nom d'usuari"
+        notify_meetups: "Notificar-me de tots els nous meetups"
+        notify_comments: "Notificar-me de tots els nous comentaris als meetups als que estic apuntat/da"
+        notify_proposals: "Notificar-me de totes les noves propostes"
     errors:
       messages:
         blank: "%{attribute} no pot estar en blanc"

@@ -182,6 +182,7 @@ en:
     cancel:       "Delete account"
     cancel_descr: "We are sad you're leaving, but if you still want to delete your account press the button below. We will miss you :("
     no_meetups:   "This user has not organized a meetup yet."
+    notifications: "Notifications settings"
 
     already_linked: "Already linked that account"
     linked:         "Successfully linked that account!"
@@ -340,6 +341,9 @@ en:
         password_confirmation:
           one:        "Password confirmation"
         username: "Username"
+        notify_meetups: "Notifify me when a new meetup is added"
+        notify_comments: "Notifify me when a new comment is added to a meetup I'm into"
+        notify_proposals: "Notifify me when a new proposal is added"
     errors:
       messages:
         blank: "%{attribute} can't be blank"
