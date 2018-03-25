@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'application/favicon' %>
   </head>
@@ -86,9 +85,14 @@
     <div class="container body-padding">
       <%= yield %>
       <br/>
-      <hr/>
       <p class="center">2018 ❤️ INFUSIÓN</p>
       <p class="center"><%= rules %></p>
+      <p class="center">
+        <a href="https://twitter.com/infusionvlc"><img class="mini" alt="Twitter" src="/twitter.png"/></a>
+        <a href="https://instagram.com/infusion_vlc"><img class="mini" alt="Instagram" src="/instagram.png"/></a>
+        <a href="https://www.youtube.com/channel/UCP5URDPxiT1Nd8LDVmShN5Q"><img class="mini" alt="YouTube" src="/youtube.png"/></a>
+        <a href="https://t.me/infusionvlc"><img class="mini" alt="Telegram" src="/telegram.png"/></a>
+      </p>
     </div>
   </body>
 </html>

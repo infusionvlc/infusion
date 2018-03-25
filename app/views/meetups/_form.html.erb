@@ -23,7 +23,7 @@
         <%= f.text_area :description, class: 'form-control', id:'description_edit' %>
       </div>
       <div class="col-sm-12 col-md-6">
-        <p id="description_view"></p>
+        <p id="description_view" class="description"></p>
       </div>
     </div>
   </div><br/>
@@ -121,7 +121,7 @@
         <%= f.time_field :end, class: 'form-control' %>
     </div>
   <% end %>
-
+  <br/>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>

@@ -4,6 +4,7 @@ ca:
 
   landing:
     description: "Meetups per l'empoderament digital"
+    quote: "La bretxa digital no és només una qüestió generacional. També és un problema de desigualtat econòmica i social"
     mission: "Volem apropar la tecnologia i el món multimedia a les persones"
     values:
       title: "Els nostres principis i valors"
@@ -162,6 +163,7 @@ ca:
     pundit_error:  "Pareix que no pots fer això"
     collaborators: "Col·laboradors"
     admin_panel:   "Administració"
+    networks:      "Segueix-nos"
 
   user:
     about:  "Sobre mi"

@@ -23,22 +23,19 @@
 </div>
 <br/>
 <div class="row">
-  <div class="col-md-8 col-sm-12">
-    <h2><%= I18n.t 'activerecord.attributes.meetup.description' %></h2>
+  <div class="col-md-8 col-sm-12 description">
+    <h2 class="section-title"><%= I18n.t 'activerecord.attributes.meetup.description' %></h2>
     <p><%= sanitize @markdown.render(@meetup.description), attributes: %w(href target) if @meetup.description %></p>
-    <hr/>
-    <h2><%= I18n.t 'activerecord.attributes.meetup.requirements' %></h2>
+    <h2 class="section-title"><%= I18n.t 'activerecord.attributes.meetup.requirements' %></h2>
     <p><%= sanitize @markdown.render(@meetup.requirements), attributes: %w(href target) if @meetup.requirements %></p>
-    <hr/>
     <% if @meetup.attachments.size > 0 %>
       <h2><%= I18n.t 'activerecord.attributes.meetup.attachments' %></h2>
       <% @meetup.attachments.each do |f| %>
         <p><%= file_icon(f) %> <%= link_to f.file.original_filename, f.file.url, target: "_blank" %></p>
       <% end %>
-      <hr/>
     <% end %>
     <% if @meetup.photos.size > 0 %>
-      <h2><%= I18n.t 'activerecord.attributes.meetup.photos' %></h2>
+      <h2 class="section-title"><%= I18n.t 'activerecord.attributes.meetup.photos' %></h2>
       <% @meetup.photos.each do |img| %>
         <div class="card" style="width: 18rem;">
           <%= image_tag img.file.url, class:'card-img-top' %>
@@ -49,7 +46,7 @@
       <% end %>
     <% end %>
     <% if @meetup.date && @meetup.date <= Date.today %>
-      <h2><%= I18n.t 'meetup.reviews' %></h2>
+      <h2 class="section-title"><%= I18n.t 'meetup.reviews' %></h2>
       <% if @reviews.count == 0 %>
         <p><%= I18n.t 'meetup.no_reviews' %></p>
       <% end %>
@@ -111,13 +108,12 @@
     <% end %>
     <%= paginate @reviews, theme: 'twitter-bootstrap-4' %>
   </div>
-  <div class="col-md-4 col-sm-12 card">
-    <div class="card-body">
+  <div class="col-md-4 col-sm-12 ">
 
       <% if policy(@meetup).report? %>
         <button data-toggle="modal" data-target="#meetupReportModal" class="btn btn-warning btn-lg btn-block">
           <%= fa_icon 'exclamation-triangle ' %> <%= I18n.t 'report.report' %>
-        </button><br/>
+        </button>
       <% end %>
 
       <% if policy(@meetup).leave? %>
@@ -129,14 +125,13 @@
         <% if policy(@meetup).destroy? %>
           <%= link_to meetup_path(@meetup), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'meetup.destroy' %><% end %>
         <% end %>
-        <hr/>
       <% end %>
       <% if @meetup.took_place? %>
+        <br/>
         <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>
         <p><%= @meetup.location.name %></p>
         <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
         <p><%= I18n.l @meetup.date %> | <%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
-        <hr/>
         <% if policy(@meetup).vote? %>
           <br/>
           <p><%= I18n.t 'meetup.call_to_action_assisted' %></p>
@@ -146,11 +141,11 @@
           <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
         <% end %>
       <% elsif @meetup.taking_place? %>
+        <br/>
         <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>
         <p><%= @meetup.location.name %></p>
         <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
         <p><%= I18n.l @meetup.date %> | <%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
-        <hr/>
         <% if policy(@meetup).vote? %>
           <br/>
           <p><%= I18n.t 'meetup.call_to_action_assist' %></p>
@@ -184,7 +179,7 @@
       <% @meetup.hosts.each do |host| %>
           <div class="center">
             <%= link_to "/#{host.username}" do %>
-              <div style="width: 50%; margin: 0 auto"><div class="avatar" style="background-image: url(<%= host.avatar.url %>)"></div></div><br/>
+              <div style="width: 45%; margin: 0 auto"><div class="avatar" style="background-image: url(<%= host.avatar.url %>)"></div></div><br/>
               <h2>
                 <%= host.username %>
               </h2>
@@ -193,5 +188,4 @@
           </div>
       <% end %>
     </div>
-  </div>
 </div>

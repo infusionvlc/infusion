@@ -1,11 +1,12 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container row">
     <div class="col-sm-8">
-      <h1><%= @user.username %></h1>
-      <% if @mark %>
-        <h2><span class="badge badge-pill badge-info"><%= @mark %> <%= fa_icon 'star' %></span></h2>
-      <% end %>
-      <hr/>
+      <h1>
+        <% if @mark %>
+          <span class="badge badge-pill badge-info"><%= @mark %> <%= fa_icon 'star' %></span>
+        <% end %>
+        <%= @user.username %>
+      </h1>
       <p class="lead"><%= I18n.t 'user.member_since', date: I18n.l(@user.created_at.to_date) %></p>
     </div>
     <div class="col-sm-4">
@@ -33,11 +34,9 @@
     <% end %>
   <% if user_signed_in? && @user == current_user %>
     </div>
-    <div class="col-md-4 col-sm-12 card">
-      <div class="card-body">
+    <div class="col-md-4 col-sm-12 ">
         <%= link_to edit_user_registration_path(@user), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'user.edit' %><% end %>
-        <hr/>
-      </div>
+
     </div>
   <% end %>
 </div>

@@ -1,15 +1,27 @@
-<div class="magenta">
   <header class="main-header">
     <div class="container">
-      <h1>
-        <img class="huge-logo" src="logo_base.svg" alt="INFUSIÓN"/>
-      </h1>
-      <%= link_to "Entrar".upcase, meetups_path, class:"btn btn-intro" %>
+      <%= link_to meetups_path do %>
+        <h1>
+          <img class="huge-logo" src="logo_base.svg" alt="INFUSIÓN"/>
+        </h1>
+        <span class="btn btn-intro">ENTRAR</div>
+      <% end %>
     </div>
   </header>
-  <br/>
-  <section id="description">
-    <h2 class="center"><%= I18n.t 'landing.description' %></h2>
+<section id="quote">
+  <div class="container">
+    <h2 class="center"><%= I18n.t 'landing.quote' %></h2>
+  </div>
+</section>
+
+<div class="container">
+  <section class="row">
+    <div class="col-sm-6 center">
+      <img class="fluid" src="empowerment.svg" alt="INFUSIÓN"/>
+    </div>
+    <div class="card col-sm-6 magenta" id="description">
+      <h2 class="center"><%= I18n.t 'landing.description' %></h2>
+    </div>
   </section>
 </div>
 <section id="mission">
@@ -56,5 +68,17 @@
   <div class="container center">
     <p><%= I18n.t 'landing.collaborators' %></p>
     <a href="http://acmupv.webs.upv.es/" target="_blank"><img class="med" alt="ACM UPV Chapter" src="/acmupv.png"/></a>
+    <a href="https://www.inf.upv.es/www/etsinf/es/" target="_blank"><img class="med" alt="ETSINF UPV" src="/etsinf.png"/></a>
   </div>
 </section>
+<section id="networks">
+  <div class="container center">
+    <h2><%= I18n.t "main.networks" %></h2>
+    <a href="https://twitter.com/infusionvlc"><img class="small" alt="Twitter" src="/twitter.png"/></a>
+    <a href="https://instagram.com/infusion_vlc"><img class="small" alt="Instagram" src="/instagram.png"/></a>
+    <a href="https://www.youtube.com/channel/UCP5URDPxiT1Nd8LDVmShN5Q"><img class="small" alt="YouTube" src="/youtube.png"/></a>
+    <a href="https://t.me/infusionvlc"><img class="small" alt="Telegram" src="/telegram.png"/></a>
+  </div>
+</section>
+
+<p class="center"><small><a href="http://ahainen.com/">people icon by Andrew Hainen from the Noun Project</a></small></p>

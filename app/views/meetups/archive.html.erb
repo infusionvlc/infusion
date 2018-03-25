@@ -1,5 +1,5 @@
 <h1><%= I18n.t 'main.archive' %></h1>
-<hr/>
+<br/>
 <% @meetups.each do |meetup| %>
     <%= render 'meetups/card', meetup: meetup %>
 <% end %>
