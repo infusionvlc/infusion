@@ -29,7 +29,7 @@
       <p><%= I18n.t 'user.no_meetups' %></p>
     <% else %>
       <% @user.keynotes.each do |meetup| %>
-        <%= render 'meetups/card', meetup: meetup %>
+        <%= render('meetups/card', meetup: meetup) if meetup.took_place? %>
       <% end %>
     <% end %>
   <% if user_signed_in? && @user == current_user %>
