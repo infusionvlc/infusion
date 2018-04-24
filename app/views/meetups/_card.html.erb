@@ -11,11 +11,7 @@
         <div class="card-body">
           <h3 class="card-title">
           <% if defined? context %>
-            <% if context == 'popular' %>
-              <span class="badge badge-info badge-pill">
-                <%= meetup.average_rating %> <%= fa_icon 'star' %>
-              </span>
-            <% elsif context == 'recent' %>
+            <% if context == 'popular' || context == 'recent' %>
               <span class="badge badge-info badge-pill">
                 <%= I18n.t 'meetup.assistants', count: meetup.assistances.count %>
               </span>
@@ -43,7 +39,11 @@
           <% end %>
         </div>
         <div class="card-footer text-muted">
-          <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
+          <% if meetup.took_place? %>
+            <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.date) %>
+          <% else %>
+            <%= link_to meetup.holdings.first.user.username, "/#{meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(meetup.created_at) %>
+          <% end %>
         </div>
       </div>
     </div>

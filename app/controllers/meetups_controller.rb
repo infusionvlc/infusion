@@ -11,7 +11,7 @@ class MeetupsController < ApplicationController
                          .first(3)
     @most_popular = Meetup.where('date < ?', Date.today)
                           .left_joins(:assistances).group(:id)
-                          .order('AVG(assistances.mark) DESC').first(3)
+                          .order('COUNT(assistances.id) DESC').first(3)
   end
 
   # GET /call_for_talks
@@ -23,7 +23,7 @@ class MeetupsController < ApplicationController
   # GET /archive
   # GET /archive.json
   def archive
-    @meetups = Meetup.where('date < ?', Date.today).order(:date).page params[:page]
+    @meetups = Meetup.where('date < ?', Date.today).order(date: :desc).page params[:page]
   end
 
   # GET /meetups/1
