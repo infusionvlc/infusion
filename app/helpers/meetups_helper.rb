@@ -9,6 +9,6 @@ module MeetupsHelper
   end
 
   def video(meetup)
-   meetup.video_url[/=(.*)/][1..-1]
+   meetup.video_url[/=(.*)/][1..-1] if meetup.video_url
   end
 end
