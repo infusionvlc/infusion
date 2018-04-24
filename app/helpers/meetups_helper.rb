@@ -7,4 +7,8 @@ module MeetupsHelper
       I18n.t 'meetup.assistants', count: count
     end
   end
+
+  def video(meetup)
+   meetup.video_url[/=(.*)/][1..-1]
+  end
 end

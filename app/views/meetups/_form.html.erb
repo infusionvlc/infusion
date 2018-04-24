@@ -3,6 +3,12 @@
     <%= f.label :title %><br />
     <%= f.text_field :title, autofocus: true, class: 'form-control' %>
   </div><br/>
+  <% if @meetup.taking_place? or @meetup.took_place? %>
+    <div class="field">
+        <%= f.label :video_url %><br />
+        <%= f.text_field :video_url, class: 'form-control' %>
+    </div><br/>
+  <% end %>
   <div class="field">
     <%= f.label :categories %><br />
     <div class="row">

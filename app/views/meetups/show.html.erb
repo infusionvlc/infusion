@@ -109,7 +109,6 @@
     <%= paginate @reviews, theme: 'twitter-bootstrap-4' %>
   </div>
   <div class="col-md-4 col-sm-12 ">
-
       <% if policy(@meetup).report? %>
         <button data-toggle="modal" data-target="#meetupReportModal" class="btn btn-warning btn-lg btn-block">
           <%= fa_icon 'exclamation-triangle ' %> <%= I18n.t 'report.report' %>
@@ -126,6 +125,15 @@
           <%= link_to meetup_path(@meetup), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'meetup.destroy' %><% end %>
         <% end %>
       <% end %>
+
+      <% if @meetup.video_url %>
+        <br/>
+        <h2>YouTube</h2>
+        <%= link_to image_tag("https://img.youtube.com/vi/#{video(@meetup)}/hqdefault.jpg", class: 'huge-logo'),
+                    "https://www.youtube.com/watch?v=#{video(@meetup)}", target: '_blank' %>
+        <br/>
+      <% end %>
+
       <% if @meetup.took_place? %>
         <br/>
         <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>

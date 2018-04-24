@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325134243) do
+ActiveRecord::Schema.define(version: 20180424153316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20180325134243) do
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
     t.integer "location_id"
+    t.string "video_url"
   end
 
   create_table "notifications", force: :cascade do |t|

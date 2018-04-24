@@ -30,6 +30,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/1.json
   def show
     authorize @meetup
+    @video = @meetup.video_url[/=(.*)/][1..-1]
     @reviews = @meetup.assistances.where.not(review: nil).order(created_at: :desc).page(params[:page])
     @reportable_type = 'Meetup'
   end
@@ -170,6 +171,7 @@ class MeetupsController < ApplicationController
       :date,
       :start,
       :end,
+      :video_url,
       holdings_attributes:    [:id, :user_id, :role, :_destroy],
       photos_attributes:      [:id, :file,
                                :attribution, :meetup_id, :_destroy],
