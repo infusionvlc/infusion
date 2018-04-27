@@ -1,15 +1,43 @@
-  <header class="main-header">
+  <header class="main-header show-tell-header">
     <div class="container">
       <%= link_to meetups_path do %>
         <h1>
           <img class="huge-logo" src="logo_base.svg" alt="INFUSIÓN"/>
         </h1>
-        <span class="btn btn-intro">ENTRAR</div>
       <% end %>
+        <br/>
+        <h2 class="landing-title">show & tell</h2>
+        <h3 class="landing-date">24 / 05 / 18</h3>
+        <h4 class="landing-location">AULA 0.4 EDIFICIO 1G - ETSINF UPV</h4>
     </div>
+
+    <a href="https://goo.gl/forms/w7rpR3suzr7RRCuq2" target="_blank"><span class="btn btn-intro responsive-button">APÚNTATE A LA MERIENDA</span></a>
+    <%= link_to meetups_path do %>
+      <span class="btn btn-intro responsive-button">ENTRA A LA WEB</span>
+    <% end %>
   </header>
+<section id="event">
+  <div class="container center landing-container">
+    <p class="event-decription">
+      <img src="/technology.png" class="landing-icon" /><br/><br/>
+      Somos una comunidad en la que todo el mundo está invitado
+    a compartir sus conocimientos y su <span class="blue-text">pasión por la tecnología</span>.<br/><br/>
+    <br/>
+    <img src="/people.png" class="landing-icon" /><br/><br/>
+    ¿Y qué mejor manera de hacerlo que enseñando a la gente
+    los proyectos que han hecho otras <span class="purple-text">personas como tú</span>?<br/><br/>
+    <br/>
+    <img src="/croissants.png" class="landing-icon" /><br/><br/>
+    Acércate a nuestra <span class="pink-text">merienda</span> y conoce las ideas y proyectos de otros.
+    Si te animas, tenemos espacio para que nos cuentes tú también en qué estás trabajando.
+    </p>
+  </div>
+  <hr/>
+</section>
+
 <section id="quote">
-  <div class="container">
+  <div class="container center">
+    <br/> <br/>
     <h2 class="center"><%= I18n.t 'landing.quote' %></h2>
   </div>
 </section>
@@ -83,4 +111,4 @@
   </div>
 </section>
 
-<p class="center"><small><a href="http://ahainen.com/">people icon by Andrew Hainen from the Noun Project</a></small></p>
+<p class="container center"><small>Icons by Made by Made, ShmidtSergey, Vectors Market, Maxim Basinki, Mahmure Alp, Ben Davis, Dinosoft Labs, Gregor Cresnar, Maxim Kulikov, Kidiladon, Adrien Coquet, StoneHub, Three Six Five, Celeste Njoo.</small></p>

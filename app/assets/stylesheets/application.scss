@@ -11,11 +11,17 @@
 	--white: #ffffff;
   --light_blue: #ddf6fa;
   --card: #f3f3f3;
+  --purple: #2b0085;
 }
 
 body {
   font-family: 'Catamaran', sans-serif;
   color: var(--grey_dark);
+}
+
+.blue-text {
+  color: var(--blue);
+  font-weight: bolder;
 }
 
 .body-padding {
@@ -160,6 +166,15 @@ h5 {
   margin-top: 20px;
 }
 
+.event-decription {
+  color: var(--grey_dark);
+  font-family: 'Catamaran', sans;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+}
+
 .fluid {
   margin: 0 auto;
   text-align: center;
@@ -218,6 +233,38 @@ label {
   word-wrap: break-word;
 }
 
+.landing-container {
+  width: 50%;
+}
+
+.landing-date {
+  color: var(--pink);
+  font-family: 'Montserrat', sans;
+  font-size: 3em;
+  font-weight: 300;
+}
+
+.landing-icon {
+  width: 25%;
+}
+
+.landing-location {
+  color: var(--purple);
+  font-family: 'Montserrat', sans;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.landing-title {
+  color: var(--purple);
+  font-family: 'Catamaran', sans;
+  font-size: 5em;
+}
+
+.landing-title:hover {
+  text-decoration: none;
+}
+
 .magenta {
     background: var(--pink);
     display: flex;
@@ -258,8 +305,22 @@ label {
   border-radius: 0;
 }
 
+.pink-text {
+  color: var(--pink);
+  font-weight: bolder;
+}
+
+.purple-text {
+  color: var(--purple);
+  font-weight: bolder;
+}
+
 #quote {
   margin-bottom: 7em;
+}
+
+.responsive-button {
+  font-size: 2em;
 }
 
 .right {
@@ -268,6 +329,19 @@ label {
 
 .section-title {
   color: var(--pink);
+}
+
+.show-tell-header {
+  background: url('/show_tell_web.png');
+  background-size: 100% auto;
+  margin-top: -20px;
+  padding-top: 4vh;
+}
+
+.show-tell-header > .container {
+  background: rgba(255,255,255,0.9);
+  padding: 3em;
+  width: 70%;
 }
 
 .small {
