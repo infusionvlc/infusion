@@ -397,6 +397,26 @@ label {
   .svg--lg {
     display: none;
   }
+
+  .landing-container {
+    width: 100%;
+  }
+
+  .landing-title {
+    font-size: 3em;
+  }
+
+  .landing-date {
+    font-size: 1.4em;
+  }
+
+  .landing-location {
+    font-size: 0.9em;
+  }
+
+  .responsive-button {
+    font-size: 1.4em;
+  }
 }
 
 @media (min-width: 700px) {
