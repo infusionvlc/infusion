@@ -126,7 +126,7 @@
         <% end %>
       <% end %>
 
-      <% if @meetup.video_url %>
+      <% if @meetup.video_url.length > 0 %>
         <br/>
         <h2>YouTube</h2>
         <%= link_to image_tag("https://img.youtube.com/vi/#{video(@meetup)}/hqdefault.jpg", class: 'huge-logo'),
