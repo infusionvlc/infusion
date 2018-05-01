@@ -63,7 +63,7 @@ class MeetupsController < ApplicationController
   # POST /meetups/1/confirm
   def confirm
     authorize @meetup
-    @meetup.update(date: Date.today.monday + 11, confirmation_mail: false)
+    @meetup.update(date: Date.today.monday + 4, confirmation_mail: false)
     @meetup.assistances.each do |assistance|
       MeetupMailer.notify_publication(@meetup, assistance.user).deliver
     end
