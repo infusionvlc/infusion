@@ -30,7 +30,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/1.json
   def show
     authorize @meetup
-    @video = @meetup.video_url[/=(.*)/][1..-1] if @meetup.video_url?.length > 0
+    @video = @meetup.video_url[/=(.*)/][1..-1] if (@meetup.video_url && @meetup.video_url.length > 0)
     @reviews = @meetup.assistances.where.not(review: nil).order(created_at: :desc).page(params[:page])
     @reportable_type = 'Meetup'
   end
