@@ -9,7 +9,8 @@
         <h2 class="landing-title">show & tell</h2>
         <h3 class="landing-date">24 / 05 / 18</h3>
         <h4 class="landing-location">17:00 - AULA 0.4 EDIFICIO 1G - ETSINF UPV</h4>
-    </div>
+        <p id="countdown" class="landing-date"></p>
+   </div>
 
     <a href="https://goo.gl/forms/w7rpR3suzr7RRCuq2" target="_blank"><span class="btn btn-intro responsive-button">APÚNTATE A LA MERIENDA</span></a>
     <%= link_to meetups_path do %>
@@ -112,3 +113,34 @@
 </section>
 
 <p class="container center"><small>Icons by Made by Made, ShmidtSergey, Vectors Market, Maxim Basinki, Mahmure Alp, Ben Davis, Dinosoft Labs, Gregor Cresnar, Maxim Kulikov, Kidiladon, Adrien Coquet, StoneHub, Three Six Five, Celeste Njoo.</small></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("May 24, 2018 17:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
