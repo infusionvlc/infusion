@@ -4,17 +4,17 @@ class NotificationMailer < ApplicationMailer
     @user = user
     @activity = activity
     I18n.with_locale(@user.locale) do
-      if @activity.objective_type == 'Assistance' && current_user.notify_comments
+      if @activity.objective_type == 'Assistance' && @user.notify_comments
         mail(to: @user.email,
              subject: I18n.t('notification_mailer.notify_activity.subject_assistance', \
                              activity: @activity.objective.review), \
              date: @date)
-      elsif @activity.objective_type == 'Proposal' && current_user.notify_proposals
+      elsif @activity.objective_type == 'Proposal' && @user.notify_proposals
         mail(to: @user.email,
              subject: I18n.t('notification_mailer.notify_activity.subject_proposal', \
                              activity: @activity.objective.title), \
              date: @date)
-      elsif current_user.notify_meetups
+      elsif @user.notify_meetups
         mail(to: @user.email,
              subject: I18n.t('notification_mailer.notify_activity.subject_meetup', \
                              activity: @activity.objective.title), \
