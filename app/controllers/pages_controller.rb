@@ -4,4 +4,6 @@ class PagesController < ApplicationController
   def rules; end
 
   def speakers; end
+
+  def schedule; end
 end

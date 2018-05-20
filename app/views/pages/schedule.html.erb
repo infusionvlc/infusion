@@ -1,0 +1,125 @@
+  <header class="main-header show-tell-header">
+    <div class="container center">
+      <%= link_to root_path do %>
+        <h1>
+          <img class="big-logo" src="logo_base.svg" alt="INFUSIÓN"/>
+        </h1>
+      <% end %>
+        <h1 class="landing-title">show & tell</h1>
+        <h2 class="landing-date">PROGRAMA</h2>
+   </div>
+  </header>
+<section id="event event-decription" class="container">
+  <br/><br/>
+  <div class="speaker row">
+    <div class="col-sm-12 col-md-3">
+      <h2 class="pink-text">16:45-17:00</h2>
+    </div>
+    <div class="col-sm-12 col-md-9">
+      <h3 class="blue-text">Recepción + photocall</h3>
+      <p>Los 10 primeros asistentes tendréis una pequeña sorpresa.</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="speaker row">
+    <div class="col-sm-12 col-md-3">
+      <h2 class="pink-text">17:00-17:15</h2>
+    </div>
+    <div class="col-sm-12 col-md-9">
+      <h3 class="blue-text">Bienvenida</h3>
+      <p>Qué es INFUSIÓN y por qué decidimos hacer este evento.</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="speaker row">
+    <div class="col-sm-12 col-md-3">
+      <h2 class="pink-text">17:15-18:45</h2>
+    </div>
+    <div class="col-sm-12 col-md-9">
+      <h3 class="blue-text">Presentaciones</h3>
+      <p>Primera tanda de presentaciones de los ponentes.</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="speaker row">
+    <div class="col-sm-12 col-md-3">
+      <h2 class="pink-text">18:45-19:00</h2>
+    </div>
+    <div class="col-sm-12 col-md-9">
+      <h3 class="blue-text">Break</h3>
+      <p>Pequeño descanso para recargar las pilas y conocer a otros asistentes.</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="speaker row">
+    <div class="col-sm-12 col-md-3">
+      <h2 class="pink-text">19:00-19:45</h2>
+    </div>
+    <div class="col-sm-12 col-md-9">
+      <h3 class="blue-text">Presentaciones</h3>
+      <p>Segunda tanda de presentaciones del resto de ponentes.</p>
+    </div>
+  </div>
+  <hr/>
+  <div class="speaker row">
+    <div class="col-sm-12 col-md-3">
+      <h2 class="pink-text">19:45-21:00</h2>
+    </div>
+    <div class="col-sm-12 col-md-9">
+      <h3 class="blue-text">Networking</h3>
+      <p>Merienda-cena para los asistentes y tiempo para conocer al resto de personas.</p>
+    </div>
+  </div>
+  <hr/>
+</section>
+<section id="collaborators">
+  <div class="container center">
+    <p><%= I18n.t 'landing.collaborators' %></p>
+    <a href="http://startinf.blogs.upv.es/" target="_blank"><img class="med" alt="start.inf" src="/startinf.png"/></a>
+    <a href="http://acmupv.webs.upv.es/" target="_blank"><img class="med" alt="ACM UPV Chapter" src="/acmupv.png"/></a>
+    <a href="https://www.inf.upv.es/www/etsinf/es/" target="_blank"><img class="med" alt="ETSINF UPV" src="/etsinf.png"/></a>
+  </div>
+</section>
+<section id="networks">
+  <div class="container center">
+    <h2><%= I18n.t "main.networks" %></h2>
+    <a href="https://twitter.com/infusionvlc"><img class="small" alt="Twitter" src="/twitter.png"/></a>
+    <a href="https://instagram.com/infusion_vlc"><img class="small" alt="Instagram" src="/instagram.png"/></a>
+    <a href="https://www.youtube.com/channel/UCP5URDPxiT1Nd8LDVmShN5Q"><img class="small" alt="YouTube" src="/youtube.png"/></a>
+    <a href="https://t.me/infusionvlc"><img class="small" alt="Telegram" src="/telegram.png"/></a>
+    <a href="https://medium.com/infusión"><img class="small" alt="Medium" src="/medium.png"/></a>
+  </div>
+</section>
+
+<p class="container center"><small>Icons by Made by Made, ShmidtSergey, Vectors Market, Maxim Basinki, Mahmure Alp, Ben Davis, Dinosoft Labs, Gregor Cresnar, Maxim Kulikov, Kidiladon, Adrien Coquet, StoneHub, Three Six Five, Celeste Njoo.</small></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("May 24, 2018 17:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>

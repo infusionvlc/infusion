@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   match '/reglas' => 'pages#reglas', via: :get
   match '/regles' => 'pages#regles', via: :get
   match '/speakers' => 'pages#speakers', via: :get
+  match '/schedule' => 'pages#schedule', via: :get
 
   match '/read_notifications',           to: 'notifications#mark_all_as_read', via: [:post]
 
