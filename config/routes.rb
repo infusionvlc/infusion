@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   end
 
   HighVoltage.configure do |config|
-    config.home_page = 'show_tell'
+    config.home_page = 'index'
     config.layout = 'pages'
   end
 
