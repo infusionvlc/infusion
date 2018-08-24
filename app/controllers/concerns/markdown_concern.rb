@@ -2,7 +2,7 @@ module MarkdownConcern
   extend ActiveSupport::Concern
 
   included do
-    before_action :set_renderer, only: %i[show edit new index call_for_talks archive]
+    before_action :set_renderer, only: %i[show edit new index ranking archive]
   end
 
   def set_renderer
