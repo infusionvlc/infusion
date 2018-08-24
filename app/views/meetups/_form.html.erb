@@ -129,7 +129,7 @@
   <% end %>
   <br/>
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.check_box :archived %> <%= f.label :archived, I18n.t('meetup.archive') %> <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
 

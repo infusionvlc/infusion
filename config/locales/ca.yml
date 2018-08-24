@@ -247,6 +247,7 @@ ca:
     assistants:
       one:                  "1 assistent"
       other:                "%{count} assistents"
+    archive:                "Arxivar aquest meetup"
     edit:                   "Actualitzar"
     destroy:                "Cancelar"
     unvote:                 "Has canviat d'idea? No passa res, pots retirar el teu vot"
@@ -277,8 +278,8 @@ ca:
         one:   "Meetup"
         other: "Meetups"
       proposal:
-        one:   "Proposta"
-        other: "Propostes"
+        one:   "Idea"
+        other: "Idees"
       report:
         one:   "Report"
         other: "Reports"
@@ -304,6 +305,7 @@ ca:
         es_name:      "Nombre"
       meetup:
         <<: *common
+        archived:     "Arxivat"
         requirements: "Requeriments"
         categories:   "Categories"
         date:         "Data"
@@ -371,8 +373,8 @@ ca:
       session:
         create: "Iniciar sessió"
       proposal:
-        create: "Confirmar proposta"
-        update: "Actualitzar proposta"
+        create: "Confirmar idea"
+        update: "Actualitzar idea"
       location:
         create: "Afegir una nova ubicació"
         update: "Actualitzar ubicació"

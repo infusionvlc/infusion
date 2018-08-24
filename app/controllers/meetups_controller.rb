@@ -6,24 +6,24 @@ class MeetupsController < ApplicationController
   # GET /meetups
   # GET /meetups.json
   def index
-    @next_meetup = Meetup.where('date >= ?', Date.today).first
-    @most_recent = Meetup.where('date < ?', Date.today).order('date DESC')
+    @next_meetup = Meetup.active.where('date >= ?', Date.today).first
+    @most_recent = Meetup.active.where('date < ?', Date.today).order('date DESC')
                          .first(3)
-    @most_popular = Meetup.where('date < ?', Date.today)
+    @most_popular = Meetup.active.where('date < ?', Date.today)
                           .left_joins(:assistances).group(:id)
                           .order('COUNT(assistances.id) DESC').first(3)
   end
 
-  # GET /call_for_talks
-  # GET /call_for_talks.json
-  def call_for_talks
-    @meetups = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC').page params[:page]
+  # GET /ranking
+  # GET /ranking.json
+  def ranking
+    @meetups = Meetup.active.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC').page params[:page]
   end
 
   # GET /archive
   # GET /archive.json
   def archive
-    @meetups = Meetup.where('date < ?', Date.today).order(date: :desc).page params[:page]
+    @meetups = Meetup.active.where('date < ?', Date.today).order(date: :desc).page params[:page]
   end
 
   # GET /meetups/1
@@ -167,6 +167,7 @@ class MeetupsController < ApplicationController
     params.require(:meetup).permit(
       :title,
       :description,
+      :archived,
       :requirements,
       :date,
       :start,

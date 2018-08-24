@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   match 'users/auth/:provider/callback', to: 'sessions#create',        via: [:get, :post]
   match '/logout',                       to: 'sessions#destroy',       via: [:get, :post]
-  match '/call_for_talks',               to: 'meetups#call_for_talks', via: [:get]
+  match '/ranking',                      to: 'meetups#ranking',        via: [:get]
   match '/archive',                      to: 'meetups#archive',        via: [:get]
   match '/rules' => 'pages#rules', via: :get
   match '/reglas' => 'pages#reglas', via: :get

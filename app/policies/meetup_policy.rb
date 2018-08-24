@@ -11,33 +11,33 @@ class MeetupPolicy
   end
 
   def show?
-    !@meetup.nil?
+    !@meetup.nil? && !meetup.archived
   end
 
   def vote?
-    !@meetup.nil? && !@user.nil? &&\
+    !@meetup.nil? && !meetup.archived && !@user.nil? &&\
       !@meetup.assistances.where(user_id: @user.id).exists?
   end
 
   def unvote?
-    !@meetup.nil? && !@user.nil? && \
+    !@meetup.nil? && !meetup.archived && !@user.nil? && \
       @meetup.assistances.where(user_id: @user.id).exists?
   end
 
   def leave?
-    !@meetup.nil? && !@user.nil? &&\
+    !@meetup.nil? && !meetup.archived && !@user.nil? &&\
       @meetup.holdings.where(user_id: @user.id).exists? &&\
       @user != @meetup.holdings.first.user
   end
 
   def report?
-    @user && !Report.where(reportable_id: @meetup.id,
+    @user && !meetup.archived && !Report.where(reportable_id: @meetup.id,
                            reportable_type: 'Meetup',
                            user_id: @user.id).exists?
   end
 
   def confirm?
-    !@meetup.nil? && @meetup.confirmation_mail == true
+    !@meetup.nil? && !meetup.archived && @meetup.confirmation_mail == true
   end
 
   def delay?
@@ -59,7 +59,7 @@ class MeetupPolicy
   end
 
   def comment?
-    !@user.nil? && \
+    !@user.nil? && !meetup.archived && \
       @meetup.assistances.where('user_id = ? AND review IS NULL', @user.id).exists? && \
       !@meetup.nil? && @meetup.date && @meetup.date <= Date.today && \
       !@meetup.holdings.where(user_id: @user.id).exists?

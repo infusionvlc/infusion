@@ -248,6 +248,7 @@ es:
     assistants:
       one:                  "1 asistente"
       other:                "%{count} asistentes"
+    archive:                "Archivar este meetup"
     edit:                   "Actualizar"
     destroy:                "Cancelar"
     unvote:                 "¿Has cambiado de idea? No pasa nada, puedes retirar tu voto"
@@ -278,8 +279,8 @@ es:
         one:   "Meetup"
         other: "Meetups"
       proposal:
-        one:   "Propuesta"
-        other: "Propuestas"
+        one:   "Idea"
+        other: "Ideas"
       report:
         one:   "Reporte"
         other: "Reportes"
@@ -305,6 +306,7 @@ es:
         es_name:      "Nombre"
       meetup:
         <<: *common
+        archived:     "Archivado"
         requirements: "Requisitos"
         categories:   "Categorias"
         date:         "Fecha"
@@ -372,8 +374,8 @@ es:
       session:
         create: "Iniciar sesión"
       proposal:
-        create: "Confirmar propuesta"
-        update: "Actualizar propuesta"
+        create: "Añadir idea"
+        update: "Actualizar idea"
       location:
         create: "Añadir nueva ubicación"
         update: "Actualizar ubicación"
