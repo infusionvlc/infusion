@@ -148,6 +148,26 @@ h5 {
   padding-right: 1em;
 }
 
+.speech-bubble {
+  position: relative;
+  background: var(--pink);
+  border-radius: .4em;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-right-color: var(--pink);
+  border-left: 0;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
 .card {
   border: none;
   background: var(--card);
@@ -191,7 +211,7 @@ h5 {
   margin: 0 auto;
   text-align: center;
   width: 55%;
-  transform: rotate(20deg);
+  //transform: rotate(20deg);
 }
 
 .form-control {
@@ -289,7 +309,7 @@ label {
 }
 
 .med {
-  width: 30%;
+  width: 15%;
 }
 
 .navbar {
@@ -410,11 +430,11 @@ label {
   background-image: var(--blue);
   padding-bottom: 1em;
   text-align: center;
-  clip-path: polygon(0 0,
+  /*clip-path: polygon(0 0,
                        100% 0,
                        100% calc(100% - 5vw),
                        0 100%
-  );
+  );*/
 }
 
 @media (max-width: 699px) {

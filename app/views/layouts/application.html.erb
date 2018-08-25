@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">
-        <img src="<%= root_url%>/logo_base.svg" alt="INFUSIÓN">
+        <img src="<%= root_url %>/logo_base.svg" alt="INFUSIÓN">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -46,6 +46,9 @@
               </li>
             <% end %>
           <% end %>
+          <li class="nav-item">
+            <%= link_to '/about', {class: "nav-link"} do %><%= fa_icon 'info-circle' %> About<% end %>
+          </li>
         </ul>
         <ul class="navbar-nav navbar-right">
           <% if user_signed_in? %>
@@ -92,6 +95,7 @@
         <a href="https://instagram.com/infusion_vlc"><img class="mini" alt="Instagram" src="/instagram.png"/></a>
         <a href="https://www.youtube.com/channel/UCP5URDPxiT1Nd8LDVmShN5Q"><img class="mini" alt="YouTube" src="/youtube.png"/></a>
         <a href="https://t.me/infusionvlc"><img class="mini" alt="Telegram" src="/telegram.png"/></a>
+        <a href="https://medium.com/infusión"><img class="mini" alt="Medium" src="/medium.png"/></a>
       </p>
     </div>
   </body>

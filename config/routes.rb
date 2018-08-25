@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   match '/logout',                       to: 'sessions#destroy',       via: [:get, :post]
   match '/ranking',                      to: 'meetups#ranking',        via: [:get]
   match '/archive',                      to: 'meetups#archive',        via: [:get]
+  match '/about' => 'pages#about', via: :get
   match '/rules' => 'pages#rules', via: :get
   match '/reglas' => 'pages#reglas', via: :get
   match '/regles' => 'pages#regles', via: :get
@@ -43,10 +44,11 @@ Rails.application.routes.draw do
   end
 
   HighVoltage.configure do |config|
-    config.home_page = 'index'
     config.layout = 'pages'
   end
 
   match '/:username' => 'profiles#show', via: :get
+
+  root 'meetups#index'
 
 end
