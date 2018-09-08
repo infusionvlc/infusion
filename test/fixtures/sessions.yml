@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-09-08
+  start: 2018-09-08 14:39:53
+  end: 2018-09-08 14:39:53
+  video_url: MyString
+
+two:
+  date: 2018-09-08
+  start: 2018-09-08 14:39:53
+  end: 2018-09-08 14:39:53
+  video_url: MyString
