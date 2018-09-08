@@ -5,13 +5,13 @@ class RemoveFieldsFromMeetups < ActiveRecord::Migration[5.1]
       meetup.sessions.create(
       start: meetup.start,
       end: meetup.end,
-      video_url: meetup.video_url,
-      event_id: event.id
+      event_id: event.id,
+      location_id: meetup.location_id
       )
     end
     remove_column :meetups, :date, :date
     remove_column :meetups, :start, :time
     remove_column :meetups, :end, :time
-    remove_column :meetups, :video_url, :string
+    remove_column :meetups, :location_id, :integer
   end
 end
