@@ -25,15 +25,17 @@ class Meetup < ApplicationRecord
   validates :requirements, presence: true
 
   def taking_place?
-    !date.nil? && date >= Date.today
+    session_date = sessions.first&.date_id
+    session_date && session_date >= Date.today
   end
 
   def took_place?
-    !date.nil? && date < Date.today
+    session_date = sessions.first&.date_id
+    session_date && session_date < Date.today
   end
 
   def average_rating
-    marks = assistances.where.not(mark: 0).pluck(:mark)
+    marks = sessions.pluck(:average_rating)
     if marks.count > 0
       marks.sum / marks.count
     else
