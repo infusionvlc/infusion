@@ -257,6 +257,85 @@ h5 {
   );
 }
 
+.hacktoberfest-action {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  -ms-transform: skewY(-5deg);
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+  padding-bottom: 5em;
+}
+
+.hacktoberfest-cyan-text {
+  color: #01FFFF;
+}
+
+.hacktoberfest-blue-text {
+  color: #2B81D9;
+}
+
+.hacktoberfest-orange-text {
+  color: #FF9A56;
+}
+
+.hacktoberfest-date {
+  color: #FF9A56;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 6em;
+  font-weight: bold;
+  -ms-transform: skewY(-5deg);
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+}
+
+.hacktoberfest-decription {
+  background: #582D41;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+
+  .container {
+    margin-top: 0px;
+  }
+
+  .col-lg-4 {
+    margin-top: 4em;
+  }
+}
+
+.hacktoberfest-countdown {
+  color: #FF9A56;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  -ms-transform: skewY(-5deg);
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+}
+
+.hacktoberfest-location {
+  color: #01FFFF;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  -ms-transform: skewY(-5deg);
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+}
+
+.hacktoberfest-header {
+  background: #582D41;
+  text-align: center;
+
+  .container {
+    padding-top: 10em;
+    padding-bottom: 10em;
+  }
+}
+
 .jumbotron h1, .description h1 {
   border-bottom: none;
 }
@@ -277,7 +356,7 @@ label {
 }
 
 .landing-icon {
-  width: 25%;
+  width: 45%;
 }
 
 .landing-location {
@@ -469,6 +548,14 @@ label {
 
   .responsive-button {
     font-size: 1.4em;
+  }
+
+  .hacktoberfest-action {
+    font-size: 2em;
+  }
+
+  .hacktoberfest-date {
+    font-size: 2em;
   }
 }
 

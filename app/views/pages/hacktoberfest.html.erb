@@ -1,0 +1,87 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+</head>
+
+<header class="hacktoberfest-header">
+  <img src="/hacktoberfest_main.png" class="w-100"/>
+  <div class="container center">
+    <h2 class="hacktoberfest-action">Contribuye a proyectos Open Source<br/>y ¡consigue una <span class="hacktoberfest-cyan-text">camiseta gratis!</span></h2>
+    <br/>
+    <h3 class="hacktoberfest-date">28/09/18</h3>
+    <h4 class="hacktoberfest-location">16:00 - AULA 0.0 EDIFICIO 1E - ETSINF UPV</h4>
+    <p id="countdown" class="hacktoberfest-countdown"></p>
+  </div>
+</header>
+<section class="hacktoberfest-decription">
+  <div class="container center">
+    <div class="row">
+      <div class="col-xs-12 col-lg-4">
+        <img src="/technology.png" class="landing-icon" /><br/><br/>
+        Somos una comunidad en la que todo el mundo está invitado
+        a compartir sus conocimientos y su <span class="hacktoberfest-orange-text">pasión por la tecnología</span>.
+      </div>
+      <div class="col-xs-12 col-lg-4">
+        <img src="/people.png" class="landing-icon" /><br/><br/>
+        Queremos compartir contigo nuestra experiencia colaborando en proyectos <span class="hacktoberfest-blue-text">Open Source</span>
+        con herramientas de control de versiones como Git.<br/><br/>
+      </div>
+      <div class="col-xs-12 col-lg-4">
+        <img src="/croissants.png" class="landing-icon" /><br/><br/>
+        Acércate a nuestra <span class="hacktoberfest-cyan-text">merienda</span> y ponte en marcha. ¡Hacktoberfest está a la vuelta de la esquina!
+      </div>
+    </div>
+  </div>
+  <br/><br/>
+</section>
+<section id="collaborators">
+  <div class="container center">
+    <p><%= I18n.t 'landing.collaborators' %></p>
+    <a href="http://startinf.blogs.upv.es/" target="_blank"><img class="med" alt="start.inf" src="/startinf.png"/></a>
+    <a href="http://acmupv.webs.upv.es/" target="_blank"><img class="med" alt="ACM UPV Chapter" src="/acmupv.png"/></a>
+    <a href="https://www.inf.upv.es/www/etsinf/es/" target="_blank"><img class="med" alt="ETSINF UPV" src="/etsinf.png"/></a>
+  </div>
+</section>
+<section id="networks">
+  <div class="container center">
+    <h2><%= I18n.t "main.networks" %></h2>
+    <a href="https://twitter.com/infusionvlc"><img class="small" alt="Twitter" src="/twitter.png"/></a>
+    <a href="https://instagram.com/infusion_vlc"><img class="small" alt="Instagram" src="/instagram.png"/></a>
+    <a href="https://www.youtube.com/channel/UCP5URDPxiT1Nd8LDVmShN5Q"><img class="small" alt="YouTube" src="/youtube.png"/></a>
+    <a href="https://t.me/infusionvlc"><img class="small" alt="Telegram" src="/telegram.png"/></a>
+    <a href="https://medium.com/infusión"><img class="small" alt="Medium" src="/medium.png"/></a>
+  </div>
+</section>
+
+<p class="container center"><small>Icons by Made by Made, ShmidtSergey, Vectors Market, Maxim Basinki, Mahmure Alp, Ben Davis, Dinosoft Labs, Gregor Cresnar, Maxim Kulikov, Kidiladon, Adrien Coquet, StoneHub, Three Six Five, Celeste Njoo.</small></p>
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sep 28, 2018 16:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
