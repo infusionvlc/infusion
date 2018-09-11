@@ -3,7 +3,8 @@ class Meetup < ApplicationRecord
 
   scope :active, -> { where(archived: false) }
 
-  has_many :sessions
+  has_many :sessions, dependent: :destroy
+  has_many :events, through: :sessions
 
   has_one :activity, as: :objective, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
@@ -24,18 +25,26 @@ class Meetup < ApplicationRecord
   validates :description, presence: true
   validates :requirements, presence: true
 
+  def date
+    sessions.joins(:event).all.last&.event&.date
+  end
+
+  def assistances
+    sessions.map { |session| session.assistances }.reduce(:concat) || Assistance.none
+  end
+
   def taking_place?
-    session_date = sessions.first&.date_id
-    session_date && session_date >= Date.today
+    date = sessions.last&.event&.date
+    date >= Date.today if date
   end
 
   def took_place?
-    session_date = sessions.first&.date_id
-    session_date && session_date < Date.today
+    date = sessions.last&.event&.date
+    date <= Date.today if date
   end
 
   def average_rating
-    marks = sessions.pluck(:average_rating)
+    marks = sessions.collect(&:average_rating)
     if marks.count > 0
       marks.sum / marks.count
     else

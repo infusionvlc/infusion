@@ -11,7 +11,13 @@ class MeetupPolicy
   end
 
   def show?
-    !@meetup.nil? && !meetup.archived
+    !@meetup.nil? && !@meetup.archived
+  end
+
+  def repeat?
+    !@user.nil? && !@meetup.on_ranking && @meetup.took_place? && \
+      (!@meetup.persisted? || \
+      @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?)
   end
 
   def vote?
@@ -56,13 +62,6 @@ class MeetupPolicy
     !@user.nil? && \
       (!@meetup.persisted? || \
       @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?)
-  end
-
-  def comment?
-    !@user.nil? && !meetup.archived && \
-      @meetup.assistances.where('user_id = ? AND review IS NULL', @user.id).exists? && \
-      !@meetup.nil? && @meetup.date && @meetup.date <= Date.today && \
-      !@meetup.holdings.where(user_id: @user.id).exists?
   end
 
   # admin or mod

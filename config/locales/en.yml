@@ -252,13 +252,15 @@ en:
     destroy:                "Cancel"
     unvote:                 "Have you changed your mind? Don't worry, you can undo your vote"
     leave:                  "Leave"
+    repeat:                 "Repeat"
     review:                 "Give us your thoughts!"
     reviews:                "Reviews"
     no_reviews:             "It looks like there's no review yet"
     next:                   "Next meetup"
     no_next:                "It looks like there's any meetup planned yet"
     recents:                "The most recent"
-    populars:                "The most popular"
+    populars:               "The most popular"
+    sessions:               "Sessions"
 
   assistance:
     ajax_error:             "Your review must have at least 5 characters"
@@ -268,6 +270,9 @@ en:
     add_yours:              "Add your own ideas"
     call_to_action:         "Do you like this idea? Vote for it!"
     call_to_action_no_user: "Do you like this idea? Log in and vote for it!"
+
+  session:
+    ranking:                "New session currently on ranking"
 
   activerecord:
     model:

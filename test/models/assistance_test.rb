@@ -4,39 +4,39 @@ require 'test_helper'
 class AssistanceTest < ActiveSupport::TestCase
   test 'Valid Assistance' do
     user = users(:one)
-    meetup = meetups(:one)
+    session = sessions(:one)
     assistance = Assistance.new(user_id: user.id,
-                                meetup_id: meetup.id,
+                                session_id: session.id,
                                 review: '10/10 volveria a acudir')
     assert_equal assistance.valid?, true
     puts 'Test: Assistance -> Valid Assistance'
   end
   test 'Invalid without user' do
-    meetup = meetups(:one)
-    assistance = Assistance.new(meetup_id: meetup.id,
+    session = sessions(:one)
+    assistance = Assistance.new(session_id: session.id,
                                 review: '10/10 volveria a acudir')
     assert_not_equal assistance.valid?, true,
                      'Assistance is valid without an User'
     puts 'Test: Assistance -> Invalid without user'
   end
-  test 'Invalid without meetup' do
+  test 'Invalid without session' do
     user = users(:one)
     assistance = Assistance.new(user_id: user.id,
                                 review: '10/10 volveria a acudir')
     assert_not_equal assistance.valid?, true,
-                     'Assistance is valid without a Meetup'
-    puts 'Test: Assistance -> Invalid without meetup'
+                     'Assistance is valid without a session'
+    puts 'Test: Assistance -> Invalid without session'
   end
-  test 'Invalid without review before meetup' do
+  test 'Invalid without review before session' do
     user = users(:one)
-    meetup = meetups(:one)
-    assistance = Assistance.new(user_id: user.id, meetup_id: meetup.id)
+    session = sessions(:one)
+    assistance = Assistance.new(user_id: user.id, session_id: session.id)
     assert_equal assistance.valid?, true
-    if meetup.date > Date.today
+    if session.event.date > Date.today
       assert_nil assistance.review,
-                 'Assistance is valid without a Review if the Meetup hasnt \
+                 'Assistance is valid without a Review if the session hasnt \
                  taken place'
     end
-    puts 'Test: Assistance -> Invalid without review before meetup'
+    puts 'Test: Assistance -> Invalid without review before session'
   end
 end

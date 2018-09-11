@@ -1,4 +1,4 @@
-<%= form_for([@meetup, review],:html=>{:id=>"your_form_id",:remote=>true}) do |f |%>
+<%= form_for([@meetup, review.session, review],:html=>{:remote=>true}) do |f |%>
   <div class="row">
     <div class="field col-2">
       <%= f.label :mark %><br />

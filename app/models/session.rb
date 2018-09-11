@@ -1,6 +1,6 @@
 class Session < ApplicationRecord
   belongs_to :location
-  belongs_to :event
+  belongs_to :event, optional: true
   belongs_to :meetup
 
   has_many :assistances, dependent: :destroy
@@ -15,5 +15,13 @@ class Session < ApplicationRecord
     else
       0
     end
+  end
+
+  def taking_place?
+    event && (event.date >= Date.today)
+  end
+
+  def took_place?
+    event && (event.date <= Date.today)
   end
 end

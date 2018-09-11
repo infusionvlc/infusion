@@ -971,7 +971,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma
   pundit
-  rails (~> 5.1.5)
+  rails
   rails_real_favicon
   redcarpet
   rubocop
