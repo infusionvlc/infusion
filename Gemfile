@@ -43,7 +43,6 @@ gem 'awesome_print', require: 'ap'
 gem 'devise-i18n'
 
 gem 'redcarpet'
-#gem 'showdown-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
