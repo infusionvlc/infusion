@@ -6,10 +6,11 @@ class MeetupsController < ApplicationController
   # GET /meetups
   # GET /meetups.json
   def index
-    @next_sessions = Event.where('events.date >= ?', Date.today).order('date ASC').first&.sessions
+    @next_sessions = Event.where('events.date >= ?', Date.today)
+                          .order('date ASC').first&.sessions
 
-    @most_recent = Meetup.active.joins(:events).where('events.date < ?', Date.today).order('date DESC')
-                         .first(3)
+    @most_recent = Meetup.active.joins(:events).where('events.date < ?', Date.today)
+                         .order('date DESC').first(3)
     @most_popular = Meetup.active.joins(:events).where('events.date < ?', Date.today)
                           .joins("LEFT OUTER JOIN sessions AS meetup_sessions ON " +
                                  "meetup_sessions.meetup_id = meetups.id LEFT OUTER JOIN " +
@@ -22,25 +23,28 @@ class MeetupsController < ApplicationController
   # GET /ranking.json
   def ranking
     @meetups = Meetup.active.where(on_ranking: true)
-                      .joins("LEFT OUTER JOIN sessions AS meetup_sessions ON " +
+                     .joins("LEFT OUTER JOIN sessions AS meetup_sessions ON " +
                             "meetup_sessions.meetup_id = meetups.id LEFT OUTER JOIN " +
                             "assistances ON assistances.session_id = meetup_sessions.id")
-                      .group(:id)
-                      .order('COUNT(assistances.id) DESC').page params[:page]
+                     .group(:id)
+                     .order('COUNT(assistances.id) DESC').page params[:page]
   end
 
   # GET /archive
   # GET /archive.json
   def archive
-    @meetups = Meetup.active.joins(:events).where('events.date < ?', Date.today).order('events.date DESC').page params[:page]
+    @meetups = Meetup.active.joins(:events).where('events.date < ?', Date.today)
+                     .order('events.date DESC').page params[:page]
   end
 
   # GET /meetups/1
   # GET /meetups/1.json
   def show
     authorize @meetup
-    @video = @meetup.video_url[/=(.*)/][1..-1] if (@meetup.video_url && @meetup.video_url.length > 0)
-    @reviews = @meetup.assistances.where.not(review: nil).order(created_at: :desc).page(params[:page])
+    @video = @meetup.video_url[/=(.*)/][1..-1] if (@meetup.video_url && \
+                                                   @meetup.video_url.length.positive?)
+    @reviews = @meetup.assistances.where.not(review: nil).order(created_at: :desc)
+                      .page(params[:page])
     @reportable_type = 'Meetup'
   end
 
@@ -115,7 +119,7 @@ class MeetupsController < ApplicationController
       authorize @meetup
       @meetup.holdings.where(user_id: current_user.id).first.destroy
       @meetup.holdings.each do |host|
-        MeetupMailer.notify_abandon(@meetup, host.user, current_user).deliver
+      MeetupMailer.notify_abandon(@meetup, host.user, current_user).deliver
       end
       redirect_to(meetup_path(@meetup), alert: I18n.t('main.abandon'))
     end
@@ -124,7 +128,9 @@ class MeetupsController < ApplicationController
 
   def notify_collaborators
     @meetup.holdings.each do |host|
-      MeetupMailer.notify_collaboration(@meetup, host.user).deliver if host.user != current_user
+      if host.user != current_user
+        MeetupMailer.notify_collaboration(@meetup, host.user).deliver
+      end
     end
   end
 

@@ -6,20 +6,23 @@ class MeetupSessionsController < ApplicationController
     authorize @meetup
     MeetupMailer.subscribed_to(@meetup, current_user).deliver
     @session.assistances.create(user_id: current_user.id)
-    redirect_back(fallback_location: meetup_path(@meetup), alert: I18n.t('main.saved_vote'))
+    redirect_back(fallback_location: meetup_path(@meetup),
+                  alert: I18n.t('main.saved_vote'))
   end
 
   # POST /meetups/1/sessions/1/unvote
   def unvote
     authorize @meetup
     @session.assistances.where(user_id: current_user.id).first.destroy
-    redirect_back(fallback_location: meetup_path(@meetup), alert: I18n.t('main.deleted_vote'))
+    redirect_back(fallback_location: meetup_path(@meetup),
+                  alert: I18n.t('main.deleted_vote'))
   end
 
   # POST /meetups/1/sessions/1/confirm
   def confirm
     authorize @meetup
-    @session.event = Event.where('events.date >= ?', Date.today).order('date ASC').first
+    @session.event = Event.where('events.date >= ?', Date.today)
+                          .order('date ASC').first
     @session.update(start: Time.parse('16:00'), end: Time.parse('18:00'))
     @meetup.update(confirmation_mail: false, on_ranking: false)
     @session.assistances.each do |assistance|
@@ -32,8 +35,10 @@ class MeetupSessionsController < ApplicationController
   def delay
     authorize @meetup
     @meetup.update(confirmation_mail: false)
-    next_meetup = Session.where(event_id: nil).where.not(meetup_id: @meetup.id).left_joins(:assistances).group(:id).having('COUNT(assistances.id) <= ?', @session.assistances.count).order('COUNT(assistances.id) DESC').first
-    MeetupMailer.ask_for_confirmation(next_meetup, next_meetup.holdings.first.user).deliver
+    next_meetup = Session.where(event_id: nil).where
+                         .not(meetup_id: @meetup.id).left_joins(:assistances).group(:id).having('COUNT(assistances.id) <= ?', @session.assistances.count).order('COUNT(assistances.id) DESC').first
+    MeetupMailer.ask_for_confirmation(next_meetup,
+                 next_meetup.holdings.first.user).deliver
     next_meetup.update(confirmation_mail: true)
     redirect_to @meetup, alert: I18n.t('main.delayed')
   end

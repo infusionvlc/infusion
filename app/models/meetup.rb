@@ -30,7 +30,8 @@ class Meetup < ApplicationRecord
   end
 
   def assistances
-    sessions.map { |session| session.assistances }.reduce(:concat) || Assistance.none
+    sessions.map { |session| session.assistances }
+            .reduce(:concat) || Assistance.none
   end
 
   def taking_place?
@@ -45,7 +46,7 @@ class Meetup < ApplicationRecord
 
   def average_rating
     marks = sessions.collect(&:average_rating)
-    if marks.count > 0
+    if marks.count.positive?
       marks.sum / marks.count
     else
       0

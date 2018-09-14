@@ -10,7 +10,7 @@ class Session < ApplicationRecord
 
   def average_rating
     marks = assistances.where.not(mark: 0).pluck(:mark)
-    if marks.count > 0
+    if marks.count.positive?
       marks.sum / marks.count
     else
       0

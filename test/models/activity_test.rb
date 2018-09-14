@@ -8,7 +8,7 @@ class ActivityTest < ActiveSupport::TestCase
   end
 
   test 'Invalid without user_id' do
-    activity = Activity.new(objective_id: meetups(:one).id,
+    activity = Activity.new(objective_id: sessions(:one).id,
                             objective_type: 'Meetup')
     refute activity.valid?, 'Activity is valid without a user_id'
     puts '\nTest: Activity -> Invalid without user_id'
@@ -23,7 +23,7 @@ class ActivityTest < ActiveSupport::TestCase
 
   test 'Invalid without objective_type' do
     activity = Activity.new(user_id: users(:one).id,
-                            objective_id: meetups(:one).id)
+                            objective_id: sessions(:one).id)
     refute activity.valid?, 'Activity is valid without a objective_type'
     puts '\nTest: Activity -> Invalid without objective_type'
   end

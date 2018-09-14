@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20180909151542) do
     t.datetime "updated_at", null: false
     t.string "file_file_name"
     t.string "file_content_type"
-    t.integer "file_file_size"
+    t.bigint "file_file_size"
     t.datetime "file_updated_at"
     t.index ["meetup_id"], name: "index_attachments_on_meetup_id"
   end
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20180909151542) do
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id"
     t.integer "activity_id"
-    t.boolean "read"
+    t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20180909151542) do
     t.datetime "updated_at", null: false
     t.string "file_file_name"
     t.string "file_content_type"
-    t.integer "file_file_size"
+    t.bigint "file_file_size"
     t.datetime "file_updated_at"
     t.index ["meetup_id"], name: "index_photos_on_meetup_id"
   end
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 20180909151542) do
     t.string "reportable_type"
     t.integer "user_id"
     t.integer "reportable_id"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "status_comment"
     t.text "description"
     t.datetime "created_at", null: false
@@ -178,13 +178,13 @@ ActiveRecord::Schema.define(version: 20180909151542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "locale"
+    t.string "locale", default: "es"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.integer "avatar_file_size"
+    t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer "role_id"
-    t.text "bio"
+    t.integer "role_id", default: 1
+    t.text "bio", default: ""
     t.boolean "contributor", default: false
     t.boolean "notify_meetups", default: true
     t.boolean "notify_comments", default: false
@@ -202,6 +202,8 @@ ActiveRecord::Schema.define(version: 20180909151542) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+  add_foreign_key "assistances", "sessions"
+  add_foreign_key "assistances", "users"
   add_foreign_key "attachments", "meetups"
   add_foreign_key "holdings", "meetups"
   add_foreign_key "holdings", "users"
