@@ -251,6 +251,7 @@ ca:
     edit:                   "Actualitzar"
     destroy:                "Cancelar"
     unvote:                 "Has canviat d'idea? No passa res, pots retirar el teu vot"
+    repeat:                 "Repetir"
     leave:                  "Abandonar"
     review:                 "Conta'ns què penses!"
     reviews:                "Opinions"
@@ -259,6 +260,7 @@ ca:
     no_next:                "Sembla que no hi ha cap meetup planificat encara"
     recents:                "Els més recents"
     populars:                "Els més populars"
+    sessions:               "Sessions"
 
   assistance:
     ajax_error:             "La teua review ha de tindre 5 caracters"
@@ -268,6 +270,9 @@ ca:
     add_yours:              "Conta'ns les teues idees"
     call_to_action:         "T'agrada aquesta idea? Vota-la!"
     call_to_action_no_user: "T'agrada aquesta idea? Inicia sessió i vota-la!"
+
+  session:
+    ranking:                "Nova sessió al ranking"
 
   activerecord:
     model:

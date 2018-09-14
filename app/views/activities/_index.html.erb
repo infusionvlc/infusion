@@ -7,7 +7,7 @@
           <%= link_to activity.activity_title, meetup_path(activity.objective_id) %>
         <% elsif activity.objective_type == "Assistance"%>
           <%= I18n.t 'activity.has_done_comment' %>
-          <% id = Assistance.find(activity.objective_id).meetup_id %>
+          <% id = Assistance.find(activity.objective_id).session.meetup_id %>
           <%= link_to activity.activity_title.truncate(40), meetup_path(id) %>
           <%= I18n.t 'activity.in_the_meetup' %>
           <%= link_to Meetup.find(id).title, meetup_path(id) %>

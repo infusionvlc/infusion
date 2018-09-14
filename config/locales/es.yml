@@ -252,6 +252,7 @@ es:
     edit:                   "Actualizar"
     destroy:                "Cancelar"
     unvote:                 "¿Has cambiado de idea? No pasa nada, puedes retirar tu voto"
+    repeat:                 "Repetir"
     leave:                  "Abandonar"
     review:                 "¡Cuéntanos qué piensas!"
     reviews:                "Opiniones"
@@ -260,6 +261,7 @@ es:
     no_next:                "Parece que no hay ningún meetup planificado aún"
     recents:                "Los más recientes"
     populars:                "Los más populares"
+    sessions:               "Sesiones"
 
   assistance:
     ajax_error:             "Tu review debe tener al menos 5 caracteres"
@@ -269,6 +271,9 @@ es:
     add_yours:              "Cuéntanos tus ideas"
     call_to_action:         "¿Te gusta la idea? ¡Vótala!"
     call_to_action_no_user: "¿Te gusta la idea? ¡Inicia sesión y vótala!"
+
+  session:
+    ranking:                "Nueva sesión en el ranking"
 
   activerecord:
     model:

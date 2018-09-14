@@ -32,7 +32,7 @@
           <p><%= truncate(strip_tags(@markdown.render(meetup.description)), length: 256) %></p>
           <% if defined? context and context == 'vote' %>
             <% if policy(meetup).vote? %>
-              <%= link_to vote_meetup_path(meetup), method: :post, class:'btn btn-primary right' do %>
+              <%= link_to vote_meetup_session_path(meetup, meetup.sessions.last), method: :post, class:'btn btn-primary right' do %>
                 <%= I18n.t 'main.vote' %>
               <% end %>
             <% end %>

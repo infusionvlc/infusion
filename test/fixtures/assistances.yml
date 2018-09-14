@@ -2,12 +2,12 @@
 
 one:
   user: one
-  meetup: one
+  session: one
   mark: 1
   review: MyText
 
 two:
   user: two
-  meetup: two
+  session: two
   mark: 1
   review: MyText

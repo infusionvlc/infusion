@@ -21,18 +21,18 @@ class AssistancesController < ApplicationController
     end
 
     def edit
-      @meetup = @assistance.meetup
+      @meetup = @assistance.session.meetup
     end
 
     def destroy
-      @meetup = @assistance.meetup
+      @meetup = @assistance.session.meetup
       @assistance.destroy
       redirect_to meetup_path @meetup
     end
 
     def update
       if @assistance.update(assistance_params)
-        @activity = @assistance.create_activity(current_user.id)
+        @activity = @assistance.session.meetup.create_activity(current_user.id)
         @notifications = @activity.create_notification
         ok_status
       else
@@ -43,7 +43,7 @@ class AssistancesController < ApplicationController
     private
 
     def assistance_params
-      params.require(:assistance).permit(:user_id, :meetup_id, :mark, :review)
+      params.require(:assistance).permit(:user_id, :session_id, :mark, :review)
     end
 
     def set_assistance
@@ -53,17 +53,18 @@ class AssistancesController < ApplicationController
     end
 
     def ok_status
-      @meetup = @assistance.meetup
+      @meetup = @assistance.session.meetup
       respond_to do |format|
-        format.html { redirect_to meetup_path @meetup }
+        format.html { redirect_to @meetup }
         format.json { render :show, status: :created, location: @assistance }
         format.js   { render 'assistances/updated'}
       end
     end
 
     def error_status
+      @meetup = @assistance.session.meetup
       respond_to do |format|
-        format.html { render :edit }
+        format.html { redirect_to @meetup }
         format.json { render json: @assistance.errors, status: :unprocessable_entity }
         format.js   { render 'assistances/not_updated'}
       end
