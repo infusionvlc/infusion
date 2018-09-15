@@ -49,6 +49,16 @@
           <li class="nav-item">
             <%= link_to '/about', {class: "nav-link"} do %><%= fa_icon 'info-circle' %> About<% end %>
           </li>
+
+
+
+          <li class="nav-item"><%= link_to "", {class: "nav-link ul"} do %> 🌍 Idioma <% end %>
+              <ul>
+                 <li><%= link_to "", {class: "nav-link ul"} do %> <img src="/flags/ES_flag.png" class="flag"> Castellano <% end %></li>
+                 <li><%= link_to "", {class: "nav-link ul"} do %> <img src="/flags/GB_flag.png" class="flag"> English <% end %></li>
+                 <li><%= link_to "", {class: "nav-link ul"} do %> <img src="/flags/CA_flag.png" class="flag"> Valencià <% end %></li>
+              </ul>
+          </li>
         </ul>
         <ul class="navbar-nav navbar-right">
           <% if user_signed_in? %>

@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.text "description"
     t.text "requirements"
     t.date "date"
-    t.time "start"
-    t.time "end"
+    t.time "start", default: "2000-01-01 16:00:00"
+    t.time "end", default: "2000-01-01 18:00:00"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20180824212817) do
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id"
     t.integer "activity_id"
-    t.boolean "read"
+    t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.string "reportable_type"
     t.integer "user_id"
     t.integer "reportable_id"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "status_comment"
     t.text "description"
     t.datetime "created_at", null: false
@@ -162,13 +162,13 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "locale"
+    t.string "locale", default: "es"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer "role_id"
-    t.text "bio"
+    t.integer "role_id", default: 1
+    t.text "bio", default: ""
     t.boolean "contributor", default: false
     t.boolean "notify_meetups", default: true
     t.boolean "notify_comments", default: false
