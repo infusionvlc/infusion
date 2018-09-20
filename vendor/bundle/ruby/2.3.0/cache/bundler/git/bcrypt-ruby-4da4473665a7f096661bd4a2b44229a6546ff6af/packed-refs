@@ -1,0 +1,37 @@
+# pack-refs with: peeled fully-peeled sorted 
+ba77ac1e2d88b72126fa0495b28fecd821ca118c refs/heads/ctype-standardization
+0431962a66daca131cfe252c92ddfb9c4b46ef79 refs/heads/fork167
+12a50f4ff20c1723cc08b3f3c5dcd257c305172c refs/heads/master
+d2abfcc5ec8f2b50869e47feb00e1008e11733aa refs/heads/no-null-bytes
+6a61bafce349fde87ecda02a26fc144128cb2cdd refs/heads/no_more_precompiled_binaries
+4d0a698944178c6df843986ae3b2d347ef130463 refs/heads/rubygems-update
+cb8376085b54bc8c64f1099a4f576bec09c7fa6c refs/heads/stable-1.0
+3c059f66f311a5d6620e8aad1d1d25a9b22c8f56 refs/heads/tags/rel_1_0_0
+135162fde133854ccb0b5f50419f3d746cca61b9 refs/heads/tags/rel_2_0_0
+7cc4c8ae45c682961adfc8b7670e65fbcce037e7 refs/heads/tags/rel_2_0_1
+4736993469f596754b1aa8b1f469d7a2636c1e76 refs/heads/tags/rel_2_0_2
+f89fffe1c60225f03b21fb7984e70fa1cd792883 refs/heads/travis_config
+cac305c0450759dd0549b9db8c6b8ca4bc016aaf refs/heads/travis_on_linux_and_osx
+7a7fcf396f927ed61a60647a9a55aafa7c8e6b6a refs/heads/win32_ruby_1_9_only
+769920d5c5f762c4dde6b6623110160a7ced463f refs/heads/win_fat_binary_build
+84745b1564ef29d308a58a96429cd74ab26ddcbc refs/tags/rel_2_0_3
+^e66116dc37379b6bc8f21bd749a81b00a19ff6ee
+18178defdd85fcde985e0f010666d8aa54819a48 refs/tags/rel_2_0_4
+3137ad6d58e3541613b4e1e1cdd7cd70c5d9f2b6 refs/tags/rel_2_0_5
+17b18eab80d82ec39c36bfadc461b2e092342002 refs/tags/rel_2_1_0
+525b5999142d3d8c731fd7524eb07780dcd03720 refs/tags/rel_2_1_1
+c85bc646b8251f3b4f7365d63752a813c2733409 refs/tags/rel_2_1_2
+526a4bba7a61cc54ca488fa4816a53f5208e82df refs/tags/v3.0.0
+^a27363a997f473a4d579d91a0303c433fcc1955a
+efbf09475899c3ad11ab9ab4757984289d4504ce refs/tags/v3.0.1
+^cbe335aadd1e8c3ec57ebf0943ddccaf77af0f37
+7a7fcf396f927ed61a60647a9a55aafa7c8e6b6a refs/tags/v3.1.1
+1f9184a8df2b90fa02d01a32a364eefc9072e1b9 refs/tags/v3.1.10
+fbbece54c6cb8b53db01132c7eeb58955944547d refs/tags/v3.1.11
+12a50f4ff20c1723cc08b3f3c5dcd257c305172c refs/tags/v3.1.12
+c92c5a88023bbc1a8131c87a9d999c4b761a9df3 refs/tags/v3.1.12.rc1
+a5b7bfbf21bc41838902b4a798f90ec25c09630e refs/tags/v3.1.3
+58f056b01d6e617a539e1308cb2b9e221525cfdf refs/tags/v3.1.6
+f167f92c702ea6b01a9995e3089f49b95c34eecb refs/tags/v3.1.7
+519c661fa72803231d967c80e83b2efa18c4c937 refs/tags/v3.1.8
+b82c7140eb4ecedc20ab3a7c0d0801667d1907b3 refs/tags/v3.1.9
