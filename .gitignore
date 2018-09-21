@@ -6,6 +6,10 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
+
+# Ignore Idea generated files and cofigs.
+/.idea
 
 # Ignore all logfiles and tempfiles.
 /log/*
