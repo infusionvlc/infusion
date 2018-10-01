@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 desc 'A scheduled task that confirms the upcoming meetup'
 task :ask_for_confirmation => :environment do
   next_event = Event.where('events.date >= ?', Date.today)

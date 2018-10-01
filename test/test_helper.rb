@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 
 # save to CircleCI's artifacts directory if we're on CircleCI

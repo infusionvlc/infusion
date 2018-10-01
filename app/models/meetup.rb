@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Meetup < ApplicationRecord
   include Feed
 

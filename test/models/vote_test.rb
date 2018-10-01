@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ~/test/model/vote_test.rb
 require 'test_helper'
 

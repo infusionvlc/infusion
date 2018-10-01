@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Role.create([
         {name: 'Admin'}, {name: 'Plain'}
     ])
