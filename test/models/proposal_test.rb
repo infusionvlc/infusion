@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ~/test/models/proposal_test.rb
 require 'test_helper'
 

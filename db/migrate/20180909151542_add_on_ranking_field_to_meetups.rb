@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddOnRankingFieldToMeetups < ActiveRecord::Migration[5.1]
   def change
     add_column :meetups, :on_ranking, :boolean

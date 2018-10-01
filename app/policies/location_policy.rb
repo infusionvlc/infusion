@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LocationPolicy
   attr_reader :user, :location
 

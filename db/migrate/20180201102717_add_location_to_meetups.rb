@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddLocationToMeetups < ActiveRecord::Migration[5.1]
   def change
     add_column :meetups, :location_id, :integer
