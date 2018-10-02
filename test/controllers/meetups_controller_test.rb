@@ -21,4 +21,11 @@ class MeetupsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
   end
+
+  test 'should create new meetup with title and description' do
+    post '/meetups', params: { meetup: { title: 'title', description: 'description' } }
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+  end
 end
