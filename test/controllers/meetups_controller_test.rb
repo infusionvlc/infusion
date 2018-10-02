@@ -19,15 +19,15 @@ class MeetupsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create new meetup with title and description' do
-    post meetups_path, params: 
-    { meetup: { title: 'title', description: 'description' } }
+    post meetups_path, 
+    params: { meetup: { title: 'title', description: 'description' } }
     assert_response :redirect
     follow_redirect!
     assert_response :success
   end
 
   test 'should update existing meetup and redirect to meetup#index' do
-    patch meetup_path(Meetup.first), 
+    patch meetup_path(Meetup.first),
     params: { meetup: { title: 'my new title' } }
     assert_redirected_to meetups_path
   end
