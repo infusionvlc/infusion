@@ -28,4 +28,9 @@ class MeetupsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
   end
+
+  test 'should respond with an error when trying to create new meetup with no params' do
+    post '/meetups', params: { meetup: {  } }
+    assert_response :error
+  end
 end
