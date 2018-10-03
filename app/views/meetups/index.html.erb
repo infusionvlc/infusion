@@ -10,35 +10,44 @@
 
 <h1>Meetups</h1>
 <br/>
+
+
 <div class="card next-meetup-card">
   <div class="card-header">
-    <h2><%= I18n.t 'meetup.next' %>
-      <% if @next_meetup %>
-        <br/>📍 <%= @next_meetup.location.name %> | 📅 <%= I18n.l @next_meetup.date %> | ⏰ <%= @next_meetup.start.strftime('%H:%M') %> - <%= @next_meetup.end.strftime('%H:%M') %>
-      <% end %>
-    </h2>
+    <h2><%= I18n.t 'meetup.next' %></h2>
   </div>
-  <% if @next_meetup.nil? %>
-    <div class="card-body">
+  <% if @next_sessions.nil? || @next_sessions.count == 0 %>
+    <div class="card-body" %>
       <h3 class="center">
-        <%= I18n.t 'meetup.no_next'%>
+        <%= I18n.t 'meetup.no_next' %>
       </h3>
     </div>
   <% else %>
-   <div class="card-body">
-      <h2>
-        <span class="badge badge-info badge-pill">
-          <%= I18n.t 'meetup.assistants', count: @next_meetup.assistances.count %>
-        </span>
-        <%= link_to @next_meetup.title, @next_meetup %>
-      </h2>
-      <p><%= truncate(strip_tags(@markdown.render(@next_meetup.description)), length: 200) %></p>
-    </div>
-    <div class="card-footer text-muted">
-      <%= link_to @next_meetup.holdings.first.user.username, "/#{@next_meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(@next_meetup.created_at) %>
-    </div>
+    <% @next_sessions.each do |ses| %>
+      <div class="card-body">
+        <h2>
+          <br/>📍 <%= ses.location.name %> | 📅 <%= I18n.l ses.event.date %> | ⏰ <%= ses.start.strftime('%H:%M') %> - <%= ses.end.strftime('%H:%M') %>
+        </h2>
+        <h2>
+          <span class="badge badge-info badge-pill">
+            <%= I18n.t 'meetup.assistants', count: ses.meetup.assistances.count %>
+          </span>
+          <%= link_to ses.meetup.title, ses.meetup %>
+        </h2>
+        <p><%= truncate(strip_tags(@markdown.render(ses.meetup.description)), length: 200) %></p>
+      </div>
+      <div class="card-footer text-muted">
+        <%= link_to ses.meetup.holdings.first.user.username, "/#{ses.meetup.holdings.first.user.username}" %> | <%= time_ago_in_words(ses.meetup.created_at) %>
+      </div>
+    <% end %>
   <% end %>
 </div>
+
+
+
+
+
+
 <br/><br/>
 <div class="row">
   <div class="col-md-6 left">

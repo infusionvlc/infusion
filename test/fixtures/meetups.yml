@@ -4,14 +4,11 @@ one:
   title: MyString
   description: MyText
   requirements: MyText
-  date: 2017-12-26
-  start: 2017-12-26 18:18:35
-  end: 2017-12-26 18:18:35
+  video_url: abc.abc
+
 
 two:
   title: MyString
   description: MyText
   requirements: MyText
-  date: 2017-12-26
-  start: 2017-12-26 18:18:35
-  end: 2017-12-26 18:18:35
+  video_url: abc.abc

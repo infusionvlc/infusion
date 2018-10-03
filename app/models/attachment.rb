@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Attachment < ApplicationRecord
   belongs_to :meetup
   has_attached_file :file

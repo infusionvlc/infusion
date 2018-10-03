@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoryPolicy
   attr_reader :user, :category
 

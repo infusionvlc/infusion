@@ -15,8 +15,8 @@
   <% if @location.meetups.count == 0 %>
     <p><%= I18n.t 'location.no_meetups' %></p>
   <% else %>
-    <% @location.meetups.each do |meetup| %>
-      <%= render 'meetups/card', meetup: meetup %>
+    <% @location.sessions.each do |session| %>
+      <%= render 'meetups/card', meetup: session.meetup %>
     <% end %>
   <% end %>
   <% if policy(@location).edit? %>

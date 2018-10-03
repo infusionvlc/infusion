@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
@@ -34,7 +36,7 @@ class User < ApplicationRecord
     self.keynotes.each do |k|
       avgs << k.average_rating if k.average_rating != 0
     end
-    if avgs.count > 0
+    if avgs.count.positive?
       avgs.sum/avgs.count
     else
       0

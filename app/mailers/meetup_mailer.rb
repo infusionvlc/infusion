@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MeetupMailer < ApplicationMailer
   default from: "INFUSIÓN <hola@infusionvlc.com>"
 

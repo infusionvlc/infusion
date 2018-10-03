@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
 
   match '/webhook' => 'webhook#reply', via: :post
@@ -28,14 +30,20 @@ Rails.application.routes.draw do
   resources :locations
 
   resources :meetups do
-    member do
-      post 'vote'
-      post 'unvote'
-      post 'leave'
-      get 'confirm'
-      get 'delay'
+    resources :sessions, :controller=>"meetup_sessions" do
+      member do
+        post 'vote'
+        post 'unvote'
+        get 'confirm'
+        get 'delay'
+      end
+
+      resources :assistances
     end
-    resources :assistances
+
+    member do
+      post 'leave'
+    end
   end
 
   resources :proposals do

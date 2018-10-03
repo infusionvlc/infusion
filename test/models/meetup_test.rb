@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MeetupTest < ActiveSupport::TestCase
@@ -6,9 +8,7 @@ class MeetupTest < ActiveSupport::TestCase
     meetup = Meetup.new(title: 'TestMeetupTitle',
                         description: 'TestMeetupDescription',
                         requirements: 'TestMeetupRequirementes',
-                        date: Date.today,
-                        confirmation_mail: false,
-                        location_id: location.id)
+                        confirmation_mail: false)
     assert_equal meetup.valid?, true
     puts 'Test: Meetup -> Valid Meetup'
   end
@@ -16,9 +16,7 @@ class MeetupTest < ActiveSupport::TestCase
     location = locations(:one)
     meetup = Meetup.new(description: 'TestMeetupDescription',
                         requirements: 'TestMeetupRequirementes',
-                        date: Date.today,
-                        confirmation_mail: false,
-                        location_id: location.id)
+                        confirmation_mail: false)
     assert_not_equal meetup.valid?, true,
                      'Meetup is valid without a Title'
     puts 'Test: Meetup -> Invalid without title'
@@ -27,9 +25,7 @@ class MeetupTest < ActiveSupport::TestCase
     location = locations(:one)
     meetup = Meetup.new(title: 'TestMeetupTitle',
                         requirements: 'TestMeetupRequirementes',
-                        date: Date.today,
-                        confirmation_mail: false,
-                        location_id: location.id)
+                        confirmation_mail: false)
     assert_not_equal meetup.valid?, true,
                      'Meetup is valid without a Description'
     puts 'Test: Meetup -> Invalid without description'
@@ -38,20 +34,9 @@ class MeetupTest < ActiveSupport::TestCase
     location = locations(:one)
     meetup = Meetup.new(title: 'TestMeetupTitle',
                         description: 'TestMeetupDescription',
-                        date: Date.today,
-                        confirmation_mail: false,
-                        location_id: location.id)
+                        confirmation_mail: false)
     assert_not_equal meetup.valid?, true,
                      'Meetup is valid without a Requirements'
     puts 'Test: Meetup -> Invalid without requirements'
-  end
-  test 'Invalid without location' do
-    meetup = Meetup.new(title: 'TestMeetupTitle',
-                        description: 'TestMeetupDescription',
-                        date: Date.today,
-                        confirmation_mail: false)
-    assert_not_equal meetup.valid?, true,
-                     'Meetup is valid without a Location'
-    puts 'Test: Meetup -> Invalid without location'
   end
 end

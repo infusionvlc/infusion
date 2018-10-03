@@ -45,33 +45,88 @@
         </div>
       <% end %>
     <% end %>
-    <% if @meetup.date && @meetup.date <= Date.today %>
+
+    <h2 class="section-title"><%= I18n.t 'meetup.sessions' %></h2>
+    <% @meetup.sessions.each do |session| %>
+      <div class="card">
+        <div class="card-body">
+          <% if session.event %>
+            <h3><%= session.event.date %> @ <%= link_to session.location.name, session.location %></h3>
+            <p><%= session.start.strftime('%H:%M') %> - <%= session.end.strftime('%H:%M') %></p>
+          <% else %>
+            <%= link_to I18n.t('session.ranking'), ranking_path %>
+          <% end %>
+          <% if session.took_place? %>
+            <% if policy(session).vote? %>
+              <br/>
+              <p><%= I18n.t 'meetup.call_to_action_assisted' %></p>
+              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assisted' %><% end %>
+            <% elsif !user_signed_in? %>
+              <p><%= I18n.t 'meetup.call_to_action_no_user_assisted' %></p>
+              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+            <% end %>
+            <% if policy(session).comment? %>
+              <div class="card">
+                <div class="card-body">
+                  <h3><%= I18n.t 'meetup.review' %></h3>
+                  <%= form_for [@meetup, session, session.assistances.find_by_user_id(current_user.id)] do |f| %>
+                    <div class="row">
+                      <div class="field col-2">
+                        <%= f.label :mark %><br />
+                        <%= f.select :mark, [5,4,3,2,1], {}, class: 'form-control' %>
+                      </div><br/>
+                      <div class="field col-10">
+                        <%= f.label :review %><br />
+                        <%= f.text_field :review, autofocus: true, class: 'form-control', id:'new_field' %>
+                      </div><br/>
+                    </div><br/>
+                    <%= f.submit class: 'btn btn-primary right', id:'new_comment' %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <br/>
+          <% elsif session.taking_place? %>
+            <% if policy(session).vote? %>
+              <br/>
+              <p><%= I18n.t 'meetup.call_to_action_assist' %></p>
+              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assist' %><% end %>
+            <% elsif policy(session).unvote? %>
+              <br/>
+              <p><%= I18n.t 'meetup.unvote' %></p>
+              <%= link_to unvote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
+            <% elsif !user_signed_in? %>
+              <p><%= I18n.t 'meetup.call_to_action_no_user_assist' %></p>
+              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+            <% end %>
+          <% else %>
+            <% if policy(session).vote? %>
+              <br/>
+              <p><%= I18n.t 'meetup.call_to_action' %></p>
+              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'main.vote' %><% end %>
+            <% elsif policy(session).unvote? %>
+              <br/>
+              <p><%= I18n.t 'meetup.unvote' %></p>
+              <%= link_to unvote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
+            <% elsif user_signed_in? %>
+              <p><%= I18n.t 'meetup.already_voted' %></p>
+            <% else %>
+              <p><%= I18n.t 'meetup.call_to_action_no_user' %></p>
+              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @meetup.took_place? %>
       <h2 class="section-title"><%= I18n.t 'meetup.reviews' %></h2>
       <% if @reviews.count == 0 %>
         <p><%= I18n.t 'meetup.no_reviews' %></p>
       <% end %>
     <% end %>
-    <% if policy(@meetup).comment? %>
-      <div class="card">
-        <div class="card-body">
-          <h3><%= I18n.t 'meetup.review' %></h3>
-          <%= form_for [@meetup, @meetup.assistances.find_by_user_id(current_user.id)] do |f| %>
-            <div class="row">
-              <div class="field col-2">
-                <%= f.label :mark %><br />
-                <%= f.select :mark, [5,4,3,2,1], {}, class: 'form-control' %>
-              </div><br/>
-              <div class="field col-10">
-                <%= f.label :review %><br />
-                <%= f.text_field :review, autofocus: true, class: 'form-control', id:'new_field' %>
-              </div><br/>
-            </div><br/>
-            <%= f.submit class: 'btn btn-primary right', id:'new_comment' %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-    <br/>
+
+
     <% @reviews.each do |review| %>
       <!-- Modal -->
       <div class="modal fade" id="reviewReportModal_<%= review.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -90,8 +145,7 @@
             <%= link_to (fa_icon 'exclamation-triangle '), "#", data: {toggle: "modal", target: var_modal} , class:'right' %>
           <% end %>
           <% if policy(review).edit? %>
-            <!-- <%= link_to edit_meetup_assistance_path(@meetup, review), class:'right' do %><%= fa_icon 'pencil' %><% end %> -->
-              <a href='#' class='right edit_comment' id='edit_comment_<%= review.id %>'><%= fa_icon 'pencil' %></a>
+            <a href='#' class='right edit_comment' id='edit_comment_<%= review.id %>'><%= fa_icon 'pencil' %></a>
           <% end %>
           <div id='info_<%= review.id %>'>
             <%= render partial: 'review_info', locals: {review: review} %>
@@ -115,6 +169,10 @@
         </button>
       <% end %>
 
+      <% if policy(@meetup).repeat? %>
+          <%= link_to repeat_meetup_path(@meetup), method: :post, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'repeat' %> <%= I18n.t 'meetup.repeat' %><% end %>
+      <% end %>
+
       <% if policy(@meetup).leave? %>
           <%= link_to leave_meetup_path(@meetup), method: :post, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'sign-out' %> <%= I18n.t 'meetup.leave' %><% end %>
       <% end %>
@@ -132,55 +190,6 @@
         <%= link_to image_tag("https://img.youtube.com/vi/#{video(@meetup)}/hqdefault.jpg", class: 'huge-logo'),
                     "https://www.youtube.com/watch?v=#{video(@meetup)}", target: '_blank' %>
         <br/>
-      <% end %>
-
-      <% if @meetup.took_place? %>
-        <br/>
-        <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>
-        <p><%= @meetup.location.name %></p>
-        <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
-        <p><%= I18n.l @meetup.date %> | <%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
-        <% if policy(@meetup).vote? %>
-          <br/>
-          <p><%= I18n.t 'meetup.call_to_action_assisted' %></p>
-          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assisted' %><% end %>
-        <% elsif !user_signed_in? %>
-          <p><%= I18n.t 'meetup.call_to_action_no_user_assisted' %></p>
-          <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
-        <% end %>
-      <% elsif @meetup.taking_place? %>
-        <br/>
-        <h2><%= I18n.t 'activerecord.model.location', count: 1 %></h2>
-        <p><%= @meetup.location.name %></p>
-        <h2><%= I18n.t 'activerecord.attributes.meetup.date' %></h2>
-        <p><%= I18n.l @meetup.date %> | <%= @meetup.start.strftime('%H:%M') %> - <%= @meetup.end.strftime('%H:%M') %></p>
-        <% if policy(@meetup).vote? %>
-          <br/>
-          <p><%= I18n.t 'meetup.call_to_action_assist' %></p>
-          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assist' %><% end %>
-        <% elsif policy(@meetup).unvote? %>
-          <br/>
-          <p><%= I18n.t 'meetup.unvote' %></p>
-          <%= link_to unvote_meetup_path(@meetup), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
-        <% elsif !user_signed_in? %>
-          <p><%= I18n.t 'meetup.call_to_action_no_user_assist' %></p>
-          <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
-        <% end %>
-      <% else %>
-        <% if policy(@meetup).vote? %>
-          <br/>
-          <p><%= I18n.t 'meetup.call_to_action' %></p>
-          <%= link_to vote_meetup_path(@meetup), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'main.vote' %><% end %>
-        <% elsif policy(@meetup).unvote? %>
-          <br/>
-          <p><%= I18n.t 'meetup.unvote' %></p>
-          <%= link_to unvote_meetup_path(@meetup), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
-        <% elsif user_signed_in? %>
-          <p><%= I18n.t 'meetup.already_voted' %></p>
-        <% else %>
-          <p><%= I18n.t 'meetup.call_to_action_no_user' %></p>
-          <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
-        <% end %>
       <% end %>
       <br/>
       <h3><%= I18n.t 'activerecord.attributes.meetup.holdings.other' %></h3>
