@@ -247,7 +247,7 @@ en:
     assistants:
       one:                  "1 assistant"
       other:                "%{count} assistants"
-    archived:                "Archive this meetup"
+    archive:                "Archive this meetup"
     edit:                   "Edit"
     destroy:                "Cancel"
     unvote:                 "Have you changed your mind? Don't worry, you can undo your vote"

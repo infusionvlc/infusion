@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Assistance < ApplicationRecord
   include Feed
   has_one :activity, as: :objective, dependent: :destroy

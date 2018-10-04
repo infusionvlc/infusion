@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AssistancesController < ApplicationController
     before_action :set_assistance, only: %i[show edit update destroy]
 

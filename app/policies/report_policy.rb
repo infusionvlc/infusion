@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportPolicy
   attr_reader :user, :report
 

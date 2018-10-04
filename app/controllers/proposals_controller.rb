@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: %i[show edit update destroy vote]
 

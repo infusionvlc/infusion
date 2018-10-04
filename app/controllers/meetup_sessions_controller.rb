@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MeetupSessionsController < ApplicationController
   before_action :set_meetup_session, only: %i[vote unvote confirm delay]
 
