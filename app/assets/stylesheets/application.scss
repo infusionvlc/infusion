@@ -207,10 +207,7 @@ h5 {
   padding-top: 5vh;
 }
 
-.flag {
-  width: 20px; 
-  height: 20px;
-}
+//flag
 
 .fluid {
   margin: 0 auto;
@@ -406,26 +403,6 @@ label {
   display: table-cell;
 }
 
-ul {
-  list-style:none;
-}
-
-ul ul {
-  display:none;
-  position:absolute;
-  min-width:130px;
-  background:#eee;
-  padding:0;
-}
-      
-ul li:hover > ul {
- display:block;
-}
-
-ul ul li {
- float:none;
- width:140px
-}
 
 .v-center {
   vertical-align: center !important;

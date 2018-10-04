@@ -22,10 +22,12 @@ class ApplicationController < ActionController::Base
     @locale = I18n.locale = locale
   end
 
-  # Sets the locale cookie
-  def set_locale_cookie(locale)
-    cookies['locale'] = locale.to_s
+  
+  def set_locale
+    I18n.locale = current_user.try(:locale) || I18n.default_locale
   end
+
+ 
 
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale
