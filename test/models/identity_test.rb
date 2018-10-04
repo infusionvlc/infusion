@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ~/test/models/identity_test.rb
 # Actualmente:
 #     - UID

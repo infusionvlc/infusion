@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ProposalsHelper
   def proposal_votes(proposal)
     count = proposal.votes.size

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAttachmentFileToAttachments < ActiveRecord::Migration[5.1]
   def self.up
     change_table :attachments do |t|

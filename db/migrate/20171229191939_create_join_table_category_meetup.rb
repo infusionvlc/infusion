@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableCategoryMeetup < ActiveRecord::Migration[5.1]
   def change
     create_join_table :categories, :meetups do |t|

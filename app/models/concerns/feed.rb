@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Feed
   extend ActiveSupport::Concern
   def create_activity(user_id)

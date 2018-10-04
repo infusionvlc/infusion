@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveFieldsFromMeetups < ActiveRecord::Migration[5.1]
   def change
     Meetup.find_each do |meetup|
