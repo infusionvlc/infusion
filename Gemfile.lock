@@ -923,6 +923,10 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    tinymce-rails (4.8.3)
+      railties (>= 3.1.1)
+    tinymce-rails-langs (4.20180103)
+      tinymce-rails (~> 4.1, >= 4.1.10)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -989,10 +993,12 @@ DEPENDENCIES
   sass-rails
   selenium-webdriver
   simplecov
+  tinymce-rails
+  tinymce-rails-langs
   turbolinks
   tzinfo-data
   uglifier
   web-console
 
 BUNDLED WITH
-   1.16.4
+   1.16.5
