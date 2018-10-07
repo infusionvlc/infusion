@@ -116,15 +116,15 @@ class MeetupsController < ApplicationController
     redirect_to(meetups_path)
   end
 
-    # POST /meetups/1//leave
-    def leave
-      authorize @meetup
-      @meetup.holdings.where(user_id: current_user.id).first.destroy
-      @meetup.holdings.each do |host|
-      MeetupMailer.notify_abandon(@meetup, host.user, current_user).deliver
-      end
-      redirect_to(meetup_path(@meetup), alert: I18n.t('main.abandon'))
+  # POST /meetups/1//leave
+  def leave
+    authorize @meetup
+    @meetup.holdings.where(user_id: current_user.id).first.destroy
+    @meetup.holdings.each do |host|
+    MeetupMailer.notify_abandon(@meetup, host.user, current_user).deliver
     end
+    redirect_to(meetup_path(@meetup), alert: I18n.t('main.abandon'))
+  end
 
   private
 

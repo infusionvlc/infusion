@@ -56,4 +56,11 @@ class MeetupsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
   end
+
+  test 'should leave a meetup' do
+    sign_in users(:one)
+    post leave_meetup_path 1
+    follow_redirect!
+    assert_response :success
+  end
 end
