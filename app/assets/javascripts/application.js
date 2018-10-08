@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require showdown.min
+//= require tinymce
 //= require_tree .
 
 $(function() {

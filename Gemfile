@@ -17,13 +17,14 @@ gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 
-
 gem 'bootstrap'
+gem 'bootstrap4-kaminari-views'
 gem 'font-awesome-rails'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'bootstrap4-kaminari-views'
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
 
 gem 'cocoon'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
