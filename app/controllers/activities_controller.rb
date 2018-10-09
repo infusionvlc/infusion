@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy vote]
 

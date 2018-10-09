@@ -23,9 +23,9 @@
     <%= f.label :description %><br>
     <%= f.text_field :description, class:'form-control' %>
   </div>
-  
+
   <br/>
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit class: 'btn btn-primary', value: I18n.t('report.create') %>
   </div>
 <% end %>

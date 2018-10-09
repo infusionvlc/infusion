@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/infusionvlc/infusion/tree/master.svg?style=svg)](https://circleci.com/gh/infusionvlc/infusion/tree/master)
-[![security](https://hakiri.io/github/infusionvlc/infusion/master.svg)](https://hakiri.io/github/infusionvlc/infusion/master) [![Maintainability](https://api.codeclimate.com/v1/badges/ba2c255c923866e968db/maintainability)](https://codeclimate.com/github/infusionvlc/infusion/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ba2c255c923866e968db/test_coverage)](https://codeclimate.com/github/infusionvlc/infusion/test_coverage) [![Inline docs](http://inch-ci.org/github/infusionvlc/infusion.svg?branch=master)](http://inch-ci.org/github/infusionvlc/infusion) [![Dependency Status](https://beta.gemnasium.com/badges/github.com/infusionvlc/infusion.svg)](https://beta.gemnasium.com/projects/github.com/infusionvlc/infusion)
+[![security](https://hakiri.io/github/infusionvlc/infusion/master.svg)](https://hakiri.io/github/infusionvlc/infusion/master) [![Maintainability](https://api.codeclimate.com/v1/badges/ba2c255c923866e968db/maintainability)](https://codeclimate.com/github/infusionvlc/infusion/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ba2c255c923866e968db/test_coverage)](https://codeclimate.com/github/infusionvlc/infusion/test_coverage) [![Inline docs](http://inch-ci.org/github/infusionvlc/infusion.svg?branch=master)](http://inch-ci.org/github/infusionvlc/infusion) <img src="https://opencollective.com/infusionvlc/tiers/sponsor/badge.svg?label=sponsor&color=brightgreen" /> <img src="https://opencollective.com/infusionvlc/tiers/backer/badge.svg?label=backer&color=brightgreen" />
 
 # INFUSIÓN
 ## Meetups por el empoderamiento digital
@@ -15,3 +15,10 @@ Nuestro equipo está formado por personas con experiencias muy diversas: desde d
 Si te animas, [puedes enviarnos un email](mailto:hola@infusionvlc.com) 📮 y contarnos más sobre ti y en qué quieres echarnos una mano. Te enviaremos una invitación a nuestro equipo de trabajo.
 
 Si estás interesado/a en colaborar con nosotros en el desarrollo de la web, puedes encontrar las instrucciones en castellano, valenciano e inglés en [nuestra wiki](https://github.com/infusionvlc/infusion/wiki) 📓.
+
+
+### Open Collective
+
+¡Muchas gracias a todos los backers y los sponsors que aportáis vuestro granito de arena! [Tú también puedes unirte](https://opencollective.com/infusionvlc)
+
+<a href="https://opencollective.com/infusionvlc#backers" target="_blank"><img src="https://opencollective.com/infusionvlc/backers.svg?width=890"></a>

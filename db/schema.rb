@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180824212817) do
+ActiveRecord::Schema.define(version: 2018_09_09_151542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20180824212817) do
 
   create_table "assistances", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "meetup_id"
+    t.bigint "session_id"
     t.integer "mark", default: 0
     t.text "review"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meetup_id"], name: "index_assistances_on_meetup_id"
+    t.index ["session_id"], name: "index_assistances_on_session_id"
     t.index ["user_id"], name: "index_assistances_on_user_id"
   end
 
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.datetime "updated_at", null: false
     t.string "file_file_name"
     t.string "file_content_type"
-    t.integer "file_file_size"
+    t.bigint "file_file_size"
     t.datetime "file_updated_at"
     t.index ["meetup_id"], name: "index_attachments_on_meetup_id"
   end
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(version: 20180824212817) do
   create_table "categories_meetups", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "meetup_id", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "holdings", force: :cascade do |t|
@@ -88,15 +94,18 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.string "title"
     t.text "description"
     t.text "requirements"
+<<<<<<< HEAD
     t.date "date"
     t.time "start", default: "2000-01-01 16:00:00"
     t.time "end", default: "2000-01-01 18:00:00"
+=======
+>>>>>>> 1e762f0fae658bb1f89d67c1ddfe61e160ade4a1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
-    t.integer "location_id"
     t.string "video_url"
-    t.boolean "archived", default: false
+    t.boolean "archived", default: true
+    t.boolean "on_ranking"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -115,7 +124,7 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.datetime "updated_at", null: false
     t.string "file_file_name"
     t.string "file_content_type"
-    t.integer "file_file_size"
+    t.bigint "file_file_size"
     t.datetime "file_updated_at"
     t.index ["meetup_id"], name: "index_photos_on_meetup_id"
   end
@@ -148,6 +157,19 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "location_id"
+    t.bigint "meetup_id"
+    t.time "start"
+    t.time "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_sessions_on_event_id"
+    t.index ["location_id"], name: "index_sessions_on_location_id"
+    t.index ["meetup_id"], name: "index_sessions_on_meetup_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -165,7 +187,7 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.string "locale", default: "es"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.integer "avatar_file_size"
+    t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer "role_id", default: 1
     t.text "bio", default: ""
@@ -186,7 +208,7 @@ ActiveRecord::Schema.define(version: 20180824212817) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "assistances", "meetups"
+  add_foreign_key "assistances", "meetups", column: "session_id"
   add_foreign_key "assistances", "users"
   add_foreign_key "attachments", "meetups"
   add_foreign_key "holdings", "meetups"
@@ -194,6 +216,9 @@ ActiveRecord::Schema.define(version: 20180824212817) do
   add_foreign_key "identities", "users"
   add_foreign_key "photos", "meetups"
   add_foreign_key "proposals", "users"
+  add_foreign_key "sessions", "events"
+  add_foreign_key "sessions", "locations"
+  add_foreign_key "sessions", "meetups"
   add_foreign_key "votes", "proposals"
   add_foreign_key "votes", "users"
 end

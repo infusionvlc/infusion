@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AssistancePolicy
     attr_reader :user, :assistance
 
@@ -29,7 +31,9 @@ class AssistancePolicy
     end
 
     def update?
-      !@user.nil? && @assistance.user == @user && !@assistance.meetup.holdings.where(user_id: @user.id).exists?
+      !@user.nil? && @assistance.user == @user && \
+                    !@assistance.session.meetup.holdings
+                                .where(user_id: @user.id).exists?
     end
 
     def edit?

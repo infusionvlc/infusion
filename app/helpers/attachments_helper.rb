@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AttachmentsHelper
   def file_icon(attachment)
     type = attachment.file_content_type

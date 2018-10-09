@@ -1,95 +1,63 @@
+# frozen_string_literal: true
+
 class MeetupsController < ApplicationController
-  before_action :set_meetup, only: %i[show edit update destroy vote unvote confirm delay leave]
+  before_action :set_meetup, only: %i[show edit update destroy leave]
 
   include MarkdownConcern
 
   # GET /meetups
   # GET /meetups.json
   def index
-    @next_meetup = Meetup.active.where('date >= ?', Date.today).first
-    @most_recent = Meetup.active.where('date < ?', Date.today).order('date DESC')
-                         .first(3)
-    @most_popular = Meetup.active.where('date < ?', Date.today)
-                          .left_joins(:assistances).group(:id)
+    @next_sessions = Event.where('events.date >= ?', Date.today)
+                          .order('date ASC').first&.sessions
+
+    @most_recent = Meetup.active.joins(:events).where('events.date < ?', Date.today)
+                         .order('date DESC').first(3)
+    @most_popular = Meetup.active.joins(:events).where('events.date < ?', Date.today)
+                          .joins("LEFT OUTER JOIN sessions AS meetup_sessions ON " +
+                                 "meetup_sessions.meetup_id = meetups.id LEFT OUTER JOIN " +
+                                 "assistances ON assistances.session_id = meetup_sessions.id")
+                          .group(:id)
                           .order('COUNT(assistances.id) DESC').first(3)
   end
 
   # GET /ranking
   # GET /ranking.json
   def ranking
-    @meetups = Meetup.active.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC').page params[:page]
+    @meetups = Meetup.active.where(on_ranking: true)
+                     .joins("LEFT OUTER JOIN sessions AS meetup_sessions ON " +
+                            "meetup_sessions.meetup_id = meetups.id LEFT OUTER JOIN " +
+                            "assistances ON assistances.session_id = meetup_sessions.id")
+                     .group(:id)
+                     .order('COUNT(assistances.id) DESC').page params[:page]
   end
 
   # GET /archive
   # GET /archive.json
   def archive
-    @meetups = Meetup.active.where('date < ?', Date.today).order(date: :desc).page params[:page]
+    @meetups = Meetup.active.joins(:events).where('events.date < ?', Date.today)
+                     .order('events.date DESC').page params[:page]
   end
 
   # GET /meetups/1
   # GET /meetups/1.json
   def show
     authorize @meetup
-    @video = @meetup.video_url[/=(.*)/][1..-1] if (@meetup.video_url && @meetup.video_url.length > 0)
-    @reviews = @meetup.assistances.where.not(review: nil).order(created_at: :desc).page(params[:page])
+    @video = @meetup.video_url[/=(.*)/][1..-1] if (@meetup.video_url && \
+                                                   @meetup.video_url.length.positive?)
+    @reviews = @meetup.assistances.where.not(review: nil).order(created_at: :desc)
+                      .page(params[:page])
     @reportable_type = 'Meetup'
-  end
-
-  # POST /meetups/1/vote
-  def vote
-    authorize @meetup
-    MeetupMailer.subscribed_to(@meetup, current_user).deliver
-    @meetup.assistances.create(user_id: current_user.id)
-    redirect_back(fallback_location: meetup_path(@meetup), alert: I18n.t('main.saved_vote'))
-  end
-
-  # POST /meetups/1/unvote
-  def unvote
-    authorize @meetup
-    @meetup.assistances.where(user_id: current_user.id).first.destroy
-    redirect_back(fallback_location: meetup_path(@meetup), alert: I18n.t('main.deleted_vote'))
-  end
-
-  # POST /meetups/1/leave
-  def leave
-    authorize @meetup
-    @meetup.holdings.where(user_id: current_user.id).first.destroy
-    @meetup.holdings.each do |host|
-      MeetupMailer.notify_abandon(@meetup, host.user, current_user).deliver
-    end
-    redirect_to(meetup_path(@meetup), alert: I18n.t('main.abandon'))
-  end
-
-  # POST /meetups/1/confirm
-  def confirm
-    authorize @meetup
-    @meetup.update(date: Date.today.monday + 4, confirmation_mail: false)
-    @meetup.assistances.each do |assistance|
-      MeetupMailer.notify_publication(@meetup, assistance.user).deliver
-    end
-    redirect_to @meetup, alert: I18n.t('main.confirmed')
-  end
-
-  # POST /meetups/1/delay
-  def delay
-    authorize @meetup
-    @meetup.update(confirmation_mail: false)
-    next_meetup = Meetup.where(date: nil).where.not(id: @meetup.id).left_joins(:assistances).group(:id).having('COUNT(assistances.id) <= ?', @meetup.assistances.count).order('COUNT(assistances.id) DESC').first
-    MeetupMailer.ask_for_confirmation(next_meetup, next_meetup.holdings.first.user).deliver
-    next_meetup.update(confirmation_mail: true)
-    redirect_to @meetup, alert: I18n.t('main.delayed')
   end
 
   # GET /meetups/new
   def new
     @meetup = Meetup.new
-    @location = Location.where(active: true).first
     authorize @meetup
   end
 
   # GET /meetups/1/edit
   def edit
-    @location = Location.where(active: true).first
     authorize @meetup
   end
 
@@ -97,11 +65,11 @@ class MeetupsController < ApplicationController
   # POST /meetups.json
   def create
     @meetup = Meetup.new(meetup_params)
-    @location = Location.where(active: true).first
+    @meetup.on_ranking = true
     authorize @meetup
-    @meetup.location = @location
     respond_to do |format|
       if @meetup.save
+        @meetup.sessions.create(location_id: Location.where(active: true).first.id)
         @activity = @meetup.create_activity(current_user.id)
         @notifications = @activity.create_notification
         @meetup.holdings.create(user_id: current_user.id)
@@ -124,7 +92,6 @@ class MeetupsController < ApplicationController
   # PATCH/PUT /meetups/1
   # PATCH/PUT /meetups/1.json
   def update
-    @location = Location.where(active: true).first
     authorize @meetup
     respond_to do |format|
       if @meetup.update(meetup_params)
@@ -149,11 +116,23 @@ class MeetupsController < ApplicationController
     redirect_to(meetups_path)
   end
 
+  # POST /meetups/1//leave
+  def leave
+    authorize @meetup
+    @meetup.holdings.where(user_id: current_user.id).first.destroy
+    @meetup.holdings.each do |host|
+    MeetupMailer.notify_abandon(@meetup, host.user, current_user).deliver
+    end
+    redirect_to(meetup_path(@meetup), alert: I18n.t('main.abandon'))
+  end
+
   private
 
   def notify_collaborators
     @meetup.holdings.each do |host|
-      MeetupMailer.notify_collaboration(@meetup, host.user).deliver if host.user != current_user
+      if host.user != current_user
+        MeetupMailer.notify_collaboration(@meetup, host.user).deliver
+      end
     end
   end
 
@@ -169,10 +148,8 @@ class MeetupsController < ApplicationController
       :description,
       :archived,
       :requirements,
-      :date,
-      :start,
-      :end,
       :video_url,
+      :on_ranking,
       holdings_attributes:    [:id, :user_id, :role, :_destroy],
       photos_attributes:      [:id, :file,
                                :attribution, :meetup_id, :_destroy],

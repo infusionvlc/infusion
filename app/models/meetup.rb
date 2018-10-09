@@ -1,15 +1,18 @@
+# frozen_string_literal: true
+
 class Meetup < ApplicationRecord
   include Feed
 
   scope :active, -> { where(archived: false) }
+
+  has_many :sessions, dependent: :destroy
+  has_many :events, through: :sessions
 
   has_one :activity, as: :objective, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
 
   has_many :holdings, dependent: :destroy
   has_many :hosts, through: :holdings, source: :user
-
-  belongs_to :location
 
   has_and_belongs_to_many :categories
 
@@ -20,6 +23,7 @@ class Meetup < ApplicationRecord
   accepts_nested_attributes_for :attachments, allow_destroy: true
   accepts_nested_attributes_for :photos, allow_destroy: true
 
+<<<<<<< HEAD
   has_many :assistances, dependent: :destroy
   has_many :assistants, through: :assistances, source: :user
 
@@ -27,18 +31,34 @@ class Meetup < ApplicationRecord
   validates :description, presence: true, length: {minimum: 256}
   validates :requirements, presence: true, length: {minimum: 4}
   validates :location, presence: true
+=======
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :requirements, presence: true
+
+  def date
+    sessions.joins(:event).all.last&.event&.date
+  end
+
+  def assistances
+    sessions.map { |session| session.assistances }
+            .reduce(:concat) || Assistance.none
+  end
+>>>>>>> 1e762f0fae658bb1f89d67c1ddfe61e160ade4a1
 
   def taking_place?
-    !date.nil? && date >= Date.today
+    date = sessions.last&.event&.date
+    date >= Date.today if date
   end
 
   def took_place?
-    !date.nil? && date < Date.today
+    date = sessions.last&.event&.date
+    date <= Date.today if date
   end
 
   def average_rating
-    marks = assistances.where.not(mark: 0).pluck(:mark)
-    if marks.count > 0
+    marks = sessions.collect(&:average_rating)
+    if marks.count.positive?
       marks.sum / marks.count
     else
       0

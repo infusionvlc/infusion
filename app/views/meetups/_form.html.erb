@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_for(@meetup, :html => { multipart: true }) do |f| %>
   <div class="field">
     <%= f.label :title %><br />
@@ -159,3 +160,165 @@
   });
 
 </script>
+=======
+<%= form_for(@meetup, :html => { multipart: true }) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div><br/>
+  <% if @meetup.taking_place? or @meetup.took_place? %>
+    <div class="field">
+        <%= f.label :video_url %><br />
+        <%= f.text_field :video_url, class: 'form-control' %>
+    </div><br/>
+  <% end %>
+  <div class="field">
+    <%= f.label :categories %><br />
+    <div class="row">
+      <% Category.all.each do |category| %>
+        <div class="col-sm-12 col-md-4">
+          <%= check_box_tag "meetup[category_ids][]", category.id, f.object.categories.include?(category) %>
+          <%= category.display_name %><br/>
+        </div>
+      <% end %>
+    </div>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= f.text_area :description, class: 'form-control', id:'description_edit' %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <p id="description_view" class="description"></p>
+      </div>
+    </div>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :requirements %><br />
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= f.text_area :requirements, class: 'form-control', id:'requirements_edit' %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <p id="requirements_view"></p>
+      </div>
+    </div>
+  </div><br/>
+
+  <hr/>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div id="attachments field">
+        <h2><%= I18n.t 'activerecord.attributes.meetup.attachments' %></h2>
+        <%= f.fields_for :attachments do |f| %>
+          <div class="form-group row">
+            <%= f.text_field :file_file_name, class:'form-control col-sm-11 col-form-label', disabled: true %>
+            <div class="col-sm-1">
+              <%= f.check_box :_destroy %>
+              <%= f.label :_destroy, "Remove" %>
+            </div>
+          </div>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association f, :attachments, class:'btn btn-primary' do %><%= fa_icon 'plus' %> <%= I18n.t 'main.add' %><% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div id="photos field">
+        <h2><%= I18n.t 'activerecord.attributes.meetup.photos' %></h2>
+        <%= f.fields_for :photos do |f| %>
+          <div class="card" style="width: 18rem;">
+            <%= image_tag f.object.file.url, class:'card-img-top' %>
+            <div class="card-body">
+              <%= f.text_area :attribution, class:'form-control col-sm-11 col-form-label' %><br/>
+              <%= f.check_box :_destroy %>
+              <%= f.label :_destroy, "Remove" %>
+            </div>
+          </div>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association f, :photos, class:'btn btn-primary' do %><%= fa_icon 'plus' %> <%= I18n.t 'main.add' %><% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="alert alert-warning" role="alert">
+    <%= I18n.t 'main.allowed_files' %>
+  </div>
+  <hr/>
+  <% if policy(@meetup).add_host? %>
+    <div id="holdings field">
+      <h2><%= I18n.t 'activerecord.attributes.meetup.holdings.other' %></h2>
+      <div class="row">
+        <%= f.fields_for :holdings do |h| %>
+          <div class="card-container col-sm-12 col-md-2">
+            <div class="card">
+              <div class="field card-body center">
+                <div style="width: 80%; margin: 0 auto"><div class="avatar" style="background-image: url(<%= h.object.user.avatar.url %>)"></div></div><br/>
+                <p><%= h.object.user.username %><p>
+                <% if h.object.user != current_user %>
+                  <%= h.select(:role, [["Admin", 0],["Mod", 1], ["Plain", 2]], {}, {class:'form-control'}) %><br/>
+                  <%= h.check_box :_destroy %>
+                  <%= h.label :_destroy %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="links">
+        <%= link_to_add_association f, :holdings, class:'btn btn-primary' do %><%= fa_icon 'plus' %> <%= I18n.t 'main.add' %><% end %>
+      </div>
+    </div>
+    <hr/>
+  <% end %>
+
+  <% if @meetup.taking_place? %>
+    <div class="field">
+        <%= f.label :start %><br />
+        <%= f.time_field :start, class: 'form-control' %>
+    </div><br/>
+
+    <div class="field">
+        <%= f.label :end %><br />
+        <%= f.time_field :end, class: 'form-control' %>
+    </div>
+  <% end %>
+  <br/>
+  <div class="actions">
+    <%= f.check_box :archived %> <%= f.label :archived, I18n.t('meetup.archive') %> <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<script>
+  var converter = new showdown.Converter({simplifiedAutoLink: true, openLinksInNewWindow: true, emoji: true});
+
+  function autosize(el){
+    setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:0';
+      el.style.cssText = 'height:' + (el.scrollHeight + 5) + 'px';
+    },0);
+  };
+
+  $("#description_edit").keyup(function() {
+    $('#description_view').html(converter.makeHtml(this.value));
+    autosize(this);
+  });
+
+  $( "#requirements_edit" ).keyup(function() {
+    $('#requirements_view').html(converter.makeHtml(this.value));
+    autosize(this);
+  });
+
+  $(document).on('turbolinks:load', function(){
+    $('#description_edit').keyup();
+    $('#requirements_edit').keyup();
+  });
+
+</script>
+>>>>>>> 1e762f0fae658bb1f89d67c1ddfe61e160ade4a1

@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.1.5'
+gem 'rails'
 gem 'pg', "~> 0.18"
 gem 'puma'
 gem 'sass-rails'
@@ -43,7 +43,6 @@ gem 'awesome_print', require: 'ap'
 gem 'devise-i18n'
 
 gem 'redcarpet'
-#gem 'showdown-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

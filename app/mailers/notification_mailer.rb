@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NotificationMailer < ApplicationMailer
   default from: 'INFUSIÓN <hola@infusionvlc.com>'
   def notify_proposal(activity, user)

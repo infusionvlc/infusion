@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProposalPolicy
   attr_reader :user, :proposal
 
