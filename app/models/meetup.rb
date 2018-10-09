@@ -23,6 +23,15 @@ class Meetup < ApplicationRecord
   accepts_nested_attributes_for :attachments, allow_destroy: true
   accepts_nested_attributes_for :photos, allow_destroy: true
 
+<<<<<<< HEAD
+  has_many :assistances, dependent: :destroy
+  has_many :assistants, through: :assistances, source: :user
+
+  validates :title, presence: true, length: {minimum: 4}
+  validates :description, presence: true, length: {minimum: 256}
+  validates :requirements, presence: true, length: {minimum: 4}
+  validates :location, presence: true
+=======
   validates :title, presence: true
   validates :description, presence: true
   validates :requirements, presence: true
@@ -35,6 +44,7 @@ class Meetup < ApplicationRecord
     sessions.map { |session| session.assistances }
             .reduce(:concat) || Assistance.none
   end
+>>>>>>> 1e762f0fae658bb1f89d67c1ddfe61e160ade4a1
 
   def taking_place?
     date = sessions.last&.event&.date

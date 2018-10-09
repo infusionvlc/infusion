@@ -94,6 +94,12 @@ ActiveRecord::Schema.define(version: 2018_09_09_151542) do
     t.string "title"
     t.text "description"
     t.text "requirements"
+<<<<<<< HEAD
+    t.date "date"
+    t.time "start", default: "2000-01-01 16:00:00"
+    t.time "end", default: "2000-01-01 18:00:00"
+=======
+>>>>>>> 1e762f0fae658bb1f89d67c1ddfe61e160ade4a1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"

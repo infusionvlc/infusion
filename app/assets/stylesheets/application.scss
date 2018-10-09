@@ -1,3 +1,486 @@
+<<<<<<< HEAD
+@import "bootstrap";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700,800,900');
+:root {
+	--grey_dark: #2e2e2e;
+	--grey_light: #6b6b6b;
+	--pink: #c7007c;
+	--yellow: #ffcd48;
+  --blue: #378eff;
+  --dark_blue: #1e6ed6;
+	--white: #ffffff;
+  --light_blue: #ddf6fa;
+  --card: #f3f3f3;
+  --purple: #2b0085;
+}
+
+body {
+  font-family: 'Catamaran', sans-serif;
+  color: var(--grey_dark);
+}
+
+.blue-text {
+  color: var(--blue);
+  font-weight: bolder;
+}
+
+.body-padding {
+  padding-bottom: 4em;
+}
+
+.navbar-brand img {
+  height: 20px;
+  margin-top: -10px;
+}
+
+h1 {
+  font-size: 3.5em;
+  font-weight: 900;
+  color: black;
+  border-bottom: 8px dotted var(--pink);
+  text-decoration: none;
+  width: auto;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+h5 {
+  font-weight: 500;
+}
+
+.alert {
+  border-radius: 0 !important;
+}
+
+.alert-warning {
+  background: var(--yellow);
+}
+
+.alert-info, .alert-success {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.alert-danger {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.avatar {
+  border-radius: 50%;
+  background-position: center center;
+  background-size: cover;
+  margin: 0 auto;
+  width: 100%;
+  height: 5;
+  padding-top: 100%;
+}
+
+.avatar-med {
+  max-width: 250px;
+}
+
+.avatar-small {
+  max-width: 100px;
+}
+
+.avatar-half {
+  width: 50%;
+}
+
+.badge-info {
+  color: var(--white) !important;
+  background: var(--pink);
+}
+
+.blue {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.blue .fa-inverse, .blue-text {
+  color: var(--blue);
+}
+
+.btn {
+  border-radius: 0;
+  color: white;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.btn-intro {
+  background: white;
+  border: 4px solid var(--pink);
+  border-radius: 900px;
+  color: var(--pink);
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.btn-intro:hover, .btn-speakers:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn-speakers {
+  background: white;
+  border: 4px solid var(--purple);
+  border-radius: 900px;
+  color: var(--purple);
+  font-size: 1.5em;
+  font-weight: 800;
+  margin: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.speech-bubble {
+  position: relative;
+  background: var(--pink);
+  border-radius: .4em;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-right-color: var(--pink);
+  border-left: 0;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.card {
+  border: none;
+  background: var(--card);
+  margin-bottom: 10px;
+  border-radius: 0;
+  padding: 1em;
+}
+
+.card-footer {
+  background: none;
+  border: none;
+}
+
+.card-header {
+  border: none;
+  background: none;
+}
+
+.card-container {
+  padding: 3px;
+}
+
+.center {
+  text-align: center;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.event-decription {
+  color: var(--grey_dark);
+  font-family: 'Catamaran', sans;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+}
+
+//flag
+
+.fluid {
+  margin: 0 auto;
+  text-align: center;
+  width: 55%;
+  //transform: rotate(20deg);
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.huge-logo {
+    width: 100%;
+}
+
+.big-logo {
+  width: 50%;
+}
+
+.large-text {
+  font-size: 4em;
+}
+
+.main-header {
+  background: white;
+  padding-bottom: 3em;
+  text-align: center;
+}
+
+.main-header h1 {
+  border: none;
+}
+
+.mini {
+  height: 1.5em;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+}
+
+.conduct-header {
+  background-image: linear-gradient(var(--white), var(--light_blue));
+  padding-bottom: 7em;
+  text-align: center;
+  clip-path: polygon(0 0,
+                       100% 0,
+                       0 100%,
+                       0 calc(100% - 5vw)
+  );
+}
+
+.jumbotron h1, .description h1 {
+  border-bottom: none;
+}
+
+label {
+  word-wrap: break-word;
+}
+
+.landing-container {
+  width: 50%;
+}
+
+.landing-date {
+  color: var(--pink);
+  font-family: 'Montserrat', sans;
+  font-size: 3em;
+  font-weight: 300;
+}
+
+.landing-icon {
+  width: 25%;
+}
+
+.landing-location {
+  color: var(--purple);
+  font-family: 'Montserrat', sans;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.landing-title {
+  color: var(--purple);
+  font-family: 'Catamaran', sans;
+  font-size: 5em;
+}
+
+.landing-title:hover {
+  text-decoration: none;
+}
+
+.magenta {
+    background: var(--pink);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.magenta-text {
+  color: var(--pink);
+}
+
+.med {
+  width: 15%;
+}
+
+.navbar {
+  background-color: white !important;
+  font-size: 1.2em;
+}
+
+.navbar a, .navbar span {
+  color: var(--grey_light);
+}
+
+.nested-fields {
+  margin-bottom: 10px;
+}
+
+.next-meetup-card {
+  background: var(--yellow);
+}
+
+.page-bg {
+  background: var(--white);
+}
+
+.popover {
+  border-radius: 0;
+}
+
+.pink-text {
+  color: var(--pink);
+  font-weight: bolder;
+}
+
+.purple-text {
+  color: var(--purple);
+  font-weight: bolder;
+}
+
+#quote {
+  margin-bottom: 7em;
+}
+
+.responsive-button {
+  font-size: 2em;
+}
+
+.right {
+  float: right;
+}
+
+.section-title {
+  color: var(--pink);
+}
+
+.show-tell-header {
+  background: url('/show_tell_web.png');
+  background-size: 100% auto;
+  margin-top: -20px;
+  padding-top: 4vh;
+}
+
+.show-tell-header > .container {
+  background: rgba(255,255,255,0.9);
+  padding: 3em;
+  width: 70%;
+}
+
+.small {
+  height: 5em;
+  margin: 1em;
+}
+
+.social-links {
+  float: right;
+}
+
+.social-links img{
+  width: 1.5em;
+}
+
+.speaker .huge-logo {
+  margin: 0;
+}
+
+.t-row {
+  display: table-row;
+}
+
+.t-cell {
+  display: table-cell;
+}
+
+
+.v-center {
+  vertical-align: center !important;
+}
+
+.value {
+  padding-bottom: 4em;
+}
+
+#description {
+  color: var(--white);
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+#mission {
+  color: black;
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
+#subtitles-pages {
+  color: var(--grey_light);
+}
+
+#values {
+  padding-top: 4em;
+  background-image: var(--blue);
+  padding-bottom: 1em;
+  text-align: center;
+  /*clip-path: polygon(0 0,
+                       100% 0,
+                       100% calc(100% - 5vw),
+                       0 100%
+  );*/
+}
+
+@media (max-width: 699px) {
+  .svg--lg {
+    display: none;
+  }
+
+  .speaker .col-md-3 {
+    margin-bottom: 2em;
+    text-align: center;
+  }
+
+  .speaker .huge-logo {
+    width: 60%;
+  }
+
+  .landing-container {
+    width: 100%;
+  }
+
+  .landing-title {
+    font-size: 3em;
+  }
+
+  .landing-date {
+    font-size: 1.4em;
+  }
+
+  .landing-location {
+    font-size: 0.9em;
+  }
+
+  .responsive-button {
+    font-size: 1.4em;
+  }
+}
+
+@media (min-width: 700px) {
+  .svg--sm {
+    display: none;
+  }
+=======
 @import "bootstrap";
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700,800,900');
@@ -559,4 +1042,5 @@ label {
   .svg--sm {
     display: none;
   }
+>>>>>>> 1e762f0fae658bb1f89d67c1ddfe61e160ade4a1
 }
