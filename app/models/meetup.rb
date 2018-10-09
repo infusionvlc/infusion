@@ -23,9 +23,9 @@ class Meetup < ApplicationRecord
   has_many :assistances, dependent: :destroy
   has_many :assistants, through: :assistances, source: :user
 
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :requirements, presence: true
+  validates :title, presence: true, length: {minimum: 4}
+  validates :description, presence: true, length: {minimum: 256}
+  validates :requirements, presence: true, length: {minimum: 4}
   validates :location, presence: true
 
   def taking_place?

@@ -22,13 +22,6 @@ class ApplicationController < ActionController::Base
     @locale = I18n.locale = locale
   end
 
-  
-  def set_locale
-    I18n.locale = current_user.try(:locale) || I18n.default_locale
-  end
-
- 
-
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale
   end
