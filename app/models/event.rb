@@ -6,7 +6,7 @@ class Event < ApplicationRecord
 
   validates :date, uniqueness: true
 
-  validate :date_is_in_the_future, :on => :create
+  validate :date_is_in_the_future, on: :create
 
   private
 
