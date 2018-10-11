@@ -31,7 +31,7 @@ module ActionDispatch
     include Capybara::Minitest::Assertions
 
     # Reset sessions and driver between tests
-    # Use super wherever this method is 
+    # Use super wherever this method is
     # redefined in your individual test classes
     def teardown
       Capybara.reset_sessions!
