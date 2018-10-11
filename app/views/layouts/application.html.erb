@@ -22,59 +22,59 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <%= link_to meetups_path, {class: "nav-link"} do %><%= fa_icon 'calendar-o' %> Meetups<% end %>
+            <%= link_to meetups_path, {class: "nav-link"} do %><%= icon('fas', 'calendar') %> Meetups<% end %>
           </li>
           <li class="nav-item">
-            <%= link_to ranking_path, {class: "nav-link"} do %><%= fa_icon 'arrow-up' %> Ranking<% end %>
+            <%= link_to ranking_path, {class: "nav-link"} do %><%= icon('fas', 'arrow-up') %> Ranking<% end %>
           </li>
           <li class="nav-item">
-            <%= link_to proposals_path, {class: "nav-link"} do %><%= fa_icon 'lightbulb-o' %> <%= I18n.t 'activerecord.model.proposal', count: 2 %><% end %>
+            <%= link_to proposals_path, {class: "nav-link"} do %><%= icon('fas', 'lightbulb') %> <%= I18n.t 'activerecord.model.proposal', count: 2 %><% end %>
           </li>
           <li class="nav-item">
-            <%= link_to archive_path, {class: "nav-link"} do %><%= fa_icon 'history' %> <%= I18n.t 'main.archive' %><% end %>
+            <%= link_to archive_path, {class: "nav-link"} do %><%= icon('fas', 'history') %> <%= I18n.t 'main.archive' %><% end %>
           </li>
           <li class="nav-item">
-            <%= link_to users_path, {class: "nav-link"} do %><%= fa_icon 'users' %> <%= I18n.t 'main.collaborators' %><% end %>
+            <%= link_to users_path, {class: "nav-link"} do %><%= icon('fas', 'users') %> <%= I18n.t 'main.collaborators' %><% end %>
           </li>
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to activities_path, {class: "nav-link"} do %><%= fa_icon 'bars' %> Feed<% end %>
+              <%= link_to activities_path, {class: "nav-link"} do %><%= icon('fas', 'bars') %> Feed<% end %>
             </li>
             <% if current_user.admin? %>
               <li class="nav-item">
-                <%= link_to reports_path, {class: "nav-link"} do %><%= fa_icon 'gavel' %> <%= I18n.t 'main.admin_panel' %><% end %>
+                <%= link_to reports_path, {class: "nav-link"} do %><%= icon('fas', 'gavel') %> <%= I18n.t 'main.admin_panel' %><% end %>
               </li>
             <% end %>
           <% end %>
           <li class="nav-item">
-            <%= link_to '/about', {class: "nav-link"} do %><%= fa_icon 'info-circle' %> About<% end %>
+            <%= link_to '/about', {class: "nav-link"} do %><%= icon('fas', 'info-circle') %> About<% end %>
           </li>
         </ul>
         <ul class="navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "/logout", {class: "nav-link"} do %><%= fa_icon 'sign-out' %> <%= I18n.t 'user.logout' %><% end %>
+              <%= link_to "/logout", {class: "nav-link"} do %><%= icon('fas', 'sign-out') %> <%= I18n.t 'user.logout' %><% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "/#{current_user.username}", {class: "nav-link"} do %><%= fa_icon 'user' %> <%= I18n.t 'user.my_profile' %><% end %>
+              <%= link_to "/#{current_user.username}", {class: "nav-link"} do %><%= icon('fas', 'user') %> <%= I18n.t 'user.my_profile' %><% end %>
             </li>
             <li class="nav-item">
               <span id="notifications-modal-trigger" class="nav-link" tabindex="0" role="button"
                 data-container="body" data-toggle="popover" data-html ="true" data-trigger="click"
                 data-placement="bottom" data-content="<%= "#{render 'activities/index'}" %>">
                 <% if @notifications.count > 0 %>
-                  <%= fa_icon 'bell' %> <span class="badge badge-pill badge-info"><%= @notifications.count %></span>
+                  <%= icon('fas', 'bell') %> <span class="badge badge-pill badge-info"><%= @notifications.count %></span>
                 <% else %>
-                  <%= fa_icon 'bell' %>
+                  <%= icon('fas', 'bell') %>
                 <% end %>
               </span>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to new_user_session_path, {class: "nav-link"} do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+              <%= link_to new_user_session_path, {class: "nav-link"} do %><%= icon('fas', 'sign-in') %> <%= I18n.t 'user.login' %><% end %>
             </li>
             <li class="nav-item">
-              <%= link_to new_user_registration_path, {class: "nav-link"} do %><%= fa_icon 'user-plus' %> <%= I18n.t 'user.signup' %><% end %>
+              <%= link_to new_user_registration_path, {class: "nav-link"} do %><%= icon('fas', 'user-plus') %> <%= I18n.t 'user.signup' %><% end %>
             </li>
           <% end %>
       </div>
