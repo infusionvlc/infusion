@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.where('date >= ?', Date.today).page(params[:page])
+    @events = Event.where('date >= ?', Date.today).order(date: :asc).page(params[:page])
     authorize @events
   end
 
