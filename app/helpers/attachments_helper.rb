@@ -5,19 +5,19 @@ module AttachmentsHelper
     type = attachment.file_content_type
     case type
     when /video/
-      fa_icon 'file-video-o'
+      icon('fas', 'file-video')
     when /image/
-      fa_icon 'file-image-o'
+      icon('fas', 'file-image')
     when /audio/
-      fa_icon 'file-audio-o'
+      icon('fas', 'file-audio')
     when /text/
-      fa_icon 'file-code-o'
+      icon('fas', 'file-code')
     when /pdf/
-      fa_icon 'file-pdf-o'
+      icon('fas', 'file-pdf')
     when /zip/
-      fa_icon 'file-archive-o'
+      icon('fas', 'file-archive')
     else
-      fa_icon 'file-o'
+      icon('fas', 'file')
     end
   end
 end
