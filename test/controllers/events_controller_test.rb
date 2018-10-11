@@ -22,7 +22,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test "should not be able to see the new event form if not an adin" do
     get new_event_path
-    assert_response :success
+    assert_response :redirect
   end
 
   test 'should create new event with date' do
