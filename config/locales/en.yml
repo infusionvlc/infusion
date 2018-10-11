@@ -274,8 +274,14 @@ en:
   session:
     ranking:                "New session currently on ranking"
 
+  event:
+    create:                 "Add a new slot for future events"
+
   activerecord:
     model:
+      event:
+        one:   "Event"
+        other: "Events"
       user:
         one:   "User"
         other: "Users"
@@ -365,7 +371,6 @@ en:
         header:
           one: "It seems like there's some issue with your info"
           other: "It seems like there are %{count} issues with your info"
-
 
   helpers:
     submit:

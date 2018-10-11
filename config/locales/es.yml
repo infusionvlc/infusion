@@ -275,8 +275,14 @@ es:
   session:
     ranking:                "Nueva sesión en el ranking"
 
+  event:
+    create:                 "Añade una nueva fecha para futuros eventos"
+
   activerecord:
     model:
+      event:
+        one:   "Evento"
+        other: "Eventos"
       user:
         one:   "Usuario"
         other: "Usuarios"
