@@ -142,7 +142,7 @@
         <div class="card-body">
           <% if policy(review).report? %>
             <% var_modal = "#reviewReportModal_" + review.id.to_s %>
-            <%= link_to (icon('fas', 'exclamation-triangle '), "#", data: {toggle: "modal", target: var_modal} , class:'right' %>
+            <%= link_to "#", data: {toggle: "modal", target: var_modal} , class:'right' do  %><% icon('fas', 'exclamation-triangle ') %><% end %>
           <% end %>
           <% if policy(review).edit? %>
             <a href='#' class='right edit_comment' id='edit_comment_<%= review.id %>'><%= icon('fas', 'pencil') %></a>
