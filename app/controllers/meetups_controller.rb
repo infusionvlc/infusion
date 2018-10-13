@@ -69,21 +69,19 @@ class MeetupsController < ApplicationController
     authorize @meetup
     respond_to do |format|
       if @meetup.save
-        @meetup.sessions.create(location_id: Location.where(active: true).first.id)
         @activity = @meetup.create_activity(current_user.id)
         @notifications = @activity.create_notification
         @meetup.holdings.create(user_id: current_user.id)
+        create_session
         notify_collaborators
         format.html { redirect_to meetup_path(@meetup) }
         format.json do
-          render :show,
-                 status: :created, location: @meetup
+          render :show, status: :created, location: @meetup
         end
       else
         format.html { render :new }
         format.json do
-          render json: @meetup.errors,
-                 status: :unprocessable_entity
+          render json: @meetup.errors, status: :unprocessable_entity
         end
       end
     end
@@ -127,6 +125,13 @@ class MeetupsController < ApplicationController
   end
 
   private
+
+  def create_session
+    return unless Location.where(active: true).first
+    @meetup.sessions.create(
+      location_id: Location.where(active: true).first.id
+    )
+  end
 
   def notify_collaborators
     @meetup.holdings.each do |host|
