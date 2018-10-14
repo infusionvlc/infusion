@@ -22,9 +22,9 @@
   <% if policy(@category).edit? %>
     </div>
     <div class="col-md-4 col-sm-12 card">
-        <%= link_to edit_category_path(@category), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'main.edit' %><% end %>
+        <%= link_to edit_category_path(@category), class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'pencil') %> <%= I18n.t 'main.edit' %><% end %>
         <% if policy(@category).destroy? %>
-          <%= link_to category_path(@category), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.delete' %><% end %>
+          <%= link_to category_path(@category), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= icon('fas', 'times') %> <%= I18n.t 'main.delete' %><% end %>
         <% end %>
         <hr/>
     </div>
