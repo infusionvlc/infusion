@@ -356,6 +356,11 @@ es:
         notify_comments: "Notificarme de todos los nuevos comentarios en los meetups que estoy apuntado/a"
         notify_proposals: "Notificarme de todas las nuevas propuestas"
     errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Este correo ya existe en la existe. Por favor, elige otro"
       messages:
         blank: "%{attribute} no puede estar en blanco"
         confirmation: "La confirmación debe coincidir con tu contraseña"
