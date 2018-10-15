@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180909151542) do
+ActiveRecord::Schema.define(version: 2018_09_09_151542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180909151542) do
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
     t.string "video_url"
-    t.boolean "archived", default: false
+    t.boolean "archived", default: true
     t.boolean "on_ranking"
   end
 
@@ -204,7 +202,7 @@ ActiveRecord::Schema.define(version: 20180909151542) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "assistances", "sessions"
+  add_foreign_key "assistances", "meetups", column: "session_id"
   add_foreign_key "assistances", "users"
   add_foreign_key "attachments", "meetups"
   add_foreign_key "holdings", "meetups"

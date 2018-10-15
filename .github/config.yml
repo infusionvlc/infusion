@@ -1,0 +1,8 @@
+newPRWelcomeComment: >
+  Thanks so much for opening your first PR! You can learn more about our contributing guidelines [here](https://github.com/infusionvlc/infusion/wiki/Working-with-pull-requests)
+
+firstPRMergeComment: >
+  Congrats on merging your first pull request! :tada: Thank you so much for your help :purple_heart:
+
+newIssueWelcomeComment: >
+  Thanks for opening this issue! If you plan to start working with us you can send us an [email](mailto:hola@infusionvlc.com) to join our Slack workspace.
