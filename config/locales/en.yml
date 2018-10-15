@@ -352,6 +352,11 @@ en:
         notify_comments: "Notifify me when a new comment is added to a meetup I'm into"
         notify_proposals: "Notifify me when a new proposal is added"
     errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "This email is already taken. Please enter a new one"
       messages:
         blank: "%{attribute} can't be blank"
         confirmation: "Confirmation must match with your password"
