@@ -359,7 +359,8 @@ es:
       user:
         attributes:
           email:
-            taken: "Este correo eletronico ya existe. Por favor, escribe otro"
+            taken: 
+              one: "Este correo eletronico ya existe. Por favor, escribe otro"
       messages:
         blank: "%{attribute} no puede estar en blanco"
         confirmation: "La confirmación debe coincidir con tu contraseña"

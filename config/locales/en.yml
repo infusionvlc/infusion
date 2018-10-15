@@ -356,7 +356,8 @@ en:
         user:
           attributes:
             email:
-              taken: "This email is already taken. Please enter a new one"
+              taken: 
+                one: "This email is already taken. Please enter a new one"
       messages:
         blank: "%{attribute} can't be blank"
         confirmation: "Confirmation must match with your password"
