@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 
 class PagesFlowTest < ActionDispatch::IntegrationTest
@@ -22,7 +23,7 @@ class PagesFlowTest < ActionDispatch::IntegrationTest
     visit reglas_path
     assert_current_path reglas_path
   end
-  
+
   test 'regles page' do
     visit regles_path
     assert_current_path regles_path
