@@ -275,8 +275,14 @@ es:
   session:
     ranking:                "Nueva sesión en el ranking"
 
+  event:
+    create:                 "Añade una nueva fecha para futuros eventos"
+
   activerecord:
     model:
+      event:
+        one:   "Evento"
+        other: "Eventos"
       user:
         one:   "Usuario"
         other: "Usuarios"
@@ -356,6 +362,12 @@ es:
         notify_comments: "Notificarme de todos los nuevos comentarios en los meetups que estoy apuntado/a"
         notify_proposals: "Notificarme de todas las nuevas propuestas"
     errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 
+                one: "Este correo eletronico ya existe. Por favor, escribe otro"
       messages:
         blank: "%{attribute} no puede estar en blanco"
         confirmation: "La confirmación debe coincidir con tu contraseña"

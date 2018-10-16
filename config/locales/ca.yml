@@ -274,8 +274,14 @@ ca:
   session:
     ranking:                "Nova sessió al ranking"
 
+  event:
+    create:                 "Afegeix una nova data per futurs events"
+
   activerecord:
     model:
+      event:
+        one:   "Event"
+        other: "Events"
       user:
         one:   "Usuari"
         other: "Usuaris"

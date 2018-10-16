@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   match '/webhook' => 'webhook#reply', via: :post
 
   match 'users/auth/:provider/callback', to: 'sessions#create',        via: [:get, :post]
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
   resources :reports
   resources :activities
   resources :locations
+  resources :events, except: [:edit, :update]
 
   resources :meetups do
     resources :sessions, :controller=>"meetup_sessions" do

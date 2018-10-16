@@ -274,8 +274,14 @@ en:
   session:
     ranking:                "New session currently on ranking"
 
+  event:
+    create:                 "Add a new slot for future events"
+
   activerecord:
     model:
+      event:
+        one:   "Event"
+        other: "Events"
       user:
         one:   "User"
         other: "Users"
@@ -352,6 +358,12 @@ en:
         notify_comments: "Notifify me when a new comment is added to a meetup I'm into"
         notify_proposals: "Notifify me when a new proposal is added"
     errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 
+                one: "This email is already taken. Please enter a new one"
       messages:
         blank: "%{attribute} can't be blank"
         confirmation: "Confirmation must match with your password"
@@ -359,7 +371,6 @@ en:
         header:
           one: "It seems like there's some issue with your info"
           other: "It seems like there are %{count} issues with your info"
-
 
   helpers:
     submit:
