@@ -1,0 +1,19 @@
+<%= link_to new_event_path, class:'btn btn-primary right' do %>
+  <%= icon('fas', 'plus') %> <%= I18n.t 'main.add' %>
+<% end %>
+
+<h1><%= I18n.t 'activerecord.model.event.other' %></h1>
+<br/>
+<% @events.each do |event| %>
+  <div class="card">
+    <div class="card-body">
+      <h2>
+        <%= event.date %>
+        <%= link_to event, method: :delete, class:'btn btn-danger right' do %>
+          <%= I18n.t 'main.delete' %>
+        <% end %>
+      </h2>
+    </div>
+  </div>
+<% end %>
+<%= paginate @events, theme: 'twitter-bootstrap-4' %>
