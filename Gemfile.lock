@@ -905,9 +905,9 @@ GEM
     sassc (2.0.0)
       ffi (~> 1.9.6)
       rake
-    selenium-webdriver (3.14.0)
+    selenium-webdriver (3.14.1)
       childprocess (~> 0.5)
-      rubyzip (~> 1.2)
+      rubyzip (~> 1.2, >= 1.2.2)
     shellany (0.0.1)
     simplecov (0.16.1)
       docile (~> 1.1)
