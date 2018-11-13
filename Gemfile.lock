@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codahale/bcrypt-ruby.git
-  revision: 12a50f4ff20c1723cc08b3f3c5dcd257c305172c
+  revision: a28449a23fff24f3f28e58f284b24ff4fe635002
   specs:
     bcrypt (3.1.12)
 
