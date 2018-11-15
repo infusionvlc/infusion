@@ -238,6 +238,16 @@ ca:
   meetup:
     <<: *votable
     host_yours:             "Organitza un Meetup"
+    ranking_instructions:   "Hola! 👋 Aquí pots veure tots els meetups proposats per la comunitat.
+                            Per favor, vota els que més t'interesen perquè es facen realitat. <br/> <br/>
+
+                            El sistema d'elecció de Meetups és totalment automàtic i depèn únicament dels
+                            vots de la comunitat i la disponibilitat de la persona que organitza el meetup. 🗳 <br/> <br/>
+
+                            Si has proposat un meetup i és el més votat, el sistema t'avisarà
+                            una setmana abans perquè confirmes la teua disponibilitat.
+                            Si no pots venir, pots ajornar el meetup amb l'enllaç que rebràs en el teu email
+                            tantes vegades com necessites. 🕒<br/><br/>"
     instructions:           "Així que vas a proposar un meetup! Assegura't de posar un <b>títol</b> atractiu
                              i una <b>descripció</b> del que va a tractar l'activitat.
                              Pots afegir fitxers d'ajuda, recursos i fotos com <b>adjunts</b>.

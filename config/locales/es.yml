@@ -239,6 +239,16 @@ es:
   meetup:
     <<: *votable
     host_yours:             "Organiza un Meetup"
+    ranking_instructions:   "¡Hola! 👋 Aquí puedes ver todos los meetups propuestos por la comunidad.
+                            Por favor, vota los que más te interesen para que se hagan realidad.<br/><br/>
+
+                            El sistema de elección de meetups es totalmente automático y depende únicamente de
+                            los votos de la comunidad y la disponibilidad de la persona que organiza el meetup.<br/><br/>
+
+                            Si has propuesto un meetup y es el más votado, el sistema te avisará
+                            una semana antes para que confirmes tu disponibilidad.
+                            Si no puedes venir, puedes aplazar el meetup con el enlace que recibirás en tu email
+                            tantas veces como necesites.<br/><br/>"
     instructions:           "¡Así que vas a proponer un meetup! Asegúrate de poner un <b>título</b> atractivo
                             y una <b>descripción</b> de lo que va a tratar la actividad.
                             Puedes añadir ficheros de ayuda, recursos y fotos como <b>adjuntos</b>.

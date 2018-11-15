@@ -238,6 +238,16 @@ en:
   meetup:
     <<: *votable
     host_yours:             "Host your own meetup"
+    ranking_instructions:   "Hello! 👋 Here you can see all the meetups proposed by the community.
+                             Please vote for the ones that interest you the most so that they come true. <br/> <br/>
+
+                             The meetup management system is fully automated and depends uniquely on
+                             the votes from the community and the availability of the person organizing the meetup. 🗳 <br/> <br/>
+
+                             If you have proposed a meetup and it's the most voted, the system will warn you
+                             a week before to confirm your availability.
+                             If you can not come, you can postpone the meetup with the link you will receive in your email
+                             as many times as you need. 🕒"
     instructions:           "So you're going to create a meetup! Make sure you put a good looking <b>title </b>
                              and a <b>description</b> of what this activity will be about.
                              You can <b>attach</b> help files, resources and photos.
