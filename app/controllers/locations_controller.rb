@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
 
   include MarkdownConcern
 
+  # GET /locations/1
+  # GET /locations/1.json
   def show; end
 
   # GET /locations/new
