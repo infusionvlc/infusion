@@ -238,6 +238,17 @@ ca:
   meetup:
     <<: *votable
     host_yours:             "Organitza un Meetup"
+    instructions:           "Així que vas a proposar un meetup! Assegura't de posar un <b>títol</b> atractiu
+                             i una <b>descripció</b> del que va a tractar l'activitat.
+                             Pots afegir fitxers d'ajuda, recursos i fotos com <b>adjunts</b>.
+                             Si encara no tens el material no et preocupis, pots afegir quan vulguis.
+                             A més, pots afegir a altres <b>organitzadors</b> si aneu a organitzar el meetup juntes.<br/><br/>
+
+                             És molt important que indiquis els <b>requeriments</b> bàsics que hagin de complir els assistents.
+                             Necessiten portar el seu propi PC? ¿Cal conèixer alguna cosa prèviament?<br/><br/>
+
+                             Si vols guardar aquest meetup, però no vols que aparega en el rànquing, pots marcar
+                             la casella per <b>arxivar</ b>-lo."
     call_to_action:         "Vols vindre a aquest meetup? Vóta'l!"
     call_to_action_assist:  "Vols vindre a aquest Meetup? Apunta't!"
     call_to_action_assisted: "Vas vindre a aquest Meetup? Apunta la teua asistencia i dóna'ns la teua opinió!"
