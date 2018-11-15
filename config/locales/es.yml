@@ -21,16 +21,20 @@ es:
       subject: "Tu suscripción a %{meetup}"
       body:    "Ahora estás suscrito al meetup %{meetup}. ¡Te mandaremos otro email cuando se conozca la fecha definitiva!"
     notify_publication:
-      subject: "¡%{meetup} acaba de ser confirmado!"
+      subject: "📣 ¡%{meetup} acaba de ser confirmado!"
       body:    "Te suscribiste al meetup %{meetup}, que va a tener lugar el %{date}. ¡Te esperamos!"
     notify_collaboration:
-      subject: "Tu colaboración en %{meetup}"
+      subject: "🙌 Tu colaboración en %{meetup}"
       body:    "%{owner} te ha añadido como colaborador en %{meetup}. ¡Te esperamos!"
     notify_abandon:
       subject: "%{canceled} ha abandonado %{meetup}"
       body:    "%{canceled} ha decidido no continuar como colaborador en %{meetup}."
     ask_for_confirmation:
-      subject: "¡Tu charla '%{meetup}' se ha confirmado!"
+      subject: "🎉 ¡Tu meetup '%{meetup}' es el más votado!"
+      body:    "La gente ha votado tu meetup '%{meetup}', que va a tener lugar el %{date}. Recuerda que debes subir tu presentación y los materiales de apoyo. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
+      delay:   "Si no puedes venir, por favor, aplaza tu meetup con este otro botón:"
+    insist_on_confirmation:
+      subject: "⚠️ Recuerda confirmar tu asistencia para '%{meetup}'"
       body:    "La gente ha votado tu charla '%{meetup}', que va a tener lugar el %{date}. Recuerda que debes subir tu presentación y los materiales de apoyo. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
       delay:   "Si no puedes venir, por favor, aplaza tu meetup con este otro botón:"
 

@@ -21,18 +21,23 @@ ca:
       subject: "Subscripció a %{meetup}"
       body:    "T'has subscrit al meetup %{meetup}. T'enviarem un altre email quan tingam la data definitiva!"
     notify_publication:
-      subject: "%{meetup} ha sigut confirmat!"
+      subject: "📣 %{meetup} ha sigut confirmat!"
       body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. T'esperem!"
     notify_collaboration:
-      subject: "La teua col·laboració a %{meetup}"
+      subject: "🙌 La teua col·laboració a %{meetup}"
       body:    "%{owner} t'ha afegit com a col·laborador a %{meetup}. T'esperem!"
     notify_abandon:
       subject: "%{canceled} ha abandonat %{meetup}"
       body:    "%{canceled} ha decidit no continuar com a col·laborador a %{meetup}."
     ask_for_confirmation:
-      subject: "La teua xerrada '%{meetup}' ha sigut confirmada!"
-      body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Recorda que has de pujar la teua presentació i el material de suport. Necessitem que confirmes la teua assistència prement el botó."
+      subject: "🎉 El teu meetup '%{meetup}' ha sigut confirmada!"
+      body:    "La gent ha votat el teu meetup '%{meetup}', i tindrà lloc el %{date}. Recorda que has de pujar la teua presentació i el material de suport. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
+    insist_on_confirmation:
+      subject: "⚠️ Recorda confirmar la teua assistència a '%{meetup}'"
+      body:    "La gent ha votat el teu meetup '%{meetup}', i tindrà lloc el %{date}. Recorda que has de pujar la teua presentació i el material de suport. Necessitem que confirmes la teua assistència prement el botó."
+      delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
+
 
   notification_mailer:
     greeting: "Hola, %{user}!"
