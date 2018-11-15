@@ -10,6 +10,7 @@ class Event < ApplicationRecord
 
   private
 
+  # Checks if current event is in the future
   def date_is_in_the_future
     date >= Date.today
   end

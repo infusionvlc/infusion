@@ -7,6 +7,7 @@ module MarkdownConcern
     before_action :set_renderer, only: %i[show edit new index ranking archive]
   end
 
+  # Sets the default markdown renderer for the record's content
   def set_renderer
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new({link_attributes: {target: '_blank'}}), autolink: true, tables: true, hard_wrap: true)
   end

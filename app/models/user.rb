@@ -27,10 +27,12 @@ class User < ApplicationRecord
 
   validates :role_id, :username, presence: true
 
+  # Checks if the user is an admin
   def admin?
     role_id == 0
   end
 
+  # Returns the average rating a user has got from all meetups he/she has organized
   def average_rating
     avgs = []
     self.keynotes.each do |k|
@@ -43,6 +45,7 @@ class User < ApplicationRecord
     end
   end
 
+  # Username or email
   attr_accessor :login
 
   # Create User with oauth providers
