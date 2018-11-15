@@ -26,7 +26,7 @@ gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 
 gem 'cocoon'
-gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+gem 'bcrypt'
 gem 'devise', git: 'https://github.com/plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-github'

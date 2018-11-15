@@ -239,6 +239,17 @@ es:
   meetup:
     <<: *votable
     host_yours:             "Organiza un Meetup"
+    instructions:           "¡Así que vas a proponer un meetup! Asegúrate de poner un <b>título</b> atractivo
+                            y una <b>descripción</b> de lo que va a tratar la actividad.
+                            Puedes añadir ficheros de ayuda, recursos y fotos como <b>adjuntos</b>.
+                            Si aún no tienes el material no te preocupes, puedes añadirlo cuando quieras.
+                            Además, puedes añadir a otros <b>organizadores</b> si vais a organizar el meetup junt@s.<br/><br/>
+
+                            Es muy importante que indiques los <b>requisitos</b> básicos que deban cumplir los asistentes.
+                            ¿Necesitan traer su propio PC? ¿Hace falta conocer algo de antemano?<br/><br/>
+
+                            Si quieres guardar este meetup, pero no quieres que aparezca en el ranking, puedes marcar
+                            la casilla para <b>archivarlo</b>."
     call_to_action:         "¿Quieres venir a este meetup? ¡Vótalo!"
     call_to_action_assist:  "¡Si quieres venir tan sólo tienes que apuntarte!"
     call_to_action_assisted: "¿Viniste a este Meetup? ¡Apunta tu asistencia y danos tu opinión más abajo!"
@@ -366,7 +377,7 @@ es:
         user:
           attributes:
             email:
-              taken: 
+              taken:
                 one: "Este correo eletronico ya existe. Por favor, escribe otro"
       messages:
         blank: "%{attribute} no puede estar en blanco"
