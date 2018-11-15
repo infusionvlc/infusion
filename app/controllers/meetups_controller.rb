@@ -134,6 +134,7 @@ class MeetupsController < ApplicationController
 
   private
 
+  # Creates a meetup session with the active location and a default schedule
   def create_session
     return unless Location.where(active: true).first
     @meetup.sessions.create(
@@ -143,6 +144,7 @@ class MeetupsController < ApplicationController
     )
   end
 
+  # Sends an email to all meetup collaborators
   def notify_collaborators
     @meetup.holdings.each do |host|
       if host.user != current_user
@@ -151,12 +153,14 @@ class MeetupsController < ApplicationController
     end
   end
 
+  # Find current Meetup object
   def set_meetup
     @meetup = Meetup.find(params[:id])
   rescue StandardError
     redirect_to(meetups_path)
   end
 
+  # Parameters whitelist for meetups
   def meetup_params
     params.require(:meetup).permit(
       :title,
