@@ -3,6 +3,8 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  # Creates instance variables for accessing the current user
+  # and the object he/she is interacting with
   def initialize(user, record)
     @user = user
     @record = record
@@ -43,6 +45,8 @@ class ApplicationPolicy
   class Scope
     attr_reader :user, :scope
 
+    # Creates instance variables for accessing the current user
+    # and the scope he/she is interacting with
     def initialize(user, scope)
       @user = user
       @scope = scope

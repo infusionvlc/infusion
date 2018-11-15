@@ -3,6 +3,7 @@
 class WebhookController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  # Returns a reply to user's petitions
   def reply
     if params[:result][:action] == 'getNextMeetupDate'
       msg = nextMeetupDate
@@ -26,6 +27,7 @@ class WebhookController < ApplicationController
   end
 
   private
+  # Returns next meetup's date or an error message if there's no meetup planned
   def nextMeetupDate
     @meetup = Meetup.where('date >= ?', Date.today).first #TODO
     if @meetup
@@ -35,6 +37,7 @@ class WebhookController < ApplicationController
     end
   end
 
+  # Returns next meetup's speaker name or an error message if there's no meetup planned
   def nextMeetupSpeaker(context)
     @meetup = Meetup.where('date >= ?', Date.today).first #TODO
     if @meetup
@@ -48,6 +51,7 @@ class WebhookController < ApplicationController
     end
   end
 
+  # Returns all meetups on the ranking
   def getCallForTalks
     @meetups = Meetup.where(date: nil).left_joins(:assistances).group(:id).order('COUNT(assistances.id) DESC')
 
@@ -62,6 +66,7 @@ class WebhookController < ApplicationController
     end
   end
 
+  # Returns next meetup's location or an error message if there's no meetup planned
   def getLocation(context)
     @meetup = Meetup.where('date >= ?', Date.today).first
     if @meetup
@@ -75,6 +80,7 @@ class WebhookController < ApplicationController
     end
   end
 
+  # Returns next meetup's hour or an error message if there's no meetup planned
   def getHour(context)
     @meetup = Meetup.where('date >= ?', Date.today).first
     if @meetup

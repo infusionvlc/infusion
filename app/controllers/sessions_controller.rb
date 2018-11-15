@@ -2,6 +2,8 @@
 
 class SessionsController < ApplicationController
 
+  # POST /sessions
+  # POST /sessions.json
   def create
     auth = request.env['omniauth.auth']
     @identity = Identity.find_with_omniauth(auth)
@@ -35,6 +37,8 @@ class SessionsController < ApplicationController
     end
   end
 
+  # DELETE /sessions/1
+  # DELETE /sessions/1.json
   def destroy
     sign_out :user
     redirect_to meetups_path, notice: "Signed out!"

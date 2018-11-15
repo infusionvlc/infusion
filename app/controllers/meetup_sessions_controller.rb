@@ -47,6 +47,7 @@ class MeetupSessionsController < ApplicationController
 
   private
 
+  # Find current Meetup Session object
   def set_meetup_session
     @meetup = Meetup.find(params[:meetup_id])
     @session = Session.find(params[:id])
@@ -54,6 +55,7 @@ class MeetupSessionsController < ApplicationController
     redirect_to(meetups_path)
   end
 
+  # Parameters whitelist for meetups sessions
   def meetup_params
     params.require(:session).permit(
       :date,
