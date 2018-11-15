@@ -26,7 +26,8 @@ class MeetupMailer < ApplicationMailer
     end
   end
 
-  # Sends a mail to a user when a collaborator leaves a meetup where he/she is a host
+  # Sends a mail to a user when a collaborator leaves a meetup
+  # in which he/she is a host
   def notify_abandon(meetup, user, canceled)
     @user = user
     @meetup = meetup
@@ -41,6 +42,7 @@ class MeetupMailer < ApplicationMailer
   end
 
   # Sends a mail to a user when a meetup he/she was subscribed to is confirmed
+  def notify_publication(meetup, user)
     @user   = user
     @meetup = meetup
     @date   = I18n.l(meetup.date)
@@ -80,5 +82,4 @@ class MeetupMailer < ApplicationMailer
              date: @date)
     end
   end
-
 end

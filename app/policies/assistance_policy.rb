@@ -29,8 +29,8 @@ class AssistancePolicy
   # Can the user report an assistance?
   def report?
     @user && !Report.where(reportable_id: @assistance.id,
-                            reportable_type: 'Assistance',
-                            user_id: @user.id).exists?
+                           reportable_type: 'Assistance',
+                           user_id: @user.id).exists?
   end
 
   # Can the user see the new record form?

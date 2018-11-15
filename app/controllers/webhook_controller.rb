@@ -37,7 +37,8 @@ class WebhookController < ApplicationController
     end
   end
 
-  # Returns next meetup's speaker name or an error message if there's no meetup planned
+  # Returns next meetup's speaker name or an error message
+  # if there's no meetup planned
   def nextMeetupSpeaker(context)
     @meetup = Meetup.where('date >= ?', Date.today).first #TODO
     if @meetup
@@ -66,7 +67,8 @@ class WebhookController < ApplicationController
     end
   end
 
-  # Returns next meetup's location or an error message if there's no meetup planned
+  # Returns next meetup's location or an error message
+  # if there's no one planned
   def getLocation(context)
     @meetup = Meetup.where('date >= ?', Date.today).first
     if @meetup
@@ -80,7 +82,8 @@ class WebhookController < ApplicationController
     end
   end
 
-  # Returns next meetup's hour or an error message if there's no meetup planned
+  # Returns next meetup's hour or an error message
+  # if there's no one planned
   def getHour(context)
     @meetup = Meetup.where('date >= ?', Date.today).first
     if @meetup
