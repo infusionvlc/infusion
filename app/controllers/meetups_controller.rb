@@ -52,7 +52,7 @@ class MeetupsController < ApplicationController
 
   # GET /meetups/new
   def new
-    @meetup = Meetup.new
+    @meetup = Meetup.new(archived: false)
     authorize @meetup
   end
 
