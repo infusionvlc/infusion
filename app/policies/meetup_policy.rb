@@ -34,7 +34,6 @@ class MeetupPolicy
       !@meetup.assistances.where(user_id: @user.id).exists?
   end
 
-
   # Can the user unvote the meetup?
   def unvote?
     !@meetup.nil? && !meetup.archived && !@user.nil? && \

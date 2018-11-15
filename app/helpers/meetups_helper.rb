@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module MeetupsHelper
-
   # Returns a meetup's votes count
   def meetup_votes(meetup)
     count = meetup.assistances.size

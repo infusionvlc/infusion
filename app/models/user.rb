@@ -32,7 +32,7 @@ class User < ApplicationRecord
     role_id == 0
   end
 
-  # Returns the average rating a user has got from all meetups he/she has organized
+  # Returns the average rating a user has got from all meetups they've organized
   def average_rating
     avgs = []
     self.keynotes.each do |k|
