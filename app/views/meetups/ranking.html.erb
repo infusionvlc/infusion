@@ -1,5 +1,9 @@
 <h1>Ranking</h1>
 <br/>
+<div class="alert alert-light" role="alert">
+  <%= t('meetup.ranking_instructions').html_safe %>
+</div>
+<br/>
 <% @meetups.each do |meetup| %>
     <%= render 'meetups/card', meetup: meetup, context: 'vote' %>
 <% end %>
