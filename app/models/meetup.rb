@@ -33,7 +33,7 @@ class Meetup < ApplicationRecord
 
   def assistances
     sessions.map { |session| session.assistances }
-            .reduce(:concat) || Assistance.none
+            .reduce(:merge) || Assistance.none
   end
 
   def taking_place?

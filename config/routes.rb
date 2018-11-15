@@ -34,7 +34,6 @@ Rails.application.routes.draw do
       member do
         post 'vote'
         post 'unvote'
-        post 'repeat'
         get 'confirm'
         get 'delay'
       end
@@ -44,6 +43,7 @@ Rails.application.routes.draw do
 
     member do
       post 'leave'
+      post 'repeat'
     end
   end
 

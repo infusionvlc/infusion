@@ -17,6 +17,9 @@ class MeetupPolicy
   end
 
   def repeat?
+    puts !@user.nil?
+    puts !@meetup.on_ranking
+    puts @meetup.took_place?
     !@user.nil? && !@meetup.on_ranking && @meetup.took_place? && \
       (!@meetup.persisted? || \
       @meetup.holdings.where('user_id = ? AND role < ?', @user.id, 1).exists?)
