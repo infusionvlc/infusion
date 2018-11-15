@@ -52,10 +52,22 @@ class MeetupMailer < ApplicationMailer
   def ask_for_confirmation(meetup, user)
     @user   = user
     @meetup = meetup
-    @date   = I18n.l(Date.today.monday+4)
+    @date   = meetup.sessions.last.event.date
     I18n.with_locale(@user.locale) do
         mail(to: @user.email,
              subject: I18n.t('meetup_mailer.ask_for_confirmation.subject', \
+             meetup: @meetup.title), \
+             date: @date)
+    end
+  end
+
+  def insist_on_confirmation(meetup, user)
+    @user   = user
+    @meetup = meetup
+    @date   = meetup.sessions.last.event.date
+    I18n.with_locale(@user.locale) do
+        mail(to: @user.email,
+             subject: I18n.t('meetup_mailer.insist_on_confirmation.subject', \
              meetup: @meetup.title), \
              date: @date)
     end
