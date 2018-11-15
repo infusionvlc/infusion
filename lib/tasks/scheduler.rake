@@ -28,8 +28,7 @@ task :ask_for_confirmation => :environment do
     if next_meetup
       MeetupMailer.insist_on_confirmation(next_session.meetup,
         next_session.meetup.holdings.first.user).deliver
-        next_session.meetup.update(confirmation_mail: true)
-
+      next_session.meetup.update(confirmation_mail: true)
       puts "email sent to #{next_meetup.holdings.first.user.email}"
     end
   end
