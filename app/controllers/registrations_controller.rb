@@ -10,6 +10,8 @@ class RegistrationsController < Devise::RegistrationsController
     @users = User.where(contributor: true)
   end
 
+  # POST /users
+  # POST /users.json
   def create
     super do
         resource.role_id = 1
@@ -19,11 +21,13 @@ class RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  # Updates a user with the default role
   def update_resource(resource, params)
     resource.role_id = 1
     resource.update_without_password(params)
   end
 
+  # Sets a default redirection path for users
   def after_update_path_for(resource)
     "/#{resource.username}"
   end

@@ -5,6 +5,7 @@ class Activity < ApplicationRecord
   belongs_to :objective, polymorphic: true
   has_many :notifications, dependent: :destroy
 
+  # Returns the activity's target object title
   def activity_title
     if objective_type == 'Meetup'
       Meetup.find(objective_id).title
@@ -15,6 +16,7 @@ class Activity < ApplicationRecord
     end
   end
 
+  # Sends a mail to all target users related to an activity
   def create_notification
     User.all.each do |user|
       NotificationMailer.notify_proposal(self, user).deliver

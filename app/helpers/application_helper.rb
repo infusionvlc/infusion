@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  # Determines flash alerts css class based on the level parameter
   def flash_class(level)
     case level
       when 'notice' then 'info'
@@ -10,6 +11,7 @@ module ApplicationHelper
     end
   end
 
+  # Returns a link to the code of conduct page
   def rules
     case @locale
       when 'es'

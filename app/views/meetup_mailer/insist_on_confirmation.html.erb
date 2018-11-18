@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body style="text-align: center">
+    <img src="<%= root_url %>/logo_base.png" style="width: 80%; margin: 0 auto;"/>
+    <h1><%= I18n.t 'meetup_mailer.greeting', user: @user.username %></h1>
+    <p><%= I18n.t 'meetup_mailer.insist_on_confirmation.body', user: @user.username, meetup: @meetup.title, date: @date %></p>
+    <%= link_to confirm_meetup_url(@meetup.id) do %>
+      <%= I18n.t 'meetup_mailer.confirm' %>
+    <% end %>
+    <p><%= I18n.t 'meetup_mailer.insist_on_confirmation.delay' %></p>
+    <%= link_to delay_meetup_url(@meetup.id) do %>
+      <%= I18n.t 'meetup_mailer.delay' %>
+    <% end %>
+  </body>
+</html>
