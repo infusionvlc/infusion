@@ -153,7 +153,6 @@ class ReportTest < ActiveSupport::TestCase
       assert_equal report.text_status, 'Abierta'
       assert_equal report.reportable_title, meetup.title
       puts 'Test: Report -> Valid Report with type other'
-    else
     end
   end
 end
