@@ -10,6 +10,7 @@ class Session < ApplicationRecord
 
   validates :location, presence: true
 
+  # Returns the average rating from all assistants
   def average_rating
     marks = assistances.where.not(mark: 0).pluck(:mark)
     if marks.count.positive?
@@ -19,10 +20,12 @@ class Session < ApplicationRecord
     end
   end
 
+  # Checks if the session's date is in the future
   def taking_place?
     event && (event.date >= Date.today)
   end
 
+  # Checks if the session's date is in the past
   def took_place?
     event && (event.date <= Date.today)
   end

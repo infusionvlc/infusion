@@ -6,6 +6,7 @@ class Report < ApplicationRecord
   validates :title, :type_of, :reportable_type, presence: true
   validates :user_id, :reportable_id, :description, presence: true
 
+  # Returns the report's target object title
   def reportable_title
     if reportable_type == 'Meetup'
       Meetup.find(reportable_id).title
@@ -16,6 +17,7 @@ class Report < ApplicationRecord
     end
   end
 
+  # Translates the type field text
   def text_type
     case type_of
     when 0
@@ -31,6 +33,7 @@ class Report < ApplicationRecord
     end
   end
 
+  # Translates the status field text
   def text_status
     case status
     when 0

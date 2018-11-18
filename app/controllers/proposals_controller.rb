@@ -91,12 +91,14 @@ class ProposalsController < ApplicationController
 
   private
 
+  # Find current Proposal object
   def set_proposal
     @proposal = Proposal.find(params[:id])
   rescue StandardError
     redirect_to(proposals_path)
   end
 
+  # Parameters whitelist for proposals
   def proposal_params
     params.require(:proposal).permit(
       :title,

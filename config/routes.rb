@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
     member do
       post 'leave'
+      post 'repeat'
     end
   end
 

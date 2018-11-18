@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module AttachmentsHelper
+  # Returns an icon for attached files based on their type
   def file_icon(attachment)
     type = attachment.file_content_type
     case type

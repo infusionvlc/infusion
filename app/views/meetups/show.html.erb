@@ -170,7 +170,7 @@
       <% end %>
 
       <% if policy(@meetup).repeat? %>
-          <%= link_to repeat_meetup_path(@meetup), method: :post, class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'repeat') %> <%= I18n.t 'meetup.repeat' %><% end %>
+          <%= link_to repeat_meetup_path(@meetup), method: :post, class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'redo') %> <%= I18n.t 'meetup.repeat' %><% end %>
       <% end %>
 
       <% if policy(@meetup).leave? %>

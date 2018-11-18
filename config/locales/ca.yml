@@ -21,18 +21,23 @@ ca:
       subject: "Subscripció a %{meetup}"
       body:    "T'has subscrit al meetup %{meetup}. T'enviarem un altre email quan tingam la data definitiva!"
     notify_publication:
-      subject: "%{meetup} ha sigut confirmat!"
+      subject: "📣 %{meetup} ha sigut confirmat!"
       body:    "Vas subscribir-te al meetup %{meetup}, el qual tindrà lloc el %{date}. T'esperem!"
     notify_collaboration:
-      subject: "La teua col·laboració a %{meetup}"
+      subject: "🙌 La teua col·laboració a %{meetup}"
       body:    "%{owner} t'ha afegit com a col·laborador a %{meetup}. T'esperem!"
     notify_abandon:
       subject: "%{canceled} ha abandonat %{meetup}"
       body:    "%{canceled} ha decidit no continuar com a col·laborador a %{meetup}."
     ask_for_confirmation:
-      subject: "La teua xerrada '%{meetup}' ha sigut confirmada!"
-      body:    "La gent ha votat la teua xerrada '%{meetup}', i tindrà lloc el %{date}. Recorda que has de pujar la teua presentació i el material de suport. Necessitem que confirmes la teua assistència prement el botó."
+      subject: "🎉 El teu meetup '%{meetup}' ha sigut confirmada!"
+      body:    "La gent ha votat el teu meetup '%{meetup}', i tindrà lloc el %{date}. Recorda que has de pujar la teua presentació i el material de suport. Necessitem que confirmes la teua assistència prement el botó."
       delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
+    insist_on_confirmation:
+      subject: "⚠️ Recorda confirmar la teua assistència a '%{meetup}'"
+      body:    "La gent ha votat el teu meetup '%{meetup}', i tindrà lloc el %{date}. Recorda que has de pujar la teua presentació i el material de suport. Necessitem que confirmes la teua assistència prement el botó."
+      delay:   "Si no hi pots vindre, per favor, ajorna el teu meetup prement aquest altre:"
+
 
   notification_mailer:
     greeting: "Hola, %{user}!"
@@ -238,6 +243,27 @@ ca:
   meetup:
     <<: *votable
     host_yours:             "Organitza un Meetup"
+    ranking_instructions:   "Hola! 👋 Aquí pots veure tots els meetups proposats per la comunitat.
+                            Per favor, vota els que més t'interesen perquè es facen realitat. <br/> <br/>
+
+                            El sistema d'elecció de Meetups és totalment automàtic i depèn únicament dels
+                            vots de la comunitat i la disponibilitat de la persona que organitza el meetup. 🗳 <br/> <br/>
+
+                            Si has proposat un meetup i és el més votat, el sistema t'avisarà
+                            una setmana abans perquè confirmes la teua disponibilitat.
+                            Si no pots venir, pots ajornar el meetup amb l'enllaç que rebràs en el teu email
+                            tantes vegades com necessites. 🕒<br/><br/>"
+    instructions:           "Així que vas a proposar un meetup! Assegura't de posar un <b>títol</b> atractiu
+                             i una <b>descripció</b> del que va a tractar l'activitat.
+                             Pots afegir fitxers d'ajuda, recursos i fotos com <b>adjunts</b>.
+                             Si encara no tens el material no et preocupis, pots afegir quan vulguis.
+                             A més, pots afegir a altres <b>organitzadors</b> si aneu a organitzar el meetup juntes.<br/><br/>
+
+                             És molt important que indiquis els <b>requeriments</b> bàsics que hagin de complir els assistents.
+                             Necessiten portar el seu propi PC? ¿Cal conèixer alguna cosa prèviament?<br/><br/>
+
+                             Si vols guardar aquest meetup, però no vols que aparega en el rànquing, pots marcar
+                             la casella per <b>arxivar</ b>-lo."
     call_to_action:         "Vols vindre a aquest meetup? Vóta'l!"
     call_to_action_assist:  "Vols vindre a aquest Meetup? Apunta't!"
     call_to_action_assisted: "Vas vindre a aquest Meetup? Apunta la teua asistencia i dóna'ns la teua opinió!"
