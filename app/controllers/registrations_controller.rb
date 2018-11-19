@@ -17,6 +17,11 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def save_locale
+    current_user.update(locale: params[:locale])
+    redirect_back(fallback_location: root_path)
+  end
+
   protected
 
   def update_resource(resource, params)

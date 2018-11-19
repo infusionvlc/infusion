@@ -1,7 +1,8 @@
 es:
   nav:
     home: "Inicio"
-
+    language: "Idioma"
+    
   landing:
     description: "Meetups para el empoderamiento digital"
     quote: "La brecha digital no es solo una cuestión generacional. También es un problema de desigualdad económica y social"

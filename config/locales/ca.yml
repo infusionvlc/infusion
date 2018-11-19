@@ -1,6 +1,7 @@
 ca:
   nav:
     home: "Inici"
+    language: "Llengua"
 
   landing:
     description: "Meetups per l'empoderament digital"

@@ -1,6 +1,7 @@
 en:
   nav:
     home: "Home"
+    language: "Language"
 
   landing:
     description: "Meetups for digital empowering humans"

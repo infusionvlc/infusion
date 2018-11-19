@@ -22,12 +22,18 @@ class ApplicationController < ActionController::Base
       { name: t('languages.es'), locale: :es }
     ].freeze
     @locale = I18n.locale = locale
+
+   
   end
 
   def locale
-    current_user&.locale || cookies[:locale] || I18n.default_locale
+    params[:locale] || current_user&.locale || cookies[:locale] || I18n.default_locale
   end
 
+  def set_locale_cookie(locale)
+    cookies['locale'] = locale.to_s
+  end
+  
   def after_sign_in_path_for(resource)
     request.env['omniauth.origin'] || meetups_path
   end

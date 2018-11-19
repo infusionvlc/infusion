@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
 
   match '/webhook' => 'webhook#reply', via: :post
-
   match 'users/auth/:provider/callback', to: 'sessions#create',        via: [:get, :post]
   match '/logout',                       to: 'sessions#destroy',       via: [:get, :post]
   match '/ranking',                      to: 'meetups#ranking',        via: [:get]
@@ -22,6 +21,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/users" => "registrations#index"
+    post '/save_locale' => 'registrations#set_locale'
   end
 
   resources :categories
