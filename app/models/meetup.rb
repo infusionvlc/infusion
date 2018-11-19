@@ -23,9 +23,9 @@ class Meetup < ApplicationRecord
   accepts_nested_attributes_for :attachments, allow_destroy: true
   accepts_nested_attributes_for :photos, allow_destroy: true
 
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :requirements, presence: true
+  validates :title, presence: true, length: { minimum: 10 }
+  validates :description, presence: true, length: { minimum: 256 }
+  validates :requirements, presence: true, length: { minimum: 10 }
 
   def date
     sessions.joins(:event).all.last&.event&.date
