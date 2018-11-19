@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/users" => "registrations#index"
-    post '/save_locale' => 'registrations#set_locale'
+    post '/save_locale' => 'registrations#save_locale'
   end
 
   resources :categories
