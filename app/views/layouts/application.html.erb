@@ -52,13 +52,13 @@
           <li class="nav-item"><%= link_to "", {class: "nav-link ul"} do %> 🌍 <%= I18n.t("nav.language") %><% end %>
               <ul>
                 <% if user_signed_in? %>
-                   <li><%= link_to save_locale_path({locale: :es}), method: :put  do %> <img src="/flags/ES_flag.png" class="flag"> Castellano<% end %></li>
-                  <li><%= link_to save_locale_path({locale: :en}), method: :put do %> <img src="/flags/GB_flag.png" class="flag"> English<% end %></li>
-                  <li><%= link_to save_locale_path({locale: :ca}), method: :put do %> <img src="/flags/CA_flag.png" class="flag"> Valencià<% end %></li>
+                   <li><%= link_to save_locale_path({locale: :es}), method: :post  do %> <img src="/flags/ES_flag.png" class="flag"> Castellano<% end %></li>
+                  <li><%= link_to save_locale_path({locale: :en}), method: :post do %> <img src="/flags/GB_flag.png" class="flag"> English<% end %></li>
+                  <li><%= link_to save_locale_path({locale: :ca}), method: :post do %> <img src="/flags/CA_flag.png" class="flag"> Valencià<% end %></li>
                 <% else %>
-                   <li><%= link_to root_path(locale: :es), {class: "nav-link ul"} do %> <img src="/flags/ES_flag.png" class="flag"> Castellano<% end %></li>
-                   <li><%= link_to root_path(locale: :en), {class: "nav-link ul"} do %> <img src="/flags/GB_flag.png" class="flag"> English<% end %></li>
-                   <li><%= link_to root_path(locale: :ca), {class: "nav-link ul"} do %> <img src="/flags/CA_flag.png" class="flag"> Valencià<% end %></li>
+                   <li><%= link_to url_for(locale: :es), {class: "nav-link ul"} do %> <img src="/flags/ES_flag.png" class="flag"> Castellano<% end %></li>
+                   <li><%= link_to url_for(locale: :en), {class: "nav-link ul"} do %> <img src="/flags/GB_flag.png" class="flag"> English<% end %></li>
+                   <li><%= link_to url_for(locale: :ca), {class: "nav-link ul"} do %> <img src="/flags/CA_flag.png" class="flag"> Valencià<% end %></li>
                 <% end %>
               </ul>
           </li>
