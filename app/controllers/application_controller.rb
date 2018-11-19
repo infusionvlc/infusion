@@ -21,13 +21,12 @@ class ApplicationController < ActionController::Base
       { name: t('languages.en'), locale: :en },
       { name: t('languages.es'), locale: :es }
     ].freeze
-    @locale = I18n.locale = locale
-
-   
+    @locale = I18n.locale = locale   
   end
 
   def locale
-    params[:locale] || current_user&.locale || cookies[:locale] || I18n.default_locale
+    params[:locale] || current_user&.locale || cookies[:locale] 
+                    || I18n.default_locale
   end
 
   def set_locale_cookie(locale)
