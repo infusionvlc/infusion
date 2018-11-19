@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
   end
 
   def locale
-    params[:locale] || current_user&.locale || cookies[:locale] \ 
-                    || I18n.default_locale
+    params[:locale] || current_user&.locale || cookies[:locale] || 
+                       I18n.default_locale
   end
 
   def set_locale_cookie(locale)
