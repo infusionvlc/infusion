@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_151542) do
     t.datetime "updated_at", null: false
     t.string "file_file_name"
     t.string "file_content_type"
-    t.bigint "file_file_size"
+    t.integer "file_file_size"
     t.datetime "file_updated_at"
     t.index ["meetup_id"], name: "index_attachments_on_meetup_id"
   end
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_151542) do
     t.datetime "updated_at", null: false
     t.boolean "confirmation_mail"
     t.string "video_url"
-    t.boolean "archived", default: true
+    t.boolean "archived", default: false
     t.boolean "on_ranking"
   end
 
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_151542) do
     t.datetime "updated_at", null: false
     t.string "file_file_name"
     t.string "file_content_type"
-    t.bigint "file_file_size"
+    t.integer "file_file_size"
     t.datetime "file_updated_at"
     t.index ["meetup_id"], name: "index_photos_on_meetup_id"
   end
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_151542) do
     t.string "locale", default: "es"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.bigint "avatar_file_size"
+    t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer "role_id", default: 1
     t.text "bio", default: ""

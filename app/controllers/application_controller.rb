@@ -25,7 +25,12 @@ class ApplicationController < ActionController::Base
   end
 
   def locale
-    current_user&.locale || cookies[:locale] || I18n.default_locale
+    params[:locale] || current_user&.locale || cookies[:locale] ||
+      I18n.default_locale
+  end
+
+  def set_locale_cookie(locale)
+    cookies['locale'] = locale.to_s
   end
 
   def after_sign_in_path_for(resource)

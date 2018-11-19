@@ -27,5 +27,3 @@ def set_activity
 rescue StandardError
   redirect_to(activity_path)
 end
-
-
