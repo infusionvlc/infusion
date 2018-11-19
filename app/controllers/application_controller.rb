@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   def set_locale_cookie(locale)
     cookies['locale'] = locale.to_s
   end
-  
+
   def after_sign_in_path_for(resource)
     request.env['omniauth.origin'] || meetups_path
   end
