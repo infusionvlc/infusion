@@ -1,0 +1,14 @@
+<h1><%=I18n.t 'event.create' %></h1>
+
+<%= form_for(@event) do |f| %>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_field :date, class:'form-control' %>
+  </div>
+
+  <br/>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+

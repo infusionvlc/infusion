@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MeetupsController < ApplicationController
-  before_action :set_meetup, only: %i[show edit update destroy leave]
+  before_action :set_meetup, only: %i[show edit update destroy leave repeat]
 
   include MarkdownConcern
 
@@ -52,7 +52,7 @@ class MeetupsController < ApplicationController
 
   # GET /meetups/new
   def new
-    @meetup = Meetup.new
+    @meetup = Meetup.new(archived: false)
     authorize @meetup
   end
 
@@ -69,21 +69,19 @@ class MeetupsController < ApplicationController
     authorize @meetup
     respond_to do |format|
       if @meetup.save
-        @meetup.sessions.create(location_id: Location.where(active: true).first.id)
         @activity = @meetup.create_activity(current_user.id)
         @notifications = @activity.create_notification
         @meetup.holdings.create(user_id: current_user.id)
+        create_session
         notify_collaborators
         format.html { redirect_to meetup_path(@meetup) }
         format.json do
-          render :show,
-                 status: :created, location: @meetup
+          render :show, status: :created, location: @meetup
         end
       else
         format.html { render :new }
         format.json do
-          render json: @meetup.errors,
-                 status: :unprocessable_entity
+          render json: @meetup.errors, status: :unprocessable_entity
         end
       end
     end
@@ -108,6 +106,14 @@ class MeetupsController < ApplicationController
     end
   end
 
+  # POST /meetups/1/repeat
+  def repeat
+    authorize @meetup
+    create_session
+    @meetup.update(on_ranking: true)
+    redirect_to meetup_path(@meetup)
+  end
+
   # DELETE /meetups/1
   # DELETE /meetups/1.json
   def destroy
@@ -128,6 +134,17 @@ class MeetupsController < ApplicationController
 
   private
 
+  # Creates a meetup session with the active location and a default schedule
+  def create_session
+    return unless Location.where(active: true).first
+    @meetup.sessions.create(
+      location_id: Location.where(active: true).first.id,
+      start: Time.new(2000, 12, 12, 16, 0),
+      end: Time.new(2000, 12, 12, 18, 0)
+    )
+  end
+
+  # Sends an email to all meetup collaborators
   def notify_collaborators
     @meetup.holdings.each do |host|
       if host.user != current_user
@@ -136,12 +153,14 @@ class MeetupsController < ApplicationController
     end
   end
 
+  # Find current Meetup object
   def set_meetup
     @meetup = Meetup.find(params[:id])
   rescue StandardError
     redirect_to(meetups_path)
   end
 
+  # Parameters whitelist for meetups
   def meetup_params
     params.require(:meetup).permit(
       :title,

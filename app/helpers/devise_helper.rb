@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module DeviseHelper
+  # Returns a string with all errors related with Devise
   def devise_error_messages!
     return '' if resource.errors.empty?
 

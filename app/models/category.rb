@@ -5,6 +5,7 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
+  # Translates current category's name
   def display_name
     case I18n.locale
     when :ca

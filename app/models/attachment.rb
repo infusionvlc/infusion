@@ -6,6 +6,7 @@ class Attachment < ApplicationRecord
   do_not_validate_attachment_file_type :file
   before_post_process :skip_for_zip
 
+  # Returns if a file is a zipfile
   def skip_for_zip
     zip_types = %w[application/zip \
                    application/x-zip \

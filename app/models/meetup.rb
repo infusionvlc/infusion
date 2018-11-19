@@ -27,25 +27,30 @@ class Meetup < ApplicationRecord
   validates :description, presence: true, length: { minimum: 256 }
   validates :requirements, presence: true, length: { minimum: 10 }
 
+  # Returns the meetup's last date
   def date
     sessions.joins(:event).all.last&.event&.date
   end
 
+  # Returns the sum of meetup assistants
   def assistances
     sessions.map { |session| session.assistances }
-            .reduce(:concat) || Assistance.none
+            .reduce(:merge) || Assistance.none
   end
 
+  # Checks if the meetup's date is in the future
   def taking_place?
     date = sessions.last&.event&.date
     date >= Date.today if date
   end
 
+  # Checks if the meetup's date is in the past
   def took_place?
     date = sessions.last&.event&.date
     date <= Date.today if date
   end
 
+  # Returns the average rating the meetup has got
   def average_rating
     marks = sessions.collect(&:average_rating)
     if marks.count.positive?

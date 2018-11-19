@@ -21,16 +21,20 @@ es:
       subject: "Tu suscripción a %{meetup}"
       body:    "Ahora estás suscrito al meetup %{meetup}. ¡Te mandaremos otro email cuando se conozca la fecha definitiva!"
     notify_publication:
-      subject: "¡%{meetup} acaba de ser confirmado!"
+      subject: "📣 ¡%{meetup} acaba de ser confirmado!"
       body:    "Te suscribiste al meetup %{meetup}, que va a tener lugar el %{date}. ¡Te esperamos!"
     notify_collaboration:
-      subject: "Tu colaboración en %{meetup}"
+      subject: "🙌 Tu colaboración en %{meetup}"
       body:    "%{owner} te ha añadido como colaborador en %{meetup}. ¡Te esperamos!"
     notify_abandon:
       subject: "%{canceled} ha abandonado %{meetup}"
       body:    "%{canceled} ha decidido no continuar como colaborador en %{meetup}."
     ask_for_confirmation:
-      subject: "¡Tu charla '%{meetup}' se ha confirmado!"
+      subject: "🎉 ¡Tu meetup '%{meetup}' es el más votado!"
+      body:    "La gente ha votado tu meetup '%{meetup}', que va a tener lugar el %{date}. Recuerda que debes subir tu presentación y los materiales de apoyo. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
+      delay:   "Si no puedes venir, por favor, aplaza tu meetup con este otro botón:"
+    insist_on_confirmation:
+      subject: "⚠️ Recuerda confirmar tu asistencia para '%{meetup}'"
       body:    "La gente ha votado tu charla '%{meetup}', que va a tener lugar el %{date}. Recuerda que debes subir tu presentación y los materiales de apoyo. Necesitamos que confirmes tu asistencia pulsando el botón de abajo."
       delay:   "Si no puedes venir, por favor, aplaza tu meetup con este otro botón:"
 
@@ -239,6 +243,27 @@ es:
   meetup:
     <<: *votable
     host_yours:             "Organiza un Meetup"
+    ranking_instructions:   "¡Hola! 👋 Aquí puedes ver todos los meetups propuestos por la comunidad.
+                            Por favor, vota los que más te interesen para que se hagan realidad.<br/><br/>
+
+                            El sistema de elección de meetups es totalmente automático y depende únicamente de
+                            los votos de la comunidad y la disponibilidad de la persona que organiza el meetup.<br/><br/>
+
+                            Si has propuesto un meetup y es el más votado, el sistema te avisará
+                            una semana antes para que confirmes tu disponibilidad.
+                            Si no puedes venir, puedes aplazar el meetup con el enlace que recibirás en tu email
+                            tantas veces como necesites.<br/><br/>"
+    instructions:           "¡Así que vas a proponer un meetup! Asegúrate de poner un <b>título</b> atractivo
+                            y una <b>descripción</b> de lo que va a tratar la actividad.
+                            Puedes añadir ficheros de ayuda, recursos y fotos como <b>adjuntos</b>.
+                            Si aún no tienes el material no te preocupes, puedes añadirlo cuando quieras.
+                            Además, puedes añadir a otros <b>organizadores</b> si vais a organizar el meetup junt@s.<br/><br/>
+
+                            Es muy importante que indiques los <b>requisitos</b> básicos que deban cumplir los asistentes.
+                            ¿Necesitan traer su propio PC? ¿Hace falta conocer algo de antemano?<br/><br/>
+
+                            Si quieres guardar este meetup, pero no quieres que aparezca en el ranking, puedes marcar
+                            la casilla para <b>archivarlo</b>."
     call_to_action:         "¿Quieres venir a este meetup? ¡Vótalo!"
     call_to_action_assist:  "¡Si quieres venir tan sólo tienes que apuntarte!"
     call_to_action_assisted: "¿Viniste a este Meetup? ¡Apunta tu asistencia y danos tu opinión más abajo!"
@@ -275,8 +300,14 @@ es:
   session:
     ranking:                "Nueva sesión en el ranking"
 
+  event:
+    create:                 "Añade una nueva fecha para futuros eventos"
+
   activerecord:
     model:
+      event:
+        one:   "Evento"
+        other: "Eventos"
       user:
         one:   "Usuario"
         other: "Usuarios"
@@ -356,6 +387,12 @@ es:
         notify_comments: "Notificarme de todos los nuevos comentarios en los meetups que estoy apuntado/a"
         notify_proposals: "Notificarme de todas las nuevas propuestas"
     errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken:
+                one: "Este correo eletronico ya existe. Por favor, escribe otro"
       messages:
         blank: "%{attribute} no puede estar en blanco"
         confirmation: "La confirmación debe coincidir con tu contraseña"

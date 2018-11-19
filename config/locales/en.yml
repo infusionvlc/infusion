@@ -21,17 +21,21 @@ en:
       subject: "You just suscribed to '%{meetup}'"
       body:    "You are now suscribed to the meetup called '%{meetup}'. We will send you another email when we schedule a date for it!"
     notify_publication:
-      subject: "'%{meetup}' has been confirmed!"
+      subject: "📣 '%{meetup}' has been confirmed!"
       body:    "You were suscribed to the meetup called '%{meetup}', which is going to take place on %{date}. We hope you can join us!"
     notify_collaboration:
-      subject: "Your collaboration to %{meetup}"
+      subject: "🙌 Your collaboration to %{meetup}"
       body:    "%{owner} has added you as a collaborator in %{meetup}. We hope you can join us!"
     notify_abandon:
       subject: "%{canceled} has left %{meetup}"
       body:    "%{canceled} has decided not to be a collaborator in %{meetup}."
     ask_for_confirmation:
-      subject: "Your talk '%{meetup}' has been confirmed!"
-      body:    "People has voted for your talk '%{meetup}', which is going to take place on %{date}. Remember you must upload your slides and support material to the site. We need you to confirm you can come by clicking the link below."
+      subject: "🎉 Your meetup '%{meetup}' has got to the ranking top!"
+      body:    "People has voted for your meetup '%{meetup}', which is going to take place on %{date}. Remember you must upload your slides and support material to the site. We need you to confirm you can come by clicking the link below."
+      delay:   "If you can't come, please, delay your meetup by clicking this other button:"
+    insist_on_confirmation:
+      subject: "⚠️ Remember to confirm that you can come to '%{meetup}'"
+      body:    "People has voted for your meetup '%{meetup}', which is going to take place on %{date}. Remember you must upload your slides and support material to the site. We need you to confirm you can come by clicking the link below."
       delay:   "If you can't come, please, delay your meetup by clicking this other button:"
 
   notification_mailer:
@@ -238,6 +242,27 @@ en:
   meetup:
     <<: *votable
     host_yours:             "Host your own meetup"
+    ranking_instructions:   "Hello! 👋 Here you can see all the meetups proposed by the community.
+                             Please vote for the ones that interest you the most so that they come true. <br/> <br/>
+
+                             The meetup management system is fully automated and depends uniquely on
+                             the votes from the community and the availability of the person organizing the meetup. 🗳 <br/> <br/>
+
+                             If you have proposed a meetup and it's the most voted, the system will warn you
+                             a week before to confirm your availability.
+                             If you can not come, you can postpone the meetup with the link you will receive in your email
+                             as many times as you need. 🕒"
+    instructions:           "So you're going to create a meetup! Make sure you put a good looking <b>title </b>
+                             and a <b>description</b> of what this activity will be about.
+                             You can <b>attach</b> help files, resources and photos.
+                             If you don't have your resources yet, don't worry, you can add them whenever you want.
+                             In addition, you can add other <b>organizers</b> if you are going to organize the meetup together.<br/><br/>
+
+                             It's very important that you indicate the basic <b>requirements</ b> that your assistants must meet.
+                             Do they need to bring their own PC? Do they need to know something beforehand?<br/><br/>
+
+                             If you want to save this meetup, but do not want it to appear in the ranking, you can check
+                             the box to <b>archive it</ b>."
     call_to_action:         "Do you want to attend to this meetup? Vote for it!"
     call_to_action_assist:  "Do you want to attend to this meetup? Just join us!"
     call_to_action_assisted: "Did you attend to this meetup and want to leave a review? Just let us know you were here and comment below"
@@ -274,8 +299,14 @@ en:
   session:
     ranking:                "New session currently on ranking"
 
+  event:
+    create:                 "Add a new slot for future events"
+
   activerecord:
     model:
+      event:
+        one:   "Event"
+        other: "Events"
       user:
         one:   "User"
         other: "Users"
@@ -352,6 +383,12 @@ en:
         notify_comments: "Notifify me when a new comment is added to a meetup I'm into"
         notify_proposals: "Notifify me when a new proposal is added"
     errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken:
+                one: "This email is already taken. Please enter a new one"
       messages:
         blank: "%{attribute} can't be blank"
         confirmation: "Confirmation must match with your password"
@@ -359,7 +396,6 @@ en:
         header:
           one: "It seems like there's some issue with your info"
           other: "It seems like there are %{count} issues with your info"
-
 
   helpers:
     submit:
