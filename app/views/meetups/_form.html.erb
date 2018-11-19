@@ -1,7 +1,7 @@
 <%= form_for(@meetup, :html => { multipart: true }) do |f| %>
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+    <%= f.text_field :title, autofocus: true, minlength: 10, class: 'form-control' %>
   </div><br/>
   <% if @meetup.taking_place? or @meetup.took_place? %>
     <div class="field">
@@ -25,7 +25,7 @@
     <%= f.label :description %><br />
     <div class="row">
       <div class="col-sm-12 col-md-6">
-        <%= f.text_area :description, class: 'form-control', id:'description_edit' %>
+        <%= f.text_area :description, minlength: 256, class: 'form-control', id:'description_edit' %>
       </div>
       <div class="col-sm-12 col-md-6">
         <p id="description_view" class="description"></p>
@@ -37,7 +37,7 @@
     <%= f.label :requirements %><br />
     <div class="row">
       <div class="col-sm-12 col-md-6">
-        <%= f.text_area :requirements, class: 'form-control', id:'requirements_edit' %>
+        <%= f.text_area :requirements, minlength: 10, class: 'form-control', id:'requirements_edit' %>
       </div>
       <div class="col-sm-12 col-md-6">
         <p id="requirements_view"></p>
