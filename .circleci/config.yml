@@ -8,7 +8,7 @@ jobs:
     environment:
       CC_TEST_REPORTER_ID: bc9594ffd3a7e86b48cffdc2a48311c56060cfe77b8840806a64bd999e3bc351
     docker:
-       - image: circleci/ruby:2.4.1-node-browsers
+       - image: circleci/ruby:2.5.3-node-browsers
          environment:
            DATABASE_URL: "postgres://infusion@localhost/infusion-test"
            PGHOST: 127.0.0.1
@@ -41,9 +41,9 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
+
       # Database setup
-      - run: 
+      - run:
           name: setup db
           command: |
             bundle exec rake db:create
@@ -62,7 +62,7 @@ jobs:
           name: run tests
           command: |
             ./cc-test-reporter before-build
-            rails test
+            bundle exec rails test
             ./cc-test-reporter after-build --exit-code $?
 
 deployment:
