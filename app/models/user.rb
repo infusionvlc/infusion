@@ -27,10 +27,12 @@ class User < ApplicationRecord
 
   validates :role_id, :username, presence: true
 
+  # Checks if the user is an admin
   def admin?
     role_id == 0
   end
 
+  # Returns the average rating a user has got from all meetups they've organized
   def average_rating
     avgs = []
     self.keynotes.each do |k|
@@ -43,8 +45,10 @@ class User < ApplicationRecord
     end
   end
 
+  # Username or email
   attr_accessor :login
 
+  # Create User with oauth providers
   def self.create_with_omniauth(auth)
     email = auth[:info][:email] || 'change@me.please'
     username = auth[:info][:nickname] || self.generate_username(auth[:info][:name])
@@ -57,6 +61,7 @@ class User < ApplicationRecord
     create(email: email, username: name, password: Devise.friendly_token[0,20], role_id: 1)
   end
 
+  # Find User based on oauth info
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -70,6 +75,7 @@ class User < ApplicationRecord
     end
   end
 
+  # Generate a username for the current user
   def self.generate_username(fullname)
     ActiveSupport::Inflector.transliterate(fullname)
       .downcase.strip
@@ -79,6 +85,7 @@ class User < ApplicationRecord
       .gsub(/_+/, '_')
   end
 
+  # Notify the user about something
   def send_devise_notification(notification, *args)
     I18n.with_locale(self.locale) { super(notification, *args) }
   end

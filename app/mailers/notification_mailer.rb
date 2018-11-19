@@ -2,6 +2,8 @@
 
 class NotificationMailer < ApplicationMailer
   default from: 'INFUSIÓN <hola@infusionvlc.com>'
+
+  # Notifies al users that new content has been added to the app
   def notify_proposal(activity, user)
     @user = user
     @activity = activity

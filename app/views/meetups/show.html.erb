@@ -14,7 +14,7 @@
     <h1><%= @meetup.title %></h1>
     <p class="lead"><%= meetup_votes(@meetup) %></p>
     <h2 aria-label=<%= I18n.t 'activerecord.attributes.meetup.categories' %>>
-      <span class="badge badge-pill badge-info"><%= @meetup.average_rating %> <%= fa_icon 'star' %></span>
+      <span class="badge badge-pill badge-info"><%= @meetup.average_rating %> <%= icon('fas', 'star') %></span>
       <% @meetup.categories.each do |cat| %>
         <%= link_to cat do %><span class="badge badge-pill badge-info blue"><%=cat.display_name %></span><% end %>
       <% end %>
@@ -60,10 +60,10 @@
             <% if policy(session).vote? %>
               <br/>
               <p><%= I18n.t 'meetup.call_to_action_assisted' %></p>
-              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assisted' %><% end %>
+              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= icon('fas', 'check') %> <%= I18n.t 'main.assisted' %><% end %>
             <% elsif !user_signed_in? %>
               <p><%= I18n.t 'meetup.call_to_action_no_user_assisted' %></p>
-              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'sign-in') %> <%= I18n.t 'user.login' %><% end %>
             <% end %>
             <% if policy(session).comment? %>
               <div class="card">
@@ -90,29 +90,29 @@
             <% if policy(session).vote? %>
               <br/>
               <p><%= I18n.t 'meetup.call_to_action_assist' %></p>
-              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'check' %> <%= I18n.t 'main.assist' %><% end %>
+              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= icon('fas', 'check') %> <%= I18n.t 'main.assist' %><% end %>
             <% elsif policy(session).unvote? %>
               <br/>
               <p><%= I18n.t 'meetup.unvote' %></p>
-              <%= link_to unvote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
+              <%= link_to unvote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= icon('fas', 'times') %> <%= I18n.t 'main.unvote' %><% end %>
             <% elsif !user_signed_in? %>
               <p><%= I18n.t 'meetup.call_to_action_no_user_assist' %></p>
-              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'sign-in') %> <%= I18n.t 'user.login' %><% end %>
             <% end %>
           <% else %>
             <% if policy(session).vote? %>
               <br/>
               <p><%= I18n.t 'meetup.call_to_action' %></p>
-              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= fa_icon 'arrow-up' %> <%= I18n.t 'main.vote' %><% end %>
+              <%= link_to vote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-success btn-lg btn-block' do %><%= icon('fas', 'arrow-up') %> <%= I18n.t 'main.vote' %><% end %>
             <% elsif policy(session).unvote? %>
               <br/>
               <p><%= I18n.t 'meetup.unvote' %></p>
-              <%= link_to unvote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'main.unvote' %><% end %>
+              <%= link_to unvote_meetup_session_path(@meetup, session), method: :post, class:'btn btn-warning btn-lg btn-block' do %><%= icon('fas', 'times') %> <%= I18n.t 'main.unvote' %><% end %>
             <% elsif user_signed_in? %>
               <p><%= I18n.t 'meetup.already_voted' %></p>
             <% else %>
               <p><%= I18n.t 'meetup.call_to_action_no_user' %></p>
-              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'sign-in' %> <%= I18n.t 'user.login' %><% end %>
+              <%= link_to new_user_session_path, class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'sign-in') %> <%= I18n.t 'user.login' %><% end %>
             <% end %>
           <% end %>
         </div>
@@ -142,10 +142,10 @@
         <div class="card-body">
           <% if policy(review).report? %>
             <% var_modal = "#reviewReportModal_" + review.id.to_s %>
-            <%= link_to (fa_icon 'exclamation-triangle '), "#", data: {toggle: "modal", target: var_modal} , class:'right' %>
+            <%= link_to "#", data: {toggle: "modal", target: var_modal} , class:'right' do  %><% icon('fas', 'exclamation-triangle ') %><% end %>
           <% end %>
           <% if policy(review).edit? %>
-            <a href='#' class='right edit_comment' id='edit_comment_<%= review.id %>'><%= fa_icon 'pencil' %></a>
+            <a href='#' class='right edit_comment' id='edit_comment_<%= review.id %>'><%= icon('fas', 'pencil') %></a>
           <% end %>
           <div id='info_<%= review.id %>'>
             <%= render partial: 'review_info', locals: {review: review} %>
@@ -165,22 +165,22 @@
   <div class="col-md-4 col-sm-12 ">
       <% if policy(@meetup).report? %>
         <button data-toggle="modal" data-target="#meetupReportModal" class="btn btn-warning btn-lg btn-block">
-          <%= fa_icon 'exclamation-triangle ' %> <%= I18n.t 'report.report' %>
+          <%= icon('fas', 'exclamation-triangle') %> <%= I18n.t 'report.report' %>
         </button>
       <% end %>
 
       <% if policy(@meetup).repeat? %>
-          <%= link_to repeat_meetup_path(@meetup), method: :post, class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'repeat' %> <%= I18n.t 'meetup.repeat' %><% end %>
+          <%= link_to repeat_meetup_path(@meetup), method: :post, class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'redo') %> <%= I18n.t 'meetup.repeat' %><% end %>
       <% end %>
 
       <% if policy(@meetup).leave? %>
-          <%= link_to leave_meetup_path(@meetup), method: :post, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'sign-out' %> <%= I18n.t 'meetup.leave' %><% end %>
+          <%= link_to leave_meetup_path(@meetup), method: :post, class:'btn btn-danger btn-lg btn-block' do %><%= icon('fas', 'sign-out') %> <%= I18n.t 'meetup.leave' %><% end %>
       <% end %>
 
       <% if policy(@meetup).edit? %>
-        <%= link_to edit_meetup_path(@meetup), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'meetup.edit' %><% end %>
+        <%= link_to edit_meetup_path(@meetup), class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'pencil') %> <%= I18n.t 'meetup.edit' %><% end %>
         <% if policy(@meetup).destroy? %>
-          <%= link_to meetup_path(@meetup), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= fa_icon 'times' %> <%= I18n.t 'meetup.destroy' %><% end %>
+          <%= link_to meetup_path(@meetup), method: :delete, class:'btn btn-danger btn-lg btn-block' do %><%= icon('fas', 'times') %> <%= I18n.t 'meetup.destroy' %><% end %>
         <% end %>
       <% end %>
 

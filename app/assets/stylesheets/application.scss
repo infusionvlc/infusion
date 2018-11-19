@@ -1,21 +1,22 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700,800,900');
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700,800,900");
 :root {
-	--grey_dark: #2e2e2e;
-	--grey_light: #6b6b6b;
-	--pink: #c7007c;
-	--yellow: #ffcd48;
+  --grey_dark: #2e2e2e;
+  --grey_light: #6b6b6b;
+  --pink: #c7007c;
+  --yellow: #ffcd48;
   --blue: #378eff;
   --dark_blue: #1e6ed6;
-	--white: #ffffff;
+  --white: #ffffff;
   --light_blue: #ddf6fa;
   --card: #f3f3f3;
   --purple: #2b0085;
 }
 
 body {
-  font-family: 'Catamaran', sans-serif;
+  font-family: "Catamaran", sans-serif;
   color: var(--grey_dark);
 }
 
@@ -66,7 +67,8 @@ h5 {
   background: var(--yellow);
 }
 
-.alert-info, .alert-success {
+.alert-info,
+.alert-success {
   background: var(--blue);
   color: var(--white);
 }
@@ -108,7 +110,8 @@ h5 {
   color: var(--white);
 }
 
-.blue .fa-inverse, .blue-text {
+.blue .fa-inverse,
+.blue-text {
   color: var(--blue);
 }
 
@@ -131,7 +134,8 @@ h5 {
   padding-right: 1em;
 }
 
-.btn-intro:hover, .btn-speakers:hover {
+.btn-intro:hover,
+.btn-speakers:hover {
   border-color: var(--blue);
   color: var(--blue);
 }
@@ -151,11 +155,11 @@ h5 {
 .speech-bubble {
   position: relative;
   background: var(--pink);
-  border-radius: .4em;
+  border-radius: 0.4em;
 }
 
 .speech-bubble:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
@@ -200,7 +204,7 @@ h5 {
 
 .event-decription {
   color: var(--grey_dark);
-  font-family: 'Catamaran', sans;
+  font-family: "Catamaran", sans;
   font-size: 1.5em;
   font-weight: bold;
   padding-bottom: 5vh;
@@ -225,7 +229,7 @@ h5 {
 }
 
 .huge-logo {
-    width: 100%;
+  width: 100%;
 }
 
 .big-logo {
@@ -256,16 +260,12 @@ h5 {
   background-image: linear-gradient(var(--white), var(--light_blue));
   padding-bottom: 7em;
   text-align: center;
-  clip-path: polygon(0 0,
-                       100% 0,
-                       0 100%,
-                       0 calc(100% - 5vw)
-  );
+  clip-path: polygon(0 0, 100% 0, 0 100%, 0 calc(100% - 5vw));
 }
 
 .hacktoberfest-action {
   color: white;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 4em;
   -ms-transform: skewY(-5deg);
   -webkit-transform: skewY(-5deg);
@@ -274,20 +274,20 @@ h5 {
 }
 
 .hacktoberfest-cyan-text {
-  color: #01FFFF;
+  color: #01ffff;
 }
 
 .hacktoberfest-blue-text {
-  color: #2B81D9;
+  color: #2b81d9;
 }
 
 .hacktoberfest-orange-text {
-  color: #FF9A56;
+  color: #ff9a56;
 }
 
 .hacktoberfest-date {
-  color: #FF9A56;
-  font-family: 'Roboto Condensed', sans-serif;
+  color: #ff9a56;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 6em;
   -ms-transform: skewY(-5deg);
   -webkit-transform: skewY(-5deg);
@@ -295,9 +295,9 @@ h5 {
 }
 
 .hacktoberfest-decription {
-  background: #582D41;
+  background: #582d41;
   color: white;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 2em;
 
   .container {
@@ -310,8 +310,8 @@ h5 {
 }
 
 .hacktoberfest-countdown {
-  color: #FF9A56;
-  font-family: 'Roboto Condensed', sans-serif;
+  color: #ff9a56;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 2em;
   font-weight: bold;
   -ms-transform: skewY(-5deg);
@@ -320,8 +320,8 @@ h5 {
 }
 
 .hacktoberfest-location {
-  color: #01FFFF;
-  font-family: 'Roboto Condensed', sans-serif;
+  color: #01ffff;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 2em;
   -ms-transform: skewY(-5deg);
   -webkit-transform: skewY(-5deg);
@@ -329,7 +329,7 @@ h5 {
 }
 
 .hacktoberfest-header {
-  background: #582D41;
+  background: #582d41;
   text-align: center;
 
   .container {
@@ -338,7 +338,8 @@ h5 {
   }
 }
 
-.jumbotron h1, .description h1 {
+.jumbotron h1,
+.description h1 {
   border-bottom: none;
 }
 
@@ -352,7 +353,7 @@ label {
 
 .landing-date {
   color: var(--pink);
-  font-family: 'Montserrat', sans;
+  font-family: "Montserrat", sans;
   font-size: 3em;
   font-weight: 300;
 }
@@ -363,14 +364,14 @@ label {
 
 .landing-location {
   color: var(--purple);
-  font-family: 'Montserrat', sans;
+  font-family: "Montserrat", sans;
   font-size: 2em;
   font-weight: 300;
 }
 
 .landing-title {
   color: var(--purple);
-  font-family: 'Catamaran', sans;
+  font-family: "Catamaran", sans;
   font-size: 5em;
 }
 
@@ -379,10 +380,10 @@ label {
 }
 
 .magenta {
-    background: var(--pink);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  background: var(--pink);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .magenta-text {
@@ -398,7 +399,8 @@ label {
   font-size: 1.2em;
 }
 
-.navbar a, .navbar span {
+.navbar a,
+.navbar span {
   color: var(--grey_light);
 }
 
@@ -467,14 +469,14 @@ ul ul li {
 }
 
 .show-tell-header {
-  background: url('/show_tell_web.png');
+  background: url("/show_tell_web.png");
   background-size: 100% auto;
   margin-top: -20px;
   padding-top: 4vh;
 }
 
 .show-tell-header > .container {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   padding: 3em;
   width: 70%;
 }
@@ -488,7 +490,7 @@ ul ul li {
   float: right;
 }
 
-.social-links img{
+.social-links img {
   width: 1.5em;
 }
 

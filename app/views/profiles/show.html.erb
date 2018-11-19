@@ -3,7 +3,7 @@
     <div class="col-sm-10">
       <h1>
         <% if @mark %>
-          <span class="badge badge-pill badge-info"><%= @mark %> <%= fa_icon 'star' %></span>
+          <span class="badge badge-pill badge-info"><%= @mark %> <%= icon('fas', 'star') %></span>
         <% end %>
         <%= @user.username %>
       </h1>
@@ -35,7 +35,7 @@
   <% if user_signed_in? && @user == current_user %>
     </div>
     <div class="col-md-4 col-sm-12 ">
-        <%= link_to edit_user_registration_path(@user), class:'btn btn-primary btn-lg btn-block' do %><%= fa_icon 'pencil' %> <%= I18n.t 'user.edit' %><% end %>
+        <%= link_to edit_user_registration_path(@user), class:'btn btn-primary btn-lg btn-block' do %><%= icon('fas', 'pencil') %> <%= I18n.t 'user.edit' %><% end %>
 
     </div>
   <% end %>

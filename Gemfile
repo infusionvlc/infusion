@@ -19,14 +19,14 @@ gem 'jbuilder'
 
 
 gem 'bootstrap'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.5.0'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 
+gem 'bcrypt'
 gem 'cocoon'
-gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'devise', git: 'https://github.com/plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-github'
