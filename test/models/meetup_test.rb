@@ -6,7 +6,7 @@ class MeetupTest < ActiveSupport::TestCase
   test 'Valid Meetup' do
     location = locations(:one)
     meetup = Meetup.new(title: 'TestMeetupTitle',
-                        description: 'TestMeetupDescription',
+                        description: 'a' * 257,
                         requirements: 'TestMeetupRequirementes',
                         confirmation_mail: false)
     assert_equal meetup.valid?, true

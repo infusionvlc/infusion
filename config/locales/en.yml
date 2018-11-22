@@ -1,6 +1,7 @@
 en:
   nav:
     home: "Home"
+    language: "Language"
 
   landing:
     description: "Meetups for digital empowering humans"
@@ -252,17 +253,17 @@ en:
                              a week before to confirm your availability.
                              If you can not come, you can postpone the meetup with the link you will receive in your email
                              as many times as you need. 🕒"
-    instructions:           "So you're going to create a meetup! Make sure you put a good looking <b>title </b>
+    instructions:           "So you're going to create a meetup! Make sure you put a good looking <b>title</b>
                              and a <b>description</b> of what this activity will be about.
                              You can <b>attach</b> help files, resources and photos.
                              If you don't have your resources yet, don't worry, you can add them whenever you want.
                              In addition, you can add other <b>organizers</b> if you are going to organize the meetup together.<br/><br/>
 
-                             It's very important that you indicate the basic <b>requirements</ b> that your assistants must meet.
+                             It's very important that you indicate the basic <b>requirements</b> that your assistants must meet.
                              Do they need to bring their own PC? Do they need to know something beforehand?<br/><br/>
 
                              If you want to save this meetup, but do not want it to appear in the ranking, you can check
-                             the box to <b>archive it</ b>."
+                             the box to <b>archive it</b>."
     call_to_action:         "Do you want to attend to this meetup? Vote for it!"
     call_to_action_assist:  "Do you want to attend to this meetup? Just join us!"
     call_to_action_assisted: "Did you attend to this meetup and want to leave a review? Just let us know you were here and comment below"

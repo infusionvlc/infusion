@@ -222,6 +222,12 @@ h5 {
   border-radius: 0;
 }
 
+.flag {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+}
+
 .huge-logo {
   width: 100%;
 }
@@ -434,6 +440,28 @@ label {
 
 .right {
   float: right;
+}
+
+
+ul {
+  list-style:none;
+}
+
+ul ul {
+  display:none;
+  position:absolute;
+  min-width:150px;
+  background:#eee;
+  padding:0;
+}
+      
+ul li:hover > ul {
+ display:block;
+}
+
+ul ul li {
+ float:none;
+ width:160px
 }
 
 .section-title {

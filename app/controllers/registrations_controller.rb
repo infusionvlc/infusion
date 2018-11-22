@@ -19,6 +19,11 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def save_locale
+    current_user.update(locale: params[:locale])
+    redirect_back(fallback_location: root_path)
+  end
+
   protected
 
   # Updates a user with the default role
