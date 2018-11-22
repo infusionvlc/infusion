@@ -96,11 +96,11 @@ class ReportTest < ActiveSupport::TestCase
     user = users(:one)
     meetup = meetups(:one)
 
-    types = {0 => 'Incitación al odio', 
-             1 => 'Amenazas o insultos', 
-             2 => 'Pornografía', 
-             3 => 'No respeta las normas de la comunidad', 
-             4 => 'Otro'}
+    types = {0 => 'hate', 
+             1 => 'menace', 
+             2 => 'pornography', 
+             3 => 'community', 
+             4 => 'other'}
     types.each do |key, value|
       report = Report.new(title: 'TestTitle',
                         type_of: key,
@@ -108,9 +108,10 @@ class ReportTest < ActiveSupport::TestCase
                         user_id: user.id,
                         reportable_id: meetup.id,
                         description: 'TestDescritpion')
+
       assert_equal report.valid?, true, 'Proposal is invalid with all info'
-      assert_equal report.text_type, value
-      assert_equal report.text_status, 'Abierta'
+      assert_equal report.text_type, I18n.t("report.type.#{type_name}")
+      assert_equal report.text_status, I18n.t('report.status.open')
       assert_equal report.reportable_title, meetup.title
     end
   end
