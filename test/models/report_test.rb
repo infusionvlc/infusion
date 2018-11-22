@@ -42,7 +42,7 @@ class ReportTest < ActiveSupport::TestCase
                         description: 'TestDescritpion')
     assert_not_equal report.valid?, true,
                      'Proposal is valid without Reportable_type'
-                     assert_equal report.text_type, 'Pornografía'
+                      assert_equal report.text_type, 'Pornografía'
     assert_equal report.text_status, 'Abierta'
     assert_equal report.reportable_title, meetup.title
     puts 'Test: Report -> Invalid without reportable_type'
@@ -97,10 +97,10 @@ class ReportTest < ActiveSupport::TestCase
     meetup = meetups(:one)
 
     types = { 0 => 'hate',
-             1 => 'menace',
-             2 => 'pornography',
-             3 => 'community',
-             4 => 'other' }
+              1 => 'menace',
+              2 => 'pornography',
+              3 => 'community',
+              4 => 'other' }
     types.each do |report_type, report_name|
       report = Report.new(title: 'TestTitle',
                           type_of: report_type,
