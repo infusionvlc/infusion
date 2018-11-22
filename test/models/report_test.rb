@@ -101,16 +101,16 @@ class ReportTest < ActiveSupport::TestCase
              2 => 'pornography', 
              3 => 'community', 
              4 => 'other'}
-    types.each do |key, value|
+    types.each do |report_type, report_name|
       report = Report.new(title: 'TestTitle',
-                        type_of: key,
+                        type_of: report_type,
                         reportable_type: 'Meetup',
                         user_id: user.id,
                         reportable_id: meetup.id,
                         description: 'TestDescritpion')
 
       assert_equal report.valid?, true, 'Proposal is invalid with all info'
-      assert_equal report.text_type, I18n.t("report.type.#{type_name}")
+      assert_equal report.text_type, I18n.t("report.type.#{report_name}")
       assert_equal report.text_status, I18n.t('report.status.open')
       assert_equal report.reportable_title, meetup.title
     end
