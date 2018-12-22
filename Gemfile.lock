@@ -902,7 +902,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rubocop (0.60.0)
+    rubocop (0.61.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
@@ -961,7 +961,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.5)
     unf_ext (0.0.7.5-x86-mingw32)
-    unicode-display_width (1.4.0)
+    unicode-display_width (1.4.1)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
