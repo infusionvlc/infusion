@@ -21,7 +21,7 @@ gem 'jbuilder'
 
 
 gem 'bootstrap'
-gem 'font-awesome-sass', '~> 5.5.0'
+gem 'font-awesome-sass', '~> 5.11.1'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'kaminari'
